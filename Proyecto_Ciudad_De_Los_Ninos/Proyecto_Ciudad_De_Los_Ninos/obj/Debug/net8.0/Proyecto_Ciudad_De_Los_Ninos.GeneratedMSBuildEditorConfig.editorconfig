@@ -17,75 +17,87 @@ build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = Proyecto_Ciudad_De_Los_Ninos
 build_property.RootNamespace = Proyecto_Ciudad_De_Los_Ninos
-build_property.ProjectDir = D:\Fidelitas\Programación Avanzada en Web\Repos\Proyecto_Ciudad_De_Los_Ninos\Proyecto_Ciudad_De_Los_Ninos\Proyecto_Ciudad_De_Los_Ninos\
+build_property.ProjectDir = C:\Users\KAREN\source\repos\Proyecto_Ciudad_De_Los_Ninos\Proyecto_Ciudad_De_Los_Ninos\Proyecto_Ciudad_De_Los_Ninos\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 8.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = D:\Fidelitas\Programación Avanzada en Web\Repos\Proyecto_Ciudad_De_Los_Ninos\Proyecto_Ciudad_De_Los_Ninos\Proyecto_Ciudad_De_Los_Ninos
+build_property.MSBuildProjectDirectory = C:\Users\KAREN\source\repos\Proyecto_Ciudad_De_Los_Ninos\Proyecto_Ciudad_De_Los_Ninos\Proyecto_Ciudad_De_Los_Ninos
 build_property._RazorSourceGeneratorDebug = 
 
-[D:/Fidelitas/Programación Avanzada en Web/Repos/Proyecto_Ciudad_De_Los_Ninos/Proyecto_Ciudad_De_Los_Ninos/Proyecto_Ciudad_De_Los_Ninos/Views/AdministracionDeEmpleados/AsistenciaPersonal.cshtml]
+[C:/Users/KAREN/source/repos/Proyecto_Ciudad_De_Los_Ninos/Proyecto_Ciudad_De_Los_Ninos/Proyecto_Ciudad_De_Los_Ninos/Views/AdministracionDeEmpleados/AsistenciaPersonal.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5pc3RyYWNpb25EZUVtcGxlYWRvc1xBc2lzdGVuY2lhUGVyc29uYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Fidelitas/Programación Avanzada en Web/Repos/Proyecto_Ciudad_De_Los_Ninos/Proyecto_Ciudad_De_Los_Ninos/Proyecto_Ciudad_De_Los_Ninos/Views/AdministracionDeEmpleados/Capacitaciones.cshtml]
+[C:/Users/KAREN/source/repos/Proyecto_Ciudad_De_Los_Ninos/Proyecto_Ciudad_De_Los_Ninos/Proyecto_Ciudad_De_Los_Ninos/Views/AdministracionDeEmpleados/Capacitaciones.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5pc3RyYWNpb25EZUVtcGxlYWRvc1xDYXBhY2l0YWNpb25lcy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Fidelitas/Programación Avanzada en Web/Repos/Proyecto_Ciudad_De_Los_Ninos/Proyecto_Ciudad_De_Los_Ninos/Proyecto_Ciudad_De_Los_Ninos/Views/AdministracionDeEmpleados/Lista.cshtml]
+[C:/Users/KAREN/source/repos/Proyecto_Ciudad_De_Los_Ninos/Proyecto_Ciudad_De_Los_Ninos/Proyecto_Ciudad_De_Los_Ninos/Views/AdministracionDeEmpleados/Lista.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5pc3RyYWNpb25EZUVtcGxlYWRvc1xMaXN0YS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Fidelitas/Programación Avanzada en Web/Repos/Proyecto_Ciudad_De_Los_Ninos/Proyecto_Ciudad_De_Los_Ninos/Proyecto_Ciudad_De_Los_Ninos/Views/AdministracionDeEmpleados/Vacaciones.cshtml]
+[C:/Users/KAREN/source/repos/Proyecto_Ciudad_De_Los_Ninos/Proyecto_Ciudad_De_Los_Ninos/Proyecto_Ciudad_De_Los_Ninos/Views/AdministracionDeEmpleados/Vacaciones.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5pc3RyYWNpb25EZUVtcGxlYWRvc1xWYWNhY2lvbmVzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Fidelitas/Programación Avanzada en Web/Repos/Proyecto_Ciudad_De_Los_Ninos/Proyecto_Ciudad_De_Los_Ninos/Proyecto_Ciudad_De_Los_Ninos/Views/AdministracionDeEmpleados/VacacionesTabla.cshtml]
+[C:/Users/KAREN/source/repos/Proyecto_Ciudad_De_Los_Ninos/Proyecto_Ciudad_De_Los_Ninos/Proyecto_Ciudad_De_Los_Ninos/Views/AdministracionDeEmpleados/VacacionesTabla.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5pc3RyYWNpb25EZUVtcGxlYWRvc1xWYWNhY2lvbmVzVGFibGEuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Fidelitas/Programación Avanzada en Web/Repos/Proyecto_Ciudad_De_Los_Ninos/Proyecto_Ciudad_De_Los_Ninos/Proyecto_Ciudad_De_Los_Ninos/Views/Home/Ejemplo.cshtml]
+[C:/Users/KAREN/source/repos/Proyecto_Ciudad_De_Los_Ninos/Proyecto_Ciudad_De_Los_Ninos/Proyecto_Ciudad_De_Los_Ninos/Views/Dashboard/Dopaje.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGFzaGJvYXJkXERvcGFqZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/KAREN/source/repos/Proyecto_Ciudad_De_Los_Ninos/Proyecto_Ciudad_De_Los_Ninos/Proyecto_Ciudad_De_Los_Ninos/Views/Dashboard/MapaAlbergue.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGFzaGJvYXJkXE1hcGFBbGJlcmd1ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/KAREN/source/repos/Proyecto_Ciudad_De_Los_Ninos/Proyecto_Ciudad_De_Los_Ninos/Proyecto_Ciudad_De_Los_Ninos/Views/Dashboard/MapaResidencias.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGFzaGJvYXJkXE1hcGFSZXNpZGVuY2lhcy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/KAREN/source/repos/Proyecto_Ciudad_De_Los_Ninos/Proyecto_Ciudad_De_Los_Ninos/Proyecto_Ciudad_De_Los_Ninos/Views/Home/Ejemplo.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxFamVtcGxvLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Fidelitas/Programación Avanzada en Web/Repos/Proyecto_Ciudad_De_Los_Ninos/Proyecto_Ciudad_De_Los_Ninos/Proyecto_Ciudad_De_Los_Ninos/Views/Home/Guardar.cshtml]
+[C:/Users/KAREN/source/repos/Proyecto_Ciudad_De_Los_Ninos/Proyecto_Ciudad_De_Los_Ninos/Proyecto_Ciudad_De_Los_Ninos/Views/Home/Guardar.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxHdWFyZGFyLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Fidelitas/Programación Avanzada en Web/Repos/Proyecto_Ciudad_De_Los_Ninos/Proyecto_Ciudad_De_Los_Ninos/Proyecto_Ciudad_De_Los_Ninos/Views/Home/Index.cshtml]
+[C:/Users/KAREN/source/repos/Proyecto_Ciudad_De_Los_Ninos/Proyecto_Ciudad_De_Los_Ninos/Proyecto_Ciudad_De_Los_Ninos/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Fidelitas/Programación Avanzada en Web/Repos/Proyecto_Ciudad_De_Los_Ninos/Proyecto_Ciudad_De_Los_Ninos/Proyecto_Ciudad_De_Los_Ninos/Views/Home/Privacy.cshtml]
+[C:/Users/KAREN/source/repos/Proyecto_Ciudad_De_Los_Ninos/Proyecto_Ciudad_De_Los_Ninos/Proyecto_Ciudad_De_Los_Ninos/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Fidelitas/Programación Avanzada en Web/Repos/Proyecto_Ciudad_De_Los_Ninos/Proyecto_Ciudad_De_Los_Ninos/Proyecto_Ciudad_De_Los_Ninos/Views/Shared/Error.cshtml]
+[C:/Users/KAREN/source/repos/Proyecto_Ciudad_De_Los_Ninos/Proyecto_Ciudad_De_Los_Ninos/Proyecto_Ciudad_De_Los_Ninos/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Fidelitas/Programación Avanzada en Web/Repos/Proyecto_Ciudad_De_Los_Ninos/Proyecto_Ciudad_De_Los_Ninos/Proyecto_Ciudad_De_Los_Ninos/Views/Shared/_footer.cshtml]
+[C:/Users/KAREN/source/repos/Proyecto_Ciudad_De_Los_Ninos/Proyecto_Ciudad_De_Los_Ninos/Proyecto_Ciudad_De_Los_Ninos/Views/Shared/_footer.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9mb290ZXIuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Fidelitas/Programación Avanzada en Web/Repos/Proyecto_Ciudad_De_Los_Ninos/Proyecto_Ciudad_De_Los_Ninos/Proyecto_Ciudad_De_Los_Ninos/Views/Shared/_header.cshtml]
+[C:/Users/KAREN/source/repos/Proyecto_Ciudad_De_Los_Ninos/Proyecto_Ciudad_De_Los_Ninos/Proyecto_Ciudad_De_Los_Ninos/Views/Shared/_header.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9oZWFkZXIuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Fidelitas/Programación Avanzada en Web/Repos/Proyecto_Ciudad_De_Los_Ninos/Proyecto_Ciudad_De_Los_Ninos/Proyecto_Ciudad_De_Los_Ninos/Views/Shared/_ValidationScriptsPartial.cshtml]
+[C:/Users/KAREN/source/repos/Proyecto_Ciudad_De_Los_Ninos/Proyecto_Ciudad_De_Los_Ninos/Proyecto_Ciudad_De_Los_Ninos/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Fidelitas/Programación Avanzada en Web/Repos/Proyecto_Ciudad_De_Los_Ninos/Proyecto_Ciudad_De_Los_Ninos/Proyecto_Ciudad_De_Los_Ninos/Views/_ViewImports.cshtml]
+[C:/Users/KAREN/source/repos/Proyecto_Ciudad_De_Los_Ninos/Proyecto_Ciudad_De_Los_Ninos/Proyecto_Ciudad_De_Los_Ninos/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Fidelitas/Programación Avanzada en Web/Repos/Proyecto_Ciudad_De_Los_Ninos/Proyecto_Ciudad_De_Los_Ninos/Proyecto_Ciudad_De_Los_Ninos/Views/_ViewStart.cshtml]
+[C:/Users/KAREN/source/repos/Proyecto_Ciudad_De_Los_Ninos/Proyecto_Ciudad_De_Los_Ninos/Proyecto_Ciudad_De_Los_Ninos/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Fidelitas/Programación Avanzada en Web/Repos/Proyecto_Ciudad_De_Los_Ninos/Proyecto_Ciudad_De_Los_Ninos/Proyecto_Ciudad_De_Los_Ninos/Views/Shared/_Layout.cshtml]
+[C:/Users/KAREN/source/repos/Proyecto_Ciudad_De_Los_Ninos/Proyecto_Ciudad_De_Los_Ninos/Proyecto_Ciudad_De_Los_Ninos/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-f155bfv6m9
