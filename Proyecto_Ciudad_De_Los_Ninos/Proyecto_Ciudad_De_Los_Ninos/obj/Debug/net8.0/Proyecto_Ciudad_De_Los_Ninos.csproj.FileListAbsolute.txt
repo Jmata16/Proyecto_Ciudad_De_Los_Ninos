@@ -236,3 +236,4 @@ D:\Fidelitas\Programación Avanzada en Web\Repos\Proyecto_Ciudad_De_Los_Ninos\Pr
 D:\Fidelitas\Programación Avanzada en Web\Repos\Proyecto_Ciudad_De_Los_Ninos\Proyecto_Ciudad_De_Los_Ninos\Proyecto_Ciudad_De_Los_Ninos\bin\Debug\net8.0\runtimes\win\lib\net7.0\System.Windows.Extensions.dll
 D:\Fidelitas\Programación Avanzada en Web\Repos\Proyecto_Ciudad_De_Los_Ninos\Proyecto_Ciudad_De_Los_Ninos\Proyecto_Ciudad_De_Los_Ninos\obj\Debug\net8.0\Proyecto_Ciudad_De_Los_Ninos.csproj.AssemblyReference.cache
 D:\Fidelitas\Programación Avanzada en Web\Repos\Proyecto_Ciudad_De_Los_Ninos\Proyecto_Ciudad_De_Los_Ninos\Proyecto_Ciudad_De_Los_Ninos\obj\Debug\net8.0\Proyecto_Ciudad_De_Los_Ninos.csproj.CopyComplete
+D:\Fidelitas\Programación Avanzada en Web\Repos\Proyecto_Ciudad_De_Los_Ninos\Proyecto_Ciudad_De_Los_Ninos\Proyecto_Ciudad_De_Los_Ninos\obj\Debug\net8.0\Proyecto_Ciudad_De_Los_Ninos.sourcelink.json

@@ -17,5 +17,13 @@ namespace Proyecto_Ciudad_De_Los_Ninos.Controllers
         {
             return View();
         }
+        public IActionResult Vacaciones()
+        {
+            return View();
+        }
+        public IActionResult VacacionesTabla()
+        {
+            return View();
+        }
     }
 }
