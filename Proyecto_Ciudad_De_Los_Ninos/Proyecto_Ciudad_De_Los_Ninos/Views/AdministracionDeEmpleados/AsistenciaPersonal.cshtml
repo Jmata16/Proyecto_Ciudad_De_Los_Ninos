@@ -1,0 +1,158 @@
+﻿
+@{
+    ViewData["Title"] = "AsistenciaPersonal";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        .custom-table {
+            width: 100%;
+            border-collapse: collapse;
+            border: 1px solid #ddd;
+            font-family: Arial, sans-serif;
+        }
+
+            .custom-table th, .custom-table td {
+                border: 1px solid #ddd;
+                padding: 10px;
+                text-align: center;
+            }
+
+            .custom-table th {
+                background-color: #f2f2f2;
+                font-weight: bold;
+            }
+
+                .custom-table th:first-child, .custom-table td:first-child {
+                    text-align: left;
+                }
+
+            .custom-table tr:nth-child(even) {
+                background-color: #f2f2f2;
+            }
+
+            .custom-table tr:hover {
+                background-color: #ddd;
+            }
+
+        .button-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+            .button:hover {
+                background-color: #45a049;
+            }
+    </style>
+</head>
+<body data-bs-spy="scroll" data-bs-target="#navbar" data-bs-root-margin="0px 0px -40%" data-bs-smooth-scroll="true" tabindex="0">
+    @Html.Partial("_header")
+        <div class="container">
+        <li class="nav-link fs-5">
+            <a href="/AdministracionDeEmpleados/Lista">Ver asistencia de dias ateriores</a>
+        </li>
+
+        <form action="/home/Guardar" method="post">
+            <label for="fecha">Selecciona la fecha:</label>
+            <input type="date" id="fecha" name="fecha"><br><br>
+
+            <table class="custom-table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nombre</th>
+                        <th>Apellido</th>
+                        <th>Seleccionar</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>Empleado 1</td>
+                        <td>Apellido 1</td>
+                        <td><input type="checkbox" name="empleado1"></td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Empleado 2</td>
+                        <td>Apellido 2</td>
+                        <td><input type="checkbox" name="empleado2"></td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>Empleado 3</td>
+                        <td>Apellido 3</td>
+                        <td><input type="checkbox" name="empleado3"></td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>Empleado 4</td>
+                        <td>Apellido 4</td>
+                        <td><input type="checkbox" name="empleado4"></td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td>Empleado 5</td>
+                        <td>Apellido 5</td>
+                        <td><input type="checkbox" name="empleado5"></td>
+                    </tr>
+                    <tr>
+                        <td>6</td>
+                        <td>Empleado 6</td>
+                        <td>Apellido 6</td>
+                        <td><input type="checkbox" name="empleado6"></td>
+                    </tr>
+                    <tr>
+                        <td>7</td>
+                        <td>Empleado 7</td>
+                        <td>Apellido 7</td>
+                        <td><input type="checkbox" name="empleado7"></td>
+                    </tr>
+                    <tr>
+                        <td>8</td>
+                        <td>Empleado 8</td>
+                        <td>Apellido 8</td>
+                        <td><input type="checkbox" name="empleado8"></td>
+                    </tr>
+                    <tr>
+                        <td>9</td>
+                        <td>Empleado 9</td>
+                        <td>Apellido 9</td>
+                        <td><input type="checkbox" name="empleado9"></td>
+                    </tr>
+                    <tr>
+                        <td>10</td>
+                        <td>Empleado 10</td>
+                        <td>Apellido 10</td>
+                        <td><input type="checkbox" name="empleado10"></td>
+                    </tr>
+
+                </tbody>
+            </table>
+
+            <div class="button-container">
+                <button type="submit" class="button">Guardar</button>
+            </div>
+        </form>
+    </div>
+    
+    @Html.Partial("_footer")
+    <script src="js/jquery-1.11.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+    <script type="text/javascript" src="~/js/bootstrap.bundle.min.js"></script>
+    <script type="text/javascript" src="~/js/plugins.js"></script>
+    <script type="text/javascript" src="~/js/script.js"></script>
+</body>
+</html>
+

@@ -1,0 +1,489 @@
+{
+  "Files": [
+    {
+      "Id": "D:\\Fidelitas\\Programación Avanzada en Web\\Repos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\Proyecto_Ciudad_De_Los_Ninos.bundle.scp.css",
+      "PackagePath": "staticwebassets\\Proyecto_Ciudad_De_Los_Ninos.bundle.scp.css"
+    },
+    {
+      "Id": "D:\\Fidelitas\\Programación Avanzada en Web\\Repos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\wwwroot\\css\\Login.css",
+      "PackagePath": "staticwebassets\\css\\Login.css"
+    },
+    {
+      "Id": "D:\\Fidelitas\\Programación Avanzada en Web\\Repos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\wwwroot\\css\\ajax-loader.gif",
+      "PackagePath": "staticwebassets\\css\\ajax-loader.gif"
+    },
+    {
+      "Id": "D:\\Fidelitas\\Programación Avanzada en Web\\Repos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\wwwroot\\css\\bootstrap.min.css",
+      "PackagePath": "staticwebassets\\css\\bootstrap.min.css"
+    },
+    {
+      "Id": "D:\\Fidelitas\\Programación Avanzada en Web\\Repos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\wwwroot\\css\\ionicons.min.css",
+      "PackagePath": "staticwebassets\\css\\ionicons.min.css"
+    },
+    {
+      "Id": "D:\\Fidelitas\\Programación Avanzada en Web\\Repos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\wwwroot\\css\\site.css",
+      "PackagePath": "staticwebassets\\css\\site.css"
+    },
+    {
+      "Id": "D:\\Fidelitas\\Programación Avanzada en Web\\Repos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\wwwroot\\css\\style.css",
+      "PackagePath": "staticwebassets\\css\\style.css"
+    },
+    {
+      "Id": "D:\\Fidelitas\\Programación Avanzada en Web\\Repos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\wwwroot\\css\\style1.css",
+      "PackagePath": "staticwebassets\\css\\style1.css"
+    },
+    {
+      "Id": "D:\\Fidelitas\\Programación Avanzada en Web\\Repos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\wwwroot\\css\\stylefooter.css",
+      "PackagePath": "staticwebassets\\css\\stylefooter.css"
+    },
+    {
+      "Id": "D:\\Fidelitas\\Programación Avanzada en Web\\Repos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\wwwroot\\css\\vendor.css",
+      "PackagePath": "staticwebassets\\css\\vendor.css"
+    },
+    {
+      "Id": "D:\\Fidelitas\\Programación Avanzada en Web\\Repos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\wwwroot\\favicon.ico",
+      "PackagePath": "staticwebassets\\favicon.ico"
+    },
+    {
+      "Id": "D:\\Fidelitas\\Programación Avanzada en Web\\Repos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\wwwroot\\images\\CDN.jpg",
+      "PackagePath": "staticwebassets\\images\\CDN.jpg"
+    },
+    {
+      "Id": "D:\\Fidelitas\\Programación Avanzada en Web\\Repos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\wwwroot\\images\\CDN1.jpg",
+      "PackagePath": "staticwebassets\\images\\CDN1.jpg"
+    },
+    {
+      "Id": "D:\\Fidelitas\\Programación Avanzada en Web\\Repos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\wwwroot\\images\\apple15.png",
+      "PackagePath": "staticwebassets\\images\\apple15.png"
+    },
+    {
+      "Id": "D:\\Fidelitas\\Programación Avanzada en Web\\Repos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\wwwroot\\images\\banner-image.png",
+      "PackagePath": "staticwebassets\\images\\banner-image.png"
+    },
+    {
+      "Id": "D:\\Fidelitas\\Programación Avanzada en Web\\Repos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\wwwroot\\images\\cart-item1.jpg",
+      "PackagePath": "staticwebassets\\images\\cart-item1.jpg"
+    },
+    {
+      "Id": "D:\\Fidelitas\\Programación Avanzada en Web\\Repos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\wwwroot\\images\\cart-item2.jpg",
+      "PackagePath": "staticwebassets\\images\\cart-item2.jpg"
+    },
+    {
+      "Id": "D:\\Fidelitas\\Programación Avanzada en Web\\Repos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\wwwroot\\images\\insta-item1.jpg",
+      "PackagePath": "staticwebassets\\images\\insta-item1.jpg"
+    },
+    {
+      "Id": "D:\\Fidelitas\\Programación Avanzada en Web\\Repos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\wwwroot\\images\\insta-item2.jpg",
+      "PackagePath": "staticwebassets\\images\\insta-item2.jpg"
+    },
+    {
+      "Id": "D:\\Fidelitas\\Programación Avanzada en Web\\Repos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\wwwroot\\images\\insta-item3.jpg",
+      "PackagePath": "staticwebassets\\images\\insta-item3.jpg"
+    },
+    {
+      "Id": "D:\\Fidelitas\\Programación Avanzada en Web\\Repos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\wwwroot\\images\\insta-item4.jpg",
+      "PackagePath": "staticwebassets\\images\\insta-item4.jpg"
+    },
+    {
+      "Id": "D:\\Fidelitas\\Programación Avanzada en Web\\Repos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\wwwroot\\images\\insta-item5.jpg",
+      "PackagePath": "staticwebassets\\images\\insta-item5.jpg"
+    },
+    {
+      "Id": "D:\\Fidelitas\\Programación Avanzada en Web\\Repos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\wwwroot\\images\\logo.png",
+      "PackagePath": "staticwebassets\\images\\logo.png"
+    },
+    {
+      "Id": "D:\\Fidelitas\\Programación Avanzada en Web\\Repos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\wwwroot\\images\\logo2.jpg",
+      "PackagePath": "staticwebassets\\images\\logo2.jpg"
+    },
+    {
+      "Id": "D:\\Fidelitas\\Programación Avanzada en Web\\Repos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\wwwroot\\images\\post-image.jpg",
+      "PackagePath": "staticwebassets\\images\\post-image.jpg"
+    },
+    {
+      "Id": "D:\\Fidelitas\\Programación Avanzada en Web\\Repos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\wwwroot\\images\\post-image1.jpg",
+      "PackagePath": "staticwebassets\\images\\post-image1.jpg"
+    },
+    {
+      "Id": "D:\\Fidelitas\\Programación Avanzada en Web\\Repos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\wwwroot\\images\\post-item1.jpg",
+      "PackagePath": "staticwebassets\\images\\post-item1.jpg"
+    },
+    {
+      "Id": "D:\\Fidelitas\\Programación Avanzada en Web\\Repos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\wwwroot\\images\\post-item2.jpg",
+      "PackagePath": "staticwebassets\\images\\post-item2.jpg"
+    },
+    {
+      "Id": "D:\\Fidelitas\\Programación Avanzada en Web\\Repos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\wwwroot\\images\\post-item3.jpg",
+      "PackagePath": "staticwebassets\\images\\post-item3.jpg"
+    },
+    {
+      "Id": "D:\\Fidelitas\\Programación Avanzada en Web\\Repos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\wwwroot\\images\\post-item8.jpg",
+      "PackagePath": "staticwebassets\\images\\post-item8.jpg"
+    },
+    {
+      "Id": "D:\\Fidelitas\\Programación Avanzada en Web\\Repos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\wwwroot\\images\\post-item9.jpg",
+      "PackagePath": "staticwebassets\\images\\post-item9.jpg"
+    },
+    {
+      "Id": "D:\\Fidelitas\\Programación Avanzada en Web\\Repos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\wwwroot\\images\\post-small-image1.jpg",
+      "PackagePath": "staticwebassets\\images\\post-small-image1.jpg"
+    },
+    {
+      "Id": "D:\\Fidelitas\\Programación Avanzada en Web\\Repos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\wwwroot\\images\\post-small-image2.jpg",
+      "PackagePath": "staticwebassets\\images\\post-small-image2.jpg"
+    },
+    {
+      "Id": "D:\\Fidelitas\\Programación Avanzada en Web\\Repos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\wwwroot\\images\\post-small-image3.jpg",
+      "PackagePath": "staticwebassets\\images\\post-small-image3.jpg"
+    },
+    {
+      "Id": "D:\\Fidelitas\\Programación Avanzada en Web\\Repos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\wwwroot\\images\\product-item1.jpg",
+      "PackagePath": "staticwebassets\\images\\product-item1.jpg"
+    },
+    {
+      "Id": "D:\\Fidelitas\\Programación Avanzada en Web\\Repos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\wwwroot\\images\\product-item10.jpg",
+      "PackagePath": "staticwebassets\\images\\product-item10.jpg"
+    },
+    {
+      "Id": "D:\\Fidelitas\\Programación Avanzada en Web\\Repos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\wwwroot\\images\\product-item2.jpg",
+      "PackagePath": "staticwebassets\\images\\product-item2.jpg"
+    },
+    {
+      "Id": "D:\\Fidelitas\\Programación Avanzada en Web\\Repos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\wwwroot\\images\\product-item3.jpg",
+      "PackagePath": "staticwebassets\\images\\product-item3.jpg"
+    },
+    {
+      "Id": "D:\\Fidelitas\\Programación Avanzada en Web\\Repos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\wwwroot\\images\\product-item4.jpg",
+      "PackagePath": "staticwebassets\\images\\product-item4.jpg"
+    },
+    {
+      "Id": "D:\\Fidelitas\\Programación Avanzada en Web\\Repos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\wwwroot\\images\\product-item5.jpg",
+      "PackagePath": "staticwebassets\\images\\product-item5.jpg"
+    },
+    {
+      "Id": "D:\\Fidelitas\\Programación Avanzada en Web\\Repos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\wwwroot\\images\\product-item6.jpg",
+      "PackagePath": "staticwebassets\\images\\product-item6.jpg"
+    },
+    {
+      "Id": "D:\\Fidelitas\\Programación Avanzada en Web\\Repos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\wwwroot\\images\\product-item7.jpg",
+      "PackagePath": "staticwebassets\\images\\product-item7.jpg"
+    },
+    {
+      "Id": "D:\\Fidelitas\\Programación Avanzada en Web\\Repos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\wwwroot\\images\\product-item8.jpg",
+      "PackagePath": "staticwebassets\\images\\product-item8.jpg"
+    },
+    {
+      "Id": "D:\\Fidelitas\\Programación Avanzada en Web\\Repos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\wwwroot\\images\\product-item9.jpg",
+      "PackagePath": "staticwebassets\\images\\product-item9.jpg"
+    },
+    {
+      "Id": "D:\\Fidelitas\\Programación Avanzada en Web\\Repos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\wwwroot\\images\\review-item1.jpg",
+      "PackagePath": "staticwebassets\\images\\review-item1.jpg"
+    },
+    {
+      "Id": "D:\\Fidelitas\\Programación Avanzada en Web\\Repos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\wwwroot\\images\\review-item2.jpg",
+      "PackagePath": "staticwebassets\\images\\review-item2.jpg"
+    },
+    {
+      "Id": "D:\\Fidelitas\\Programación Avanzada en Web\\Repos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\wwwroot\\images\\search-icon.png",
+      "PackagePath": "staticwebassets\\images\\search-icon.png"
+    },
+    {
+      "Id": "D:\\Fidelitas\\Programación Avanzada en Web\\Repos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\wwwroot\\images\\shippingcard.png",
+      "PackagePath": "staticwebassets\\images\\shippingcard.png"
+    },
+    {
+      "Id": "D:\\Fidelitas\\Programación Avanzada en Web\\Repos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\wwwroot\\images\\singel-product-item.jpg",
+      "PackagePath": "staticwebassets\\images\\singel-product-item.jpg"
+    },
+    {
+      "Id": "D:\\Fidelitas\\Programación Avanzada en Web\\Repos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\wwwroot\\images\\single-image1.png",
+      "PackagePath": "staticwebassets\\images\\single-image1.png"
+    },
+    {
+      "Id": "D:\\Fidelitas\\Programación Avanzada en Web\\Repos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\wwwroot\\images\\single-image2.jpg",
+      "PackagePath": "staticwebassets\\images\\single-image2.jpg"
+    },
+    {
+      "Id": "D:\\Fidelitas\\Programación Avanzada en Web\\Repos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\wwwroot\\images\\single-image3.jpg",
+      "PackagePath": "staticwebassets\\images\\single-image3.jpg"
+    },
+    {
+      "Id": "D:\\Fidelitas\\Programación Avanzada en Web\\Repos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\wwwroot\\images\\single-post.jpg",
+      "PackagePath": "staticwebassets\\images\\single-post.jpg"
+    },
+    {
+      "Id": "D:\\Fidelitas\\Programación Avanzada en Web\\Repos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\wwwroot\\js\\ajax-loader.gif",
+      "PackagePath": "staticwebassets\\js\\ajax-loader.gif"
+    },
+    {
+      "Id": "D:\\Fidelitas\\Programación Avanzada en Web\\Repos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\wwwroot\\js\\bootstrap.bundle.min.js",
+      "PackagePath": "staticwebassets\\js\\bootstrap.bundle.min.js"
+    },
+    {
+      "Id": "D:\\Fidelitas\\Programación Avanzada en Web\\Repos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\wwwroot\\js\\jquery-1.11.0.min.js",
+      "PackagePath": "staticwebassets\\js\\jquery-1.11.0.min.js"
+    },
+    {
+      "Id": "D:\\Fidelitas\\Programación Avanzada en Web\\Repos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\wwwroot\\js\\modernizr.js",
+      "PackagePath": "staticwebassets\\js\\modernizr.js"
+    },
+    {
+      "Id": "D:\\Fidelitas\\Programación Avanzada en Web\\Repos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\wwwroot\\js\\plugins.js",
+      "PackagePath": "staticwebassets\\js\\plugins.js"
+    },
+    {
+      "Id": "D:\\Fidelitas\\Programación Avanzada en Web\\Repos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\wwwroot\\js\\script.js",
+      "PackagePath": "staticwebassets\\js\\script.js"
+    },
+    {
+      "Id": "D:\\Fidelitas\\Programación Avanzada en Web\\Repos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\wwwroot\\js\\site.js",
+      "PackagePath": "staticwebassets\\js\\site.js"
+    },
+    {
+      "Id": "D:\\Fidelitas\\Programación Avanzada en Web\\Repos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\wwwroot\\lib\\bootstrap\\LICENSE",
+      "PackagePath": "staticwebassets\\lib\\bootstrap"
+    },
+    {
+      "Id": "D:\\Fidelitas\\Programación Avanzada en Web\\Repos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css"
+    },
+    {
+      "Id": "D:\\Fidelitas\\Programación Avanzada en Web\\Repos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map"
+    },
+    {
+      "Id": "D:\\Fidelitas\\Programación Avanzada en Web\\Repos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css"
+    },
+    {
+      "Id": "D:\\Fidelitas\\Programación Avanzada en Web\\Repos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map"
+    },
+    {
+      "Id": "D:\\Fidelitas\\Programación Avanzada en Web\\Repos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css"
+    },
+    {
+      "Id": "D:\\Fidelitas\\Programación Avanzada en Web\\Repos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map"
+    },
+    {
+      "Id": "D:\\Fidelitas\\Programación Avanzada en Web\\Repos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css"
+    },
+    {
+      "Id": "D:\\Fidelitas\\Programación Avanzada en Web\\Repos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map"
+    },
+    {
+      "Id": "D:\\Fidelitas\\Programación Avanzada en Web\\Repos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css"
+    },
+    {
+      "Id": "D:\\Fidelitas\\Programación Avanzada en Web\\Repos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map"
+    },
+    {
+      "Id": "D:\\Fidelitas\\Programación Avanzada en Web\\Repos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css"
+    },
+    {
+      "Id": "D:\\Fidelitas\\Programación Avanzada en Web\\Repos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map"
+    },
+    {
+      "Id": "D:\\Fidelitas\\Programación Avanzada en Web\\Repos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css"
+    },
+    {
+      "Id": "D:\\Fidelitas\\Programación Avanzada en Web\\Repos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map"
+    },
+    {
+      "Id": "D:\\Fidelitas\\Programación Avanzada en Web\\Repos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css"
+    },
+    {
+      "Id": "D:\\Fidelitas\\Programación Avanzada en Web\\Repos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map"
+    },
+    {
+      "Id": "D:\\Fidelitas\\Programación Avanzada en Web\\Repos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css"
+    },
+    {
+      "Id": "D:\\Fidelitas\\Programación Avanzada en Web\\Repos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map"
+    },
+    {
+      "Id": "D:\\Fidelitas\\Programación Avanzada en Web\\Repos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css"
+    },
+    {
+      "Id": "D:\\Fidelitas\\Programación Avanzada en Web\\Repos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map"
+    },
+    {
+      "Id": "D:\\Fidelitas\\Programación Avanzada en Web\\Repos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css"
+    },
+    {
+      "Id": "D:\\Fidelitas\\Programación Avanzada en Web\\Repos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map"
+    },
+    {
+      "Id": "D:\\Fidelitas\\Programación Avanzada en Web\\Repos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css"
+    },
+    {
+      "Id": "D:\\Fidelitas\\Programación Avanzada en Web\\Repos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map"
+    },
+    {
+      "Id": "D:\\Fidelitas\\Programación Avanzada en Web\\Repos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.css"
+    },
+    {
+      "Id": "D:\\Fidelitas\\Programación Avanzada en Web\\Repos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.css.map"
+    },
+    {
+      "Id": "D:\\Fidelitas\\Programación Avanzada en Web\\Repos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.min.css"
+    },
+    {
+      "Id": "D:\\Fidelitas\\Programación Avanzada en Web\\Repos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map"
+    },
+    {
+      "Id": "D:\\Fidelitas\\Programación Avanzada en Web\\Repos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css"
+    },
+    {
+      "Id": "D:\\Fidelitas\\Programación Avanzada en Web\\Repos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map"
+    },
+    {
+      "Id": "D:\\Fidelitas\\Programación Avanzada en Web\\Repos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css"
+    },
+    {
+      "Id": "D:\\Fidelitas\\Programación Avanzada en Web\\Repos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map"
+    },
+    {
+      "Id": "D:\\Fidelitas\\Programación Avanzada en Web\\Repos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js"
+    },
+    {
+      "Id": "D:\\Fidelitas\\Programación Avanzada en Web\\Repos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map"
+    },
+    {
+      "Id": "D:\\Fidelitas\\Programación Avanzada en Web\\Repos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js"
+    },
+    {
+      "Id": "D:\\Fidelitas\\Programación Avanzada en Web\\Repos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map"
+    },
+    {
+      "Id": "D:\\Fidelitas\\Programación Avanzada en Web\\Repos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js"
+    },
+    {
+      "Id": "D:\\Fidelitas\\Programación Avanzada en Web\\Repos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map"
+    },
+    {
+      "Id": "D:\\Fidelitas\\Programación Avanzada en Web\\Repos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js"
+    },
+    {
+      "Id": "D:\\Fidelitas\\Programación Avanzada en Web\\Repos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map"
+    },
+    {
+      "Id": "D:\\Fidelitas\\Programación Avanzada en Web\\Repos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.js"
+    },
+    {
+      "Id": "D:\\Fidelitas\\Programación Avanzada en Web\\Repos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.js.map"
+    },
+    {
+      "Id": "D:\\Fidelitas\\Programación Avanzada en Web\\Repos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.min.js"
+    },
+    {
+      "Id": "D:\\Fidelitas\\Programación Avanzada en Web\\Repos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map"
+    },
+    {
+      "Id": "D:\\Fidelitas\\Programación Avanzada en Web\\Repos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
+    },
+    {
+      "Id": "D:\\Fidelitas\\Programación Avanzada en Web\\Repos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js"
+    },
+    {
+      "Id": "D:\\Fidelitas\\Programación Avanzada en Web\\Repos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js"
+    },
+    {
+      "Id": "D:\\Fidelitas\\Programación Avanzada en Web\\Repos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\LICENSE.md"
+    },
+    {
+      "Id": "D:\\Fidelitas\\Programación Avanzada en Web\\Repos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\additional-methods.js"
+    },
+    {
+      "Id": "D:\\Fidelitas\\Programación Avanzada en Web\\Repos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\additional-methods.min.js"
+    },
+    {
+      "Id": "D:\\Fidelitas\\Programación Avanzada en Web\\Repos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\jquery.validate.js"
+    },
+    {
+      "Id": "D:\\Fidelitas\\Programación Avanzada en Web\\Repos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\jquery.validate.min.js"
+    },
+    {
+      "Id": "D:\\Fidelitas\\Programación Avanzada en Web\\Repos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\wwwroot\\lib\\jquery\\LICENSE.txt",
+      "PackagePath": "staticwebassets\\lib\\jquery\\LICENSE.txt"
+    },
+    {
+      "Id": "D:\\Fidelitas\\Programación Avanzada en Web\\Repos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\wwwroot\\lib\\jquery\\dist\\jquery.js",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.js"
+    },
+    {
+      "Id": "D:\\Fidelitas\\Programación Avanzada en Web\\Repos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.js"
+    },
+    {
+      "Id": "D:\\Fidelitas\\Programación Avanzada en Web\\Repos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.map"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.Proyecto_Ciudad_De_Los_Ninos.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.build.Proyecto_Ciudad_De_Los_Ninos.props",
+      "PackagePath": "build\\Proyecto_Ciudad_De_Los_Ninos.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildMultiTargeting.Proyecto_Ciudad_De_Los_Ninos.props",
+      "PackagePath": "buildMultiTargeting\\Proyecto_Ciudad_De_Los_Ninos.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildTransitive.Proyecto_Ciudad_De_Los_Ninos.props",
+      "PackagePath": "buildTransitive\\Proyecto_Ciudad_De_Los_Ninos.props"
+    }
+  ],
+  "ElementsToRemove": []
+}
