@@ -1,0 +1,116 @@
+﻿@{
+    ViewData["Title"] = "Reportes Médicos";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+    @Html.Partial("_header")
+    <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+        <style>
+            /* Estilos CSS para la página */
+            .form-container {
+                width: 50%;
+                margin: 50px auto;
+                padding: 20px;
+                border: 1px solid #ddd;
+                border-radius: 8px;
+                background-color: #f9f9f9;
+            }
+
+            .form-group {
+                margin-bottom: 20px;
+            }
+
+                .form-group label {
+                    display: block;
+                    font-weight: bold;
+                }
+
+                .form-group input[type="text"],
+                .form-group input[type="number"],
+                .form-group input[type="date"] {
+                    width: calc(100% - 10px);
+                    padding: 8px;
+                    border: 1px solid #ccc;
+                    border-radius: 4px;
+                }
+
+                .form-group button {
+                    padding: 10px 20px;
+                    background-color: #E6282A;
+                    color: white;
+                    border: none;
+                    border-radius: 4px;
+                    cursor: pointer;
+                }
+
+                    .form-group button:hover {
+                        background-color: #b21d20;
+                    }
+
+            .delete-message {
+                color: #E6282A;
+                font-weight: bold;
+                margin-top: 10px;
+                display: none;
+            }
+        </style>
+
+        <div class="form-container">
+
+            <h2>Reportes Médicos</h2>
+            <div class="form-group">
+                <label for="nombre">Nombre del Funcionario:</label>
+                <input type="text" id="nombreFuncionario" name="nombreFuncionario" required>
+            </div>
+            <div class="form-group">
+                <label for="nombre">Apellidos del Funcionario:</label>
+                <input type="text" id="apellidosFuncionario" name="apellidosFuncionario" required>
+            </div>
+            <div class="form-group">
+                <label for="nombre">Nombre del Residente:</label>
+                <input type="text" id="nombre" name="nombre" required>
+            </div>
+            <div class="form-group">
+                <label for="nombre">Apellidos del Residente:</label>
+                <input type="text" id="apellidos" name="apellidos" required>
+            </div>
+            <div class="form-group">
+                <label for="edad">Edad del Residente:</label>
+                <input type="number" id="edad" name="edad" required>
+            </div>
+            <div class="form-group">
+                <label for="fechaNacimiento">Fecha de Nacimiento:</label>
+                <input type="date" id="fechaNacimiento" name="fechaNacimiento" required>
+            </div>
+            <div class="form-group">
+                <label for="diagnostico">Enfermedades Preexistentes:</label>
+                <textarea id="enfermedades" name="enfermedades" rows="4" required></textarea>
+            </div>
+            <div class="form-group">
+                <label for="diagnostico">Diagnóstico Médico:</label>
+                <textarea id="diagnostico" name="diagnostico" rows="4" required></textarea>
+            </div>
+            <div class="form-group">
+                <label for="tratamiento">Tratamiento Recomendado:</label>
+                <textarea id="tratamiento" name="tratamiento" rows="4" required></textarea>
+            </div>
+            <div class="form-group">
+                <button class="button-generar-reporte" style="display: block; margin: auto;">Generar Reporte Médico</button>
+
+            </div>
+            </>
+        </div>
+
+
+        @Html.Partial("_footer")
+        <script src="js/jquery-1.11.0.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+        <script type="text/javascript" src="~/js/bootstrap.bundle.min.js"></script>
+        <script type="text/javascript" src="~/js/plugins.js"></script>
+        <script type="text/javascript" src="~/js/script.js"></script>
+</body>
+</html>
