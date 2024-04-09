@@ -1,0 +1,155 @@
+﻿@{
+    ViewData["Title"] = "Expedientes";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+    @Html.Partial("_header")
+
+    <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+        <style>
+            /* Estilos CSS para la página */
+            .form-container {
+                width: 50%;
+                margin: 50px auto;
+                padding: 20px;
+                border: 1px solid #ddd;
+                border-radius: 8px;
+                background-color: #f9f9f9;
+            }
+
+            .form-group {
+                margin-bottom: 20px;
+            }
+
+                .form-group label {
+                    display: block;
+                    font-weight: bold;
+                }
+
+                .form-group input[type="text"],
+                .form-group input[type="number"],
+                .form-group input[type="date"] {
+                    width: calc(100% - 10px);
+                    padding: 8px;
+                    border: 1px solid #ccc;
+                    border-radius: 4px;
+                }
+
+                .form-group button {
+                    padding: 10px 20px;
+                    background-color: #E6282A;
+                    color: white;
+                    border: none;
+                    border-radius: 4px;
+                    cursor: pointer;
+                }
+
+                    .form-group button:hover {
+                        background-color: #b21d20;
+                    }
+
+            .delete-message {
+                color: #E6282A;
+                font-weight: bold;
+                margin-top: 10px;
+                display: none;
+            }
+        </style>
+    </svg>
+
+    <div class="form-container">
+        <h2>Ingresar Expediente</h2>
+        <form action="/home/Guardar" method="post">
+            
+            <div class="form-group">
+                <label for="id">ID:</label>
+                <input type="text" id="id" name="id" required>
+            </div>
+            <div class="form-group">
+                <label for="id_joven">ID del Joven:</label>
+                <input type="text" id="id_joven" name="id_joven" required>
+            </div>
+            <div class="form-group">
+                <label for="nombre_joven">Nombre del Joven:</label>
+                <input type="text" id="nombre_joven" name="nombre_joven" required>
+            </div>
+            <div class="form-group">
+                <label for="edad">Edad:</label>
+                <input type="number" id="edad" name="edad" required>
+            </div>
+            <div class="form-group">
+                <label for="fecha_ingreso">Fecha de Ingreso:</label>
+                <input type="date" id="fecha_ingreso" name="fecha_ingreso" required>
+            </div>
+            <div class="form-group">
+                <label for="direccion">Dirección:</label>
+                <input type="text" id="direccion" name="direccion" required>
+            </div>
+            <div class="form-group">
+                <label for="telefono_contacto">Teléfono de Contacto:</label>
+                <input type="text" id="telefono_contacto" name="telefono_contacto" required>
+            </div>
+            <div class="form-group">
+                <label for="tutor_legal">Tutor Legal:</label>
+                <input type="text" id="tutor_legal" name="tutor_legal" required>
+            </div>
+            <div class="form-group">
+                <label for="antecedentes_medicos">Antecedentes Médicos:</label>
+                <textarea id="antecedentes_medicos" name="antecedentes_medicos" rows="4" required></textarea>
+            </div>
+            <div class="form-group">
+                <label for="historial_academico">Historial Académico:</label>
+                <textarea id="historial_academico" name="historial_academico" rows="4" required></textarea>
+            </div>
+            <div class="form-group">
+                <label for="notas_adicionales">Notas Adicionales:</label>
+                <textarea id="notas_adicionales" name="notas_adicionales" rows="4" required></textarea>
+            </div>
+            <div class="form-group">
+                <button type="submit" class="button-agregar-expediente" style="display: block; margin: auto;">Agregar Expediente</button>
+            </div>
+            
+            <div class="form-group">
+                
+            </div>
+
+            <hr>
+            <h2>Exportar Expediente</h2>
+            <div class="form-group">
+                <label for="busqueda_expedientes">Buscar Expedientes:</label>
+                <div style="display: flex;">
+                    <input type="text" id="busqueda_expedientes" name="busqueda_expedientes" placeholder="Buscar expedientes..." required style="margin-right: 10px;">
+                    <button type="button" class="button-buscar-expedientes">Buscar</button>
+                </div>
+            </div>
+
+
+            
+            <div class="form-group">
+                <label for="formato_exportacion">Formato de Exportación:</label>
+                <select id="formato_exportacion" name="formato_exportacion" required>
+                    <option value="pdf">PDF</option>
+                    <option value="csv">CSV</option>
+                    <option value="excel">Excel</option>
+                </select>
+            </div>
+
+            
+            <div class="form-group">
+                <button type="submit" class="button-exportar" style="display: block; margin: auto;">Exportar Expedientes</button>
+            </div>
+        </form>
+    </div>
+
+    @Html.Partial("_footer")
+    <script src="js/jquery-1.11.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+    <script type="text/javascript" src="~/js/bootstrap.bundle.min.js"></script>
+    <script type="text/javascript" src="~/js/plugins.js"></script>
+    <script type="text/javascript" src="~/js/script.js"></script>
+</body>
+</html>

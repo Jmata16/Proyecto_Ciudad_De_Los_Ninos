@@ -8,6 +8,7 @@
 </head>
 <body>
     @Html.Partial("_header")
+    
     <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
         <style>
             /* Estilos CSS para la página */
@@ -60,42 +61,37 @@
         </style>
 
         <div class="form-container">
-
             <h2>Programar Nueva Cita</h2>
+            <form action="/home/Guardar" method="post">
             <div class="form-group">
-                <label for="nombre">Nombre del Funcionario:</label>
-                <input type="text" id="nombreFuncionario" name="nombreFuncionario" required>
+                <label for="id_usuario">ID del Usuario:</label>
+                <input type="text" id="id_usuario" name="id_usuario" required>
             </div>
             <div class="form-group">
-                <label for="nombre">Apellidos del Funcionario:</label>
-                <input type="text" id="apellidosFuncionario" name="apellidosFuncionario" required>
+                <label for="id_joven">ID del Joven:</label>
+                <input type="text" id="id_joven" name="id_joven" required>
             </div>
             <div class="form-group">
-                <label for="nombre">Nombre del Residente:</label>
-                <input type="text" id="nombre" name="nombre" required>
+                <label for="fecha">Fecha de la Cita:</label>
+                <input type="datetime-local" id="fecha" name="fecha" required>
             </div>
             <div class="form-group">
-                <label for="nombre">Apellidos del Residente:</label>
-                <input type="text" id="apellidos" name="apellidos" required>
+                <label for="tipo_usuario">Tipo de Usuario:</label>
+                <select id="tipo_usuario" name="tipo_usuario" required>
+                    <option value="psicólogo">Psicólogo</option>
+                    <option value="trabajador_social">Trabajador Social</option>
+                </select>
             </div>
             <div class="form-group">
-                <label for="nombre">Identificación del Residente:</label>
-                <input type="text" id="id" name="id" required>
+                <label for="detalles">Detalles:</label>
+                <textarea id="detalles" name="detalles" rows="4" required></textarea>
             </div>
             <div class="form-group">
-                <label for="nombre">Fecha de la Cita:</label>
-                <input type="date" id="fecha" name="fecha" required>
+                    <button type="submit" class="button" style="display: block; margin: auto;">Programar Cita</button>
             </div>
-            <div class="form-group">
-                <label for="nombre">Hora de la Cita:</label>
-                <input type="time" id="hora" name="hora" required>
-            </div>
-            <div class="form-group">
-                <button class="button-agregar-cita" style="display: block; margin: auto;">Agregar Cita</button>
-
-            </div>
-            </>
+            </form>
         </div>
+
 
 
         @Html.Partial("_footer")

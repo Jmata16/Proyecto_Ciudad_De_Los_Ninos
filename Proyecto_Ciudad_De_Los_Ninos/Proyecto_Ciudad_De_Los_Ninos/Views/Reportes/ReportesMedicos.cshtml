@@ -60,50 +60,34 @@
         </style>
 
         <div class="form-container">
-
             <h2>Reportes Médicos</h2>
-            <div class="form-group">
-                <label for="nombre">Nombre del Funcionario:</label>
-                <input type="text" id="nombreFuncionario" name="nombreFuncionario" required>
-            </div>
-            <div class="form-group">
-                <label for="nombre">Apellidos del Funcionario:</label>
-                <input type="text" id="apellidosFuncionario" name="apellidosFuncionario" required>
-            </div>
-            <div class="form-group">
-                <label for="nombre">Nombre del Residente:</label>
-                <input type="text" id="nombre" name="nombre" required>
-            </div>
-            <div class="form-group">
-                <label for="nombre">Apellidos del Residente:</label>
-                <input type="text" id="apellidos" name="apellidos" required>
-            </div>
-            <div class="form-group">
-                <label for="edad">Edad del Residente:</label>
-                <input type="number" id="edad" name="edad" required>
-            </div>
-            <div class="form-group">
-                <label for="fechaNacimiento">Fecha de Nacimiento:</label>
-                <input type="date" id="fechaNacimiento" name="fechaNacimiento" required>
-            </div>
-            <div class="form-group">
-                <label for="diagnostico">Enfermedades Preexistentes:</label>
-                <textarea id="enfermedades" name="enfermedades" rows="4" required></textarea>
-            </div>
-            <div class="form-group">
-                <label for="diagnostico">Diagnóstico Médico:</label>
-                <textarea id="diagnostico" name="diagnostico" rows="4" required></textarea>
-            </div>
-            <div class="form-group">
-                <label for="tratamiento">Tratamiento Recomendado:</label>
-                <textarea id="tratamiento" name="tratamiento" rows="4" required></textarea>
-            </div>
-            <div class="form-group">
-                <button class="button-generar-reporte" style="display: block; margin: auto;">Generar Reporte Médico</button>
-
-            </div>
-            </>
+            <form action="/home/Guardar" method="post">
+                <div class="form-group">
+                    <label for="id">ID:</label>
+                    <input type="text" id="id" name="id" required>
+                </div>
+                <div class="form-group">
+                    <label for="id_usuario">ID del Usuario:</label>
+                    <input type="text" id="id_usuario" name="id_usuario" required>
+                </div>
+                <div class="form-group">
+                    <label for="id_joven">ID del Joven:</label>
+                    <input type="text" id="id_joven" name="id_joven" required>
+                </div>
+                <div class="form-group">
+                    <label for="fecha_creacion">Fecha de Creación:</label>
+                    <input type="datetime-local" id="fecha_creacion" name="fecha_creacion" required>
+                </div>
+                <div class="form-group">
+                    <label for="contenido">Contenido:</label>
+                    <textarea id="contenido" name="contenido" rows="4" required></textarea>
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="button-generar-reporte" style="display: block; margin: auto;">Generar Reporte Médico</button>
+                </div>
+            </form>
         </div>
+
 
 
         @Html.Partial("_footer")

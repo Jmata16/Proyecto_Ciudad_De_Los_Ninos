@@ -60,46 +60,34 @@
         </style>
 
         <div class="form-container">
-
             <h2>Ingresar Prueba de Dopaje</h2>
-            <div class="form-group">
-                <label for="nombre">Nombre del Funcionario:</label>
-                <input type="text" id="nombreFuncionario" name="nombreFuncionario" required>
-            </div>
-            <div class="form-group">
-                <label for="nombre">Apellidos del Funcionario:</label>
-                <input type="text" id="apellidosFuncionario" name="apellidosFuncionario" required>
-            </div>
-            <div class="form-group">
-                <label for="nombre">Nombre del Residente:</label>
-                <input type="text" id="nombre" name="nombre" required>
-            </div>
-            <div class="form-group">
-                <label for="nombre">Apellidos del Residente:</label>
-                <input type="text" id="apellidos" name="apellidos" required>
-            </div>
-            <div class="form-group">
-                <label for="nombre">Identificación del Residente:</label>
-                <input type="text" id="id" name="id" required>
-            </div>
-            <div class="form-group">
-                <label for="nombre">Lugar de la Prueba:</label>
-                <input type="text" id="lugar" name="lugar" required>
-            </div>
-            <div class="form-group">
-                <label for="nombre">Fecha de la Prueba:</label>
-                <input type="date" id="fecha" name="fecha" required>
-            </div>
-            <div class="form-group">
-                <label for="nombre">Hora de la Prueba:</label>
-                <input type="time" id="hora" name="hora" required>
-            </div>
-            <div class="form-group">
-                <button class="button-agregar-prueba" style="display: block; margin: auto;">Agregar Prueba de Dopaje</button>
-
-            </div>
-            </>
+            <form action="/home/Guardar" method="post">
+                <div class="form-group">
+                    <label for="id">ID:</label>
+                    <input type="text" id="id" name="id" required>
+                </div>
+                <div class="form-group">
+                    <label for="id_usuario">ID del Usuario:</label>
+                    <input type="text" id="id_usuario" name="id_usuario" required>
+                </div>
+                <div class="form-group">
+                    <label for="id_joven">ID del Joven:</label>
+                    <input type="text" id="id_joven" name="id_joven" required>
+                </div>
+                <div class="form-group">
+                    <label for="fecha_hora">Fecha y Hora de la Prueba:</label>
+                    <input type="datetime-local" id="fecha_hora" name="fecha_hora" required>
+                </div>
+                <div class="form-group">
+                    <label for="lugar">Lugar de la Prueba:</label>
+                    <input type="text" id="lugar" name="lugar" required>
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="button-agregar-prueba" style="display: block; margin: auto;">Agregar Prueba de Dopaje</button>
+                </div>
+            </form>
         </div>
+
 
 
         @Html.Partial("_footer")

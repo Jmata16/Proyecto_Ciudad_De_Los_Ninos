@@ -1,5 +1,5 @@
 ﻿@{
-    ViewData["Title"] = "Incidentes";
+    ViewData["Title"] = "Reportes Personalizados";
 }
 
 <!DOCTYPE html>
@@ -8,6 +8,7 @@
 </head>
 <body>
     @Html.Partial("_header")
+
     <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
         <style>
             /* Estilos CSS para la página */
@@ -60,33 +61,38 @@
         </style>
 
         <div class="form-container">
-            <h2>Ingresar Incidente</h2>
+            <h2>Ingresar Reporte de Expediente</h2>
             <form action="/home/Guardar" method="post">
                 <div class="form-group">
                     <label for="id">ID:</label>
                     <input type="text" id="id" name="id" required>
                 </div>
                 <div class="form-group">
+                    <label for="id_expediente">ID del Expediente:</label>
+                    <input type="text" id="id_expediente" name="id_expediente" required>
+                </div>
+                <div class="form-group">
                     <label for="id_usuario">ID del Usuario:</label>
                     <input type="text" id="id_usuario" name="id_usuario" required>
                 </div>
                 <div class="form-group">
-                    <label for="id_joven">ID del Joven:</label>
-                    <input type="text" id="id_joven" name="id_joven" required>
+                    <label for="tipo">Tipo de Reporte:</label>
+                    <input type="text" id="tipo" name="tipo" required>
                 </div>
                 <div class="form-group">
-                    <label for="fecha_hora">Fecha y Hora del Incidente:</label>
-                    <input type="datetime-local" id="fecha_hora" name="fecha_hora" required>
+                    <label for="contenido">Contenido:</label>
+                    <textarea id="contenido" name="contenido" rows="4" required></textarea>
                 </div>
                 <div class="form-group">
-                    <label for="descripcion">Descripción del Incidente:</label>
-                    <textarea id="descripcion" name="descripcion" rows="4" required></textarea>
+                    <label for="fecha_creacion">Fecha de Creación:</label>
+                    <input type="datetime-local" id="fecha_creacion" name="fecha_creacion" required>
                 </div>
                 <div class="form-group">
-                    <button type="submit" class="button-agregar-incidente" style="display: block; margin: auto;">Agregar Incidente</button>
+                    <button type="submit" class="button-agregar-reporte-expediente" style="display: block; margin: auto;">Agregar Reporte de Expediente</button>
                 </div>
             </form>
         </div>
+
 
 
 

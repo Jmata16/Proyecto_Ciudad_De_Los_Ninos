@@ -20,5 +20,13 @@ namespace Proyecto_Ciudad_De_Los_Ninos.Controllers
         {
             return View();
         }
+        public IActionResult Expedientes()
+        {
+            return View();
+        }
+        public IActionResult ReportesPersonalizados()
+        {
+            return View();
+        }
     }
 }
