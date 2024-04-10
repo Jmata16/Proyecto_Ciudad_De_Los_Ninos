@@ -1,0 +1,91 @@
+﻿@{
+    ViewData["Title"] = "Usurios";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container5 {
+            max-width: 400px;
+            margin: 50px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        input[type="text"],
+        input[type="password"],
+        select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        input[type="submit"] {
+            background-color: #E6282A;
+            color: #fff;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+            font-size: 16px;
+        }
+
+            input[type="submit"]:hover {
+                background-color: #EC5D5F;
+            }
+    </style>
+</head>
+<body>
+    @Html.Partial("_header")
+
+    <div class="container5">
+        <h1>Agregar Usuario</h1>
+        <form action="/home/Guardar" method="POST">
+            <label for="nombre_usuario">Nombre de usuario:</label><br>
+            <input type="text" id="nombre_usuario" name="nombre_usuario" required><br>
+            <label for="Correo">Correo:</label><br>
+            <input type="text" id="Correo" name="Correo" required><br>
+            <label for="contraseña">Contraseña:</label><br>
+            <input type="password" id="contraseña" name="contraseña" required><br>
+
+            <label for="rol">Rol:</label><br>
+            <select id="rol" name="rol">
+                <option value="administrador">Administrador</option>
+                <option value="psicólogo">Psicólogo</option>
+                <option value="trabajador_social">Trabajador Social</option>
+            </select><br><br>
+
+            <input type="submit" value="Guardar">
+        </form>
+    </div>
+    @Html.Partial("_footer")
+    <script src="js/jquery-1.11.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+    <script type="text/javascript" src="~/js/bootstrap.bundle.min.js"></script>
+    <script type="text/javascript" src="~/js/plugins.js"></script>
+    <script type="text/javascript" src="~/js/script.js"></script>
+</body>
+</html>
+

@@ -25,5 +25,13 @@ namespace Proyecto_Ciudad_De_Los_Ninos.Controllers
         {
             return View();
         }
+        public IActionResult Usuarios()
+        {
+            return View();
+        }
+        public IActionResult UsuariosTablas()
+        {
+            return View();
+        }
     }
 }
