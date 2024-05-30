@@ -1,0 +1,6 @@
+@API_Ciudad_De_Los_Ninos_HostAddress = http://localhost:5032
+
+GET {{API_Ciudad_De_Los_Ninos_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

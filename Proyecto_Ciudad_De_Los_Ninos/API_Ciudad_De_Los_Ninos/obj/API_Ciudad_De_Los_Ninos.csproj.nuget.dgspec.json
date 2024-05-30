@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\KAREN\\source\\repos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos.csproj": {}
+    "C:\\Users\\KAREN\\source\\repos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\API_Ciudad_De_Los_Ninos\\API_Ciudad_De_Los_Ninos.csproj": {}
   },
   "projects": {
-    "C:\\Users\\KAREN\\source\\repos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos.csproj": {
+    "C:\\Users\\KAREN\\source\\repos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\API_Ciudad_De_Los_Ninos\\API_Ciudad_De_Los_Ninos.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\KAREN\\source\\repos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos.csproj",
-        "projectName": "Proyecto_Ciudad_De_Los_Ninos",
-        "projectPath": "C:\\Users\\KAREN\\source\\repos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos.csproj",
+        "projectUniqueName": "C:\\Users\\KAREN\\source\\repos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\API_Ciudad_De_Los_Ninos\\API_Ciudad_De_Los_Ninos.csproj",
+        "projectName": "API_Ciudad_De_Los_Ninos",
+        "projectPath": "C:\\Users\\KAREN\\source\\repos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\API_Ciudad_De_Los_Ninos\\API_Ciudad_De_Los_Ninos.csproj",
         "packagesPath": "C:\\Users\\KAREN\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\KAREN\\source\\repos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\obj\\",
+        "outputPath": "C:\\Users\\KAREN\\source\\repos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\API_Ciudad_De_Los_Ninos\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\KAREN\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -40,10 +40,6 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
-            "Microsoft.AspNetCore.Components.QuickGrid.EntityFrameworkAdapter": {
-              "target": "Package",
-              "version": "[8.0.3, )"
-            },
             "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
               "target": "Package",
               "version": "[8.0.6, )"
@@ -71,6 +67,10 @@
             "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
               "target": "Package",
               "version": "[8.0.2, )"
+            },
+            "Swashbuckle.AspNetCore": {
+              "target": "Package",
+              "version": "[6.4.0, )"
             }
           },
           "imports": [
