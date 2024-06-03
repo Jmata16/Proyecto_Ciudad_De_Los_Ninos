@@ -1193,3 +1193,36 @@ C:\Users\daniela\Documents\GitHub\Proyecto_Ciudad_De_Los_Ninos\Proyecto_Ciudad_D
 C:\Users\daniela\Documents\GitHub\Proyecto_Ciudad_De_Los_Ninos\Proyecto_Ciudad_De_Los_Ninos\Proyecto_Ciudad_De_Los_Ninos\obj\Debug\net8.0\Proyecto_Ciudad_De_Los_Ninos.pdb
 C:\Users\daniela\Documents\GitHub\Proyecto_Ciudad_De_Los_Ninos\Proyecto_Ciudad_De_Los_Ninos\Proyecto_Ciudad_De_Los_Ninos\obj\Debug\net8.0\Proyecto_Ciudad_De_Los_Ninos.genruntimeconfig.cache
 C:\Users\daniela\Documents\GitHub\Proyecto_Ciudad_De_Los_Ninos\Proyecto_Ciudad_De_Los_Ninos\Proyecto_Ciudad_De_Los_Ninos\obj\Debug\net8.0\ref\Proyecto_Ciudad_De_Los_Ninos.dll
+D:\Fidelitas\Programación Avanzada en Web\Repos\Proyecto_Ciudad_De_Los_Ninos\Proyecto_Ciudad_De_Los_Ninos\Proyecto_Ciudad_De_Los_Ninos\obj\Debug\net8.0\Proyecto_Ciudad_De_Los_Ninos.MvcApplicationPartsAssemblyInfo.cs
+D:\Fidelitas\Programación Avanzada en Web\Repos\Proyecto_Ciudad_De_Los_Ninos\Proyecto_Ciudad_De_Los_Ninos\Proyecto_Ciudad_De_Los_Ninos\bin\Debug\net8.0\Azure.Core.dll
+D:\Fidelitas\Programación Avanzada en Web\Repos\Proyecto_Ciudad_De_Los_Ninos\Proyecto_Ciudad_De_Los_Ninos\Proyecto_Ciudad_De_Los_Ninos\bin\Debug\net8.0\Azure.Identity.dll
+D:\Fidelitas\Programación Avanzada en Web\Repos\Proyecto_Ciudad_De_Los_Ninos\Proyecto_Ciudad_De_Los_Ninos\Proyecto_Ciudad_De_Los_Ninos\bin\Debug\net8.0\Microsoft.AspNetCore.Cryptography.Internal.dll
+D:\Fidelitas\Programación Avanzada en Web\Repos\Proyecto_Ciudad_De_Los_Ninos\Proyecto_Ciudad_De_Los_Ninos\Proyecto_Ciudad_De_Los_Ninos\bin\Debug\net8.0\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
+D:\Fidelitas\Programación Avanzada en Web\Repos\Proyecto_Ciudad_De_Los_Ninos\Proyecto_Ciudad_De_Los_Ninos\Proyecto_Ciudad_De_Los_Ninos\bin\Debug\net8.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+D:\Fidelitas\Programación Avanzada en Web\Repos\Proyecto_Ciudad_De_Los_Ninos\Proyecto_Ciudad_De_Los_Ninos\Proyecto_Ciudad_De_Los_Ninos\bin\Debug\net8.0\Microsoft.AspNetCore.Identity.UI.dll
+D:\Fidelitas\Programación Avanzada en Web\Repos\Proyecto_Ciudad_De_Los_Ninos\Proyecto_Ciudad_De_Los_Ninos\Proyecto_Ciudad_De_Los_Ninos\bin\Debug\net8.0\Microsoft.Data.SqlClient.dll
+D:\Fidelitas\Programación Avanzada en Web\Repos\Proyecto_Ciudad_De_Los_Ninos\Proyecto_Ciudad_De_Los_Ninos\Proyecto_Ciudad_De_Los_Ninos\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.Design.dll
+D:\Fidelitas\Programación Avanzada en Web\Repos\Proyecto_Ciudad_De_Los_Ninos\Proyecto_Ciudad_De_Los_Ninos\Proyecto_Ciudad_De_Los_Ninos\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.Relational.dll
+D:\Fidelitas\Programación Avanzada en Web\Repos\Proyecto_Ciudad_De_Los_Ninos\Proyecto_Ciudad_De_Los_Ninos\Proyecto_Ciudad_De_Los_Ninos\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.SqlServer.dll
+D:\Fidelitas\Programación Avanzada en Web\Repos\Proyecto_Ciudad_De_Los_Ninos\Proyecto_Ciudad_De_Los_Ninos\Proyecto_Ciudad_De_Los_Ninos\bin\Debug\net8.0\Microsoft.Extensions.FileProviders.Embedded.dll
+D:\Fidelitas\Programación Avanzada en Web\Repos\Proyecto_Ciudad_De_Los_Ninos\Proyecto_Ciudad_De_Los_Ninos\Proyecto_Ciudad_De_Los_Ninos\bin\Debug\net8.0\Microsoft.Extensions.Identity.Core.dll
+D:\Fidelitas\Programación Avanzada en Web\Repos\Proyecto_Ciudad_De_Los_Ninos\Proyecto_Ciudad_De_Los_Ninos\Proyecto_Ciudad_De_Los_Ninos\bin\Debug\net8.0\Microsoft.Extensions.Identity.Stores.dll
+D:\Fidelitas\Programación Avanzada en Web\Repos\Proyecto_Ciudad_De_Los_Ninos\Proyecto_Ciudad_De_Los_Ninos\Proyecto_Ciudad_De_Los_Ninos\bin\Debug\net8.0\Microsoft.Identity.Client.dll
+D:\Fidelitas\Programación Avanzada en Web\Repos\Proyecto_Ciudad_De_Los_Ninos\Proyecto_Ciudad_De_Los_Ninos\Proyecto_Ciudad_De_Los_Ninos\bin\Debug\net8.0\Microsoft.Identity.Client.Extensions.Msal.dll
+D:\Fidelitas\Programación Avanzada en Web\Repos\Proyecto_Ciudad_De_Los_Ninos\Proyecto_Ciudad_De_Los_Ninos\Proyecto_Ciudad_De_Los_Ninos\bin\Debug\net8.0\Microsoft.IdentityModel.Abstractions.dll
+D:\Fidelitas\Programación Avanzada en Web\Repos\Proyecto_Ciudad_De_Los_Ninos\Proyecto_Ciudad_De_Los_Ninos\Proyecto_Ciudad_De_Los_Ninos\bin\Debug\net8.0\Microsoft.IdentityModel.JsonWebTokens.dll
+D:\Fidelitas\Programación Avanzada en Web\Repos\Proyecto_Ciudad_De_Los_Ninos\Proyecto_Ciudad_De_Los_Ninos\Proyecto_Ciudad_De_Los_Ninos\bin\Debug\net8.0\Microsoft.IdentityModel.Logging.dll
+D:\Fidelitas\Programación Avanzada en Web\Repos\Proyecto_Ciudad_De_Los_Ninos\Proyecto_Ciudad_De_Los_Ninos\Proyecto_Ciudad_De_Los_Ninos\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.dll
+D:\Fidelitas\Programación Avanzada en Web\Repos\Proyecto_Ciudad_De_Los_Ninos\Proyecto_Ciudad_De_Los_Ninos\Proyecto_Ciudad_De_Los_Ninos\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+D:\Fidelitas\Programación Avanzada en Web\Repos\Proyecto_Ciudad_De_Los_Ninos\Proyecto_Ciudad_De_Los_Ninos\Proyecto_Ciudad_De_Los_Ninos\bin\Debug\net8.0\Microsoft.IdentityModel.Tokens.dll
+D:\Fidelitas\Programación Avanzada en Web\Repos\Proyecto_Ciudad_De_Los_Ninos\Proyecto_Ciudad_De_Los_Ninos\Proyecto_Ciudad_De_Los_Ninos\bin\Debug\net8.0\Microsoft.SqlServer.Server.dll
+D:\Fidelitas\Programación Avanzada en Web\Repos\Proyecto_Ciudad_De_Los_Ninos\Proyecto_Ciudad_De_Los_Ninos\Proyecto_Ciudad_De_Los_Ninos\bin\Debug\net8.0\System.IdentityModel.Tokens.Jwt.dll
+D:\Fidelitas\Programación Avanzada en Web\Repos\Proyecto_Ciudad_De_Los_Ninos\Proyecto_Ciudad_De_Los_Ninos\Proyecto_Ciudad_De_Los_Ninos\bin\Debug\net8.0\System.Memory.Data.dll
+D:\Fidelitas\Programación Avanzada en Web\Repos\Proyecto_Ciudad_De_Los_Ninos\Proyecto_Ciudad_De_Los_Ninos\Proyecto_Ciudad_De_Los_Ninos\bin\Debug\net8.0\System.Runtime.Caching.dll
+D:\Fidelitas\Programación Avanzada en Web\Repos\Proyecto_Ciudad_De_Los_Ninos\Proyecto_Ciudad_De_Los_Ninos\Proyecto_Ciudad_De_Los_Ninos\bin\Debug\net8.0\runtimes\unix\lib\net6.0\Microsoft.Data.SqlClient.dll
+D:\Fidelitas\Programación Avanzada en Web\Repos\Proyecto_Ciudad_De_Los_Ninos\Proyecto_Ciudad_De_Los_Ninos\Proyecto_Ciudad_De_Los_Ninos\bin\Debug\net8.0\runtimes\win\lib\net6.0\Microsoft.Data.SqlClient.dll
+D:\Fidelitas\Programación Avanzada en Web\Repos\Proyecto_Ciudad_De_Los_Ninos\Proyecto_Ciudad_De_Los_Ninos\Proyecto_Ciudad_De_Los_Ninos\bin\Debug\net8.0\runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.dll
+D:\Fidelitas\Programación Avanzada en Web\Repos\Proyecto_Ciudad_De_Los_Ninos\Proyecto_Ciudad_De_Los_Ninos\Proyecto_Ciudad_De_Los_Ninos\bin\Debug\net8.0\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll
+D:\Fidelitas\Programación Avanzada en Web\Repos\Proyecto_Ciudad_De_Los_Ninos\Proyecto_Ciudad_De_Los_Ninos\Proyecto_Ciudad_De_Los_Ninos\bin\Debug\net8.0\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll
+D:\Fidelitas\Programación Avanzada en Web\Repos\Proyecto_Ciudad_De_Los_Ninos\Proyecto_Ciudad_De_Los_Ninos\Proyecto_Ciudad_De_Los_Ninos\bin\Debug\net8.0\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
+D:\Fidelitas\Programación Avanzada en Web\Repos\Proyecto_Ciudad_De_Los_Ninos\Proyecto_Ciudad_De_Los_Ninos\Proyecto_Ciudad_De_Los_Ninos\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Runtime.Caching.dll

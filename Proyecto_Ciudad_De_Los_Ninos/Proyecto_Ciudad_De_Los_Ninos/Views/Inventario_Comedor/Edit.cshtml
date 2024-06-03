@@ -1,0 +1,58 @@
+﻿@model API_Ciudad_De_Los_Ninos.Models.Inventario_Comedor
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Edit</title>
+</head>
+<body>
+
+<h4>Inventario_Comedor</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <label asp-for="nombre_alimento" class="control-label"></label>
+                <input asp-for="nombre_alimento" class="form-control" />
+                <span asp-validation-for="nombre_alimento" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="cantidad_disponible" class="control-label"></label>
+                <input asp-for="cantidad_disponible" class="form-control" />
+                <span asp-validation-for="cantidad_disponible" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="fecha_ultima_reposicion" class="control-label"></label>
+                <input asp-for="fecha_ultima_reposicion" class="form-control" />
+                <span asp-validation-for="fecha_ultima_reposicion" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="proveedor" class="control-label"></label>
+                <input asp-for="proveedor" class="form-control" />
+                <span asp-validation-for="proveedor" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+</body>
+</html>
