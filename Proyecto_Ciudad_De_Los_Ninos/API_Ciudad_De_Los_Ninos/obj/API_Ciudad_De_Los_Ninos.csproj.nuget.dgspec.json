@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\KAREN\\source\\repos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\API_Ciudad_De_Los_Ninos\\API_Ciudad_De_Los_Ninos.csproj": {}
+    "D:\\Fidelitas\\Programación Avanzada en Web\\Repos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\API_Ciudad_De_Los_Ninos\\API_Ciudad_De_Los_Ninos.csproj": {}
   },
   "projects": {
-    "C:\\Users\\KAREN\\source\\repos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\API_Ciudad_De_Los_Ninos\\API_Ciudad_De_Los_Ninos.csproj": {
+    "D:\\Fidelitas\\Programación Avanzada en Web\\Repos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\API_Ciudad_De_Los_Ninos\\API_Ciudad_De_Los_Ninos.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\KAREN\\source\\repos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\API_Ciudad_De_Los_Ninos\\API_Ciudad_De_Los_Ninos.csproj",
+        "projectUniqueName": "D:\\Fidelitas\\Programación Avanzada en Web\\Repos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\API_Ciudad_De_Los_Ninos\\API_Ciudad_De_Los_Ninos.csproj",
         "projectName": "API_Ciudad_De_Los_Ninos",
-        "projectPath": "C:\\Users\\KAREN\\source\\repos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\API_Ciudad_De_Los_Ninos\\API_Ciudad_De_Los_Ninos.csproj",
-        "packagesPath": "C:\\Users\\KAREN\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\KAREN\\source\\repos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\API_Ciudad_De_Los_Ninos\\obj\\",
+        "projectPath": "D:\\Fidelitas\\Programación Avanzada en Web\\Repos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\API_Ciudad_De_Los_Ninos\\API_Ciudad_De_Los_Ninos.csproj",
+        "packagesPath": "C:\\Users\\jdmat\\.nuget\\packages\\",
+        "outputPath": "D:\\Fidelitas\\Programación Avanzada en Web\\Repos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\API_Ciudad_De_Los_Ninos\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\KAREN\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\jdmat\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
