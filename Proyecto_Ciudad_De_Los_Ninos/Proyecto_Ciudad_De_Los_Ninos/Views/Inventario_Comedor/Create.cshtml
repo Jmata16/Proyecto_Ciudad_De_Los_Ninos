@@ -14,11 +14,6 @@
 
 </head>
 
-
-
-
-
-
 <body>
 
 
@@ -26,11 +21,11 @@
     <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
 
 
-    <h4>Inventario_Comedor</h4>
+    <h4 style="color:red">Bienvenido a la creación del Inventario Comedor</h4>
     <hr />
-    <div class="row">
+    <div class="row" >
         <div class="col-md-4">
-            <form asp-action="Create">
+                <form asp-action="Create" style="font-size: 15px;color:blue;">
                 <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                 <div class="form-group">
                     <label asp-for="nombre_alimento" class="control-label"></label>
@@ -52,15 +47,17 @@
                     <input asp-for="proveedor" class="form-control" />
                     <span asp-validation-for="proveedor" class="text-danger"></span>
                 </div>
+                <br />
                 <div class="form-group">
-                    <input type="submit" value="Create" class="btn btn-primary" />
+                        <input type="submit" value="Crear Inventario" class="create-button" />
                 </div>
             </form>
         </div>
     </div>
+    
 
     <div>
-        <a asp-action="Index">Back to List</a>
+            <a asp-action="Index" class="create-button">Volver al atrás</a>
     </div>
 
     @section Scripts {
