@@ -10,59 +10,127 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>Index</title>
+
+    <style>
+
+        .edit-link {
+            color: blue;
+            font-size: 1.1em;
+        }
+
+        .details-link {
+            color: green;
+            font-size: 1.1em;
+        }
+
+        .delete-link {
+            color: red;
+            font-size: 1.1em;
+        }
+
+        .create-button {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 1.2em;
+            color: white;
+            background-color: #007bff;
+            border: none;
+            border-radius: 5px;
+            text-align: center;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+            .create-button:hover {
+                background-color: #0056b3;
+            }
+
+    </style>
+
 </head>
 <body>
+    <link rel="stylesheet" type="text/css" href="~/css/styles.css">
+
 
     @Html.Partial("_header")
     <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
 
 
-<p>
-            <a asp-action="Create" class="custom-button" color="Danger" >Create New</a>
+<p >
+            <a asp-action="Create" class="create-button" style="color: white;">Crear Uno</a>
 
 </p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.nombre_alimento)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.cantidad_disponible)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.fecha_ultima_reposicion)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.proveedor)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.nombre_alimento)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.cantidad_disponible)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.fecha_ultima_reposicion)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.proveedor)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+
+        <table class="table">
+            <thead>
+                <tr class="" style="font-size: 15px;color:red;">
+                    <th>
+                            @Html.DisplayNameFor(model => model.nombre_alimento)
+                    </th>
+                    <th>
+                            @Html.DisplayNameFor(model => model.cantidad_disponible)
+                    </th>
+                    <th>
+                            @Html.DisplayNameFor(model => model.fecha_ultima_reposicion)
+                    </th>
+                    <th>
+                            @Html.DisplayNameFor(model => model.proveedor)
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                    @foreach (var item in Model)
+                    {
+                    <tr>
+                        <td>
+                                @Html.DisplayFor(modelItem => item.nombre_alimento)
+                        </td>
+                        <td>
+                                @Html.DisplayFor(modelItem => item.cantidad_disponible)
+                        </td>
+                        <td>
+                                @Html.DisplayFor(modelItem => item.fecha_ultima_reposicion)
+                        </td>
+                        <td>
+                                @Html.DisplayFor(modelItem => item.proveedor)
+                        </td>
+                        <td>
+                            <a asp-action="Edit" asp-route-id="@item.Id" class="edit-link">Editar</a> |
+                            <a asp-action="Details" asp-route-id="@item.Id" class="details-link">Detalles</a> |
+                            <a asp-action="Delete" asp-route-id="@item.Id" class="delete-link">Eliminar</a>
+                        </td>
+                    </tr>
+                    }
+            </tbody>
+        </table>
+
+        <a asp-action="Create" class="create-button">Crear</a>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     @Html.Partial("_footer")
     <script src="js/jquery-1.11.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
