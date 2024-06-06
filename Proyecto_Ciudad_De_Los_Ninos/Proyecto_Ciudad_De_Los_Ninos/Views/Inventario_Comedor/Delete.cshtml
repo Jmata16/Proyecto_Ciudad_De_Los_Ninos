@@ -47,10 +47,10 @@
         </dd>
     </dl>
     
-    <form asp-action="Delete">
+    <form asp-action="Eliminar definitivamente el Inventario">
         <input type="hidden" asp-for="Id" />
-        <input type="submit" value="Delete" class="btn btn-danger" /> |
-        <a asp-action="Index">Back to List</a>
+        <input type="submit" value="Delete" class="btn btn-danger" />
+           <a asp-action="Index" type="submit" class="btn btn-success">Volver atrás</a>
     </form>
 </div>
 
