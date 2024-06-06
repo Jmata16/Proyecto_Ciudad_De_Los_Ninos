@@ -51,10 +51,11 @@
         </dd>
     </dl>
 </div>
-<div>
-            <a asp-action="Edit" asp-route-id="@Model?.Id" style="color:blue">Editar</a> |
-            <a asp-action="Index" style="color:green">Volver atrás</a>
-</div>
+        <div>
+            <a asp-action="Index" type="submit" class="btn btn-primary">Editar</a>
+            <a asp-action="Index" type="submit" class="btn btn-success">Volver atrás</a>
+
+        </div>
 
 
         @Html.Partial("_footer")
