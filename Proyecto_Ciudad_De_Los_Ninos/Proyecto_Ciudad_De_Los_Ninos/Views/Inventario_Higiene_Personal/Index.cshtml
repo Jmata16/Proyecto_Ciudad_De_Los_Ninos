@@ -91,9 +91,9 @@
                             @Html.DisplayFor(modelItem => item.proveedor)
                         </td>
                         <td>
-                            <a asp-action="Edit" asp-route-id="@item.Id">Editar</a> |
-                            <a asp-action="Details" asp-route-id="@item.Id">Detalles</a> |
-                            <a asp-action="Delete" asp-route-id="@item.Id">Eliminar</a>
+                            <a asp-action="Edit" asp-route-id="@item.Id" class="edit-link">Editar</a> |
+                            <a asp-action="Details" asp-route-id="@item.Id" class="details-link">Detalles</a> |
+                            <a asp-action="Delete" asp-route-id="@item.Id" class="delete-link">Eliminar</a>
                         </td>
                     </tr>
                 }
