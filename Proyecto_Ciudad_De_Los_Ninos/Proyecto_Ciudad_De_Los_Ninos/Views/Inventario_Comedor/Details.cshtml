@@ -22,9 +22,9 @@
 
 
 <div>
-    <h4>Inventario_Comedor</h4>
+     <h4 style="color:red">Detalles del Inventario_Comedor</h4>
     <hr />
-    <dl class="row">
+            <dl class="row" >
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.nombre_alimento)
         </dt>
@@ -52,8 +52,8 @@
     </dl>
 </div>
 <div>
-    <a asp-action="Edit" asp-route-id="@Model?.Id">Edit</a> |
-    <a asp-action="Index">Back to List</a>
+            <a asp-action="Edit" asp-route-id="@Model?.Id" style="color:blue">Editar</a> |
+            <a asp-action="Index" style="color:green">Volver atrás</a>
 </div>
 
 
