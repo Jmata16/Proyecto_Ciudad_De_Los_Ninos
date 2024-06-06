@@ -13,6 +13,9 @@
 </head>
 <body>
 
+    @Html.Partial("_header")
+    <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+
 <h3>Are you sure you want to delete this?</h3>
 <div>
     <h4>Inventario_Higiene_Personal</h4>
@@ -50,5 +53,12 @@
         <a asp-action="Index">Back to List</a>
     </form>
 </div>
+        @Html.Partial("_footer")
+        <script src="js/jquery-1.11.0.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+        <script type="text/javascript" src="~/js/bootstrap.bundle.min.js"></script>
+        <script type="text/javascript" src="~/js/plugins.js"></script>
+        <script type="text/javascript" src="~/js/script.js"></script>
+
 </body>
 </html>
