@@ -13,11 +13,23 @@
 </head>
 <body>
 
+    @Html.Partial("_header")
+    <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+
+
+
+
+
+
+
+
 <h4>Inventario_Higiene_Personal</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
+               
         <form asp-action="Create">
+                    <div class="abs-center">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="nombre_producto" class="control-label"></label>
@@ -42,16 +54,29 @@
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
             </div>
+                </div>
         </form>
+        
+
     </div>
 </div>
 
 <div>
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Index">Volver a la Lista</a>
 </div>
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }
+
+        @Html.Partial("_footer")
+        <script src="js/jquery-1.11.0.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+        <script type="text/javascript" src="~/js/bootstrap.bundle.min.js"></script>
+        <script type="text/javascript" src="~/js/plugins.js"></script>
+        <script type="text/javascript" src="~/js/script.js"></script>
+
+
+
 </body>
 </html>

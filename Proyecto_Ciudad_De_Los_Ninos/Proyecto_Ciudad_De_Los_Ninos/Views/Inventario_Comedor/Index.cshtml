@@ -12,8 +12,14 @@
     <title>Index</title>
 </head>
 <body>
+
+    @Html.Partial("_header")
+    <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+
+
 <p>
-    <a asp-action="Create">Create New</a>
+            <a asp-action="Create" class="custom-button" color="Danger" >Create New</a>
+
 </p>
 <table class="table">
     <thead>
@@ -57,5 +63,11 @@
 }
     </tbody>
 </table>
+    @Html.Partial("_footer")
+    <script src="js/jquery-1.11.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+    <script type="text/javascript" src="~/js/bootstrap.bundle.min.js"></script>
+    <script type="text/javascript" src="~/js/plugins.js"></script>
+    <script type="text/javascript" src="~/js/script.js"></script>
 </body>
 </html>
