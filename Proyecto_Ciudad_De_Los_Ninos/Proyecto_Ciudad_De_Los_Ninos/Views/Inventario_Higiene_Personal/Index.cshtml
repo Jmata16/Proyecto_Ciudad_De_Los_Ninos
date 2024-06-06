@@ -10,17 +10,55 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>Index</title>
+
+
+    <style>
+
+        .edit-link {
+            color: blue;
+            font-size: 1.1em;
+        }
+
+        .details-link {
+            color: green;
+            font-size: 1.1em;
+        }
+
+        .delete-link {
+            color: red;
+            font-size: 1.1em;
+        }
+
+        .create-button {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 1.2em;
+            color: white;
+            background-color: #007bff;
+            border: none;
+            border-radius: 5px;
+            text-align: center;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+            .create-button:hover {
+                background-color: #0056b3;
+            }
+
+    </style>
+
 </head>
 <body>
 
     @Html.Partial("_header")
     <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
         <p>
-            <a asp-action="Create">Create New</a>
+            <a asp-action="Create" class="create-button" style="color: white;">Crear Uno</a>
         </p>
         <table class="table">
             <thead>
-                <tr>
+                <tr style="font-size: 15px;color:red;">
                     <th>
                         @Html.DisplayNameFor(model => model.nombre_producto)
                     </th>
@@ -53,9 +91,9 @@
                             @Html.DisplayFor(modelItem => item.proveedor)
                         </td>
                         <td>
-                            <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                            <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                            <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                            <a asp-action="Edit" asp-route-id="@item.Id">Editar</a> |
+                            <a asp-action="Details" asp-route-id="@item.Id">Detalles</a> |
+                            <a asp-action="Delete" asp-route-id="@item.Id">Eliminar</a>
                         </td>
                     </tr>
                 }
