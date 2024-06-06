@@ -1,17 +1,8 @@
 ﻿@model IEnumerable<API_Ciudad_De_Los_Ninos.Models.User>
 
 @{
-    Layout = null;
+    var roles = ViewData["Roles"] as SelectList;
 }
-
-<!DOCTYPE html>
-
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Index</title>
-</head>
-<body>
 <p>
     <a asp-action="Create">Create New</a>
 </p>
@@ -22,34 +13,30 @@
                 @Html.DisplayNameFor(model => model.nombre_usuario)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.contraseña)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.id_rol)
+                Rol
             </th>
             <th></th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.nombre_usuario)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.contraseña)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.id_rol)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-            </td>
-        </tr>
-}
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.nombre_usuario)
+                </td>
+                <td>
+                    @{
+                        var roleName = roles.FirstOrDefault(r => r.Value == item.id_rol.ToString())?.Text;
+                        @roleName
+                    }
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                </td>
+            </tr>
+        }
     </tbody>
 </table>
-</body>
-</html>

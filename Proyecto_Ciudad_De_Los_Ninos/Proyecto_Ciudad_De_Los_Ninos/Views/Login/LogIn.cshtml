@@ -1,13 +1,12 @@
-﻿@{
+﻿@model API_Ciudad_De_Los_Ninos.Models.User
+@{
     ViewData["Title"] = "LogIn";
 }
 
 <!DOCTYPE html>
 <html>
 <head>
-
     <style>
-
         body {
             margin: 0;
             padding: 0;
@@ -22,13 +21,13 @@
             background-color: #fff;
             border-radius: 8px;
             box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-            text-align: center; /* Para centrar el contenido */
+            text-align: center;
         }
 
         .logo {
-            max-width: 350px; /* Tamaño máximo de la imagen */
-            display: block; /* Para centrar horizontalmente */
-            margin: 0 auto 20px; /* Espaciado */
+            max-width: 350px;
+            display: block;
+            margin: 0 auto 20px;
         }
 
         h2 {
@@ -37,12 +36,14 @@
 
         .input-group {
             margin-bottom: 20px;
+            position: relative;
         }
 
             .input-group label {
                 display: block;
                 margin-bottom: 5px;
                 color: #555;
+                text-align: left;
             }
 
             .input-group input {
@@ -50,7 +51,14 @@
                 padding: 10px;
                 border: 1px solid #ccc;
                 border-radius: 5px;
+                box-sizing: border-box;
             }
+
+        .show-password {
+            margin-top: 10px;
+            text-align: left;
+            padding-left: 1px; 
+        }
 
         button {
             width: 100%;
@@ -65,26 +73,46 @@
             button:hover {
                 background-color: #cc0000;
             }
-
     </style>
 </head>
 <body>
-
-
     <div class="login-container">
         <img src="~/images/logo.png" class="logo" alt="Logo">
         <h2>Login</h2>
-        <form action="/home/index">
+        <br />
+        <form asp-action="Login" method="post">
             <div class="input-group">
-                <label for="username">Username</label>
-                <input type="text">
+                <label asp-for="nombre_usuario">Nombre de Usuario</label>
+                </div>
+            <div class="group">
+                <input asp-for="nombre_usuario" class="form-control" />
+                <span asp-validation-for="nombre_usuario" class="text-danger"></span>
             </div>
+            </br>
             <div class="input-group">
-                <label for="password">Password</label>
-                <input type="password">
+                <label asp-for="contraseña">Contraseña</label>
+                </div>
+                <div class="group">
+                <input asp-for="contraseña" type="password" class="form-control" id="myInput" />
+                <span asp-validation-for="contraseña" class="text-danger"></span>
             </div>
-            <button>Login</button>
+            <div class="show-password">
+                <input type="checkbox" onclick="myFunction()"> Mostrar Contraseña
+            </div>
+            </br>
+            <button type="submit">Login</button>
         </form>
     </div>
+
+    <script>
+        function myFunction() {
+            var x = document.getElementById("myInput");
+            if (x.type === "password") {
+                x.type = "text";
+            } else {
+                x.type = "password";
+            }
+        }
+    </script>
 </body>
 </html>
