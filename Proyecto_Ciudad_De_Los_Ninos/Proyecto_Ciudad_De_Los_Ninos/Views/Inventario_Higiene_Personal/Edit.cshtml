@@ -17,13 +17,11 @@
     <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
 
 
-
-
-<h4>Inventario_Higiene_Personal</h4>
+<h4 style="color:red"> Editar tu  Inventario de HigienePersonal</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
-        <form asp-action="Edit">
+            <form asp-action="Edit" style="font-size: 15px;color:blue;">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="Id" />
             <div class="form-group">
@@ -46,15 +44,16 @@
                 <input asp-for="proveedor" class="form-control" />
                 <span asp-validation-for="proveedor" class="text-danger"></span>
             </div>
+            <br />
             <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
+                        <input type="submit" value="Guardar Cambios" class="create-button" />
             </div>
         </form>
     </div>
 </div>
 
 <div>
-    <a asp-action="Index">Back to List</a>
+            <a asp-action="Index" class="create-button">Volver a atrás</a>
 </div>
 
 @section Scripts {
