@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace API_Ciudad_De_Los_Ninos.Models
@@ -7,10 +8,13 @@ namespace API_Ciudad_De_Los_Ninos.Models
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-
-
         public int Id { get; set; }
+
         public string nombre_usuario { get; set; }
+        public string nombre { get; set; }
+        public string apellidos { get; set; }
+        public DateTime fecha_nacimiento { get; set; }
+        public int cedula { get; set; }
         public string contraseña { get; set; }
         public int id_rol { get; set; }
 
@@ -22,7 +26,6 @@ namespace API_Ciudad_De_Los_Ninos.Models
         //public ICollection<Incidentes> Incidentes { get; set; }
         //public ICollection<Citas> Citas { get; set; }
     }
-
-
 }
+
 

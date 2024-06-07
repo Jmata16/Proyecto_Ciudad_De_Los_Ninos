@@ -1,5 +1,4 @@
 ﻿@model API_Ciudad_De_Los_Ninos.Models.Roles
-
 @{
     Layout = null;
     ViewData["Title"] = "Roles";
@@ -10,10 +9,29 @@
 <head>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            padding-bottom: 50px; /* Ajuste para el footer */
+        }
+
+        .card {
+            border: none;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            background-color: #fff;
+        }
+
+        .card-body {
+            padding: 20px;
+        }
+
         #footer {
             position: absolute;
             bottom: 0;
             width: 100%;
+
+
         }
     </style>
 </head>
@@ -35,8 +53,7 @@
     </div>
 
     <!-- Footer -->
-    <footer id="footer" >
- 
+    <footer id="footer">
             @Html.Partial("_footer")
 
     </footer>

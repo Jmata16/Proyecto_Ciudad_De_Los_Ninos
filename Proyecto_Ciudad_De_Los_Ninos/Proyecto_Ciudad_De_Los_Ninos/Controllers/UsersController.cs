@@ -19,7 +19,6 @@ namespace Proyecto_Ciudad_De_Los_Ninos.Controllers
             _context = context;
         }
 
-
         public async Task<IActionResult> Index()
         {
             var users = await _context.Users.ToListAsync();
@@ -45,8 +44,6 @@ namespace Proyecto_Ciudad_De_Los_Ninos.Controllers
             return View(user);
         }
 
-
-
         public IActionResult Create()
         {
             ViewData["Roles"] = new SelectList(_context.Roles, "Id", "nombre_rol");
@@ -55,7 +52,7 @@ namespace Proyecto_Ciudad_De_Los_Ninos.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,nombre_usuario,contraseña,id_rol")] User user)
+        public async Task<IActionResult> Create([Bind("Id,nombre_usuario,nombre,apellidos,fecha_nacimiento,cedula,contraseña,id_rol")] User user)
         {
             if (ModelState.IsValid)
             {
@@ -67,10 +64,9 @@ namespace Proyecto_Ciudad_De_Los_Ninos.Controllers
             return View(user);
         }
 
-
-
         public async Task<IActionResult> Edit(int? id)
         {
+            ViewData["Roles"] = new SelectList(_context.Roles, "Id", "nombre_rol");
             if (id == null)
             {
                 return NotFound();
@@ -84,10 +80,9 @@ namespace Proyecto_Ciudad_De_Los_Ninos.Controllers
             return View(user);
         }
 
-
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,nombre_usuario,contraseña,id_rol")] User user)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,nombre_usuario,nombre,apellidos,fecha_nacimiento,cedula,contraseña,id_rol")] User user)
         {
             if (id != user.Id)
             {
@@ -117,9 +112,9 @@ namespace Proyecto_Ciudad_De_Los_Ninos.Controllers
             return View(user);
         }
 
-
         public async Task<IActionResult> Delete(int? id)
         {
+            ViewData["Roles"] = new SelectList(_context.Roles, "Id", "nombre_rol");
             if (id == null)
             {
                 return NotFound();
@@ -135,7 +130,6 @@ namespace Proyecto_Ciudad_De_Los_Ninos.Controllers
             return View(user);
         }
 
-
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
@@ -144,9 +138,8 @@ namespace Proyecto_Ciudad_De_Los_Ninos.Controllers
             if (user != null)
             {
                 _context.Users.Remove(user);
+                await _context.SaveChangesAsync();
             }
-
-            await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
