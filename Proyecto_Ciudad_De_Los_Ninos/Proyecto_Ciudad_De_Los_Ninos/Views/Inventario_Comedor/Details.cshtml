@@ -13,10 +13,18 @@
 </head>
 <body>
 
+
+    @Html.Partial("_header")
+    <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+
+
+
+
+
 <div>
-    <h4>Inventario_Comedor</h4>
+     <h4 style="color:red">Detalles del Inventario_Comedor</h4>
     <hr />
-    <dl class="row">
+            <dl class="row" >
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.nombre_alimento)
         </dt>
@@ -43,9 +51,19 @@
         </dd>
     </dl>
 </div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model?.Id">Edit</a> |
-    <a asp-action="Index">Back to List</a>
-</div>
+        <div>
+            <a asp-action="Index" type="submit" class="btn btn-primary">Editar</a>
+            <a asp-action="Index" type="submit" class="btn btn-success">Volver atrás</a>
+
+        </div>
+
+
+        @Html.Partial("_footer")
+        <script src="js/jquery-1.11.0.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+        <script type="text/javascript" src="~/js/bootstrap.bundle.min.js"></script>
+        <script type="text/javascript" src="~/js/plugins.js"></script>
+        <script type="text/javascript" src="~/js/script.js"></script>
+
 </body>
 </html>

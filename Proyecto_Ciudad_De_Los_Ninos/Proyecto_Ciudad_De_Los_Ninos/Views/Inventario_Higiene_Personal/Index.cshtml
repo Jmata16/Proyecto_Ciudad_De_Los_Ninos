@@ -1,4 +1,4 @@
-﻿@model IEnumerable<API_Ciudad_De_Los_Ninos.Models.Inventario_Comedor>
+﻿@model IEnumerable<API_Ciudad_De_Los_Ninos.Models.Inventario_Higiene_Personal>
 
 @{
     Layout = null;
@@ -10,6 +10,7 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>Index</title>
+
 
     <style>
 
@@ -49,51 +50,45 @@
 
 </head>
 <body>
-    <link rel="stylesheet" type="text/css" href="~/css/styles.css">
-
 
     @Html.Partial("_header")
     <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
-
-
-<p >
+        <p>
             <a asp-action="Create" class="create-button" style="color: white;">Crear Uno</a>
-
-</p>
-
+        </p>
         <table class="table">
             <thead>
-                <tr  style="font-size: 15px;color:red;">
+                <tr style="font-size: 15px;color:red;">
                     <th>
-                            @Html.DisplayNameFor(model => model.nombre_alimento)
+                        @Html.DisplayNameFor(model => model.nombre_producto)
                     </th>
                     <th>
-                            @Html.DisplayNameFor(model => model.cantidad_disponible)
+                        @Html.DisplayNameFor(model => model.cantidad_disponible)
                     </th>
                     <th>
-                            @Html.DisplayNameFor(model => model.fecha_ultima_reposicion)
+                        @Html.DisplayNameFor(model => model.fecha_ultima_reposicion)
                     </th>
                     <th>
-                            @Html.DisplayNameFor(model => model.proveedor)
+                        @Html.DisplayNameFor(model => model.proveedor)
                     </th>
                     <th></th>
                 </tr>
             </thead>
             <tbody>
-                    @foreach (var item in Model)
-                    {
+                @foreach (var item in Model)
+                {
                     <tr>
                         <td>
-                                @Html.DisplayFor(modelItem => item.nombre_alimento)
+                            @Html.DisplayFor(modelItem => item.nombre_producto)
                         </td>
                         <td>
-                                @Html.DisplayFor(modelItem => item.cantidad_disponible)
+                            @Html.DisplayFor(modelItem => item.cantidad_disponible)
                         </td>
                         <td>
-                                @Html.DisplayFor(modelItem => item.fecha_ultima_reposicion)
+                            @Html.DisplayFor(modelItem => item.fecha_ultima_reposicion)
                         </td>
                         <td>
-                                @Html.DisplayFor(modelItem => item.proveedor)
+                            @Html.DisplayFor(modelItem => item.proveedor)
                         </td>
                         <td>
                             <a asp-action="Edit" asp-route-id="@item.Id" class="edit-link">Editar</a> |
@@ -101,41 +96,14 @@
                             <a asp-action="Delete" asp-route-id="@item.Id" class="delete-link">Eliminar</a>
                         </td>
                     </tr>
-                    }
+                }
             </tbody>
         </table>
-
-     
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    @Html.Partial("_footer")
-    <script src="js/jquery-1.11.0.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
-    <script type="text/javascript" src="~/js/bootstrap.bundle.min.js"></script>
-    <script type="text/javascript" src="~/js/plugins.js"></script>
-    <script type="text/javascript" src="~/js/script.js"></script>
+        @Html.Partial("_footer")
+        <script src="js/jquery-1.11.0.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+        <script type="text/javascript" src="~/js/bootstrap.bundle.min.js"></script>
+        <script type="text/javascript" src="~/js/plugins.js"></script>
+        <script type="text/javascript" src="~/js/script.js"></script>
 </body>
 </html>

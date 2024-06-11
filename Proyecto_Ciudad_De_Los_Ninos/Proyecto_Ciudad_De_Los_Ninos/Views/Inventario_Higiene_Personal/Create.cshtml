@@ -1,4 +1,4 @@
-﻿@model API_Ciudad_De_Los_Ninos.Models.Inventario_Comedor
+﻿@model API_Ciudad_De_Los_Ninos.Models.Inventario_Higiene_Personal
 
 @{
     Layout = null;
@@ -9,28 +9,27 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>Edit</title>
+    <title>Create</title>
 </head>
 <body>
-
 
     @Html.Partial("_header")
     <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
 
 
 
-
-<h4 style="color:red">Editar tu Inventario</h4>
+<h4 style="color:red">Bienvenido a la creación del Inventario Higiene Personal</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
-            <form asp-action="Edit" style="font-size: 15px;color:blue;">
+
+                <form asp-action="Create" style="font-size: 15px;color:blue;">
+                    <div class="abs-center">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="Id" />
             <div class="form-group">
-                <label asp-for="nombre_alimento" class="control-label"></label>
-                <input asp-for="nombre_alimento" class="form-control" />
-                <span asp-validation-for="nombre_alimento" class="text-danger"></span>
+                <label asp-for="nombre_producto" class="control-label"></label>
+                <input asp-for="nombre_producto" class="form-control" />
+                <span asp-validation-for="nombre_producto" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="cantidad_disponible" class="control-label"></label>
@@ -49,9 +48,12 @@
             </div>
             <br />
             <div class="form-group">
-                        <input type="submit" value="Guardar Cambios" class="create-button" />
+                            <input type="submit" value="Crear Inventario" class="create-button" />
             </div>
+                </div>
         </form>
+        
+
     </div>
 </div>
 
@@ -63,12 +65,14 @@
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }
 
-
         @Html.Partial("_footer")
         <script src="js/jquery-1.11.0.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
         <script type="text/javascript" src="~/js/bootstrap.bundle.min.js"></script>
         <script type="text/javascript" src="~/js/plugins.js"></script>
         <script type="text/javascript" src="~/js/script.js"></script>
+
+
+
 </body>
 </html>
