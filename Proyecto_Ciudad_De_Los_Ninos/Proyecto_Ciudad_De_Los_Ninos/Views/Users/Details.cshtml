@@ -1,0 +1,84 @@
+﻿@model API_Ciudad_De_Los_Ninos.Models.User
+
+@{
+    var roles = ViewData["Roles"] as SelectList;
+    var roleName = roles.FirstOrDefault(r => r.Value == Model.id_rol.ToString())?.Text;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            padding-bottom: 50px; /* Ajuste para el footer */
+        }
+
+        .card {
+            border: none;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            background-color: #fff;
+        }
+
+        .card-body {
+            padding: 20px;
+        }
+
+
+    </style>
+</head>
+<body>
+    <!-- Contenido del encabezado -->
+    @Html.Partial("_header")
+
+    <!-- Contenido principal -->
+    <div class="container mt-5">
+        <h4>Usuario Detalles</h4>
+        <hr />
+        <div class="card">
+            <div class="card-body">
+                <dl class="row">
+                    <dt class="col-sm-3">Nombre de Usuario:</dt>
+                    <dd class="col-sm-9">@Html.DisplayFor(model => model.nombre_usuario)</dd>
+
+
+                    <dt class="col-sm-3">Rol:</dt>
+                    <dd class="col-sm-9">@roleName</dd>
+
+                    <dt class="col-sm-3">Nombre:</dt>
+                    <dd class="col-sm-9">@Html.DisplayFor(model => model.nombre)</dd>
+
+                    <dt class="col-sm-3">Apellidos:</dt>
+                    <dd class="col-sm-9">@Html.DisplayFor(model => model.apellidos)</dd>
+
+                    <dt class="col-sm-3">Fecha de Nacimiento:</dt>
+                    <dd class="col-sm-9">@Model.fecha_nacimiento.ToString("dd/MM/yyyy")</dd>
+
+                    <dt class="col-sm-3">Cédula:</dt>
+                    <dd class="col-sm-9">@Html.DisplayFor(model => model.cedula)</dd>
+                </dl>
+            </div>
+        </div>
+
+
+
+            <div class="card-footer">
+                <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-primary">Edit</a>
+                <a asp-action="Index" class="btn btn-secondary">Back to List</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer id="footer">
+        @Html.Partial("_footer")
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

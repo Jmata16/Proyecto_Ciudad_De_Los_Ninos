@@ -1,0 +1,63 @@
+﻿@model API_Ciudad_De_Los_Ninos.Models.Roles
+
+@{
+    Layout = null;
+    ViewData["Title"] = "Roles";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        #page-container {
+            position: relative;
+            min-height: 100vh;
+        }
+
+        #content-wrap {
+            padding-bottom: 2.5rem; /* Footer height */
+        }
+
+        #footer {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <!-- Contenido del encabezado -->
+    @Html.Partial("_header")
+
+    <!-- Contenido principal -->
+    <div class="container mt-5">
+        <h4 class="mb-4">Roles</h4>
+        <div class="card">
+            <div class="card-body">
+                <div class="mb-3">
+                    <strong>Id:</strong> @Html.DisplayFor(model => model.Id)
+                </div>
+                <div class="mb-3">
+                    <strong>Rol:</strong> @Html.DisplayFor(model => model.nombre_rol)
+                </div>
+                <form asp-action="Delete">
+                    <input type="hidden" asp-for="Id" />
+                    <input type="submit" value="Borrar" class="btn btn-danger mr-2" />
+                    <a asp-action="Index" class="btn btn-secondary">Volver a la lista</a>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer id="footer">
+            @Html.Partial("_footer")
+
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

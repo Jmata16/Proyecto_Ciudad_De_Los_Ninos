@@ -168,16 +168,39 @@
                             <li class="nav-item">
                                 <div class="user-items ps-5">
                                     <ul class="d-flex justify-content-end list-unstyled">
-                                        <li class="pe-3">
-                                            <a href="/Login/LogIn">
-                                                <svg class="user">
-                                                    <use xlink:href="#user"></use>
-                                                </svg>
-                                            </a>
-                                        </li>
+                                        @if (User.Identity.IsAuthenticated)
+                                        {
+                                            <li class="nav-item dropdown pe-3">
+                                                <a class="nav-link dropdown-toggle text-light" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                                    ¡Bienvenido/a, @User.Identity.Name!
+                                                </a>
+                                                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                                    <li><a class="dropdown-item text-dark" href="/Login/Details/@(User.Claims.FirstOrDefault(c => c.Type == "UserId")?.Value)">Perfil</a></li>
+
+
+                                                    <li><a class="dropdown-item text-dark" href="/Login/Logout">Logout</a></li>
+                                                </ul>
+                                            </li>
+                                        }
+                                        else
+                                        {
+                                            <li class="pe-3">
+                                                <a href="/Login/Login" class="text-white">
+                                                    <svg class="user" fill="white">
+                                                        <use xlink:href="#user"></use>
+                                                    </svg>
+                                                </a>
+                                            </li>
+                                        }
                                     </ul>
                                 </div>
                             </li>
+
+
+
+
+
+
                         </ul>
 
                     </div>

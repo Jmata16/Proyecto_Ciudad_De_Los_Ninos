@@ -1,0 +1,125 @@
+﻿@model IEnumerable<API_Ciudad_De_Los_Ninos.Models.User>
+
+@{
+    var roles = ViewData["Roles"] as SelectList;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+        }
+
+        .container {
+            width: 80%;
+            margin: 20px auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            background-color: #fff;
+        }
+
+        th, td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        th {
+            background-color: #f8f8f8;
+            font-weight: bold;
+            color: #333;
+            text-transform: uppercase;
+        }
+
+        tr:hover {
+            background-color: #f5f5f5;
+        }
+
+        .actions a {
+            margin-right: 10px;
+            color: #007bff;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+            .actions a:hover {
+                color: #0056b3;
+            }
+
+        #footer {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <!-- Contenido del encabezado -->
+    @Html.Partial("_header")
+
+    <!-- Contenido principal -->
+    <div class="container">
+        <p>
+            <a asp-action="Crear" style="color: #007bff; text-decoration: none;">Crear Nuevo</a>
+        </p>
+        <table>
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Apellidos</th>
+                    <th>Fecha de Nacimiento</th>
+                    <th>Cedula</th>
+                    <th>Usuario</th>
+                    <th>Rol</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@Html.DisplayFor(modelItem => item.nombre)</td>
+                        <td>@Html.DisplayFor(modelItem => item.apellidos)</td>
+                        <td>@item.fecha_nacimiento.ToString("yyyy-MM-dd")</td>
+
+
+                        <td>@Html.DisplayFor(modelItem => item.cedula)</td>
+                        <td>@Html.DisplayFor(modelItem => item.nombre_usuario)</td>
+                        <td>
+                            @{
+                                var roleName = roles.FirstOrDefault(r => r.Value == item.id_rol.ToString())?.Text;
+                                @roleName
+                            }
+                        </td>
+                        <td class="actions">
+                            <a asp-action="Edit" asp-route-id="@item.Id">Editar</a>
+                            <a asp-action="Details" asp-route-id="@item.Id">Detalles</a>
+                            <a asp-action="Delete" asp-route-id="@item.Id">Eliminar</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+    <!-- Footer -->
+    <footer id="footer">@Html.Partial("_footer")</footer>
+
+
+    <!-- Scripts -->
+    <script src="js/jquery-1.11.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+    <script src="~/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/plugins.js"></script>
+    <script src="~/js/script.js"></script>
+</body>
+</html>
