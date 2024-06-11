@@ -1,0 +1,105 @@
+﻿@model API_Ciudad_De_Los_Ninos.Models.User
+
+@{
+    var roles = ViewData["Roles"] as SelectList;
+    var roleName = roles.FirstOrDefault(r => r.Value == Model.id_rol.ToString())?.Text;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Eliminar Usuario</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            padding-bottom: 50px; /* Ajuste para el footer */
+        }
+
+        .card {
+            border: none;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            background-color: #fff;
+        }
+
+        .card-body {
+            padding: 20px;
+        }
+
+        .card-title {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        #footer {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <!-- Contenido del encabezado -->
+    @Html.Partial("_header")
+
+    <!-- Contenido principal -->
+    <div class="container mt-5">
+        <div class="card">
+            <div class="card-body">
+                <dl class="row">
+                    <dt class="col-sm-3">Nombre de Usuario:</dt>
+                    <dd class="col-sm-9">@Html.DisplayFor(model => model.nombre_usuario)</dd>
+
+                    <dt class="col-sm-3">Contraseña:</dt>
+                    <dd class="col-sm-9">
+                        @* Muestra la contraseña como texto normal *@
+                        @Html.DisplayFor(model => model.contraseña)
+                        <span asp-validation-for="contraseña" class="text-danger"></span>
+                    </dd>
+
+                    <dt class="col-sm-3">Rol:</dt>
+                    <dd class="col-sm-9">@roleName</dd>
+
+                    <!-- Agregar más detalles aquí -->
+
+                    <dt class="col-sm-3">Nombre:</dt>
+                    <dd class="col-sm-9">@Html.DisplayFor(model => model.nombre)</dd>
+
+                    <dt class="col-sm-3">Apellidos:</dt>
+                    <dd class="col-sm-9">@Html.DisplayFor(model => model.apellidos)</dd>
+
+                    <dt class="col-sm-3">Fecha de Nacimiento:</dt>
+                    <dd class="col-sm-9">@Html.DisplayFor(model => model.fecha_nacimiento)</dd>
+
+                    <dt class="col-sm-3">Cédula:</dt>
+                    <dd class="col-sm-9">@Html.DisplayFor(model => model.cedula)</dd>
+                </dl>
+            </div>
+
+
+
+            <div class="card-footer">
+                <p>¿Estás seguro de que deseas eliminar este usuario?</p>
+                <form asp-action="Delete">
+                    <input type="hidden" asp-for="Id" />
+                    <input type="submit" value="Eliminar" class="btn btn-danger" /> |
+                    <a asp-action="Index" class="btn btn-secondary">Volver al Listado</a>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer id="footer">
+        @Html.Partial("_footer")
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
+

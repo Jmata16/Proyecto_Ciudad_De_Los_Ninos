@@ -1,0 +1,61 @@
+﻿@model API_Ciudad_De_Los_Ninos.Models.Roles
+
+@{
+    Layout = null;
+}
+
+
+@{
+    ViewData["Title"] = "Roles";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+
+        #footer {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <!-- Contenido del encabezado -->
+    @Html.Partial("_header")
+
+    <!-- Contenido principal -->
+    <div class="container">
+        <h4>Editar Rol</h4>
+        <hr />
+
+        <form asp-action="Edit" style="max-width: 400px;">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+
+            <div class="form-group">
+                <label asp-for="nombre_rol" class="control-label">Nombre del Rol</label>
+                <input asp-for="nombre_rol" class="form-control" />
+                <span asp-validation-for="nombre_rol" class="text-danger"></span>
+            </div>
+            <br />
+            <div class="form-group">
+                <input type="submit" value="Guardar" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+
+
+
+    <!-- Footer -->
+    <footer id="footer">@Html.Partial("_footer")</footer>
+
+    <!-- Scripts -->
+    <script src="js/jquery-1.11.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+    <script src="~/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/plugins.js"></script>
+    <script src="~/js/script.js"></script>
+</body>
+</html>

@@ -14,6 +14,7 @@ namespace Proyecto_Ciudad_De_Los_Ninos.Models
         public DbSet<Jovenes> Jovenes { get; set; }
         public DbSet<Expedientes> Expedientes { get; set; }
         public DbSet<User> Users { get; set; }
+
         public DbSet<Reportes_Expedientes> ReportesExpedientes { get; set; }
         public DbSet<Reportes_Medicos> ReportesMedicos { get; set; }
         public DbSet<Pruebas_Dopaje> PruebasDopaje { get; set; }
