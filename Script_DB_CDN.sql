@@ -47,6 +47,10 @@ CREATE TABLE Expedientes (
 CREATE TABLE Users (
     ID INT PRIMARY KEY IDENTITY,
     nombre_usuario VARCHAR(100) UNIQUE,
+	nombre VARCHAR(100),
+	apellidos VARCHAR(100),
+	fecha_nacimiento DATE,
+	cedula INT,
     contraseña VARCHAR(255),
     id_rol INT,
     FOREIGN KEY (id_rol) REFERENCES Roles(ID)

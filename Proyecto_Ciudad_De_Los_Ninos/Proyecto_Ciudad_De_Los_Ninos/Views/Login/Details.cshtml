@@ -27,7 +27,6 @@
             padding: 20px;
         }
 
-
     </style>
 </head>
 <body>
@@ -36,7 +35,7 @@
 
     <!-- Contenido principal -->
     <div class="container mt-5">
-        <h4>Usuario Detalles</h4>
+        <h4>Usuario</h4>
         <hr />
         <div class="card">
             <div class="card-body">
@@ -65,11 +64,10 @@
 
 
 
-            <div class="card-footer">
-                <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-primary">Edit</a>
-                <a asp-action="Index" class="btn btn-secondary">Back to List</a>
-            </div>
+        <div class="card-footer">
+            <a asp-controller="Home" asp-action="Index" class="btn btn-secondary">Atrás</a>
         </div>
+    </div>
     </div>
 
     <!-- Footer -->
