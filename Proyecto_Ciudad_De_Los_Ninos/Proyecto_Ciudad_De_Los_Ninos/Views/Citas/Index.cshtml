@@ -1,0 +1,107 @@
+﻿@model IEnumerable<API_Ciudad_De_Los_Ninos.Models.Citas>
+
+@{
+    ViewData["Title"] = "Citas Programadas";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+    @Html.Partial("_header")
+
+    <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+        <style>
+            /* Estilos CSS para la página */
+            .form-container {
+                width: 50%;
+                margin: 50px auto;
+                padding: 20px;
+                border: 1px solid #ddd;
+                border-radius: 8px;
+                background-color: #f9f9f9;
+            }
+
+            .form-group {
+                margin-bottom: 20px;
+            }
+
+                .form-group label {
+                    display: block;
+                    font-weight: bold;
+                }
+
+                .form-group input[type="text"],
+                .form-group input[type="number"],
+                .form-group input[type="date"] {
+                    width: calc(100% - 10px);
+                    padding: 8px;
+                    border: 1px solid #ccc;
+                    border-radius: 4px;
+                }
+
+                .form-group button {
+                    padding: 10px 20px;
+                    background-color: #E6282A;
+                    color: white;
+                    border: none;
+                    border-radius: 4px;
+                    cursor: pointer;
+                }
+
+                    .form-group button:hover {
+                        background-color: #b21d20;
+                    }
+
+            .delete-message {
+                color: #E6282A;
+                font-weight: bold;
+                margin-top: 10px;
+                display: none;
+            }
+        </style>
+
+    <div class="table-container">
+        <p>
+            <a href="@Url.Action("Create")">Create New</a>
+        </p>
+        <  <table class="table table-striped table-hover">
+            <thead class="thead-dark">
+                <tr>
+                    <th>ID Usuario</th>
+                    <th>ID Joven</th>
+                    <th>Fecha</th>
+                    <th>Tipo Usuario</th>
+                    <th>Detalles</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@Html.DisplayFor(modelItem => item.id_usuario)</td>
+                        <td>@Html.DisplayFor(modelItem => item.id_joven)</td>
+                        <td>@Html.DisplayFor(modelItem => item.fecha)</td>
+                        <td>@Html.DisplayFor(modelItem => item.tipo_usuario)</td>
+                        <td>@Html.DisplayFor(modelItem => item.detalles)</td>
+                        <td>
+                            <a href="@Url.Action("Edit", new { id = item.Id })">Edit</a> |
+                            <a href="@Url.Action("Details", new { id = item.Id })">Details</a> |
+                            <a href="@Url.Action("Delete", new { id = item.Id })" onclick="return confirm('Are you sure you want to delete this item?');">Delete</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+    @Html.Partial("_footer")
+    <script src="js/jquery-1.11.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+    <script type="text/javascript" src="~/js/bootstrap.bundle.min.js"></script>
+    <script type="text/javascript" src="~/js/plugins.js"></script>
+    <script type="text/javascript" src="~/js/script.js"></script>
+</body>
+</html>

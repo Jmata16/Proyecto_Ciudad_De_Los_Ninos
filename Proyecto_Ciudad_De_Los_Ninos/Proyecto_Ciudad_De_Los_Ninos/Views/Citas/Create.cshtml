@@ -1,0 +1,175 @@
+﻿@model API_Ciudad_De_Los_Ninos.Models.Citas
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Programar Nueva Cita</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        /* Estilos CSS para la página */
+        .form-container {
+            width: 50%;
+            margin: 50px auto;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            background-color: #f9f9f9;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+            .form-group label {
+                display: block;
+                font-weight: bold;
+            }
+
+            .form-group input[type="text"],
+            .form-group input[type="number"],
+            .form-group input[type="date"],
+            .form-group select {
+                width: calc(100% - 10px);
+                padding: 8px;
+                border: 1px solid #ccc;
+                border-radius: 4px;
+            }
+
+            .form-group button[type="submit"] {
+                padding: 10px 20px;
+                background-color: #E6282A;
+                color: white;
+                border: none;
+                border-radius: 4px;
+                cursor: pointer;
+            }
+
+                .form-group button[type="submit"]:hover {
+                    background-color: #b21d20;
+                }
+
+        .text-danger {
+            color: #dc3545;
+        }
+    </style>
+</head>
+<body>
+    @Html.Partial("_header")
+
+    <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+        <style>
+            /* Estilos CSS para la página */
+            .form-container {
+                width: 50%;
+                margin: 50px auto;
+                padding: 20px;
+                border: 1px solid #ddd;
+                border-radius: 8px;
+                background-color: #f9f9f9;
+            }
+
+            .form-group {
+                margin-bottom: 20px;
+            }
+
+                .form-group label {
+                    display: block;
+                    font-weight: bold;
+                }
+
+                .form-group input[type="text"],
+                .form-group input[type="number"],
+                .form-group input[type="date"] {
+                    width: calc(100% - 10px);
+                    padding: 8px;
+                    border: 1px solid #ccc;
+                    border-radius: 4px;
+                }
+
+                .form-group button {
+                    padding: 10px 20px;
+                    background-color: #E6282A;
+                    color: white;
+                    border: none;
+                    border-radius: 4px;
+                    cursor: pointer;
+                }
+
+                    .form-group button:hover {
+                        background-color: #b21d20;
+                    }
+
+            .delete-message {
+                color: #E6282A;
+                font-weight: bold;
+                margin-top: 10px;
+                display: none;
+            }
+        </style>
+
+    <h2>Programar Nueva Cita</h2>
+
+    <div class="form-container">
+        <form asp-action="Create">
+            
+            <div asp-validation-summary="All" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="id_usuario" class="control-label">ID del Usuario:</label>
+                <input asp-for="id_usuario" class="form-control" />
+                <span asp-validation-for="id_usuario" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="id_joven" class="control-label">ID del Joven:</label>
+                <input asp-for="id_joven" class="form-control" />
+                <span asp-validation-for="id_joven" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="fecha" class="control-label">Fecha de la Cita:</label>
+                <input asp-for="fecha" class="form-control" type="datetime-local" />
+                <span asp-validation-for="fecha" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="tipo_usuario" class="control-label">Tipo de Usuario:</label>
+                <select asp-for="tipo_usuario" class="form-control">
+                    <option value="psicólogo">Psicólogo</option>
+                    <option value="trabajador_social">Trabajador Social</option>
+                </select>
+                <span asp-validation-for="tipo_usuario" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="detalles" class="control-label">Detalles:</label>
+                <textarea asp-for="detalles" class="form-control" rows="4"></textarea>
+                <span asp-validation-for="detalles" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary">Programar Cita</button>
+            </div>
+        </form>
+    </div>
+
+    <div>
+        <a asp-action="Index">Back to List</a>
+    </div>
+        
+        <!-- <div asp-validation-summary="All" class="text-danger"></div> -->
+
+    @section Scripts {
+        @{
+            await Html.RenderPartialAsync("_ValidationScriptsPartial");
+        }
+    }
+
+        @Html.Partial("_footer")
+        <script src="js/jquery-1.11.0.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+        <script type="text/javascript" src="~/js/bootstrap.bundle.min.js"></script>
+        <script type="text/javascript" src="~/js/plugins.js"></script>
+        <script type="text/javascript" src="~/js/script.js"></script>
+</body>
+</html>

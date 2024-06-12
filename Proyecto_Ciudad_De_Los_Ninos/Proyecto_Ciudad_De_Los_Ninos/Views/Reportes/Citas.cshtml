@@ -1,6 +1,8 @@
-﻿@{
-    ViewData["Title"] = "Citas";
+﻿@model API_Ciudad_De_Los_Ninos.Models.Citas
+@{
+    ViewData["Title"] = "Programar Nueva Cita";
 }
+
 
 <!DOCTYPE html>
 <html>
@@ -60,39 +62,44 @@
             }
         </style>
 
+
+        <h2>Programar Nueva Cita</h2>
+
         <div class="form-container">
-            <h2>Programar Nueva Cita</h2>
-            <form action="/home/Guardar" method="post">
-            <div class="form-group">
-                <label for="id_usuario">ID del Usuario:</label>
-                <input type="text" id="id_usuario" name="id_usuario" required>
-            </div>
-            <div class="form-group">
-                <label for="id_joven">ID del Joven:</label>
-                <input type="text" id="id_joven" name="id_joven" required>
-            </div>
-            <div class="form-group">
-                <label for="fecha">Fecha de la Cita:</label>
-                <input type="datetime-local" id="fecha" name="fecha" required>
-            </div>
-            <div class="form-group">
-                <label for="tipo_usuario">Tipo de Usuario:</label>
-                <select id="tipo_usuario" name="tipo_usuario" required>
-                    <option value="psicólogo">Psicólogo</option>
-                    <option value="trabajador_social">Trabajador Social</option>
-                </select>
-            </div>
-            <div class="form-group">
-                <label for="detalles">Detalles:</label>
-                <textarea id="detalles" name="detalles" rows="4" required></textarea>
-            </div>
-            <div class="form-group">
-                    <button type="submit" class="button" style="display: block; margin: auto;">Programar Cita</button>
-            </div>
+            <form asp-action="Create">
+                <div class="form-group">
+                    <label for="id_usuario">ID del Usuario:</label>
+                    <input asp-for="id_usuario" class="form-control" />
+                    <span asp-validation-for="id_usuario" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label for="id_joven">ID del Joven:</label>
+                    <input asp-for="id_joven" class="form-control" />
+                    <span asp-validation-for="id_joven" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label for="fecha">Fecha de la Cita:</label>
+                    <input asp-for="fecha" class="form-control" type="datetime-local" />
+                    <span asp-validation-for="fecha" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label for="tipo_usuario">Tipo de Usuario:</label>
+                    <select asp-for="tipo_usuario" class="form-control">
+                        <option value="psicólogo">Psicólogo</option>
+                        <option value="trabajador_social">Trabajador Social</option>
+                    </select>
+                    <span asp-validation-for="tipo_usuario" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label for="detalles">Detalles:</label>
+                    <textarea asp-for="detalles" class="form-control" rows="4"></textarea>
+                    <span asp-validation-for="detalles" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary">Programar Cita</button>
+                </div>
             </form>
         </div>
-
-
 
         @Html.Partial("_footer")
         <script src="js/jquery-1.11.0.min.js"></script>
