@@ -26,6 +26,23 @@ namespace Proyecto_Ciudad_De_Los_Ninos.Models
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
+            // Configuración adicional de los modelos
+            modelBuilder.Entity<Citas>(entity =>
+            {
+                entity.Property(e => e.id_usuario).HasColumnName("id_usuario");
+                entity.Property(e => e.id_joven).HasColumnName("id_joven");
+                entity.Property(e => e.fecha).HasColumnName("fecha");
+                entity.Property(e => e.tipo_usuario).HasColumnName("tipo_usuario");
+                entity.Property(e => e.detalles).HasColumnName("detalles");
+
+                entity.HasOne(d => d.Usuario)
+                    .WithMany(p => p.Citas)
+                    .HasForeignKey(d => d.id_usuario);
+
+                entity.HasOne(d => d.Joven)
+                    .WithMany(p => p.Citas)
+                    .HasForeignKey(d => d.id_joven);
+            });
 
             // Configuración adicional de los modelos
             modelBuilder.Entity<Roles>().HasIndex(r => r.nombre_rol)
@@ -33,7 +50,12 @@ namespace Proyecto_Ciudad_De_Los_Ninos.Models
 
             modelBuilder.Entity<User>()
                        .HasIndex(u => u.nombre_usuario).IsUnique();
+
+
+
         }
+
+
 
 
 
