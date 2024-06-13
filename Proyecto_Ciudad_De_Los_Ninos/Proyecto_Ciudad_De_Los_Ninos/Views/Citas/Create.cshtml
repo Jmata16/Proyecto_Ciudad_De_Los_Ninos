@@ -113,57 +113,54 @@
             }
         </style>
 
-    <h2>Programar Nueva Cita</h2>
+        <h2>Programar Nueva Cita</h2>
 
-    <div class="form-container">
-        <form asp-action="Create">
-            
-            <div asp-validation-summary="All" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="id_usuario" class="control-label">ID del Usuario:</label>
-                <input asp-for="id_usuario" class="form-control" />
-                <span asp-validation-for="id_usuario" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="id_joven" class="control-label">ID del Joven:</label>
-                <input asp-for="id_joven" class="form-control" />
-                <span asp-validation-for="id_joven" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="fecha" class="control-label">Fecha de la Cita:</label>
-                <input asp-for="fecha" class="form-control" type="datetime-local" />
-                <span asp-validation-for="fecha" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="tipo_usuario" class="control-label">Tipo de Usuario:</label>
-                <select asp-for="tipo_usuario" class="form-control">
-                    <option value="psicólogo">Psicólogo</option>
-                    <option value="trabajador_social">Trabajador Social</option>
-                </select>
-                <span asp-validation-for="tipo_usuario" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="detalles" class="control-label">Detalles:</label>
-                <textarea asp-for="detalles" class="form-control" rows="4"></textarea>
-                <span asp-validation-for="detalles" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <button type="submit" class="btn btn-primary">Programar Cita</button>
-            </div>
-        </form>
-    </div>
+        <div class="form-container">
+            <form asp-action="Create">
+                <div asp-validation-summary="All" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="id_usuario" class="control-label">ID del Usuario:</label>
+                    <input asp-for="id_usuario" class="form-control" />
+                    <span asp-validation-for="id_usuario" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="id_joven" class="control-label">ID del Joven:</label>
+                    <input asp-for="id_joven" class="form-control" />
+                    <span asp-validation-for="id_joven" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="fecha" class="control-label">Fecha de la Cita:</label>
+                    <input asp-for="fecha" class="form-control" type="datetime-local" />
+                    <span asp-validation-for="fecha" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="tipo_usuario" class="control-label">Tipo de Usuario:</label>
+                    <select asp-for="tipo_usuario" class="form-control">
+                        <option value="psicólogo">Psicólogo</option>
+                        <option value="trabajador_social">Trabajador Social</option>
+                    </select>
+                    <span asp-validation-for="tipo_usuario" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="detalles" class="control-label">Detalles:</label>
+<textarea asp-for="detalles" class="form-control" rows="4"></textarea>
+                    <span asp-validation-for="detalles" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary">Programar Cita</button>
+                </div>
+            </form>
+        </div>
 
-    <div>
-        <a asp-action="Index">Back to List</a>
-    </div>
-        
+        <div>
+            <a asp-action="Index">Back to List</a>
+        </div>
         <!-- <div asp-validation-summary="All" class="text-danger"></div> -->
-
-    @section Scripts {
-        @{
-            await Html.RenderPartialAsync("_ValidationScriptsPartial");
+        @section Scripts {
+            @{
+                await Html.RenderPartialAsync("_ValidationScriptsPartial");
+            }
         }
-    }
 
         @Html.Partial("_footer")
         <script src="js/jquery-1.11.0.min.js"></script>
@@ -173,3 +170,4 @@
         <script type="text/javascript" src="~/js/script.js"></script>
 </body>
 </html>
+
