@@ -5,72 +5,122 @@
 }
 
 <!DOCTYPE html>
-
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>Edit</title>
+    <title>Editar Inventario</title>
+    <style>
+
+
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+            .form-group label {
+                font-size: 15px;
+                color: #333;
+            }
+
+            .form-group input {
+                width: 100%;
+                padding: 10px;
+                font-size: 15px;
+                border: 1px solid #ccc;
+                border-radius: 4px;
+            }
+
+            .form-group span {
+                color: red;
+                font-size: 12px;
+            }
+
+        .actions {
+            margin-top: 20px;
+        }
+
+        .create-button {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 1.2em;
+            color: white;
+            background-color: #007bff;
+            border: none;
+            border-radius: 5px;
+            text-align: center;
+            text-decoration: none;
+            cursor: pointer;
+            margin-right: 10px;
+        }
+
+            .create-button:hover {
+                background-color: #0056b3;
+            }
+
+        #footer {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
 </head>
 <body>
-
-
+    <!-- Contenido del encabezado -->
     @Html.Partial("_header")
-    <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
 
-
-
-
-<h4 style="color:red">Editar tu Inventario</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-
-            <form asp-action="Edit" style="font-size: 15px;color:blue;">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="Id" />
-            <div class="form-group">
-                <label asp-for="nombre_alimento" class="control-label"></label>
-                <input asp-for="nombre_alimento" class="form-control" />
-                <span asp-validation-for="nombre_alimento" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="cantidad_disponible" class="control-label"></label>
-                <input asp-for="cantidad_disponible" class="form-control" />
-                <span asp-validation-for="cantidad_disponible" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="fecha_ultima_reposicion" class="control-label"></label>
-                <input asp-for="fecha_ultima_reposicion" class="form-control" />
-                <span asp-validation-for="fecha_ultima_reposicion" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="proveedor" class="control-label"></label>
-                <input asp-for="proveedor" class="form-control" />
-                <span asp-validation-for="proveedor" class="text-danger"></span>
-            </div>
-            <br />
-            <div class="form-group">
+    <!-- Contenido principal -->
+    <div class="container">
+        <h4>Editar Inventario</h4>
+        <hr />
+        <div class="row">
+            <div class="col-md-8">
+                <form asp-action="Edit">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <input type="hidden" asp-for="Id" />
+                    <div class="form-group">
+                        <label asp-for="nombre_alimento" class="control-label"></label>
+                        <input asp-for="nombre_alimento" class="form-control" />
+                        <span asp-validation-for="nombre_alimento" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="cantidad_disponible" class="control-label"></label>
+                        <input asp-for="cantidad_disponible" class="form-control" />
+                        <span asp-validation-for="cantidad_disponible" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="fecha_ultima_reposicion" class="control-label"></label>
+                        <input asp-for="fecha_ultima_reposicion" class="form-control" />
+                        <span asp-validation-for="fecha_ultima_reposicion" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="proveedor" class="control-label"></label>
+                        <input asp-for="proveedor" class="form-control" />
+                        <span asp-validation-for="proveedor" class="text-danger"></span>
+                    </div>
+                    <div class="actions">
                         <input type="submit" value="Guardar Cambios" class="create-button" />
+                        <a asp-action="Index" class="create-button">Volver atrás</a>
+                    </div>
+                </form>
             </div>
-        </form>
+        </div>
     </div>
-</div>
 
-<div>
-            <a asp-action="Index" class="create-button">Volver a atrás</a>
-</div>
+    <!-- Footer -->
+   @Html.Partial("_footer")
 
-@section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-}
+    <!-- Scripts -->
+    <script src="js/jquery-1.11.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+    <script src="~/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/plugins.js"></script>
+    <script src="~/js/script.js"></script>
 
-
+    @section Scripts {
+        @{
+            await Html.RenderPartialAsync("_ValidationScriptsPartial");
+        }
+    }
 </body>
-
-@Html.Partial("_footer")
-<script src="js/jquery-1.11.0.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
-<script type="text/javascript" src="~/js/bootstrap.bundle.min.js"></script>
-<script type="text/javascript" src="~/js/plugins.js"></script>
-<script type="text/javascript" src="~/js/script.js"></script>
 </html>
+

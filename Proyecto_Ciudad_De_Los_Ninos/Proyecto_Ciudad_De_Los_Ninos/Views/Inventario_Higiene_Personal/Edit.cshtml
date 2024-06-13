@@ -5,70 +5,119 @@
 }
 
 <!DOCTYPE html>
-
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>Edit</title>
+    <title>Create</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+        }
+
+        .container {
+            width: 80%;
+            margin: 20px auto;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .control-label {
+            font-weight: bold;
+            color: #333;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .btn {
+            padding: 10px 20px;
+            font-size: 1.2em;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background-color: #007bff;
+        }
+
+            .btn-primary:hover {
+                background-color: #0056b3;
+            }
+
+        .btn-success {
+            background-color: #28a745;
+        }
+
+            .btn-success:hover {
+                background-color: #218838;
+            }
+
+        .text-danger {
+            color: red;
+        }
+    </style>
 </head>
 <body>
-
+    <!-- Contenido del encabezado -->
     @Html.Partial("_header")
-    <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
 
+    <!-- Contenido principal -->
+    <div class="container">
+        <h4 style="color:red;">Crear Nuevo Inventario de Higiene Personal</h4>
+        <hr />
 
-<h4 style="color:red"> Editar tu  Inventario de HigienePersonal</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-            <form asp-action="Edit" style="font-size: 15px;color:blue;">
+        <form asp-action="Create" method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="Id" />
+
             <div class="form-group">
-                <label asp-for="nombre_producto" class="control-label"></label>
+                <label asp-for="nombre_producto" class="control-label">Nombre del Producto</label>
                 <input asp-for="nombre_producto" class="form-control" />
                 <span asp-validation-for="nombre_producto" class="text-danger"></span>
             </div>
+
             <div class="form-group">
-                <label asp-for="cantidad_disponible" class="control-label"></label>
+                <label asp-for="cantidad_disponible" class="control-label">Cantidad Disponible</label>
                 <input asp-for="cantidad_disponible" class="form-control" />
                 <span asp-validation-for="cantidad_disponible" class="text-danger"></span>
             </div>
+
             <div class="form-group">
-                <label asp-for="fecha_ultima_reposicion" class="control-label"></label>
-                <input asp-for="fecha_ultima_reposicion" class="form-control" />
+                <label asp-for="fecha_ultima_reposicion" class="control-label">Fecha Última Reposición</label>
+                <input asp-for="fecha_ultima_reposicion" class="form-control" type="date" />
                 <span asp-validation-for="fecha_ultima_reposicion" class="text-danger"></span>
             </div>
+
             <div class="form-group">
-                <label asp-for="proveedor" class="control-label"></label>
+                <label asp-for="proveedor" class="control-label">Proveedor</label>
                 <input asp-for="proveedor" class="form-control" />
                 <span asp-validation-for="proveedor" class="text-danger"></span>
             </div>
-            <br />
-            <div class="form-group">
-                        <input type="submit" value="Guardar Cambios" class="create-button" />
-            </div>
+
+            <button type="submit" class="btn btn-primary">Crear Inventario</button>
+            <a asp-action="Index" class="btn btn-success">Volver a la Lista</a>
         </form>
     </div>
-</div>
 
-<div>
-            <a asp-action="Index" class="create-button">Volver a atrás</a>
-</div>
+    <!-- Footer -->
+    @Html.Partial("_footer")
 
-@section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-}
-
-
-
-
-
+    <!-- Scripts -->
+    <script src="js/jquery-1.11.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+    <script src="~/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/plugins.js"></script>
+    <script src="~/js/script.js"></script>
 </body>
-@Html.Partial("_footer")
-<script src="js/jquery-1.11.0.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
-<script type="text/javascript" src="~/js/bootstrap.bundle.min.js"></script>
-<script type="text/javascript" src="~/js/plugins.js"></script>
-<script type="text/javascript" src="~/js/script.js"></script>
 </html>

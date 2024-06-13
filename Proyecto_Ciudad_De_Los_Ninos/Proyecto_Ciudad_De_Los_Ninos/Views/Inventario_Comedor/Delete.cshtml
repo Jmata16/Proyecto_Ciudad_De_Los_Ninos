@@ -5,60 +5,128 @@
 }
 
 <!DOCTYPE html>
-
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>Delete</title>
+    <title>Eliminar Inventario</title>
+    <style>
+
+
+        h4 {
+            color: #333;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        .row {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .col-sm-2 {
+            flex: 0 0 20%;
+            max-width: 20%;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .col-sm-10 {
+            flex: 0 0 80%;
+            max-width: 80%;
+            color: #555;
+            margin-bottom: 15px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 1.2em;
+            border: none;
+            border-radius: 5px;
+            text-align: center;
+            text-decoration: none;
+            cursor: pointer;
+            margin-right: 10px;
+            margin-top: 20px;
+        }
+
+        .btn-danger {
+            background-color: #dc3545;
+            color: white;
+        }
+
+            .btn-danger:hover {
+                background-color: #c82333;
+            }
+
+        .btn-success {
+            background-color: #28a745;
+            color: white;
+        }
+
+            .btn-success:hover {
+                background-color: #218838;
+            }
+
+        #footer {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
 </head>
 <body>
-
+    <!-- Contenido del encabezado -->
     @Html.Partial("_header")
-    <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
 
+    <!-- Contenido principal -->
+    <div class="container">
+        <h4>Eliminación del Inventario</h4>
+        <hr />
+        <div class="row">
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.nombre_alimento)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.nombre_alimento)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.cantidad_disponible)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.cantidad_disponible)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.fecha_ultima_reposicion)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.fecha_ultima_reposicion)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.proveedor)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.proveedor)
+            </dd>
+        </div>
+        <form asp-action="Delete">
+            <input type="hidden" asp-for="Id" />
+            <input type="submit" value="Eliminar" class="btn btn-danger" />
+            <a asp-action="Index" class="btn btn-success">Volver atrás</a>
+        </form>
+    </div>
+    <br />
+    <br />
+    <br />
+    <br />
+    <!-- Footer -->
+    @Html.Partial("_footer")
 
-<div>
-     <h4 style="color:red">Eliminación del Inventario</h4>
-    <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.nombre_alimento)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.nombre_alimento)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.cantidad_disponible)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.cantidad_disponible)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.fecha_ultima_reposicion)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.fecha_ultima_reposicion)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.proveedor)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.proveedor)
-        </dd>
-    </dl>
-    
-    <form asp-action="Delete">
-        <input type="hidden" asp-for="Id" />
-        <input type="submit" value="Delete" class="btn btn-danger" />
-           <a asp-action="Index" type="submit" class="btn btn-success">Volver atrás</a>
-    </form>
-</div>
+    <!-- Scripts -->
+    <script src="js/jquery-1.11.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+    <script src="~/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/plugins.js"></script>
+    <script src="~/js/script.js"></script>
 </body>
-
-@Html.Partial("_footer")
-<script src="js/jquery-1.11.0.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
-<script type="text/javascript" src="~/js/bootstrap.bundle.min.js"></script>
-<script type="text/javascript" src="~/js/plugins.js"></script>
-<script type="text/javascript" src="~/js/script.js"></script>
 </html>

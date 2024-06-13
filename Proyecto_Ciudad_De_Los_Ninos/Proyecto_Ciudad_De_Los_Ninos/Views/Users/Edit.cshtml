@@ -100,38 +100,32 @@
                     <div class="form-group">
                         <label asp-for="nombre" class="control-label">Nombre</label>
                         <input asp-for="nombre" class="form-control" />
-                        <span asp-validation-for="nombre" class="text-danger"></span>
                     </div>
                     <div class="form-group">
                         <label asp-for="apellidos" class="control-label">Apellidos</label>
                         <input asp-for="apellidos" class="form-control" />
-                        <span asp-validation-for="apellidos" class="text-danger"></span>
                     </div>
                     <div class="form-group">
                         <label asp-for="fecha_nacimiento" class="control-label">Fecha de Nacimiento</label>
                         <input asp-for="fecha_nacimiento" type="date" class="form-control" max="@DateTime.Now.ToString("yyyy-MM-dd")" />
-                        <span asp-validation-for="fecha_nacimiento" class="text-danger"></span>
                     </div>
 
                     <div class="form-group">
                         <label asp-for="cedula" class="control-label">Cedula</label>
                         <input asp-for="cedula" class="form-control" />
-                        <span asp-validation-for="cedula" class="text-danger"></span>
+
                     </div>
                     <div class="form-group">
                         <label asp-for="nombre_usuario" class="control-label">Nombre de Usuario</label>
                         <input asp-for="nombre_usuario" class="form-control" />
-                        <span asp-validation-for="nombre_usuario" class="text-danger"></span>
                     </div>
                     <div class="form-group">
                         <label asp-for="contraseña" class="control-label">Contraseña</label>
                         <input asp-for="contraseña" class="form-control" />
-                        <span asp-validation-for="contraseña" class="text-danger"></span>
                     </div>
                     <div class="form-group">
                         <label asp-for="id_rol" class="control-label">Rol</label>
                         <select asp-for="id_rol" class="form-control" asp-items="ViewBag.Roles"></select>
-                        <span asp-validation-for="id_rol" class="text-danger"></span>
                     </div>
 
                     <div class="form-group">

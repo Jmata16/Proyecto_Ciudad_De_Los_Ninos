@@ -5,74 +5,134 @@
 }
 
 <!DOCTYPE html>
-
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>Create</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+        }
+
+        .container {
+            width: 80%;
+            margin: 20px auto;
+        }
+
+        h4 {
+            color: red;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        .row {
+            margin-bottom: 20px;
+        }
+
+        .col-md-4 {
+            padding: 0 15px;
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .control-label {
+            font-weight: bold;
+            color: #333;
+        }
+
+        .form-control {
+            font-size: 16px;
+            color: #555;
+            width: 100%;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        .text-danger {
+            color: red;
+        }
+
+        .create-button {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 1.2em;
+            color: white;
+            background-color: #007bff;
+            border: none;
+            border-radius: 5px;
+            text-align: center;
+            text-decoration: none;
+            cursor: pointer;
+            margin-right: 10px;
+        }
+
+            .create-button:hover {
+                background-color: #0056b3;
+            }
+    </style>
 </head>
 <body>
-
+    <!-- Contenido del encabezado -->
     @Html.Partial("_header")
-    <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
 
+    <!-- Contenido principal -->
+    <div class="container">
+        <h4>Bienvenido a la creación del Inventario de Higiene Personal</h4>
+        <hr />
 
-
-<h4 style="color:red">Bienvenido a la creación del Inventario Higiene Personal</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-
-                <form asp-action="Create" style="font-size: 15px;color:blue;">
-                    <div class="abs-center">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="nombre_producto" class="control-label"></label>
-                <input asp-for="nombre_producto" class="form-control" />
-                <span asp-validation-for="nombre_producto" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="cantidad_disponible" class="control-label"></label>
-                <input asp-for="cantidad_disponible" class="form-control" />
-                <span asp-validation-for="cantidad_disponible" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="fecha_ultima_reposicion" class="control-label"></label>
-                <input asp-for="fecha_ultima_reposicion" class="form-control" />
-                <span asp-validation-for="fecha_ultima_reposicion" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="proveedor" class="control-label"></label>
-                <input asp-for="proveedor" class="form-control" />
-                <span asp-validation-for="proveedor" class="text-danger"></span>
-            </div>
-            <br />
-            <div class="form-group">
-                            <input type="submit" value="Crear Inventario" class="create-button" />
-            </div>
+        <div class="row">
+            <div class="col-md-4">
+                <form asp-action="Create" style="font-size: 15px; color: blue;">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="form-group">
+                        <label asp-for="nombre_producto" class="control-label"></label>
+                        <input asp-for="nombre_producto" class="form-control" />
+                        <span asp-validation-for="nombre_producto" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="cantidad_disponible" class="control-label"></label>
+                        <input asp-for="cantidad_disponible" class="form-control" />
+                        <span asp-validation-for="cantidad_disponible" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="fecha_ultima_reposicion" class="control-label"></label>
+                        <input asp-for="fecha_ultima_reposicion" class="form-control" />
+                        <span asp-validation-for="fecha_ultima_reposicion" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="proveedor" class="control-label"></label>
+                        <input asp-for="proveedor" class="form-control" />
+                        <span asp-validation-for="proveedor" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" value="Crear Inventario" class="create-button" />
+                    </div>
+                </form>
+               
+                <div>
+                    <a asp-action="Index" class="create-button">Volver atrás</a>
                 </div>
-        </form>
-        
+            </div>
 
-    </div>
-</div>
-
-<div>
-            <a asp-action="Index" class="create-button">Volver a atrás</a>
-</div>
-
-@section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-}
-
-        @Html.Partial("_footer")
-        <script src="js/jquery-1.11.0.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
-        <script type="text/javascript" src="~/js/bootstrap.bundle.min.js"></script>
-        <script type="text/javascript" src="~/js/plugins.js"></script>
-        <script type="text/javascript" src="~/js/script.js"></script>
+            </div>
+        </div>
 
 
+    <!-- Footer -->
+    @Html.Partial("_footer")
 
+    <!-- Scripts -->
+    <script src="js/jquery-1.11.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+    <script src="~/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/plugins.js"></script>
+    <script src="~/js/script.js"></script>
 </body>
 </html>
