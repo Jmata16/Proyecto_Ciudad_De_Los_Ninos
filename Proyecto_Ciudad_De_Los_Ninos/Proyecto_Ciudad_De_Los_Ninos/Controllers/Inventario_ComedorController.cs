@@ -43,15 +43,12 @@ namespace Proyecto_Ciudad_De_Los_Ninos.Controllers
             return View(inventario_Comedor);
         }
 
-        // GET: Inventario_Comedor/Create
+    
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: Inventario_Comedor/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id,nombre_alimento,cantidad_disponible,fecha_ultima_reposicion,proveedor")] Inventario_Comedor inventario_Comedor)

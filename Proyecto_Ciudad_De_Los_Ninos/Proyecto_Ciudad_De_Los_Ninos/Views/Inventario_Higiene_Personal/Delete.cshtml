@@ -47,18 +47,19 @@
         </dd>
     </dl>
 
-            <form asp-action="Eliminar definitivamente el Inventario">
+            <form asp-action="Delete">
                 <input type="hidden" asp-for="Id" />
                 <input type="submit" value="Delete" class="btn btn-danger" />
                 <a asp-action="Index" type="submit" class="btn btn-success">Volver atrás</a>
             </form>
 </div>
-        @Html.Partial("_footer")
-        <script src="js/jquery-1.11.0.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
-        <script type="text/javascript" src="~/js/bootstrap.bundle.min.js"></script>
-        <script type="text/javascript" src="~/js/plugins.js"></script>
-        <script type="text/javascript" src="~/js/script.js"></script>
+ 
 
 </body>
+@Html.Partial("_footer")
+<script src="js/jquery-1.11.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+<script type="text/javascript" src="~/js/bootstrap.bundle.min.js"></script>
+<script type="text/javascript" src="~/js/plugins.js"></script>
+<script type="text/javascript" src="~/js/script.js"></script>
 </html>

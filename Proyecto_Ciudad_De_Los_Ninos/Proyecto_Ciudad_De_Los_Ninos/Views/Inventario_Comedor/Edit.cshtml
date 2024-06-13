@@ -24,6 +24,7 @@
 <hr />
 <div class="row">
     <div class="col-md-4">
+
             <form asp-action="Edit" style="font-size: 15px;color:blue;">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="Id" />
@@ -64,11 +65,12 @@
 }
 
 
-        @Html.Partial("_footer")
-        <script src="js/jquery-1.11.0.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
-        <script type="text/javascript" src="~/js/bootstrap.bundle.min.js"></script>
-        <script type="text/javascript" src="~/js/plugins.js"></script>
-        <script type="text/javascript" src="~/js/script.js"></script>
 </body>
+
+@Html.Partial("_footer")
+<script src="js/jquery-1.11.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+<script type="text/javascript" src="~/js/bootstrap.bundle.min.js"></script>
+<script type="text/javascript" src="~/js/plugins.js"></script>
+<script type="text/javascript" src="~/js/script.js"></script>
 </html>
