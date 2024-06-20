@@ -20,7 +20,7 @@ namespace Proyecto_Ciudad_De_Los_Ninos.Models
         [Required(ErrorMessage = "El campo Tickete es requerido")]
         public int tickete { get; set; }
 
-        public Inventario_Higiene_Personal inventario_Higiene_Personal { get; set; }
+        public Inventario_Higiene_Personal? inventario_Higiene_Personal { get; set; }
 
         public Jovenes? Joven { get; set; }
       
