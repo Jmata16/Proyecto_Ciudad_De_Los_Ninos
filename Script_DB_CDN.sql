@@ -130,3 +130,12 @@ CREATE TABLE Inventario_Higiene_Personal (
     fecha_ultima_reposicion DATE,
     proveedor VARCHAR(255)
 );
+
+CREATE TABLE Tickete (
+    ID INT PRIMARY KEY IDENTITY,
+	id_joven int,
+	id_inventario_higiene_personal int,
+	Tickete int,
+    FOREIGN KEY (id_inventario_higiene_personal) REFERENCES Inventario_Higiene_Personal(ID),
+    FOREIGN KEY (id_joven) REFERENCES Jovenes(ID)
+);
