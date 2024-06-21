@@ -8,64 +8,57 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>Create</title>
+    <title>Editar Inventario</title>
     <style>
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-        }
-
-        .container {
-            width: 80%;
-            margin: 20px auto;
-        }
 
         .form-group {
-            margin-bottom: 20px;
+            margin-bottom: 15px;
         }
 
-        .control-label {
-            font-weight: bold;
-            color: #333;
+            .form-group label {
+                font-size: 15px;
+                color: #333;
+            }
+
+            .form-group input {
+                width: 100%;
+                padding: 10px;
+                font-size: 15px;
+                border: 1px solid #ccc;
+                border-radius: 4px;
+            }
+
+            .form-group span {
+                color: red;
+                font-size: 12px;
+            }
+
+        .actions {
+            margin-top: 20px;
         }
 
-        .form-control {
-            width: 100%;
-            padding: 10px;
-            font-size: 16px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-        }
-
-        .btn {
+        .create-button {
+            display: inline-block;
             padding: 10px 20px;
             font-size: 1.2em;
             color: white;
+            background-color: #007bff;
             border: none;
             border-radius: 5px;
+            text-align: center;
+            text-decoration: none;
             cursor: pointer;
+            margin-right: 10px;
         }
 
-        .btn-primary {
-            background-color: #007bff;
-        }
-
-            .btn-primary:hover {
+            .create-button:hover {
                 background-color: #0056b3;
             }
 
-        .btn-success {
-            background-color: #28a745;
-        }
-
-            .btn-success:hover {
-                background-color: #218838;
-            }
-
-        .text-danger {
-            color: red;
+        #footer {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
         }
     </style>
 </head>
@@ -75,40 +68,44 @@
 
     <!-- Contenido principal -->
     <div class="container">
-        <h4 style="color:red;">Crear Nuevo Inventario de Higiene Personal</h4>
+        <h4>Editar Inventario</h4>
         <hr />
-
-        <form asp-action="Create" method="post">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-
-            <div class="form-group">
-                <label asp-for="nombre_producto" class="control-label">Nombre del Producto</label>
-                <input asp-for="nombre_producto" class="form-control" />
-                <span asp-validation-for="nombre_producto" class="text-danger"></span>
+        <div class="row">
+            <div class="col-md-8">
+                <form asp-action="Edit">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <input type="hidden" asp-for="Id" />
+                    <div class="form-group">
+                        <label asp-for="nombre_producto" class="control-label">Nombre del Producto</label>
+                        <input asp-for="nombre_producto" class="form-control" />
+                        <span asp-validation-for="nombre_producto" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="cantidad_disponible" class="control-label">Cantidad Disponible</label>
+                        <input asp-for="cantidad_disponible" class="form-control" />
+                        <span asp-validation-for="cantidad_disponible" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="fecha_ultima_reposicion" class="control-label">Fecha de la última reposición</label>
+                        <input asp-for="fecha_ultima_reposicion" class="form-control" />
+                        <span asp-validation-for="fecha_ultima_reposicion" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="proveedor" class="control-label">Proveedor</label>
+                        <input asp-for="proveedor" class="form-control" />
+                        <span asp-validation-for="proveedor" class="text-danger"></span>
+                    </div>
+                    <div class="actions">
+                        <input type="submit" value="Guardar Cambios" class="create-button" />
+                        <a asp-action="Index" class="create-button">Volver atrás</a>
+                    </div>
+                </form>
             </div>
-
-            <div class="form-group">
-                <label asp-for="cantidad_disponible" class="control-label">Cantidad Disponible</label>
-                <input asp-for="cantidad_disponible" class="form-control" />
-                <span asp-validation-for="cantidad_disponible" class="text-danger"></span>
-            </div>
-
-            <div class="form-group">
-                <label asp-for="fecha_ultima_reposicion" class="control-label">Fecha Última Reposición</label>
-                <input asp-for="fecha_ultima_reposicion" class="form-control" type="date" />
-                <span asp-validation-for="fecha_ultima_reposicion" class="text-danger"></span>
-            </div>
-
-            <div class="form-group">
-                <label asp-for="proveedor" class="control-label">Proveedor</label>
-                <input asp-for="proveedor" class="form-control" />
-                <span asp-validation-for="proveedor" class="text-danger"></span>
-            </div>
-
-            <button type="submit" class="btn btn-primary">Crear Inventario</button>
-            <a asp-action="Index" class="btn btn-success">Volver a la Lista</a>
-        </form>
+        </div>
     </div>
+
+
+
 
     <!-- Footer -->
     @Html.Partial("_footer")
