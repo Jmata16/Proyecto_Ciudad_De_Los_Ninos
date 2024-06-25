@@ -12,10 +12,6 @@ namespace Proyecto_Ciudad_De_Los_Ninos.Controllers
         {
             return View();
         }
-        public IActionResult PruebasDopaje()
-        {
-            return View();
-        }
         public IActionResult ReportesMedicos()
         {
             return View();
