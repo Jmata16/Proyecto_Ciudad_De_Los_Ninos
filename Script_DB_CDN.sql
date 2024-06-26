@@ -160,3 +160,16 @@ ALTER TABLE Inventario_Higiene_Personal
 ADD imagen VARBINARY(MAX) NULL,
     precio_unitario DECIMAL(10, 2) NULL;
 
+
+
+
+
+	-- Crear la tabla Capacitaciones
+CREATE TABLE Capacitaciones  (
+    ID INT PRIMARY KEY IDENTITY,
+    id_usuario INT,
+    nombre_capacitacion VARCHAR(255),
+	fecha DATE,
+    descripcion TEXT,
+    FOREIGN KEY (id_usuario) REFERENCES Users(ID)
+);
