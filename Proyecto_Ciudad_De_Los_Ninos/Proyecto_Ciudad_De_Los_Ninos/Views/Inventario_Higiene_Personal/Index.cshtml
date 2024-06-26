@@ -37,7 +37,7 @@
         }
 
         .actions a {
-            margin-right: 10px;      
+            margin-right: 10px;
             text-decoration: none;
             transition: color 0.3s ease;
         }
@@ -79,13 +79,15 @@
         <p>
             <a asp-action="Create" class="create-button">Crear Uno</a>
         </p>
-        <table >
+        <table>
             <thead>
                 <tr>
                     <th>Nombre del producto</th>
                     <th>Cantidad disponible</th>
                     <th>Fecha de la última reposición</th>
                     <th>Proveedor</th>
+                    <th>Imágen</th>
+                    <th>Precio Unitario</th>
                     <th>Acciones</th>
                 </tr>
             </thead>
@@ -97,6 +99,12 @@
                         <td>@Html.DisplayFor(modelItem => item.cantidad_disponible)</td>
                         <td>@Html.DisplayFor(modelItem => item.fecha_ultima_reposicion)</td>
                         <td>@Html.DisplayFor(modelItem => item.proveedor)</td>
+                        <td>
+                            <img src="@Url.Action("GetImage", new{id= item.Id})" width="100" height="100" alt="@item.nombre_producto" class="img-fluid" />
+
+                        </td>
+                        <td>@Html.DisplayFor(modelItem => item.precio_unitario)</td>
+
                         <td class="actions">
                             <a asp-action="Edit" asp-route-id="@item.Id" class="text-info">Editar</a>
                             <a asp-action="Details" asp-route-id="@item.Id" class="text-success">Detalles</a>

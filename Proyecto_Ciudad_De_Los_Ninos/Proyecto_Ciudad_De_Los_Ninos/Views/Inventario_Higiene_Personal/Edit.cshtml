@@ -72,7 +72,7 @@
         <hr />
         <div class="row">
             <div class="col-md-8">
-                <form asp-action="Edit">
+                <form asp-action="Edit" method="post" enctype="multipart/form-data">
                     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                     <input type="hidden" asp-for="Id" />
                     <div class="form-group">
@@ -94,6 +94,17 @@
                         <label asp-for="proveedor" class="control-label">Proveedor</label>
                         <input asp-for="proveedor" class="form-control" />
                         <span asp-validation-for="proveedor" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="imagen" class="control-label"></label>
+                        <input asp-for="imagen" type="file" class="form-control" />
+                        <span asp-validation-for="imagen" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="precio_unitario" class="control-label"></label>
+                        <input asp-for="precio_unitario" class="form-control" />
+                        <span asp-validation-for="precio_unitario" class="text-danger"></span>
                     </div>
                     <div class="actions">
                         <input type="submit" value="Guardar Cambios" class="create-button" />
