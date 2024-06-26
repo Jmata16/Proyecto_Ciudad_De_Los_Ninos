@@ -51,7 +51,7 @@ CREATE TABLE Users (
 	apellidos VARCHAR(100),
 	fecha_nacimiento DATE,
 	cedula INT,
-    contraseña VARCHAR(255),
+    contraseÃ±a VARCHAR(255),
     id_rol INT,
     FOREIGN KEY (id_rol) REFERENCES Roles(ID)
 );
@@ -139,3 +139,24 @@ CREATE TABLE Tickete (
     FOREIGN KEY (id_inventario_higiene_personal) REFERENCES Inventario_Higiene_Personal(ID),
     FOREIGN KEY (id_joven) REFERENCES Jovenes(ID)
 );
+
+
+
+
+
+
+
+
+
+
+
+
+--Alter de Inventario Comedor y Higiene Personal
+
+ALTER TABLE Inventario_Comedor
+ADD imagen VARBINARY(MAX) NULL;
+
+ALTER TABLE Inventario_Higiene_Personal
+ADD imagen VARBINARY(MAX) NULL,
+    precio_unitario DECIMAL(10, 2) NULL;
+
