@@ -97,6 +97,12 @@
                         <input asp-for="proveedor" class="form-control" />
                         <span asp-validation-for="proveedor" class="text-danger"></span>
                     </div>
+                    <div class="form-group">
+                        <label asp-for="imagen" class="control-label"></label>
+                        <input asp-for="imagen" class="form-control" />
+                        <span asp-validation-for="imagen" class="text-danger"></span>
+                    </div>
+
                     <div class="actions">
                         <input type="submit" value="Guardar Cambios" class="create-button" />
                         <a asp-action="Index" class="create-button">Volver atrás</a>
@@ -107,7 +113,7 @@
     </div>
 
     <!-- Footer -->
-   @Html.Partial("_footer")
+    @Html.Partial("_footer")
 
     <!-- Scripts -->
     <script src="js/jquery-1.11.0.min.js"></script>

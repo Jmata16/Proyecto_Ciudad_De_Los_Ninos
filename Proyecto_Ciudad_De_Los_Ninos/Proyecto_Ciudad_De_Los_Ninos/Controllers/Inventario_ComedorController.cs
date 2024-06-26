@@ -25,7 +25,90 @@ namespace Proyecto_Ciudad_De_Los_Ninos.Controllers
             return View(await _context.Inventario_Comedor.ToListAsync());
         }
 
-        // GET: Inventario_Comedor/Details/5
+
+        public IActionResult Create()
+        {
+            return View();
+        }
+
+ 
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Create([Bind("Id,nombre_alimento,cantidad_disponible,fecha_ultima_reposicion,proveedor,imagen")] Inventario_Comedor inventario_Comedor,IFormFile imagen)
+        {
+            if (ModelState.IsValid)
+            {
+
+                using(var memoryStream = new MemoryStream()) 
+                {
+
+                    imagen.CopyTo(memoryStream);
+                    inventario_Comedor.imagen = memoryStream.ToArray();
+                }
+
+
+
+
+                _context.Add(inventario_Comedor);
+                await _context.SaveChangesAsync();
+                return RedirectToAction(nameof(Index));
+            }
+            return View(inventario_Comedor);
+        }
+
+       
+        public async Task<IActionResult> Edit(int? id)
+        {
+
+
+                if (id == null)
+            {
+                return NotFound();
+            }
+
+            var inventario_Comedor = await _context.Inventario_Comedor.FindAsync(id);
+            if (inventario_Comedor == null)
+            {
+                return NotFound();
+            }
+            return View(inventario_Comedor);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Edit(int id, [Bind("Id,nombre_alimento,cantidad_disponible,fecha_ultima_reposicion,proveedor,imagen")] Inventario_Comedor inventario_Comedor)
+        {
+           
+
+                if (id != inventario_Comedor.Id)
+                {
+                    return NotFound();
+                }        
+
+                if (ModelState.IsValid)
+                {              
+                    try
+                    {
+                        _context.Update(inventario_Comedor);
+                        await _context.SaveChangesAsync();
+                    }
+                    catch (DbUpdateConcurrencyException)
+                    {
+                        if (!Inventario_ComedorExists(inventario_Comedor.Id))
+                        {
+                            return NotFound();
+                        }
+                        else
+                        {
+                            throw;
+                        }
+                    }
+                    return RedirectToAction(nameof(Index));
+                }
+                return View(inventario_Comedor);
+            }
+        
+
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -43,77 +126,6 @@ namespace Proyecto_Ciudad_De_Los_Ninos.Controllers
             return View(inventario_Comedor);
         }
 
-    
-        public IActionResult Create()
-        {
-            return View();
-        }
-
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,nombre_alimento,cantidad_disponible,fecha_ultima_reposicion,proveedor")] Inventario_Comedor inventario_Comedor)
-        {
-            if (ModelState.IsValid)
-            {
-                _context.Add(inventario_Comedor);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
-            }
-            return View(inventario_Comedor);
-        }
-
-        // GET: Inventario_Comedor/Edit/5
-        public async Task<IActionResult> Edit(int? id)
-        {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            var inventario_Comedor = await _context.Inventario_Comedor.FindAsync(id);
-            if (inventario_Comedor == null)
-            {
-                return NotFound();
-            }
-            return View(inventario_Comedor);
-        }
-
-        // POST: Inventario_Comedor/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,nombre_alimento,cantidad_disponible,fecha_ultima_reposicion,proveedor")] Inventario_Comedor inventario_Comedor)
-        {
-            if (id != inventario_Comedor.Id)
-            {
-                return NotFound();
-            }
-
-            if (ModelState.IsValid)
-            {
-                try
-                {
-                    _context.Update(inventario_Comedor);
-                    await _context.SaveChangesAsync();
-                }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!Inventario_ComedorExists(inventario_Comedor.Id))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
-                }
-                return RedirectToAction(nameof(Index));
-            }
-            return View(inventario_Comedor);
-        }
-
-        // GET: Inventario_Comedor/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -131,7 +143,6 @@ namespace Proyecto_Ciudad_De_Los_Ninos.Controllers
             return View(inventario_Comedor);
         }
 
-        // POST: Inventario_Comedor/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
@@ -150,5 +161,32 @@ namespace Proyecto_Ciudad_De_Los_Ninos.Controllers
         {
             return _context.Inventario_Comedor.Any(e => e.Id == id);
         }
+
+
+     //Parte nueva de la Imagen
+
+
+
+        public async Task<IActionResult>GetImage(int id){
+
+            var inventario_Comedor = await _context.Inventario_Comedor.FirstOrDefaultAsync(i => i.Id == id);
+
+            if (inventario_Comedor == null)
+            {
+                return NotFound();
+            }
+
+            return File(inventario_Comedor.imagen,"image/png");
+
+        }
+
+
+
+
+         
+
+
+
+
     }
 }
