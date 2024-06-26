@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using API_Ciudad_De_Los_Ninos.Models;
 using Proyecto_Ciudad_De_Los_Ninos.Models;
-using System.Security.Policy;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace Proyecto_Ciudad_De_Los_Ninos.Controllers
 {
@@ -22,40 +22,58 @@ namespace Proyecto_Ciudad_De_Los_Ninos.Controllers
         // GET: CitasController
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Citas.ToListAsync());
+            var citas = await _context.Citas
+                .Include(c => c.Usuario)
+                .Include(c => c.Joven)
+                .ToListAsync();
+
+            return View(citas);
         }
+
 
         // GET: CitasController/Details/5
         public async Task<IActionResult> Details(int id)
         {
-            var cita = await _context.Citas.FindAsync(id);
+            var cita = await _context.Citas
+                .Include(c => c.Usuario)
+                .Include(c => c.Joven)
+                .FirstOrDefaultAsync(m => m.Id == id);
+
             if (cita == null)
             {
                 return NotFound();
             }
+
             return View(cita);
         }
-
-        // GET: CitasController/Create
-        public IActionResult Create()
+        // GET: Citas/Create
+        public async Task<IActionResult> Create()
         {
+
+            ViewData["Users"] = new SelectList(_context.Users, "Id", "nombre_usuario");
+            ViewData["Jovenes"] = new SelectList(_context.Jovenes, "Id", "nombre");
+
             return View();
         }
 
-        // POST: CitasController/Create
+
+
+        // POST: Citas/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create(Citas cita)
+        public async Task<IActionResult> Create([Bind("Id,id_usuario,id_joven,fecha,tipo_usuario,detalles")]Citas cita)
         {
             if (ModelState.IsValid)
             {
-                // Check for duplicate appointment for the same user or young person at the same time
+                // Verificar si ya existe una cita para el usuario o joven en la misma fecha y hora
                 var existingCita = await _context.Citas
                     .FirstOrDefaultAsync(c => (c.id_usuario == cita.id_usuario || c.id_joven == cita.id_joven) && c.fecha == cita.fecha);
 
                 if (existingCita != null)
                 {
                     ModelState.AddModelError("", "Ya existe una cita programada para esta fecha y hora para este usuario o joven.");
+                    ViewData["Users"] = new SelectList(_context.Users, "Id", "nombre_usuario", cita.id_usuario);
+                    ViewData["Jovenes"] = new SelectList(_context.Jovenes, "Id", "nombre", cita.id_joven);
                     return View(cita);
                 }
 
@@ -63,6 +81,10 @@ namespace Proyecto_Ciudad_De_Los_Ninos.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
+
+            // Si el modelo no es válido, volver a cargar los SelectList
+            ViewData["Users"] = new SelectList(_context.Users, "Id", "nombre_usuario", cita.id_usuario);
+            ViewData["Jovenes"] = new SelectList(_context.Jovenes, "Id", "nombre", cita.id_joven);
             return View(cita);
         }
 
@@ -74,13 +96,15 @@ namespace Proyecto_Ciudad_De_Los_Ninos.Controllers
             {
                 return NotFound();
             }
+            ViewData["Users"] = new SelectList(_context.Users, "Id", "nombre_usuario", cita.id_usuario);
+            ViewData["Jovenes"] = new SelectList(_context.Jovenes, "Id", "nombre", cita.id_joven);
             return View(cita);
         }
 
         // POST: CitasController/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, Citas cita)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,id_usuario,id_joven,fecha,tipo_usuario,detalles")] Citas cita)
         {
             if (id != cita.Id)
             {
@@ -91,7 +115,6 @@ namespace Proyecto_Ciudad_De_Los_Ninos.Controllers
             {
                 try
                 {
-                    // Check for duplicate appointment on edit for the same user or young person at the same time
                     var existingCita = await _context.Citas
                         .FirstOrDefaultAsync(c => (c.id_usuario == cita.id_usuario || c.id_joven == cita.id_joven) && c.fecha == cita.fecha && c.Id != id);
 
@@ -117,13 +140,19 @@ namespace Proyecto_Ciudad_De_Los_Ninos.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
+            ViewData["Users"] = new SelectList(_context.Users, "ID", "nombre_usuario", cita.id_usuario);
+            ViewData["Jovenes"] = new SelectList(_context.Jovenes, "ID", "nombre", cita.id_joven);
             return View(cita);
         }
 
         // GET: CitasController/Delete/5
         public async Task<IActionResult> Delete(int id)
         {
-            var cita = await _context.Citas.FindAsync(id);
+            var cita = await _context.Citas
+               .Include(c => c.Usuario)
+               .Include(c => c.Joven)
+               .FirstOrDefaultAsync(m => m.Id == id);
+            cita = await _context.Citas.FindAsync(id);
             if (cita == null)
             {
                 return NotFound();
@@ -148,4 +177,3 @@ namespace Proyecto_Ciudad_De_Los_Ninos.Controllers
         }
     }
 }
-

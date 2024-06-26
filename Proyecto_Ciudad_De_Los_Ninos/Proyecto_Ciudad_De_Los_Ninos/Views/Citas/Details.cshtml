@@ -1,5 +1,10 @@
 ﻿@model API_Ciudad_De_Los_Ninos.Models.Citas
 
+@{
+    ViewData["Title"] = "Detalle de cita";
+}
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,7 +20,7 @@
             padding: 0;
         }
 
-        .container {
+        .container3 {
             max-width: 800px;
             margin: 50px auto;
             padding: 20px;
@@ -47,7 +52,7 @@
         footer {
             background-color: #f8f9fa;
             padding: 20px 0;
-            text-align: center;
+            
             position: absolute;
             bottom: 0;
             width: 100%;
@@ -63,85 +68,36 @@
     <!-- Header -->
     @Html.Partial("_header")
 
-    <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
-        <style>
-            /* Estilos CSS para la página */
-            .form-container {
-                width: 50%;
-                margin: 50px auto;
-                padding: 20px;
-                border: 1px solid #ddd;
-                border-radius: 8px;
-                background-color: #f9f9f9;
-            }
+    <div class="container3">
+        <h4>Detalles de la Cita</h4>
+        <hr />
+        <dl class="row">
+            <dt class="col-sm-2">Fecha:</dt>
+            <dd class="col-sm-10">@Html.DisplayFor(model => model.fecha)</dd>
+            <dt class="col-sm-2">Tipo de Usuario:</dt>
+            <dd class="col-sm-10">@Html.DisplayFor(model => model.tipo_usuario)</dd>
+            <dt class="col-sm-2">Detalles:</dt>
+            <dd class="col-sm-10">@Html.DisplayFor(model => model.detalles)</dd>
+            <dt class="col-sm-2">Usuario:</dt>
+            <dd class="col-sm-10">@Html.DisplayFor(model => model.Usuario.nombre_usuario)</dd>
+            <dt class="col-sm-2">Joven:</dt>
+            <dd class="col-sm-10">@Html.DisplayFor(model => model.Joven.nombre)</dd>
+        </dl>
+    
+    <br/>
+    
+        <a asp-action="Edit" asp-route-id="@Model?.Id" class="btn btn-primary">Editar</a>|
+        <a asp-action="Index">Regresar al Listado</a>
+    </div>
 
-            .form-group {
-                margin-bottom: 20px;
-            }
-
-                .form-group label {
-                    display: block;
-                    font-weight: bold;
-                }
-
-                .form-group input[type="text"],
-                .form-group input[type="number"],
-                .form-group input[type="date"] {
-                    width: calc(100% - 10px);
-                    padding: 8px;
-                    border: 1px solid #ccc;
-                    border-radius: 4px;
-                }
-
-                .form-group button {
-                    padding: 10px 20px;
-                    background-color: #E6282A;
-                    color: white;
-                    border: none;
-                    border-radius: 4px;
-                    cursor: pointer;
-                }
-
-                    .form-group button:hover {
-                        background-color: #b21d20;
-                    }
-
-            .delete-message {
-                color: #E6282A;
-                font-weight: bold;
-                margin-top: 10px;
-                display: none;
-            }
-        </style>
-        <div class="container">
-            <h4>Detalles de la Cita</h4>
-            <hr />
-            <dl class="row">
-                <dt class="col-sm-2">Fecha:</dt>
-                <dd class="col-sm-10">@Html.DisplayFor(model => model.fecha)</dd>
-                <dt class="col-sm-2">Tipo de Usuario:</dt>
-                <dd class="col-sm-10">@Html.DisplayFor(model => model.tipo_usuario)</dd>
-                <dt class="col-sm-2">Detalles:</dt>
-                <dd class="col-sm-10">@Html.DisplayFor(model => model.detalles)</dd>
-                <dt class="col-sm-2">ID del Usuario:</dt>
-                <dd class="col-sm-10">@Html.DisplayFor(model => model.Usuario.Id)</dd>
-                <dt class="col-sm-2">ID del Joven:</dt>
-                <dd class="col-sm-10">@Html.DisplayFor(model => model.Joven.Id)</dd>
-            </dl>
-        </div>
-
-        <div class="container">
-            <a asp-action="Edit" asp-route-id="@Model?.Id" class="btn btn-primary">Editar</a>
-            <a asp-action="Index" class="back-link">Regresar al Listado</a>
-        </div>
-
-        <!-- Footer -->
-        <footer>
-        @Html.Partial("_footer")</footer>
-        <script src="js/jquery-1.11.0.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
-        <script type="text/javascript" src="~/js/bootstrap.bundle.min.js"></script>
-        <script type="text/javascript" src="~/js/plugins.js"></script>
-        <script type="text/javascript" src="~/js/script.js"></script>
+  
 </body>
+
+
+@Html.Partial("_footer")
+<script src="js/jquery-1.11.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+<script type="text/javascript" src="~/js/bootstrap.bundle.min.js"></script>
+<script type="text/javascript" src="~/js/plugins.js"></script>
+<script type="text/javascript" src="~/js/script.js"></script>
 </html>

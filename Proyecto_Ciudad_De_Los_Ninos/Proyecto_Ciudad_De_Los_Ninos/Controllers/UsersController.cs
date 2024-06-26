@@ -74,7 +74,7 @@ namespace Proyecto_Ciudad_De_Los_Ninos.Controllers
 
             var user = await _context.Users.FindAsync(id);
             if (user == null)
-            {
+            {  
                 return NotFound();
             }
             return View(user);

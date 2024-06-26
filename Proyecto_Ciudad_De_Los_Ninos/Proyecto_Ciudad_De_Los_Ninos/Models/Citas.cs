@@ -25,6 +25,7 @@ namespace API_Ciudad_De_Los_Ninos.Models
         [Required(ErrorMessage = "El campo Detalles es requerido")]
         public string detalles { get; set; }
 
+
         public User? Usuario { get; set; }
         public Jovenes? Joven { get; set; }
     }
