@@ -25,6 +25,12 @@ namespace Proyecto_Ciudad_De_Los_Ninos.Controllers
             return View(await _context.Inventario_Higiene_Personal.ToListAsync());
         }
 
+
+        public async Task<IActionResult> Tienda()
+        {
+            return View(await _context.Inventario_Higiene_Personal.ToListAsync());
+        }
+
         // GET: Inventario_Higiene_Personal/Create
         public IActionResult Create()
         {
