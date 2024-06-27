@@ -173,3 +173,16 @@ CREATE TABLE Capacitaciones  (
     descripcion TEXT,
     FOREIGN KEY (id_usuario) REFERENCES Users(ID)
 );
+
+-- Crear la tabla Asistencia
+CREATE TABLE Asistencia  (
+    ID INT PRIMARY KEY IDENTITY,
+    id_usuario INT,
+    estado VARCHAR(255),
+	fecha DATE,
+	horaRegistro DATETIME,
+	horaSalida DATETIME,
+    justificacion TEXT,
+    FOREIGN KEY (id_usuario) REFERENCES Users(ID)
+);
+

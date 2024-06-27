@@ -1,0 +1,73 @@
+﻿@model IEnumerable<Proyecto_Ciudad_De_Los_Ninos.Models.Asistencia>
+
+@{
+    ViewData["Title"] = "Lista de Asistencias";
+}
+
+<!-- Contenido del encabezado -->
+@Html.Partial("_header")
+
+<!-- Contenido principal -->
+<div class="container">
+    <h2>@ViewData["Title"]</h2>
+
+    <form asp-action="Index" method="get">
+        <div class="form-group">
+            <label for="fecha">Filtrar por Fecha:</label>
+            <input type="date" id="fecha" name="fecha" class="form-control" value="@ViewData["fecha"]" />
+        </div>
+        <br />
+        <button type="submit" class="btn btn-primary">Filtrar</button>
+        <a asp-action="Index" class="btn btn-secondary">Limpiar Filtro</a>
+    </form>
+    <br/> 
+    <br />
+    <p>
+        <a asp-action="Create" class="btn btn-primary">Crear Nueva Asistencia</a>
+    </p>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Estado</th>
+                <th>Fecha</th>
+                <th>Nombre Empleado</th>
+                <th>Hora de Registro</th>
+                <th>Hora de Salida</th>
+                <th>Justificación</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.ID</td>
+                    <td>@item.estado</td>
+                    <td>@item.fecha.ToShortDateString()</td>
+                    <td>@(item.User.nombre + " " + item.User.apellidos)</td>
+                    <td>@item.horaRegistro.ToString("hh:mm tt")</td>
+                    <td>@(item.horaSalida.HasValue ? item.horaSalida.Value.ToString("hh:mm tt") : "No registrada")</td>
+                    <td>@item.justificacion</td>
+                    <td>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@item.ID">Editar</a> |
+                        <a asp-action="Delete" asp-route-id="@item.ID">Eliminar</a> |
+                            @if (!item.horaSalida.HasValue)
+                            {
+                            <a asp-action="AgregarHoraSalida" asp-route-id="@item.ID" class="text-success">Agregar Hora de Salida</a>
+                            }
+                    </td>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+<br />
+<br />
+<!-- Footer -->
+<footer id="footer">
+    @Html.Partial("_footer")
+</footer>
