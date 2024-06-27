@@ -76,9 +76,7 @@ namespace Proyecto_Ciudad_De_Los_Ninos.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-
-
-        public async Task<IActionResult> Edit(int id, [Bind("Id,nombre_alimento,cantidad_disponible,fecha_ultima_reposicion,proveedor,imagen")] Inventario_Comedor inventario_Comedor, IFormFile imagen)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,nombre_alimento,cantidad_disponible,fecha_ultima_reposicion,proveedor,imagen")] Inventario_Comedor inventario_Comedor, IFormFile newImagen)
         {
             if (id != inventario_Comedor.Id)
             {
@@ -89,36 +87,37 @@ namespace Proyecto_Ciudad_De_Los_Ninos.Controllers
             {
                 try
                 {
-                    if (imagen != null && imagen.Length > 0)
+                    if (newImagen != null && newImagen.Length > 0)
                     {
                         // Verificar si la imagen es PNG o JPEG
                         var allowedExtensions = new[] { ".jpg", ".jpeg", ".png" };
-                        var extension = Path.GetExtension(imagen.FileName).ToLower();
+                        var extension = Path.GetExtension(newImagen.FileName).ToLower();
                         if (!allowedExtensions.Contains(extension))
                         {
-                            ModelState.AddModelError("imagen", "Solo se permiten archivos de imagen en formato PNG o JPEG.");
+                            ModelState.AddModelError("newImagen", "Solo se permiten archivos de imagen en formato PNG o JPEG.");
                             return View(inventario_Comedor);
                         }
 
                         using (var memoryStream = new MemoryStream())
                         {
-                            imagen.CopyTo(memoryStream);
+                            await newImagen.CopyToAsync(memoryStream);
                             inventario_Comedor.imagen = memoryStream.ToArray();
                         }
                     }
                     else
                     {
-                        // Si no se sube una nueva imagen, mantener la existente
-                        var existingInventario = await _context.Inventario_Comedor
-                            .AsNoTracking()
-                            .FirstOrDefaultAsync(i => i.Id == id);
-                        inventario_Comedor.imagen = existingInventario.imagen;
+                        // Si newImagen está vacío, asignar la imagen actual a newImagen
+                        if (newImagen == null)
+                        {
+                            newImagen = new FormFile(new MemoryStream(inventario_Comedor.imagen), 0, inventario_Comedor.imagen.Length, "imagen", "imagen.png");
+                        }
                     }
 
                     _context.Update(inventario_Comedor);
                     await _context.SaveChangesAsync();
+                    return RedirectToAction(nameof(Index));
                 }
-                catch (DbUpdateConcurrencyException)
+                catch (DbUpdateConcurrencyException ex)
                 {
                     if (!Inventario_ComedorExists(inventario_Comedor.Id))
                     {
@@ -126,34 +125,13 @@ namespace Proyecto_Ciudad_De_Los_Ninos.Controllers
                     }
                     else
                     {
-                        throw;
+                        ModelState.AddModelError(string.Empty, "La operación de actualización ha fallado debido a un problema de concurrencia.");
+                        return View(inventario_Comedor);
                     }
                 }
-                return RedirectToAction(nameof(Index));
             }
             return View(inventario_Comedor);
         }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
