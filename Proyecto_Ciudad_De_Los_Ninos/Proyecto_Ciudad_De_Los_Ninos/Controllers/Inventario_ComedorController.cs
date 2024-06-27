@@ -76,7 +76,7 @@ namespace Proyecto_Ciudad_De_Los_Ninos.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,nombre_alimento,cantidad_disponible,fecha_ultima_reposicion,proveedor,imagen")] Inventario_Comedor inventario_Comedor, IFormFile newImagen)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,nombre_alimento,cantidad_disponible,fecha_ultima_reposicion,proveedor,imagen")] Inventario_Comedor inventario_Comedor, IFormFile? newImagen)
         {
             if (id != inventario_Comedor.Id)
             {
