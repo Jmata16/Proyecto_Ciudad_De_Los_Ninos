@@ -185,4 +185,13 @@ CREATE TABLE Asistencia  (
     justificacion TEXT,
     FOREIGN KEY (id_usuario) REFERENCES Users(ID)
 );
-
+-- Crear la tabla vacaciones 
+CREATE TABLE Vacaciones  (
+    ID INT PRIMARY KEY IDENTITY,
+    id_usuario INT,
+    estado VARCHAR(255),
+	fechaInicio DATE,
+	fechaFinaliza DATE,
+    justificacion TEXT,
+    FOREIGN KEY (id_usuario) REFERENCES Users(ID)
+);

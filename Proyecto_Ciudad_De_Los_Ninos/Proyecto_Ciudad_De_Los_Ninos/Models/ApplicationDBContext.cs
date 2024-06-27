@@ -75,6 +75,7 @@ namespace Proyecto_Ciudad_De_Los_Ninos.Models
                        .HasIndex(u => u.nombre_usuario).IsUnique();
         }
         public DbSet<Proyecto_Ciudad_De_Los_Ninos.Models.Capacitaciones> Capacitaciones { get; set; } = default!;
+        public DbSet<Proyecto_Ciudad_De_Los_Ninos.Models.Vacaciones> Vacaciones { get; set; } = default!;
 
         //No tocar parte Roles
         //protected override void OnModelCreating(ModelBuilder modelBuilder)

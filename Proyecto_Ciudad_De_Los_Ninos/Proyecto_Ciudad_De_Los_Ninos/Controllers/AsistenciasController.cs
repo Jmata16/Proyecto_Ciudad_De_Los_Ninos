@@ -40,7 +40,7 @@ namespace Proyecto_Ciudad_De_Los_Ninos.Controllers
 
         public IActionResult Create()
         {
-            ViewData["id_usuario"] = new SelectList(_context.Users, "Id", "apellidos");
+            ViewData["id_usuario"] = new SelectList(_context.Users.Select(u => new { u.Id, FullName = u.nombre + " " + u.apellidos }), "Id", "FullName");
             return View(new Asistencia { fecha = DateTime.Today, horaRegistro = DateTime.Now });
         }
 
@@ -76,7 +76,11 @@ namespace Proyecto_Ciudad_De_Los_Ninos.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["id_usuario"] = new SelectList(_context.Users, "Id", "apellidos", asistencia.id_usuario);
+            var selectedUserId = asistencia.id_usuario;
+            ViewData["id_usuario"] = new SelectList(_context.Users.Select(u => new {
+                Id = u.Id,
+                FullName = u.nombre + " " + u.apellidos
+            }), "Id", "FullName", selectedUserId);
             return View(asistencia);
         }
 
@@ -97,7 +101,14 @@ namespace Proyecto_Ciudad_De_Los_Ninos.Controllers
                 return NotFound();
             }
 
-            ViewData["id_usuario"] = new SelectList(_context.Users, "Id", "apellidos", asistencia.id_usuario);
+            var selectedUserId = asistencia.id_usuario;
+
+           
+            ViewData["id_usuario"] = new SelectList(_context.Users.Select(u => new {
+                Id = u.Id,
+                FullName = u.nombre + " " + u.apellidos
+            }), "Id", "FullName", selectedUserId);
+
             return View(asistencia);
         }
 

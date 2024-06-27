@@ -52,9 +52,7 @@ namespace Proyecto_Ciudad_De_Los_Ninos.Controllers
         }
 
 
-        // POST: Capacitaciones/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id,id_usuario,nombre_capacitacion,fecha,descripcion")] Capacitaciones capacitaciones)
@@ -66,10 +64,10 @@ namespace Proyecto_Ciudad_De_Los_Ninos.Controllers
                 return RedirectToAction(nameof(Index));
             }
 
-            // Recuperar el usuario seleccionado para mantener la selección en caso de error
+
             var selectedUserId = capacitaciones.id_usuario;
 
-            // Construir el SelectList con nombres completos de usuarios
+
             ViewData["id_usuario"] = new SelectList(_context.Users.Select(u => new {
                 Id = u.Id,
                 FullName = u.nombre + " " + u.apellidos
