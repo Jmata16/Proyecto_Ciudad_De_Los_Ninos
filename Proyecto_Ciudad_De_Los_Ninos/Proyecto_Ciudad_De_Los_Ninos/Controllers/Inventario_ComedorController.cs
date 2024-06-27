@@ -76,77 +76,103 @@ namespace Proyecto_Ciudad_De_Los_Ninos.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-     public async Task<IActionResult> Edit(int id, [Bind("Id,nombre_alimento,cantidad_disponible,fecha_ultima_reposicion,proveedor,imagen")] Inventario_Comedor inventario_Comedor, IFormFile imagen)
-{
-    if (id != inventario_Comedor.Id)
-    {
-        return NotFound();
-    }
 
-    if (ModelState.IsValid)
-    {
-        try
+
+        public async Task<IActionResult> Edit(int id, [Bind("Id,nombre_alimento,cantidad_disponible,fecha_ultima_reposicion,proveedor,imagen")] Inventario_Comedor inventario_Comedor, IFormFile imagen)
         {
-            if (imagen != null && imagen.Length > 0)
+            if (id != inventario_Comedor.Id)
             {
-                // Verificar si la imagen es PNG o JPEG
-                var allowedExtensions = new[] { ".jpg", ".jpeg", ".png" };
-                var extension = Path.GetExtension(imagen.FileName).ToLower();
-                if (!allowedExtensions.Contains(extension))
+                return NotFound();
+            }
+
+            if (ModelState.IsValid)
+            {
+                try
                 {
-                    ModelState.AddModelError("imagen", "Solo se permiten archivos de imagen en formato PNG o JPEG.");
-                    return View(inventario_Comedor);
-                }
+                    if (imagen != null && imagen.Length > 0)
+                    {
+                        // Verificar si la imagen es PNG o JPEG
+                        var allowedExtensions = new[] { ".jpg", ".jpeg", ".png" };
+                        var extension = Path.GetExtension(imagen.FileName).ToLower();
+                        if (!allowedExtensions.Contains(extension))
+                        {
+                            ModelState.AddModelError("imagen", "Solo se permiten archivos de imagen en formato PNG o JPEG.");
+                            return View(inventario_Comedor);
+                        }
 
-                using (var memoryStream = new MemoryStream())
+                        using (var memoryStream = new MemoryStream())
+                        {
+                            imagen.CopyTo(memoryStream);
+                            inventario_Comedor.imagen = memoryStream.ToArray();
+                        }
+                    }
+                    else
+                    {
+                        // Si no se sube una nueva imagen, mantener la existente
+                        var existingInventario = await _context.Inventario_Comedor
+                            .AsNoTracking()
+                            .FirstOrDefaultAsync(i => i.Id == id);
+                        inventario_Comedor.imagen = existingInventario.imagen;
+                    }
+
+                    _context.Update(inventario_Comedor);
+                    await _context.SaveChangesAsync();
+                }
+                catch (DbUpdateConcurrencyException)
                 {
-                    imagen.CopyTo(memoryStream);
-                    inventario_Comedor.imagen = memoryStream.ToArray();
+                    if (!Inventario_ComedorExists(inventario_Comedor.Id))
+                    {
+                        return NotFound();
+                    }
+                    else
+                    {
+                        throw;
+                    }
                 }
+                return RedirectToAction(nameof(Index));
             }
-            else
-            {
-                var existingInventario = await _context.Inventario_Comedor
-                    .AsNoTracking()
-                    .FirstOrDefaultAsync(i => i.Id == id);
-                inventario_Comedor.imagen = existingInventario.imagen;
-            }
-
-            _context.Update(inventario_Comedor);
-            await _context.SaveChangesAsync();
-        }
-        catch (DbUpdateConcurrencyException)
-        {
-            if (!Inventario_ComedorExists(inventario_Comedor.Id))
-            {
-                return NotFound();
-            }
-            else
-            {
-                throw;
-            }
-        }
-        return RedirectToAction(nameof(Index));
-    }
-    return View(inventario_Comedor);
-}
-
-        public async Task<IActionResult> Details(int? id)
-        {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            var inventario_Comedor = await _context.Inventario_Comedor
-                .FirstOrDefaultAsync(m => m.Id == id);
-            if (inventario_Comedor == null)
-            {
-                return NotFound();
-            }
-
             return View(inventario_Comedor);
         }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        public async Task<IActionResult> Details(int? id)
+    {
+        if (id == null)
+        {
+            return NotFound();
+        }
+
+        var inventarioComedor = await _context.Inventario_Comedor
+            .FirstOrDefaultAsync(m => m.Id == id);
+        if (inventarioComedor == null)
+        {
+            return NotFound();
+        }
+
+        return View(inventarioComedor);
+    }
 
         public async Task<IActionResult> Delete(int? id)
         {

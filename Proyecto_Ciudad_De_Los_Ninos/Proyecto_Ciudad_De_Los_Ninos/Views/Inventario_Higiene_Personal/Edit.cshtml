@@ -95,11 +95,19 @@
                         <input asp-for="proveedor" class="form-control" />
                         <span asp-validation-for="proveedor" class="text-danger"></span>
                     </div>
+                    <div class="form-group">
+                        <label asp-for="imagen" class="control-label">Imagen Actual</label>
+                        @if (Model.imagen != null)
+                        {
+                            <div>
+                                <img src="@Url.Action("GetImage", new { id = Model.Id })" width="100" height="100" class="img-fluid" />
+                            </div>
+                        }
+                    </div>
 
                     <div class="form-group">
-                        <label asp-for="imagen" class="control-label"></label>
+                        <label asp-for="imagen" class="control-label">Subir Nueva Imagen (opcional)</label>
                         <input asp-for="imagen" type="file" class="form-control" />
-                        <span asp-validation-for="imagen" class="text-danger"></span>
                     </div>
                     <div class="form-group">
                         <label asp-for="precio_unitario" class="control-label"></label>
