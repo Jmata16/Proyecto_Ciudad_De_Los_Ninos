@@ -53,6 +53,10 @@
       "PackagePath": "staticwebassets\\images\\CDN1.jpg"
     },
     {
+      "Id": "D:\\Repos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\wwwroot\\images\\CorreoLogo.png",
+      "PackagePath": "staticwebassets\\images\\CorreoLogo.png"
+    },
+    {
       "Id": "D:\\Repos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\wwwroot\\images\\Croquis de los albergues.jpg",
       "PackagePath": "staticwebassets\\images\\Croquis de los albergues.jpg"
     },

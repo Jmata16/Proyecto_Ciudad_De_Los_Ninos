@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "nzJ+GlACpepLK5rWdQ+5SRyYUI7gytGvstO7W13Prqw=",
+  "Hash": "3TcU13BdqFwCbgNplRtPHtE5UORcEI22xv1EBvVCppI=",
   "Source": "Proyecto_Ciudad_De_Los_Ninos",
   "BasePath": "_content/Proyecto_Ciudad_De_Los_Ninos",
   "Mode": "Default",
@@ -1459,6 +1459,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\CDN1.jpg"
+    },
+    {
+      "Identity": "D:\\Repos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\wwwroot\\images\\CorreoLogo.png",
+      "SourceId": "Proyecto_Ciudad_De_Los_Ninos",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Repos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\wwwroot\\",
+      "BasePath": "_content/Proyecto_Ciudad_De_Los_Ninos",
+      "RelativePath": "images/CorreoLogo.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\CorreoLogo.png"
     },
     {
       "Identity": "D:\\Repos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\wwwroot\\images\\Croquis de los albergues.jpg",

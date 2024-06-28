@@ -49,6 +49,7 @@ CREATE TABLE Users (
     nombre_usuario VARCHAR(100) UNIQUE,
 	nombre VARCHAR(100),
 	apellidos VARCHAR(100),
+	correo VARCHAR(100),
 	fecha_nacimiento DATE,
 	cedula INT,
     contraseña VARCHAR(255),
@@ -195,3 +196,7 @@ CREATE TABLE Vacaciones  (
     justificacion TEXT,
     FOREIGN KEY (id_usuario) REFERENCES Users(ID)
 );
+
+
+--ALTER TABLE Users
+--ADD correo VARCHAR(100);
