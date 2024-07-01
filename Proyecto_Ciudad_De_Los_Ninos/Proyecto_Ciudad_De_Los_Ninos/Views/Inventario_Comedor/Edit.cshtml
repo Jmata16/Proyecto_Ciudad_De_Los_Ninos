@@ -72,62 +72,75 @@
     @Html.Partial("_header")
 
     <!-- Contenido principal -->
-    <div class="container">
+    <div class="container text-center">
         <h4>Editar Inventario</h4>
         <hr />
-        <div class="row">
-            <div class="col-md-8">
+        <div class="row justify-content-center">
+            <div class="col-md-10">
                 <form asp-action="Edit" method="post" enctype="multipart/form-data">
                     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                     <input type="hidden" asp-for="Id" />
 
-                    <div class="form-group">
-                        <label asp-for="nombre_alimento" class="control-label">Nombre del Alimento</label>
-                        <input asp-for="nombre_alimento" class="form-control" />
-                        <span asp-validation-for="nombre_alimento" class="text-danger"></span>
-                    </div>
-
-                    <div class="form-group">
-                        <label asp-for="cantidad_disponible" class="control-label">Cantidad Disponible</label>
-                        <input asp-for="cantidad_disponible" class="form-control" />
-                        <span asp-validation-for="cantidad_disponible" class="text-danger"></span>
-                    </div>
-
-                    <div class="form-group">
-                        <label asp-for="fecha_ultima_reposicion" class="control-label">Fecha de la última reposición</label>
-                        <input asp-for="fecha_ultima_reposicion" class="form-control" />
-                        <span asp-validation-for="fecha_ultima_reposicion" class="text-danger"></span>
-                    </div>
-
-                    <div class="form-group">
-                        <label asp-for="proveedor" class="control-label">Proveedor</label>
-                        <input asp-for="proveedor" class="form-control" />
-                        <span asp-validation-for="proveedor" class="text-danger"></span>
-                    </div>
-
-                    @if (Model.imagen != null)
-                    {
-                        <div class="form-group">
-                            <label class="control-label">Imagen Actual</label>
-                            <div>
-                                <img src="@Url.Action("GetImage", new { id = Model.Id })" class="img-preview" />
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group row">
+                                <label asp-for="nombre_alimento" class="col-sm-4 col-form-label text-right">Nombre del Alimento</label>
+                                <div class="col-sm-8">
+                                    <input asp-for="nombre_alimento" class="form-control" />
+                                    <span asp-validation-for="nombre_alimento" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label asp-for="cantidad_disponible" class="col-sm-4 col-form-label text-right">Cantidad Disponible</label>
+                                <div class="col-sm-8">
+                                    <input asp-for="cantidad_disponible" class="form-control" />
+                                    <span asp-validation-for="cantidad_disponible" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label asp-for="fecha_ultima_reposicion" class="col-sm-4 col-form-label text-right">Fecha de la última reposición</label>
+                                <div class="col-sm-8">
+                                    <input asp-for="fecha_ultima_reposicion" class="form-control" />
+                                    <span asp-validation-for="fecha_ultima_reposicion" class="text-danger"></span>
+                                </div>
                             </div>
                         </div>
-
-                        <input type="hidden" name="imagen" value="@Convert.ToBase64String(Model.imagen)" />
-                    }
-
-                    <div class="form-group">
-                        <label class="control-label">Subir Nueva Imagen (opcional)</label>
-                        <input type="file" name="newImagen" class="form-control" />
-                    </div>
-
-                    <div class="actions">
-                        <button type="submit" class="create-button">Guardar Cambios</button>
-                        <a asp-action="Index" class="create-button">Volver atrás</a>
+                        <div class="col-md-6">
+                            <div class="form-group row">
+                                <label asp-for="proveedor" class="col-sm-4 col-form-label text-right">Proveedor</label>
+                                <div class="col-sm-8">
+                                    <input asp-for="proveedor" class="form-control" />
+                                    <span asp-validation-for="proveedor" class="text-danger"></span>
+                                </div>
+                            </div>
+                            @if (Model.imagen != null)
+                            {
+                                <div class="form-group row">
+                                    <label class="col-sm-4 col-form-label text-right">Imagen Actual</label>
+                                    <div class="col-sm-8">
+                                        <img src="@Url.Action("GetImage", new { id = Model.Id })" class="img-preview" />
+                                    </div>
+                                </div>
+                                <input type="hidden" name="imagen" value="@Convert.ToBase64String(Model.imagen)" />
+                            }
+                            <div class="form-group row">
+                                <label class="col-sm-4 col-form-label text-right">Nueva Imagen (opcional)</label>
+                                <div class="col-sm-8">
+                                    <input type="file" name="newImagen" class="form-control" />
+                                </div>
+                                </br>
+                            </div>
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+                            </div>
+                        </div>
                     </div>
                 </form>
             </div>
+        </div>
+        <!-- Volver atrás -->
+        <div class="text-right">
+            <a asp-action="Index" class="btn btn-secondary">Volver atrás</a>
         </div>
     </div>
 
