@@ -1,0 +1,126 @@
+﻿@model Proyecto_Ciudad_De_Los_Ninos.Models.Vacaciones
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Create</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+          integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+          crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css">
+    <style>
+
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        input[type="text"], input[type="date"], textarea {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        input[type="submit"] {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin-top: 10px;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+
+            input[type="submit"]:hover {
+                background-color: #0056b3;
+            }
+
+
+    </style>
+</head>
+<body>
+    <!-- Contenido del encabezado -->
+    <header id="header">
+        @Html.Partial("_header")
+    </header>
+
+    <!-- Contenido principal -->
+    <div class="container">
+        <h4>Crear Vacaciones</h4>
+        <hr />
+        <div class="row">
+            <div class="col-md-6">
+                <form asp-action="Create">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                    <div class="form-group">
+                        <label asp-for="id_usuario" class="control-label">Empleado</label>
+                        <select asp-for="id_usuario" class="form-control" asp-items="@ViewBag.id_usuario"></select>
+                        <span asp-validation-for="id_usuario" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="estado" class="control-label">Estado</label>
+                        <select asp-for="estado" class="form-control">
+                            <option value="Aprovado">Aprovado</option>
+                            <option value="Sin Aprovar">Sin Aprovar</option>
+                        </select>
+                        <span asp-validation-for="estado" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="fechaInicio" class="control-label">Fecha de Inicio</label>
+                        <input asp-for="fechaInicio" type="date" class="form-control" />
+                        <span asp-validation-for="fechaInicio" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="fechaFinaliza" class="control-label">Fecha de Finalización</label>
+                        <input asp-for="fechaFinaliza" type="date" class="form-control" />
+                        <span asp-validation-for="fechaFinaliza" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="justificacion" class="control-label">Justificación</label>
+                        <textarea asp-for="justificacion" class="form-control" rows="4"></textarea>
+                        <span asp-validation-for="justificacion" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <input type="submit" value="Guardar" class="btn btn-primary" />
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+
+        @Html.Partial("_footer")
+
+
+    <!-- Scripts -->
+    <script src="js/jquery-1.11.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+    <script src="~/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/plugins.js"></script>
+    <script src="~/js/script.js"></script>
+</body>
+</html>
+
+

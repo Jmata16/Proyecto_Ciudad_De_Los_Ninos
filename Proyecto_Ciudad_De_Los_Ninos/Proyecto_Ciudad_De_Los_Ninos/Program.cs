@@ -1,22 +1,23 @@
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.AspNetCore.Identity;
 using Proyecto_Ciudad_De_Los_Ninos.Models;
-using System;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Configure the ConnectionString and DbContext class
+// Otros servicios y configuraciones
+builder.Services.AddTransient<EmailService>();
+
+// Configura la cadena de conexión y el DbContext
 builder.Services.AddDbContext<ApplicationDBContext>(options =>
 {
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
 });
 
-// Configure Identity
+// Configura Identity
 builder.Services.AddDefaultIdentity<IdentityUser>(options =>
 {
     options.SignIn.RequireConfirmedAccount = false;
@@ -24,19 +25,19 @@ builder.Services.AddDefaultIdentity<IdentityUser>(options =>
 .AddRoles<IdentityRole>()
 .AddEntityFrameworkStores<ApplicationDBContext>();
 
-// Configure authentication
+// Configura autenticación
 builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
     .AddCookie(options =>
     {
         options.Cookie.HttpOnly = true;
         options.ExpireTimeSpan = TimeSpan.FromMinutes(30);
-        options.LoginPath = "/Login/Login"; // Ruta para el inicio de sesión
-        options.LogoutPath = "/Login/Logout"; // Ruta para el cierre de sesión
-        options.AccessDeniedPath = "/Home/AccessDenied"; // Ruta para acceso denegado
-        options.SlidingExpiration = true; // Establecer esta opción si quieres que la cookie de autenticación se renueve con cada solicitud
+        options.LoginPath = "/Login/Login";
+        options.LogoutPath = "/Login/Logout";
+        options.AccessDeniedPath = "/Home/AccessDenied";
+        options.SlidingExpiration = true;
     });
 
-// Add services to the container
+// Agrega controladores con vistas
 builder.Services.AddControllersWithViews();
 
 var app = builder.Build();
@@ -60,4 +61,3 @@ app.MapControllerRoute(
     pattern: "{controller=Home}/{action=Index}/{id?}");
 
 app.Run();
-

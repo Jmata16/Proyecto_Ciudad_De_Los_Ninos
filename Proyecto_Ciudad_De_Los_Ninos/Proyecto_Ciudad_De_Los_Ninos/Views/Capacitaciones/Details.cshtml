@@ -1,0 +1,71 @@
+﻿@model Proyecto_Ciudad_De_Los_Ninos.Models.Capacitaciones
+@{
+    Layout = null;
+    ViewData["Title"] = "Roles";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            padding-bottom: 50px; /* Ajuste para el footer */
+        }
+
+        .card {
+            border: none;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            background-color: #fff;
+        }
+
+        .card-body {
+            padding: 20px;
+        }
+
+        #footer {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+
+
+        }
+    </style>
+</head>
+<body>
+    <!-- Contenido del encabezado -->
+    @Html.Partial("_header")
+
+    <!-- Contenido principal -->
+    <div class="container mt-5">
+        <h4 class="mb-4">Detalles de Capacitación</h4>
+        <div class="card">
+            <div class="card-body">
+                <dl class="row">
+                    <dt class="col-sm-3">Nombre de la Capacitación:</dt>
+                    <dd class="col-sm-9">@Html.DisplayFor(model => model.nombre_capacitacion)</dd>
+                    <dt class="col-sm-3">Fecha:</dt>
+                    <dd class="col-sm-9">@Html.DisplayFor(model => model.fecha)</dd>
+                    <dt class="col-sm-3">Descripción:</dt>
+                    <dd class="col-sm-9">@Html.DisplayFor(model => model.descripcion)</dd>
+                    <dt class="col-sm-3">Usuario:</dt>
+                    <dd class="col-sm-9">@Html.DisplayFor(model => model.User.nombre) @Html.DisplayFor(model => model.User.apellidos)</dd>
+                </dl>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer id="footer">
+            @Html.Partial("_footer")
+
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

@@ -49,6 +49,7 @@ CREATE TABLE Users (
     nombre_usuario VARCHAR(100) UNIQUE,
 	nombre VARCHAR(100),
 	apellidos VARCHAR(100),
+	correo VARCHAR(100),
 	fecha_nacimiento DATE,
 	cedula INT,
     contraseña VARCHAR(255),
@@ -160,3 +161,42 @@ ALTER TABLE Inventario_Higiene_Personal
 ADD imagen VARBINARY(MAX) NULL,
     precio_unitario DECIMAL(10, 2) NULL;
 
+
+
+
+
+	-- Crear la tabla Capacitaciones
+CREATE TABLE Capacitaciones  (
+    ID INT PRIMARY KEY IDENTITY,
+    id_usuario INT,
+    nombre_capacitacion VARCHAR(255),
+	fecha DATE,
+    descripcion TEXT,
+    FOREIGN KEY (id_usuario) REFERENCES Users(ID)
+);
+
+-- Crear la tabla Asistencia
+CREATE TABLE Asistencia  (
+    ID INT PRIMARY KEY IDENTITY,
+    id_usuario INT,
+    estado VARCHAR(255),
+	fecha DATE,
+	horaRegistro DATETIME,
+	horaSalida DATETIME,
+    justificacion TEXT,
+    FOREIGN KEY (id_usuario) REFERENCES Users(ID)
+);
+-- Crear la tabla vacaciones 
+CREATE TABLE Vacaciones  (
+    ID INT PRIMARY KEY IDENTITY,
+    id_usuario INT,
+    estado VARCHAR(255),
+	fechaInicio DATE,
+	fechaFinaliza DATE,
+    justificacion TEXT,
+    FOREIGN KEY (id_usuario) REFERENCES Users(ID)
+);
+
+
+--ALTER TABLE Users
+--ADD correo VARCHAR(100);

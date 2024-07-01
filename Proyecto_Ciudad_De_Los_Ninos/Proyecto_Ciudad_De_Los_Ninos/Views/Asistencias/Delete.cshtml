@@ -1,0 +1,92 @@
+﻿@model Proyecto_Ciudad_De_Los_Ninos.Models.Asistencia
+
+@{
+    ViewData["Title"] = "Eliminar Asistencia";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+        }
+
+        .containersss {
+            width: 80%;
+            margin: 20px auto;
+        }
+
+        .btn-danger {
+            background-color: #dc3545;
+            border-color: #dc3545;
+        }
+
+            .btn-danger:hover {
+                background-color: #c82333;
+                border-color: #bd2130;
+            }
+
+        .btn-secondary {
+            background-color: #6c757d;
+            border-color: #6c757d;
+        }
+
+            .btn-secondary:hover {
+                background-color: #5a6268;
+                border-color: #545b62;
+            }
+
+        .row {
+            margin-bottom: 15px;
+        }
+
+        .col-sm-2 {
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    @Html.Partial("_header")
+
+    
+    <div class="containersss">
+        <h2>@ViewData["Title"]</h2>
+
+        <div>
+            <h4>¿Estás seguro que deseas eliminar la asistencia con ID @Model.ID?</h4>
+            <hr />
+            <dl class="row">
+                <dt class="col-sm-2">ID</dt>
+                <dd class="col-sm-10">@Model.ID</dd>
+                <dt class="col-sm-2">Fecha</dt>
+                <dd class="col-sm-10">@Model.fecha.ToShortDateString()</dd>
+            </dl>
+
+            <form asp-action="Delete" asp-route-id="@Model.ID" method="post">
+                <input type="submit" value="Eliminar" class="btn btn-danger" />
+                <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
+            </form>
+        </div>
+    </div>
+
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+  
+        @Html.Partial("_footer")
+
+</body>
+</html>
+<script src="js/jquery-1.11.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+<script src="~/js/bootstrap.bundle.min.js"></script>
+<script src="~/js/plugins.js"></script>
+<script src="~/js/script.js"></script>
