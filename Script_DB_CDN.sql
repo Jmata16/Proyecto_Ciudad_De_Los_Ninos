@@ -200,3 +200,8 @@ CREATE TABLE Vacaciones  (
 
 --ALTER TABLE Users
 --ADD correo VARCHAR(100);
+
+
+
+
+
