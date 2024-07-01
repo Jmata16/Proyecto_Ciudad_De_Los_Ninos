@@ -201,6 +201,18 @@ CREATE TABLE Vacaciones  (
 --ALTER TABLE Users
 --ADD correo VARCHAR(100);
 
+-- Cambiar el tipo de dato de fecha_hora a fecha
+ALTER TABLE Pruebas_Dopaje
+ALTER COLUMN fecha_hora DATE;
+
+-- Renombrar fecha_hora a fecha
+EXEC sp_rename 'Pruebas_Dopaje.fecha_hora', 'fecha', 'COLUMN';
+
+-- Agregar las nuevas columnas en un solo ALTER TABLE
+ALTER TABLE Pruebas_Dopaje
+ADD resultado VARCHAR(8) CHECK (resultado IN ('Positivo', 'Negativo')) NULL,
+    observaciones VARCHAR(255);
+
 
 
 
