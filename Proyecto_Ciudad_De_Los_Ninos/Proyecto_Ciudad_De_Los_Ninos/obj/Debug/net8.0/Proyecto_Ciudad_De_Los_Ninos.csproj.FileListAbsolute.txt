@@ -1839,3 +1839,6 @@ D:\Repos\Proyecto_Ciudad_De_Los_Ninos\Proyecto_Ciudad_De_Los_Ninos\Proyecto_Ciud
 D:\Repos\Proyecto_Ciudad_De_Los_Ninos\Proyecto_Ciudad_De_Los_Ninos\Proyecto_Ciudad_De_Los_Ninos\bin\Debug\net8.0\BouncyCastle.Cryptography.dll
 D:\Repos\Proyecto_Ciudad_De_Los_Ninos\Proyecto_Ciudad_De_Los_Ninos\Proyecto_Ciudad_De_Los_Ninos\bin\Debug\net8.0\MailKit.dll
 D:\Repos\Proyecto_Ciudad_De_Los_Ninos\Proyecto_Ciudad_De_Los_Ninos\Proyecto_Ciudad_De_Los_Ninos\bin\Debug\net8.0\MimeKit.dll
+C:\Users\KAREN\source\repos\Proyecto_Ciudad_De_Los_Ninos\Proyecto_Ciudad_De_Los_Ninos\Proyecto_Ciudad_De_Los_Ninos\bin\Debug\net8.0\BouncyCastle.Cryptography.dll
+C:\Users\KAREN\source\repos\Proyecto_Ciudad_De_Los_Ninos\Proyecto_Ciudad_De_Los_Ninos\Proyecto_Ciudad_De_Los_Ninos\bin\Debug\net8.0\MailKit.dll
+C:\Users\KAREN\source\repos\Proyecto_Ciudad_De_Los_Ninos\Proyecto_Ciudad_De_Los_Ninos\Proyecto_Ciudad_De_Los_Ninos\bin\Debug\net8.0\MimeKit.dll
