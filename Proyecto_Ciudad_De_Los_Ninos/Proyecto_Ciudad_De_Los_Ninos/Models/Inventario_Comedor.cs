@@ -29,6 +29,16 @@ namespace API_Ciudad_De_Los_Ninos.Models
         [Required(ErrorMessage = "El nombre del proveedor es obligatorio.")]
         [StringLength(60, ErrorMessage = "El nombre del proveedor no puede exceder los 60 caracteres.")]
         public string proveedor { get; set; }
+
+        [Display(Name="Imágen")]
+        public byte[]? imagen { get; set; }
+
+
+
+
+
+
+
     }
 
 }
