@@ -80,8 +80,6 @@
                     <th>Joven</th>
                     <th>Fecha y Hora</th>
                     <th>Lugar de la Prueba</th>
-                    <th>Resultado</th>
-                    <th>Observaciones</th>
                     <th>Acciones</th>
                 </tr>
             </thead>
@@ -93,8 +91,6 @@
                         <td>@Html.DisplayFor(modelItem => item.id_joven)</td>
                         <td>@Html.DisplayFor(modelItem => item.fecha_hora)</td>
                         <td>@Html.DisplayFor(modelItem => item.lugar)</td>
-                        <td>@Html.DisplayFor(modelItem => item.resultado)</td>
-                        <td>@Html.DisplayFor(modelItem => item.observaciones)</td>
                         <td class="actions">
                             <a asp-action="Edit" asp-route-id="@item.Id" class="text-info">Editar</a>
                             <a asp-action="Details" asp-route-id="@item.Id" class="text-success">Detalles</a>
