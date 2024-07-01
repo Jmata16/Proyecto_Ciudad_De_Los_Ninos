@@ -91,13 +91,21 @@
             </dt>
             <dd class="col-sm-10">@Html.DisplayFor(model => model.id_joven)</dd>
             <dt class="col-sm-2">
-                Fecha y Hora
+                Fecha
             </dt>
-            <dd class="col-sm-10">@Html.DisplayFor(model => model.fecha_hora)</dd>
+            <dd class="col-sm-10">@Html.DisplayFor(model => model.fecha)</dd>
             <dt class="col-sm-2">
                 Lugar
             </dt>
             <dd class="col-sm-10">@Html.DisplayFor(model => model.lugar)</dd>
+            <dt class="col-sm-2">
+                Resultado
+            </dt>
+            <dd class="col-sm-10">@Html.DisplayFor(model => model.resultado)</dd>
+            <dt class="col-sm-2">
+                Observaciones
+            </dt>
+            <dd class="col-sm-10">@Html.DisplayFor(model => model.observaciones)</dd>
         </div>
         <form asp-action="Delete">
             <input type="hidden" asp-for="Id" />

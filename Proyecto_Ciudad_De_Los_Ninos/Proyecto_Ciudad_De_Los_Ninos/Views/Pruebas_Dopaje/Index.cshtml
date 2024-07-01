@@ -78,8 +78,10 @@
                 <tr>
                     <th>Usuario</th>
                     <th>Joven</th>
-                    <th>Fecha y Hora</th>
-                    <th>Lugar de la Prueba</th>
+                    <th>Fecha</th>
+                    <th>Lugar</th>
+                    <th>Resultado</th>
+                    <th>Observaciones</th>
                     <th>Acciones</th>
                 </tr>
             </thead>
@@ -89,8 +91,10 @@
                     <tr>
                         <td>@Html.DisplayFor(modelItem => item.id_usuario)</td>
                         <td>@Html.DisplayFor(modelItem => item.id_joven)</td>
-                        <td>@Html.DisplayFor(modelItem => item.fecha_hora)</td>
+                        <td>@Html.DisplayFor(modelItem => item.fecha)</td>
                         <td>@Html.DisplayFor(modelItem => item.lugar)</td>
+                        <td>@Html.DisplayFor(modelItem => item.resultado)</td>
+                        <td>@Html.DisplayFor(modelItem => item.observaciones)</td>
                         <td class="actions">
                             <a asp-action="Edit" asp-route-id="@item.Id" class="text-info">Editar</a>
                             <a asp-action="Details" asp-route-id="@item.Id" class="text-success">Detalles</a>

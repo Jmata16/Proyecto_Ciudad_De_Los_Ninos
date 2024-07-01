@@ -54,8 +54,10 @@ namespace Proyecto_Ciudad_De_Los_Ninos.Models
                       .ValueGeneratedOnAdd();
                 entity.Property(e => e.id_usuario).HasColumnName("id_usuario");
                 entity.Property(e => e.id_joven).HasColumnName("id_joven");
-                entity.Property(e => e.fecha_hora).HasColumnName("fecha_hora");
+                entity.Property(e => e.fecha).HasColumnName("fecha");
                 entity.Property(e => e.lugar).HasColumnName("lugar");
+                entity.Property(e => e.resultado).HasColumnName("resultado");
+                entity.Property(e => e.observaciones).HasColumnName("observaciones");
 
                 entity.HasOne(d => d.Usuario)
                       .WithMany(p => p.Pruebas_Dopaje)
