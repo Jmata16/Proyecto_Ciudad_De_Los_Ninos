@@ -1,0 +1,150 @@
+﻿@model IEnumerable<API_Ciudad_De_Los_Ninos.Models.Reportes_Medicos>
+
+@{
+    ViewData["Title"] = "Reportes Médicos";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewData["Title"]</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        /* Estilos CSS para la página */
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        .content {
+            flex: 1;
+        }
+
+        /* Estilos para la tabla y el botón */
+        .table-container {
+            width: 80%;
+            margin: 20px auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            background-color: #fff;
+        }
+
+        th, td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        th {
+            background-color: #f8f8f8;
+            font-weight: bold;
+            color: #333;
+            text-transform: uppercase;
+        }
+
+        tr:hover {
+            background-color: #f5f5f5;
+        }
+
+        .actions a {
+            margin-right: 10px;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+            .actions a:hover {
+                color: #0056b3;
+            }
+
+        .create-button {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 1.2em;
+            color: white;
+            background-color: #007bff;
+            border: none;
+            border-radius: 5px;
+            text-align: center;
+            text-decoration: none;
+            cursor: pointer;
+            margin-bottom: 20px;
+        }
+
+            .create-button:hover {
+                background-color: #0056b3;
+            }
+
+        /* Estilos del footer */
+        footer {
+            background-color: #f8f9fa;
+            padding: 20px 0;
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+        }
+
+            footer p {
+                margin: 0;
+            }
+    </style>
+</head>
+<body>
+    @Html.Partial("_header")
+
+    <div class="content">
+        <div class="table-container">
+            <h1>Listado de Reportes Médicos</h1>
+
+            <p>
+                <a href="@Url.Action("Create")" class="create-button">Crear Nuevo Reporte Médico</a>
+            </p>
+
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>ID Usuario</th>
+                        <th>ID Joven</th>
+                        <th>Fecha de Creación</th>
+                        <th>Contenido</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@Html.DisplayFor(modelItem => item.Usuario.nombre_usuario)</td>
+                            <td>@Html.DisplayFor(modelItem => item.Joven.nombre)</td>
+                            <td>@Html.DisplayFor(modelItem => item.fecha_creacion)</td>
+                            <td>@Html.DisplayFor(modelItem => item.contenido)</td>
+                            <td class="actions">
+                                <a href="@Url.Action("Edit", new { id = item.Id })">Editar</a> |
+                                <a href="@Url.Action("Details", new { id = item.Id })">Detalles</a> |
+                                <a href="@Url.Action("Delete", new { id = item.Id })">Eliminar</a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <footer>
+        @Html.Partial("_footer")
+    </footer>
+
+    <script src="js/jquery-1.11.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+    <script type="text/javascript" src="~/js/bootstrap.bundle.min.js"></script>
+    <script type="text/javascript" src="~/js/plugins.js"></script>
+    <script type="text/javascript" src="~/js/script.js"></script>
+</body>
+</html>

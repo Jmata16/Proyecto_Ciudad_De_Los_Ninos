@@ -82,6 +82,26 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGFzaGJvYXJkXE1hcGFSZXNpZGVuY2lhcy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/dyure/Documents/GitHub/Proyecto_Ciudad_De_Los_Ninos/Proyecto_Ciudad_De_Los_Ninos/Proyecto_Ciudad_De_Los_Ninos/Views/Expedientes/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXhwZWRpZW50ZXNcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/dyure/Documents/GitHub/Proyecto_Ciudad_De_Los_Ninos/Proyecto_Ciudad_De_Los_Ninos/Proyecto_Ciudad_De_Los_Ninos/Views/Expedientes/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXhwZWRpZW50ZXNcRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/dyure/Documents/GitHub/Proyecto_Ciudad_De_Los_Ninos/Proyecto_Ciudad_De_Los_Ninos/Proyecto_Ciudad_De_Los_Ninos/Views/Expedientes/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXhwZWRpZW50ZXNcRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/dyure/Documents/GitHub/Proyecto_Ciudad_De_Los_Ninos/Proyecto_Ciudad_De_Los_Ninos/Proyecto_Ciudad_De_Los_Ninos/Views/Expedientes/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXhwZWRpZW50ZXNcRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/dyure/Documents/GitHub/Proyecto_Ciudad_De_Los_Ninos/Proyecto_Ciudad_De_Los_Ninos/Proyecto_Ciudad_De_Los_Ninos/Views/Expedientes/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXhwZWRpZW50ZXNcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/dyure/Documents/GitHub/Proyecto_Ciudad_De_Los_Ninos/Proyecto_Ciudad_De_Los_Ninos/Proyecto_Ciudad_De_Los_Ninos/Views/Home/Ejemplo.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxFamVtcGxvLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
@@ -96,6 +116,26 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/dyure/Documents/GitHub/Proyecto_Ciudad_De_Los_Ninos/Proyecto_Ciudad_De_Los_Ninos/Proyecto_Ciudad_De_Los_Ninos/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/dyure/Documents/GitHub/Proyecto_Ciudad_De_Los_Ninos/Proyecto_Ciudad_De_Los_Ninos/Proyecto_Ciudad_De_Los_Ninos/Views/Incidentes/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW5jaWRlbnRlc1xDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/dyure/Documents/GitHub/Proyecto_Ciudad_De_Los_Ninos/Proyecto_Ciudad_De_Los_Ninos/Proyecto_Ciudad_De_Los_Ninos/Views/Incidentes/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW5jaWRlbnRlc1xEZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/dyure/Documents/GitHub/Proyecto_Ciudad_De_Los_Ninos/Proyecto_Ciudad_De_Los_Ninos/Proyecto_Ciudad_De_Los_Ninos/Views/Incidentes/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW5jaWRlbnRlc1xEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/dyure/Documents/GitHub/Proyecto_Ciudad_De_Los_Ninos/Proyecto_Ciudad_De_Los_Ninos/Proyecto_Ciudad_De_Los_Ninos/Views/Incidentes/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW5jaWRlbnRlc1xFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/dyure/Documents/GitHub/Proyecto_Ciudad_De_Los_Ninos/Proyecto_Ciudad_De_Los_Ninos/Proyecto_Ciudad_De_Los_Ninos/Views/Incidentes/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW5jaWRlbnRlc1xJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/dyure/Documents/GitHub/Proyecto_Ciudad_De_Los_Ninos/Proyecto_Ciudad_De_Los_Ninos/Proyecto_Ciudad_De_Los_Ninos/Views/Inventario_Comedor/Create.cshtml]
@@ -168,6 +208,46 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/dyure/Documents/GitHub/Proyecto_Ciudad_De_Los_Ninos/Proyecto_Ciudad_De_Los_Ninos/Proyecto_Ciudad_De_Los_Ninos/Views/Pruebas_Dopaje/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJ1ZWJhc19Eb3BhamVcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/dyure/Documents/GitHub/Proyecto_Ciudad_De_Los_Ninos/Proyecto_Ciudad_De_Los_Ninos/Proyecto_Ciudad_De_Los_Ninos/Views/ReportesExpedientes/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVwb3J0ZXNFeHBlZGllbnRlc1xDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/dyure/Documents/GitHub/Proyecto_Ciudad_De_Los_Ninos/Proyecto_Ciudad_De_Los_Ninos/Proyecto_Ciudad_De_Los_Ninos/Views/ReportesExpedientes/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVwb3J0ZXNFeHBlZGllbnRlc1xEZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/dyure/Documents/GitHub/Proyecto_Ciudad_De_Los_Ninos/Proyecto_Ciudad_De_Los_Ninos/Proyecto_Ciudad_De_Los_Ninos/Views/ReportesExpedientes/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVwb3J0ZXNFeHBlZGllbnRlc1xEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/dyure/Documents/GitHub/Proyecto_Ciudad_De_Los_Ninos/Proyecto_Ciudad_De_Los_Ninos/Proyecto_Ciudad_De_Los_Ninos/Views/ReportesExpedientes/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVwb3J0ZXNFeHBlZGllbnRlc1xFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/dyure/Documents/GitHub/Proyecto_Ciudad_De_Los_Ninos/Proyecto_Ciudad_De_Los_Ninos/Proyecto_Ciudad_De_Los_Ninos/Views/ReportesExpedientes/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVwb3J0ZXNFeHBlZGllbnRlc1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/dyure/Documents/GitHub/Proyecto_Ciudad_De_Los_Ninos/Proyecto_Ciudad_De_Los_Ninos/Proyecto_Ciudad_De_Los_Ninos/Views/ReportesMedicos/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVwb3J0ZXNNZWRpY29zXENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/dyure/Documents/GitHub/Proyecto_Ciudad_De_Los_Ninos/Proyecto_Ciudad_De_Los_Ninos/Proyecto_Ciudad_De_Los_Ninos/Views/ReportesMedicos/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVwb3J0ZXNNZWRpY29zXERlbGV0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/dyure/Documents/GitHub/Proyecto_Ciudad_De_Los_Ninos/Proyecto_Ciudad_De_Los_Ninos/Proyecto_Ciudad_De_Los_Ninos/Views/ReportesMedicos/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVwb3J0ZXNNZWRpY29zXERldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/dyure/Documents/GitHub/Proyecto_Ciudad_De_Los_Ninos/Proyecto_Ciudad_De_Los_Ninos/Proyecto_Ciudad_De_Los_Ninos/Views/ReportesMedicos/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVwb3J0ZXNNZWRpY29zXEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/dyure/Documents/GitHub/Proyecto_Ciudad_De_Los_Ninos/Proyecto_Ciudad_De_Los_Ninos/Proyecto_Ciudad_De_Los_Ninos/Views/ReportesMedicos/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVwb3J0ZXNNZWRpY29zXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/dyure/Documents/GitHub/Proyecto_Ciudad_De_Los_Ninos/Proyecto_Ciudad_De_Los_Ninos/Proyecto_Ciudad_De_Los_Ninos/Views/Reportes/Citas.cshtml]

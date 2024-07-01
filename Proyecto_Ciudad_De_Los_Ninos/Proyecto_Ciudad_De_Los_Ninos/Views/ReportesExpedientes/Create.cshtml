@@ -1,0 +1,157 @@
+﻿@model API_Ciudad_De_Los_Ninos.Models.Reportes_Expedientes
+
+@{
+    Layout = null;
+    ViewData["Title"] = "Crear Reporte de Expediente";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Crear Nuevo Reporte de Expediente</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        /* Estilos CSS para la página */
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        .form-container {
+            width: 50%;
+            margin: 50px auto;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            background-color: #f9f9f9;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+            .form-group label {
+                display: block;
+                font-weight: bold;
+            }
+
+            .form-group input[type="text"],
+            .form-group input[type="number"],
+            .form-group input[type="datetime-local"],
+            .form-group textarea {
+                width: calc(100% - 10px);
+                padding: 8px;
+                border: 1px solid #ccc;
+                border-radius: 4px;
+            }
+
+            .form-group button[type="submit"] {
+                padding: 10px 20px;
+                background-color: #E6282A;
+                color: white;
+                border: none;
+                border-radius: 4px;
+                cursor: pointer;
+            }
+
+                .form-group button[type="submit"]:hover {
+                    background-color: #b21d20;
+                }
+
+        .text-danger {
+            color: #dc3545;
+        }
+
+        .back-button {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 1em;
+            color: white;
+            background-color: #007bff;
+            border: none;
+            border-radius: 5px;
+            text-align: center;
+            text-decoration: none;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+
+            .back-button:hover {
+                background-color: #0056b3;
+            }
+
+        /* Estilos del footer */
+        footer {
+            background-color: #f8f9fa;
+            padding: 20px 0;
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+        }
+
+            footer p {
+                margin: 0;
+            }
+    </style>
+</head>
+<body>
+    @Html.Partial("_header")
+    @if (!string.IsNullOrEmpty(ViewBag.ErrorMessage))
+    {
+        <div class="alert alert-danger" role="alert">
+            @ViewBag.ErrorMessage
+        </div>
+    }
+
+    <div class="form-container">
+        <h2>Crear Nuevo Reporte de Expediente</h2>
+        <form asp-action="Create">
+            <div asp-validation-summary="All" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="id_expediente" class="control-label">Expediente:</label>
+                <select asp-for="id_expediente" class="form-control" asp-items="ViewBag.Expedientes"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="id_usuario" class="control-label">Usuario:</label>
+                <select asp-for="id_usuario" class="form-control" asp-items="ViewBag.Usuarios"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="tipo" class="control-label">Tipo:</label>
+                <input asp-for="tipo" class="form-control" />
+                <span asp-validation-for="tipo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="contenido" class="control-label">Contenido:</label>
+                <input asp-for="contenido" class="form-control" />
+                <span asp-validation-for="contenido" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="fecha_creacion" class="control-label">Fecha de Creación:</label>
+                <input asp-for="fecha_creacion" class="form-control" type="datetime-local" />
+                <span asp-validation-for="fecha_creacion" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary">Crear Reporte de Expediente</button>
+            </div>
+        </form>
+    </div>
+
+    <div class="text-center">
+        <a href="@Url.Action("Index")" class="back-button">Volver</a>
+    </div>
+    
+
+    <footer>
+        @Html.Partial("_footer")
+    </footer>
+
+    <script src="js/jquery-1.11.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+    <script type="text/javascript" src="~/js/bootstrap.bundle.min.js"></script>
+    <script type="text/javascript" src="~/js/plugins.js"></script>
+    <script type="text/javascript" src="~/js/script.js"></script>
+</body>
+</html>

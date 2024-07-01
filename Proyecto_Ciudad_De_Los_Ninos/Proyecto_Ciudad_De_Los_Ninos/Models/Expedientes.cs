@@ -20,8 +20,10 @@ namespace API_Ciudad_De_Los_Ninos.Models
         public string historial_academico { get; set; }
         public string notas_adicionales { get; set; }
 
-        public Jovenes Joven { get; set; }
-        public ICollection<Reportes_Expedientes> ReportesExpedientes { get; set; }
+        public Jovenes? Joven { get; set; }
+        public ICollection<Reportes_Expedientes>? Reportes_Expedientes { get; set; }
+
+
     }
 
 

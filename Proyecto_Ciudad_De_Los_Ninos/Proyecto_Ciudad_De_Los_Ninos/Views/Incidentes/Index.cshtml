@@ -1,0 +1,109 @@
+﻿@model IEnumerable<API_Ciudad_De_Los_Ninos.Models.Incidentes>
+
+@{
+    ViewData["Title"] = "Incidentes";
+    Layout = null; // No usar un layout para esta vista
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewData["Title"]</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        /* Estilos adicionales si los necesitas */
+        .table-container {
+            width: 80%;
+            margin: 20px auto;
+        }
+
+        .actions a {
+            margin-right: 10px;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+            .actions a:hover {
+                color: #0056b3;
+            }
+
+        .create-button {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 1.2em;
+            color: white;
+            background-color: #007bff;
+            border: none;
+            border-radius: 5px;
+            text-align: center;
+            text-decoration: none;
+            cursor: pointer;
+            margin-bottom: 20px;
+        }
+
+            .create-button:hover {
+                background-color: #0056b3;
+            }
+        /* Estilos del footer */
+        footer {
+            background-color: #f8f9fa;
+            padding: 20px 0;
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+        }
+
+            footer p {
+                margin: 0;
+            }
+    </style>
+</head>
+<body>
+    <div class="content">
+        @Html.Partial("_header")
+
+        <div class="table-container">
+            <p>
+                <a asp-action="Create" class="create-button">Crear Incidente</a>
+            </p>
+            <table class="table table-striped table-bordered">
+                <thead>
+                    <tr>
+                        <th>Usuario</th>
+                        <th>Joven</th>
+                        <th>Fecha y Hora</th>
+                        <th>Descripción</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@Html.DisplayFor(modelItem => item.Usuario.nombre_usuario)</td>
+                            <td>@Html.DisplayFor(modelItem => item.Joven.nombre)</td>
+                            <td>@Html.DisplayFor(modelItem => item.fecha_hora)</td>
+                            <td>@Html.DisplayFor(modelItem => item.descripcion)</td>
+                            <td class="actions">
+                                <a asp-action="Edit" asp-route-id="@item.Id">Editar</a> |
+                                <a asp-action="Details" asp-route-id="@item.Id">Detalles</a> |
+                                <a asp-action="Delete" asp-route-id="@item.Id">Eliminar</a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <footer>
+        @Html.Partial("_footer")
+    </footer>
+
+    <script src="js/jquery-1.11.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+    <script type="text/javascript" src="~/js/bootstrap.bundle.min.js"></script>
+    <script type="text/javascript" src="~/js/plugins.js"></script>
+    <script type="text/javascript" src="~/js/script.js"></script>
+</body>
+</html>

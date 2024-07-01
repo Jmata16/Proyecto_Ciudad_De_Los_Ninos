@@ -14,8 +14,8 @@ namespace Proyecto_Ciudad_De_Los_Ninos.Models
         public DbSet<Jovenes> Jovenes { get; set; }
         public DbSet<Expedientes> Expedientes { get; set; }
         public DbSet<User> Users { get; set; }
-        public DbSet<Reportes_Expedientes> ReportesExpedientes { get; set; }
-        public DbSet<Reportes_Medicos> ReportesMedicos { get; set; }
+        public DbSet<Reportes_Expedientes> Reportes_Expedientes { get; set; }
+        public DbSet<Reportes_Medicos> Reportes_Medicos { get; set; }
         public DbSet<Pruebas_Dopaje> Pruebas_Dopaje { get; set; }
         public DbSet<Incidentes> Incidentes { get; set; }
         public DbSet<Citas> Citas { get; set; }
@@ -25,6 +25,45 @@ namespace Proyecto_Ciudad_De_Los_Ninos.Models
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
+
+            // Configuración adicional de los modelos para Reportes_Medicos
+            modelBuilder.Entity< Reportes_Medicos> (entity =>
+            {
+                entity.HasKey(e => e.Id);
+                entity.Property(e => e.Id).HasColumnName("Id").ValueGeneratedOnAdd();
+                entity.Property(e => e.id_usuario).HasColumnName("id_usuario");
+                entity.Property(e => e.id_joven).HasColumnName("id_joven");
+                entity.Property(e => e.fecha_creacion).HasColumnName("fecha_creacion");
+                entity.Property(e => e.contenido).HasColumnName("contenido");
+
+                entity.HasOne(d => d.Usuario)
+                    .WithMany(p => p.ReportesMedicos)
+                    .HasForeignKey(d => d.id_usuario);
+
+                entity.HasOne(d => d.Joven)
+                    .WithMany(p => p.ReportesMedicos)
+                    .HasForeignKey(d => d.id_joven);
+            });
+            // Configuración adicional de los modelos para Expedientes
+            modelBuilder.Entity<Expedientes>(entity =>
+            {
+                entity.HasKey(e => e.Id);
+                entity.Property(e => e.Id).HasColumnName("Id").ValueGeneratedOnAdd();
+                entity.Property(e => e.id_joven).HasColumnName("id_joven");
+                entity.Property(e => e.nombre_joven).HasColumnName("nombre_joven");
+                entity.Property(e => e.edad).HasColumnName("edad");
+                entity.Property(e => e.fecha_ingreso).HasColumnName("fecha_ingreso");
+                entity.Property(e => e.direccion).HasColumnName("direccion");
+                entity.Property(e => e.telefono_contacto).HasColumnName("telefono_contacto");
+                entity.Property(e => e.tutor_legal).HasColumnName("tutor_legal");
+                entity.Property(e => e.antecedentes_medicos).HasColumnName("antecedentes_medicos");
+                entity.Property(e => e.historial_academico).HasColumnName("historial_academico");
+                entity.Property(e => e.notas_adicionales).HasColumnName("notas_adicionales");
+
+                entity.HasOne(d => d.Joven)
+                    .WithMany(p => p.Expedientes)
+                    .HasForeignKey(d => d.id_joven);
+            });
             // Configuración adicional de los modelos para Citas
             modelBuilder.Entity<Citas>(entity =>
             {
@@ -65,6 +104,44 @@ namespace Proyecto_Ciudad_De_Los_Ninos.Models
                       .HasForeignKey(d => d.id_joven)
                       .OnDelete(DeleteBehavior.ClientSetNull);
             });
+            // Configuración adicional de los modelos para Incidentes
+            modelBuilder.Entity<Incidentes>(entity =>
+            {
+                entity.HasKey(e => e.Id);
+                entity.Property(e => e.Id).HasColumnName("Id").ValueGeneratedOnAdd();
+                entity.Property(e => e.id_usuario).HasColumnName("id_usuario");
+                entity.Property(e => e.id_joven).HasColumnName("id_joven");
+                entity.Property(e => e.fecha_hora).HasColumnName("fecha_hora");
+                entity.Property(e => e.descripcion).HasColumnName("descripcion");
+
+                entity.HasOne(d => d.Usuario)
+                    .WithMany(p => p.Incidentes)
+                    .HasForeignKey(d => d.id_usuario);
+
+                entity.HasOne(d => d.Joven)
+                    .WithMany(p => p.Incidentes)
+                    .HasForeignKey(d => d.id_joven);
+            });
+            // Configuración para Reportes_Expedientes
+            modelBuilder.Entity<Reportes_Expedientes>(entity =>
+            {
+                entity.HasKey(e => e.Id);
+                entity.Property(e => e.Id).HasColumnName("Id").ValueGeneratedOnAdd();
+                entity.Property(e => e.id_expediente).HasColumnName("id_expediente");
+                entity.Property(e => e.id_usuario).HasColumnName("id_usuario");
+                entity.Property(e => e.tipo).HasColumnName("tipo");
+                entity.Property(e => e.contenido).HasColumnName("contenido");
+                entity.Property(e => e.fecha_creacion).HasColumnName("fecha_creacion");
+
+                entity.HasOne(d => d.Expedientes)
+                    .WithMany(p => p.Reportes_Expedientes)
+                    .HasForeignKey(d => d.id_expediente);
+
+                entity.HasOne(d => d.Usuario)
+                    .WithMany(p => p.Reportes_Expedientes)
+                    .HasForeignKey(d => d.id_usuario);
+            });
+
 
             // Configuración adicional de los modelos para Roles y User
             modelBuilder.Entity<Roles>().HasIndex(r => r.nombre_rol).IsUnique();

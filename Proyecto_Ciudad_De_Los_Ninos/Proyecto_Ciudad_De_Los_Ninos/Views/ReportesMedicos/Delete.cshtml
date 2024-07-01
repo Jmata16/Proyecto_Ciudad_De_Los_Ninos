@@ -1,0 +1,118 @@
+﻿@model API_Ciudad_De_Los_Ninos.Models.Reportes_Medicos
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Eliminar Reporte Médico</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        .details-container {
+            width: 50%;
+            margin: 50px auto;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            background-color: #f9f9f9;
+        }
+
+        .details-title {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .details-list dt {
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+        .details-list dd {
+            margin-left: 0;
+            margin-bottom: 10px;
+        }
+
+        .delete-button {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+            .delete-button button {
+                width: 150px;
+                padding: 10px;
+                background-color: #dc3545;
+                color: white;
+                border: none;
+                border-radius: 4px;
+                cursor: pointer;
+            }
+
+                .delete-button button:hover {
+                    background-color: #c82333;
+                }
+
+        .action-links {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+            .action-links a {
+                margin: 0 10px;
+            }
+        /* Estilos del footer */
+        footer {
+            background-color: #f8f9fa;
+            padding: 20px 0;
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+        }
+
+            footer p {
+                margin: 0;
+            }
+    </style>
+</head>
+<body>
+    @Html.Partial("_header")
+
+    <div class="details-container">
+        <h2 class="details-title">Eliminar Reporte Médico</h2>
+        <hr />
+        <dl class="details-list row">
+            <dt class="col-sm-4">Fecha de Creación</dt>
+            <dd class="col-sm-8">@Html.DisplayFor(model => model.fecha_creacion)</dd>
+
+            <dt class="col-sm-4">Contenido</dt>
+            <dd class="col-sm-8">@Html.DisplayFor(model => model.contenido)</dd>
+
+            <dt class="col-sm-4">Usuario</dt>
+            <dd class="col-sm-8">@Html.DisplayFor(model => model.Usuario.nombre_usuario)</dd>
+
+            <dt class="col-sm-4">Joven</dt>
+            <dd class="col-sm-8">@Html.DisplayFor(model => model.Joven.nombre)</dd>
+        </dl>
+
+        <div class="delete-button">
+            <form asp-action="Delete" asp-route-id="@Model?.Id" method="post" onsubmit="return confirm('¿Estás seguro de que quieres eliminar este reporte médico?')">
+                <button type="submit" class="btn btn-danger">Eliminar Reporte Médico</button>
+            </form>
+        </div>
+
+        <div class="action-links">
+            <a asp-action="Index" class="btn btn-secondary">Volver al Listado</a>
+        </div>
+    </div>
+
+    @Html.Partial("_footer")
+
+    <script src="js/jquery-1.11.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+    <script type="text/javascript" src="~/js/bootstrap.bundle.min.js"></script>
+    <script type="text/javascript" src="~/js/plugins.js"></script>
+    <script type="text/javascript" src="~/js/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,200 @@
+﻿@model IEnumerable<API_Ciudad_De_Los_Ninos.Models.Expedientes>
+
+@{
+    ViewData["Title"] = "Expedientes";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewData["Title"]</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        /* Estilos CSS para la página */
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        .content {
+            flex: 1;
+        }
+
+        .form-container {
+            width: 50%;
+            margin: 20px auto;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            background-color: #f9f9f9;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+            .form-group label {
+                display: block;
+                font-weight: bold;
+            }
+
+            .form-group input[type="text"],
+            .form-group input[type="number"],
+            .form-group input[type="date"] {
+                width: calc(100% - 10px);
+                padding: 8px;
+                border: 1px solid #ccc;
+                border-radius: 4px;
+            }
+
+            .form-group button {
+                padding: 10px 20px;
+                background-color: #E6282A;
+                color: white;
+                border: none;
+                border-radius: 4px;
+                cursor: pointer;
+            }
+
+                .form-group button:hover {
+                    background-color: #b21d20;
+                }
+
+        .delete-message {
+            color: #E6282A;
+            font-weight: bold;
+            margin-top: 10px;
+            display: none;
+        }
+
+        /* Estilos para la tabla y el botón */
+        .table-container {
+            width: 80%;
+            margin: 20px auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            background-color: #fff;
+        }
+
+        th, td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        th {
+            background-color: #f8f8f8;
+            font-weight: bold;
+            color: #333;
+            text-transform: uppercase;
+        }
+
+        tr:hover {
+            background-color: #f5f5f5;
+        }
+
+        .actions a {
+            margin-right: 10px;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+            .actions a:hover {
+                color: #0056b3;
+            }
+
+        .create-button {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 1.2em;
+            color: white;
+            background-color: #007bff;
+            border: none;
+            border-radius: 5px;
+            text-align: center;
+            text-decoration: none;
+            cursor: pointer;
+            margin-bottom: 20px;
+        }
+
+            .create-button:hover {
+                background-color: #0056b3;
+            }
+
+        /* Estilos del footer */
+        footer {
+            background-color: #f8f9fa;
+            padding: 20px 0;
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+        }
+
+            footer p {
+                margin: 0;
+            }
+    </style>
+</head>
+<body>
+    @Html.Partial("_header")
+
+    <div class="content">
+        
+
+        <div class="table-container">
+            <p>
+                <a href="@Url.Action("Create")" class="create-button">Crear Expediente</a>
+            </p>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Nombre del Joven</th>
+                        <th>Edad</th>
+                        <th>Fecha de Ingreso</th>
+                        <th>Dirección</th>
+                        <th>Teléfono de Contacto</th>
+                        <th>Tutor Legal</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@Html.DisplayFor(modelItem => item.nombre_joven)</td>
+                            <td>@Html.DisplayFor(modelItem => item.edad)</td>
+                            <td>@Html.DisplayFor(modelItem => item.fecha_ingreso)</td>
+                            <td>@Html.DisplayFor(modelItem => item.direccion)</td>
+                            <td>@Html.DisplayFor(modelItem => item.telefono_contacto)</td>
+                            <td>@Html.DisplayFor(modelItem => item.tutor_legal)</td>
+                            <td class="actions">
+                                <a href="@Url.Action("Edit", new { id = item.Id })">Editar</a> |
+                                <a href="@Url.Action("Details", new { id = item.Id })">Detalles</a> |
+                                <a href="@Url.Action("Delete", new { id = item.Id })">Eliminar</a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <footer>
+        @Html.Partial("_footer")
+    </footer>
+
+    <script src="js/jquery-1.11.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+    <script type="text/javascript" src="~/js/bootstrap.bundle.min.js"></script>
+    <script type="text/javascript" src="~/js/plugins.js"></script>
+    <script type="text/javascript" src="~/js/script.js"></script>
+</body>
+</html>
