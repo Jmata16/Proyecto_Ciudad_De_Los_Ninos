@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using API_Ciudad_De_Los_Ninos.Models;
 using Proyecto_Ciudad_De_Los_Ninos.Models;
@@ -50,11 +49,9 @@ namespace Proyecto_Ciudad_De_Los_Ninos.Controllers
         }
 
         // POST: Pruebas_Dopaje/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,id_usuario,id_joven,fecha_hora,lugar")] Pruebas_Dopaje pruebas_Dopaje)
+        public async Task<IActionResult> Create([Bind("Id,id_usuario,id_joven,fecha_hora,lugar,resultado,observaciones")] Pruebas_Dopaje pruebas_Dopaje)
         {
             if (ModelState.IsValid)
             {
@@ -82,11 +79,9 @@ namespace Proyecto_Ciudad_De_Los_Ninos.Controllers
         }
 
         // POST: Pruebas_Dopaje/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,id_usuario,id_joven,fecha_hora,lugar")] Pruebas_Dopaje pruebas_Dopaje)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,id_usuario,id_joven,fecha_hora,lugar,resultado,observaciones")] Pruebas_Dopaje pruebas_Dopaje)
         {
             if (id != pruebas_Dopaje.Id)
             {

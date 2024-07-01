@@ -19,7 +19,8 @@
                 color: #333;
             }
 
-            .form-group input {
+            .form-group input,
+            .form-group select {
                 width: 100%;
                 padding: 10px;
                 font-size: 15px;
@@ -70,29 +71,63 @@
         <h4>Editar Prueba de Dopaje</h4>
         <hr />
         <div class="row">
-            <div class="col-md-8">
+            <div class="col-md-6">
                 <form asp-action="Edit">
                     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                     <input type="hidden" asp-for="Id" />
-                    <div class="form-group">
-                        <label asp-for="id_usuario" class="control-label">ID Usuario</label>
-                        <input asp-for="id_usuario" class="form-control" />
-                        <span asp-validation-for="id_usuario" class="text-danger"></span>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label asp-for="id_usuario" class="control-label">ID Usuario</label>
+                                <input asp-for="id_usuario" class="form-control" />
+                                <span asp-validation-for="id_usuario" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label asp-for="id_joven" class="control-label">ID Joven</label>
+                                <input asp-for="id_joven" class="form-control" />
+                                <span asp-validation-for="id_joven" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label asp-for="fecha_hora" class="control-label">Fecha y Hora</label>
+                                <input asp-for="fecha_hora" class="form-control" />
+                                <span asp-validation-for="fecha_hora" class="text-danger"></span>
+                            </div>
+                        </div>
                     </div>
-                    <div class="form-group">
-                        <label asp-for="id_joven" class="control-label">ID Joven</label>
-                        <input asp-for="id_joven" class="form-control" />
-                        <span asp-validation-for="id_joven" class="text-danger"></span>
-                    </div>
-                    <div class="form-group">
-                        <label asp-for="fecha_hora" class="control-label">Fecha y Hora</label>
-                        <input asp-for="fecha_hora" class="form-control" />
-                        <span asp-validation-for="fecha_hora" class="text-danger"></span>
-                    </div>
-                    <div class="form-group">
-                        <label asp-for="lugar" class="control-label">Lugar</label>
-                        <input asp-for="lugar" class="form-control" />
-                        <span asp-validation-for="lugar" class="text-danger"></span>
+                </form>
+            </div>
+            <div class="col-md-6">
+                <form asp-action="Edit">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label asp-for="lugar" class="control-label">Lugar</label>
+                                <input asp-for="lugar" class="form-control" />
+                                <span asp-validation-for="lugar" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label asp-for="resultado" class="control-label">Resultado</label>
+                                <select asp-for="resultado" class="form-control">
+                                    <option value="">Seleccione...</option>
+                                    <option value="Positivo">Positivo</option>
+                                    <option value="Negativo">Negativo</option>
+                                </select>
+                                <span asp-validation-for="resultado" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label asp-for="observaciones" class="control-label">Observaciones</label>
+                                <input asp-for="observaciones" class="form-control" />
+                                <span asp-validation-for="observaciones" class="text-danger"></span>
+                            </div>
+                        </div>
                     </div>
                     <div class="actions">
                         <input type="submit" value="Guardar Cambios" class="create-button" />
