@@ -10,6 +10,27 @@
     <meta name="viewport" content="width=device-width" />
     <title>Pruebas de Dopaje</title>
     <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center; 
+        }
+
+        .container {
+            padding: 20px;
+        }
+
         table {
             width: 100%;
             border-collapse: collapse;
@@ -69,43 +90,45 @@
     @Html.Partial("_header")
 
     <!-- Contenido principal -->
-    <div class="container">
-        <p>
-            <a asp-action="Create" class="create-button">Crear Nuevo</a>
-        </p>
-        <table>
-            <thead>
-                <tr>
-                    <th>Usuario</th>
-                    <th>Joven</th>
-                    <th>Fecha</th>
-                    <th>Lugar</th>
-                    <th>Resultado</th>
-                    <th>Observaciones</th>
-                    <th>Acciones</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach (var item in Model)
-                {
+    <div class="content">
+        <div class="container">
+            <p>
+                <a asp-action="Create" class="create-button">Crear Nuevo</a>
+            </p>
+            <table>
+                <thead>
                     <tr>
-                        <td>@Html.DisplayFor(modelItem => item.id_usuario)</td>
-                        <td>@Html.DisplayFor(modelItem => item.id_joven)</td>
-                        <td>@Html.DisplayFor(modelItem => item.fecha)</td>
-                        <td>@Html.DisplayFor(modelItem => item.lugar)</td>
-                        <td>@Html.DisplayFor(modelItem => item.resultado)</td>
-                        <td>@Html.DisplayFor(modelItem => item.observaciones)</td>
-                        <td class="actions">
-                            <a asp-action="Edit" asp-route-id="@item.Id" class="text-info">Editar</a>
-                            <a asp-action="Details" asp-route-id="@item.Id" class="text-success">Detalles</a>
-                            <a asp-action="Delete" asp-route-id="@item.Id" class="text-danger">Eliminar</a>
-                        </td>
+                        <th>Usuario</th>
+                        <th>Joven</th>
+                        <th>Fecha</th>
+                        <th>Lugar</th>
+                        <th>Resultado</th>
+                        <th>Observaciones</th>
+                        <th>Acciones</th>
                     </tr>
-                }
-            </tbody>
-        </table>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@Html.DisplayFor(modelItem => item.id_usuario)</td>
+                            <td>@Html.DisplayFor(modelItem => item.id_joven)</td>
+                            <td>@Html.DisplayFor(modelItem => item.fecha)</td>
+                            <td>@Html.DisplayFor(modelItem => item.lugar)</td>
+                            <td>@Html.DisplayFor(modelItem => item.resultado)</td>
+                            <td>@Html.DisplayFor(modelItem => item.observaciones)</td>
+                            <td class="actions">
+                                <a asp-action="Edit" asp-route-id="@item.Id" class="text-info">Editar</a>
+                                <a asp-action="Details" asp-route-id="@item.Id" class="text-success">Detalles</a>
+                                <a asp-action="Delete" asp-route-id="@item.Id" class="text-danger">Eliminar</a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
     </div>
-    <br />
+
     <!-- Footer -->
     @Html.Partial("_footer")
 

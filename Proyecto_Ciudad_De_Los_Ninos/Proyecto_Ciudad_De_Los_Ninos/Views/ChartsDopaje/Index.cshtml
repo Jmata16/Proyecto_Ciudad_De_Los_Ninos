@@ -9,13 +9,31 @@
 <html>
 <head>
     <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center; 
+        }
+
         .clear-container {
-            background-color: rgba(245, 245, 245, 0.9); 
+            background-color: #ffffff; 
             padding: 20px;
-            border-radius: 10px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             max-width: 800px;
-            margin: 0 auto 0px auto; 
+            margin: 20px auto; 
         }
 
         #chartContainer {
@@ -27,7 +45,7 @@
         }
 
         canvas {
-            max-width: 600px;
+            max-width: 600px; 
             max-height: 400px; 
         }
 
@@ -35,17 +53,24 @@
             font-size: 18px; 
             text-align: center;
         }
+
+        footer {
+            background: #f1f1f1;
+            padding: 10px;
+        }
     </style>
 </head>
 <body>
 
     @Html.Partial("_header")
 
-    <div class="clear-container">
-        <h2>@ViewData["Gráfico"]</h2>
+    <div class="content">
+        <div class="clear-container">
+            <h2>@ViewData["Gráfico"]</h2>
 
-        <div id="chartContainer">
-            <canvas id="myChart"></canvas>
+            <div id="chartContainer">
+                <canvas id="myChart"></canvas>
+            </div>
         </div>
     </div>
 

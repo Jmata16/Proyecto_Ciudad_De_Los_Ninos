@@ -8,7 +8,7 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>Crear Prueba de Dopaje</title>
+    <title>Ingreso de Prueba de Dopaje</title>
     <style>
         body {
             margin: 0;
@@ -18,32 +18,39 @@
         }
 
         h4 {
-            color: red;
+            color: #333;
             font-size: 24px;
             margin-bottom: 20px;
         }
 
-        .row {
-            display: flex;
-            flex-wrap: wrap;
-        }
-
-        .col-md-4 {
-            flex: 0 0 33.33%;
-            max-width: 33.33%;
-            padding: 10px;
+        .container-main {
+            background-color: #ffffff;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            margin: 20px auto;
+            max-width: 800px;
+            overflow: hidden;
         }
 
         .form-group {
-            margin-bottom: 20px;
+            margin-bottom: 15px;
         }
 
+            .form-group label {
+                font-weight: bold;
+                color: #333;
+                margin-bottom: 10px;
+                display: block;
+            }
+
         .form-control {
-            width: 100%;
             padding: 8px;
             font-size: 14px;
             border: 1px solid #ccc;
             border-radius: 4px;
+            width: 100%;
         }
 
         .create-button {
@@ -70,70 +77,60 @@
     @Html.Partial("_header")
 
     <!-- Contenido principal -->
-    <div class="container">
-        <h4>Ingreso de Pruebas de Dopaje</h4>
+    <div class="container-main">
+        <h4>Ingreso de Prueba de Dopaje</h4>
         <hr />
-        <div class="row">
-            <div class="col-md-4">
-                <form asp-action="Create" style="font-size: 15px; color:black;">
-                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-                    <div class="form-group">
-                        <label asp-for="id_usuario" class="control-label">ID Usuario</label>
-                        <input asp-for="id_usuario" class="form-control" />
-                        <span asp-validation-for="id_usuario" class="text-danger"></span>
-                    </div>
-                    <div class="form-group">
-                        <label asp-for="id_joven" class="control-label">ID Joven</label>
-                        <input asp-for="id_joven" class="form-control" />
-                        <span asp-validation-for="id_joven" class="text-danger"></span>
-                    </div>
-                    <div class="form-group">
-                        <label asp-for="fecha" class="control-label">Fecha</label>
-                        <input asp-for="fecha" class="form-control" />
-                        <span asp-validation-for="fecha" class="text-danger"></span>
-                    </div>
-                    <div class="form-group">
-                        <label asp-for="lugar" class="control-label">Lugar</label>
-                        <input asp-for="lugar" class="form-control" />
-                        <span asp-validation-for="lugar" class="text-danger"></span>
-                    </div>
-                    <div class="form-group">
-                        <label asp-for="resultado" class="control-label">Resultado</label>
-                        <select asp-for="resultado" class="form-control">
-                            <option value="">Seleccione...</option>
-                            <option value="Positivo">Positivo</option>
-                            <option value="Negativo">Negativo</option>
-                        </select>
-                        <span asp-validation-for="resultado" class="text-danger"></span>
-                    </div>
-                    <div class="form-group">
-                        <label asp-for="observaciones" class="control-label">Observaciones</label>
-                        <input asp-for="observaciones" class="form-control" />
-                        <span asp-validation-for="observaciones" class="text-danger"></span>
-                    </div>
-                    <br />
-                    <div class="form-group">
-                        <input type="submit" value="Ingresar Prueba de Dopaje" class="create-button" />
-                    </div>
-                </form>
+        <form asp-action="Create">
+            <div class="form-group">
+                <label asp-for="id_usuario" class="control-label">ID Usuario</label>
+                <input asp-for="id_usuario" class="form-control" />
+                <span asp-validation-for="id_usuario" class="text-danger"></span>
             </div>
-        </div>
+            <div class="form-group">
+                <label asp-for="id_joven" class="control-label">ID Joven</label>
+                <input asp-for="id_joven" class="form-control" />
+                <span asp-validation-for="id_joven" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="fecha" class="control-label">Fecha</label>
+                <input asp-for="fecha" class="form-control" />
+                <span asp-validation-for="fecha" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="lugar" class="control-label">Lugar</label>
+                <input asp-for="lugar" class="form-control" />
+                <span asp-validation-for="lugar" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="resultado" class="control-label">Resultado</label>
+                <select asp-for="resultado" class="form-control">
+                    <option value="">Seleccione...</option>
+                    <option value="Positivo">Positivo</option>
+                    <option value="Negativo">Negativo</option>
+                </select>
+                <span asp-validation-for="resultado" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="observaciones" class="control-label">Observaciones</label>
+                <input asp-for="observaciones" class="form-control" />
+                <span asp-validation-for="observaciones" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Ingresar Prueba de Dopaje" class="create-button" />
+            </div>
+        </form>
         <!-- Volver atrás -->
-        <div>
+        <div style="text-align: center; margin-top: 20px;">
             <a asp-action="Index" class="create-button">Volver atrás</a>
         </div>
     </div>
 
+    <!-- Footer  -->
+    <div id="footer">
+        @Html.Partial("_footer")
+    </div>
+
     <!-- Scripts -->
-    @section Scripts {
-        @{
-            await Html.RenderPartialAsync("_ValidationScriptsPartial");
-        }
-    }
-
-    <!-- Footer -->
-    @Html.Partial("_footer")
-
     <script src="js/jquery-1.11.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
     <script src="~/js/bootstrap.bundle.min.js"></script>
