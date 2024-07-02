@@ -9,7 +9,8 @@
     <link rel="stylesheet" href="~/Proyecto_Ciudad_De_Los_Ninos.styles.css" asp-append-version="true" />
 </head>
 <body>
-            @RenderBody()
+    @RenderBody()
 
+    @RenderSection("Scripts", required: false)  <!-- Esta línea renderizará la sección Scripts si está definida en la vista -->
 </body>
 </html>
