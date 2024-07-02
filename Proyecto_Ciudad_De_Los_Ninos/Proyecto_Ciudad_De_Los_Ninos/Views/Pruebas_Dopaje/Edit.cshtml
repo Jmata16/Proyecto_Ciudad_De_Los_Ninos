@@ -19,7 +19,8 @@
                 color: #333;
             }
 
-            .form-group input {
+            .form-group input,
+            .form-group select {
                 width: 100%;
                 padding: 10px;
                 font-size: 15px;
@@ -34,6 +35,7 @@
 
         .actions {
             margin-top: 20px;
+            text-align: center; /* Alineación de los botones al centro */
         }
 
         .create-button {
@@ -54,10 +56,50 @@
                 background-color: #0056b3;
             }
 
+        .container-main {
+            background-color: #ffffff; /* Color de fondo blanco */
+            padding: 20px;
+            border: 1px solid #ddd; /* Borde delgado gris claro */
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1); /* Sombra ligera */
+            margin: 20px auto; /* Centrado horizontal */
+            max-width: 800px; /* Ancho máximo del contenedor */
+            overflow: hidden; /* Evita que el contenido se escape */
+            text-align: center; /* Alineación de todo el contenido al centro */
+        }
+
         #footer {
-            position: absolute;
-            bottom: 0;
-            width: 100%;
+            margin-top: 20px; /* Espacio superior al footer */
+            background-color: #f8f9fa; /* Color de fondo del footer original */
+            padding: 10px 0;
+            text-align: left; /* Alineación a la izquierda */
+            clear: both; /* Limpiar floats */
+        }
+
+        .row {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center; /* Centra horizontalmente los elementos dentro de .row */
+            text-align: left; /* Alineación del texto a la izquierda */
+        }
+
+        .col-sm-2 {
+            flex: 0 0 30%; /* Ancho de las etiquetas */
+            max-width: 30%;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 10px; /* Espacio entre etiquetas */
+            text-align: right; /* Alineación de las etiquetas a la derecha */
+            padding-right: 10px; /* Espaciado derecho para las etiquetas */
+        }
+
+        .col-sm-10 {
+            flex: 0 0 60%; /* Ancho de los campos */
+            max-width: 60%;
+            color: #555;
+            margin-bottom: 15px;
+            text-align: left; /* Alineación del texto a la izquierda */
+            padding-left: 10px; /* Espaciado izquierdo para los campos */
         }
     </style>
 </head>
@@ -66,7 +108,7 @@
     @Html.Partial("_header")
 
     <!-- Contenido principal -->
-    <div class="container">
+    <div class="container-main">
         <h4>Editar Prueba de Dopaje</h4>
         <hr />
         <div class="row">
@@ -118,7 +160,9 @@
     </div>
 
     <!-- Footer -->
-    @Html.Partial("_footer")
+    <div id="footer">
+        @Html.Partial("_footer")
+    </div>
 
     <!-- Scripts -->
     <script src="js/jquery-1.11.0.min.js"></script>
