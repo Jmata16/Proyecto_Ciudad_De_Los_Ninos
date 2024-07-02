@@ -13,7 +13,7 @@
     <style>
         .details-container {
             width: 50%;
-            margin: 50px auto;
+            margin: auto;
             padding: 20px;
             border: 1px solid #ddd;
             border-radius: 8px;
@@ -40,9 +40,7 @@
             text-align: center;
         }
 
-            .action-links a {
-                margin: 0 10px;
-            }
+
 
         .delete-button {
             margin-top: 20px;
@@ -64,24 +62,15 @@
                 }
 
         /* Estilos del footer */
-        footer {
-            background-color: #f8f9fa;
-            padding: 20px 0;
-            position: absolute;
-            bottom: 0;
-            width: 100%;
-        }
 
-            footer p {
-                margin: 0;
-            }
+
     </style>
 </head>
 <body>
     @Html.Partial("_header")
 
     <div class="details-container">
-        <h2 class="details-title">Eliminar Expediente</h2>
+        <h2 class="">Eliminar Expediente</h2>
         <hr />
         <dl class="details-list row">
             <dt class="col-sm-4">Nombre del Joven</dt>
@@ -114,13 +103,16 @@
         <div class="delete-button">
             <form asp-action="Delete" asp-route-id="@Model?.Id" method="post" onsubmit="return confirm('¿Estás seguro de que quieres eliminar este expediente?')">
                 <button type="submit" class="btn btn-danger">Eliminar Expediente</button>
+               
             </form>
+            
         </div>
         <div class="action-links">
             <a asp-action="Index" class="btn btn-secondary">Volver al Listado</a>
-        </div>
-    </div>
 
+        </div>
+        
+    </div>
     @Html.Partial("_footer")
     <script src="js/jquery-1.11.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
