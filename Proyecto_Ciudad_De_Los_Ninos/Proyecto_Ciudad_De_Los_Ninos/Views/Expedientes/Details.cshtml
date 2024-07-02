@@ -93,7 +93,10 @@
             <dd class="col-sm-8">@Html.DisplayFor(model => model.notas_adicionales)</dd>
         </dl>
         <div class="action-links">
-            <a asp-action="Edit" asp-route-id="@Model?.Id" class="btn btn-primary">Editar</a>
+            <a href="@Url.Action("ExportExpedienteToExcel", new { id = Model.Id })" class="btn btn-success">Exportar a Excel</a>
+            <a href="@Url.Action("ExportExpedienteToCsv", new { id = Model.Id })" class="btn btn-primary">Exportar a CSV</a>
+            <a href="@Url.Action("ExportExpedienteToPdf", new { id = Model.Id })" class="btn btn-info">Exportar a PDF</a>
+            <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-warning">Editar</a>
             <a asp-action="Index" class="btn btn-secondary">Volver al Listado</a>
         </div>
     </div>

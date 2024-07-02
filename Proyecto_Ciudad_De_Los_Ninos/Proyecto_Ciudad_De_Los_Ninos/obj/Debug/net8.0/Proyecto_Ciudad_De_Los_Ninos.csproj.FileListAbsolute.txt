@@ -1564,3 +1564,13 @@ C:\Users\dyure\Documents\GitHub\Proyecto_Ciudad_De_Los_Ninos\Proyecto_Ciudad_De_
 C:\Users\dyure\Documents\GitHub\Proyecto_Ciudad_De_Los_Ninos\Proyecto_Ciudad_De_Los_Ninos\Proyecto_Ciudad_De_Los_Ninos\obj\Debug\net8.0\Proyecto_Ciudad_De_Los_Ninos.pdb
 C:\Users\dyure\Documents\GitHub\Proyecto_Ciudad_De_Los_Ninos\Proyecto_Ciudad_De_Los_Ninos\Proyecto_Ciudad_De_Los_Ninos\obj\Debug\net8.0\Proyecto_Ciudad_De_Los_Ninos.genruntimeconfig.cache
 C:\Users\dyure\Documents\GitHub\Proyecto_Ciudad_De_Los_Ninos\Proyecto_Ciudad_De_Los_Ninos\Proyecto_Ciudad_De_Los_Ninos\obj\Debug\net8.0\ref\Proyecto_Ciudad_De_Los_Ninos.dll
+C:\Users\dyure\Documents\GitHub\Proyecto_Ciudad_De_Los_Ninos\Proyecto_Ciudad_De_Los_Ninos\Proyecto_Ciudad_De_Los_Ninos\bin\Debug\net8.0\BouncyCastle.Cryptography.dll
+C:\Users\dyure\Documents\GitHub\Proyecto_Ciudad_De_Los_Ninos\Proyecto_Ciudad_De_Los_Ninos\Proyecto_Ciudad_De_Los_Ninos\bin\Debug\net8.0\ClosedXML.dll
+C:\Users\dyure\Documents\GitHub\Proyecto_Ciudad_De_Los_Ninos\Proyecto_Ciudad_De_Los_Ninos\Proyecto_Ciudad_De_Los_Ninos\bin\Debug\net8.0\CsvHelper.dll
+C:\Users\dyure\Documents\GitHub\Proyecto_Ciudad_De_Los_Ninos\Proyecto_Ciudad_De_Los_Ninos\Proyecto_Ciudad_De_Los_Ninos\bin\Debug\net8.0\DocumentFormat.OpenXml.dll
+C:\Users\dyure\Documents\GitHub\Proyecto_Ciudad_De_Los_Ninos\Proyecto_Ciudad_De_Los_Ninos\Proyecto_Ciudad_De_Los_Ninos\bin\Debug\net8.0\ExcelNumberFormat.dll
+C:\Users\dyure\Documents\GitHub\Proyecto_Ciudad_De_Los_Ninos\Proyecto_Ciudad_De_Los_Ninos\Proyecto_Ciudad_De_Los_Ninos\bin\Debug\net8.0\Irony.dll
+C:\Users\dyure\Documents\GitHub\Proyecto_Ciudad_De_Los_Ninos\Proyecto_Ciudad_De_Los_Ninos\Proyecto_Ciudad_De_Los_Ninos\bin\Debug\net8.0\itextsharp.dll
+C:\Users\dyure\Documents\GitHub\Proyecto_Ciudad_De_Los_Ninos\Proyecto_Ciudad_De_Los_Ninos\Proyecto_Ciudad_De_Los_Ninos\bin\Debug\net8.0\SixLabors.Fonts.dll
+C:\Users\dyure\Documents\GitHub\Proyecto_Ciudad_De_Los_Ninos\Proyecto_Ciudad_De_Los_Ninos\Proyecto_Ciudad_De_Los_Ninos\bin\Debug\net8.0\System.IO.Packaging.dll
+C:\Users\dyure\Documents\GitHub\Proyecto_Ciudad_De_Los_Ninos\Proyecto_Ciudad_De_Los_Ninos\Proyecto_Ciudad_De_Los_Ninos\bin\Debug\net8.0\XLParser.dll

@@ -10,6 +10,7 @@
     <meta name="viewport" content="width=device-width" />
     <title>@ViewData["Title"]</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <style>
         /* Estilos CSS para la página */
         body {
@@ -129,6 +130,78 @@
                 background-color: #0056b3;
             }
 
+        .export-buttons {
+            display: flex;
+            justify-content: flex-end;
+            margin-bottom: 20px;
+        }
+
+            .export-buttons a {
+                padding: 10px 20px;
+                font-size: 1em;
+                color: white;
+                background-color: #28a745;
+                border: none;
+                border-radius: 5px;
+                text-align: center;
+                text-decoration: none;
+                cursor: pointer;
+                margin-left: 10px;
+            }
+
+                .export-buttons a:hover {
+                    background-color: #218838;
+                }
+
+        .search-container {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+            .search-container input {
+                padding: 8px;
+                font-size: 1em;
+                border: 1px solid #ccc;
+                border-radius: 4px;
+                margin-right: 10px;
+                width: 300px;
+                display: none;
+            }
+
+                .search-container input[type="number"] {
+                    width: 100px;
+                }
+
+            .search-container button {
+                padding: 8px 20px;
+                font-size: 1em;
+                color: white;
+                background-color: #007bff;
+                border: none;
+                border-radius: 4px;
+                cursor: pointer;
+            }
+
+                .search-container button:hover {
+                    background-color: #0056b3;
+                }
+
+        .search-icon {
+            font-size: 1.5em;
+            cursor: pointer;
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #007bff;
+        }
+
+        .search-form-visible .search-container input {
+            display: inline-block;
+        }
+
         /* Estilos del footer */
         footer {
             background-color: #f8f9fa;
@@ -147,9 +220,20 @@
     @Html.Partial("_header")
 
     <div class="content">
-        
-
         <div class="table-container">
+            <div class="export-buttons">
+                <a href="@Url.Action("ExportToExcel")">Exportar a Excel</a>
+                <a href="@Url.Action("ExportToCsv")">Exportar a CSV</a>
+                <a href="@Url.Action("ExportToPdf")">Exportar a PDF</a>
+            </div>
+            <div class="search-container">
+                <form method="get" asp-action="Index" class="search-form">
+                    <input type="text" name="searchString" placeholder="Buscar por nombre" value="@ViewData["CurrentFilter"]" />
+                    <input type="number" name="searchAge" placeholder="Buscar por edad" value="@ViewData["CurrentAgeFilter"]" />
+                    <button type="submit">Buscar</button>
+                    <i class="fas fa-filter search-icon"></i>
+                </form>
+            </div>
             <p>
                 <a href="@Url.Action("Create")" class="create-button">Crear Expediente</a>
             </p>
@@ -191,10 +275,18 @@
         @Html.Partial("_footer")
     </footer>
 
-    <script src="js/jquery-1.11.0.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
     <script type="text/javascript" src="~/js/bootstrap.bundle.min.js"></script>
     <script type="text/javascript" src="~/js/plugins.js"></script>
     <script type="text/javascript" src="~/js/script.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('.search-icon').click(function () {
+                $('.search-container input').toggle();
+                $('.search-container input').first().focus();
+            });
+        });
+    </script>
 </body>
 </html>
