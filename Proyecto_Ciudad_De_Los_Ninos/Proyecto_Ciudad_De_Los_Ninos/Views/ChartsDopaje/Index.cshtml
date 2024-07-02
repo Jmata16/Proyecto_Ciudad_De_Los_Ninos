@@ -1,82 +1,104 @@
-﻿@@model IEnumerable<dynamic>
+﻿@model IEnumerable<dynamic>
 
-    @{
-        ViewData["Title"] = "Ejemplo";
-        ViewData["Gráfico"] = "Gráfico de Distribución de Resultados de Pruebas de Dopaje";
-    }
+@{
+    ViewData["Title"] = "Ejemplo";
+    ViewData["Gráfico"] = "Gráfico de Distribución de Resultados de Pruebas de Dopaje";
+}
 
-    <!DOCTYPE html>
-    <html>
-    <head>
-        <style>
-            #chartContainer { 
-                width: 300px; 
-                height: 200px; 
-            }
-        </style>
-    </head>
-    <body>
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        .clear-container {
+            background-color: rgba(245, 245, 245, 0.9); 
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 800px;
+            margin: 0 auto 0px auto; 
+        }
 
-        @Html.Partial("_header")
+        #chartContainer {
+            width: 100%; 
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0 auto; 
+        }
 
+        canvas {
+            max-width: 600px;
+            max-height: 400px; 
+        }
+
+        h2 {
+            font-size: 18px; 
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    @Html.Partial("_header")
+
+    <div class="clear-container">
         <h2>@ViewData["Gráfico"]</h2>
 
         <div id="chartContainer">
-            <div class="container">
-                <canvas id="myChart"></canvas>
-            </div>
+            <canvas id="myChart"></canvas>
         </div>
+    </div>
 
-        @Html.Partial("_footer")
+    @Html.Partial("_footer")
 
-        <script src="js/jquery-1.11.0.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
-        <script src="~/js/bootstrap.bundle.min.js"></script>
-        <script src="~/js/plugins.js"></script>
-        <script src="~/js/script.js"></script>
+    <script src="js/jquery-1.11.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+    <script src="~/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/plugins.js"></script>
+    <script src="~/js/script.js"></script>
 
-        @section Scripts {
-            <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-            <script>
-                var resultados = @Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(Model));
+    @section Scripts {
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <script>
+            var resultados = @Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(Model));
 
-                var labels = resultados.map(r => r.Resultado);
-                var data = resultados.map(r => r.Count);
+            var labels = resultados.map(r => r.Resultado);
+            var data = resultados.map(r => r.Count);
 
-                var ctx = document.getElementById('myChart').getContext('2d');
-                var myChart = new Chart(ctx, {
-                    type: 'pie',
-                    data: {
-                        labels: labels,
-                        datasets: [{
-                            label: 'Número de Pruebas',
-                            data: data,
-                            backgroundColor: [
-                                'rgba(255, 99, 132, 0.2)',
-                                'rgba(54, 162, 235, 0.2)',
-                            ],
-                            borderColor: [
-                                'rgba(255, 99, 132, 1)',
-                                'rgba(54, 162, 235, 1)',
-                            ],
-                            borderWidth: 1
-                        }]
-                    },
-                    options: {
-                        responsive: true,  
-                        maintainAspectRatio: false, 
-                        plugins: {
-                            legend: {
-                                position: 'bottom', 
-                                labels: {
-                                    boxWidth: 12, 
-                                    fontSize: 10  
-                                }
+            var ctx = document.getElementById('myChart').getContext('2d');
+            var myChart = new Chart(ctx, {
+                type: 'pie',
+                data: {
+                    labels: labels,
+                    datasets: [{
+                        label: 'Número de Pruebas',
+                        data: data,
+                        backgroundColor: [
+                            'rgba(255, 99, 132, 0.2)',
+                            'rgba(54, 162, 235, 0.2)',
+                        ],
+                        borderColor: [
+                            'rgba(255, 99, 132, 1)',
+                            'rgba(54, 162, 235, 1)',
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'bottom',
+                            labels: {
+                                boxWidth: 12,
+                                fontSize: 10
                             }
                         }
                     }
-                });
-            </script>
-        }
-    </body>
+                }
+            });
+        </script>
+    }
+</body>
 </html>
