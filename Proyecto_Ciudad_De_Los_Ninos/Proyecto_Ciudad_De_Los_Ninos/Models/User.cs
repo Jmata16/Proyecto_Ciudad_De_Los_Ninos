@@ -47,7 +47,9 @@ namespace API_Ciudad_De_Los_Ninos.Models
         //public ICollection<Pruebas_Dopaje> PruebasDopaje { get; set; }
         //public ICollection<Incidentes> Incidentes { get; set; }
         public ICollection<Citas> ?Citas { get; set; }
-
+        public ICollection<Incidentes>? Incidentes { get; set; }
+        public ICollection<Reportes_Medicos>? ReportesMedicos { get; set; }
+        public ICollection<Reportes_Expedientes>? Reportes_Expedientes { get; set; }
         public ICollection<Pruebas_Dopaje>? Pruebas_Dopaje { get; set; }
     }
 }

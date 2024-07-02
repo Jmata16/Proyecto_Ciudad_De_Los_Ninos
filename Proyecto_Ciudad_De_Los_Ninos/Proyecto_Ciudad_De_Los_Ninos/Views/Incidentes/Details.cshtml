@@ -1,0 +1,90 @@
+﻿@model API_Ciudad_De_Los_Ninos.Models.Incidentes
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Detalles del Incidente</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        .details-container {
+            width: 50%;
+            margin: 50px auto;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            background-color: #f9f9f9;
+        }
+
+        .details-title {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .details-list dt {
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+        .details-list dd {
+            margin-left: 0;
+            margin-bottom: 10px;
+        }
+
+        .action-links {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+            .action-links a {
+                margin: 0 10px;
+            }
+
+        /* Estilos del footer */
+        footer {
+            background-color: #f8f9fa;
+            padding: 20px 0;
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+        }
+
+            footer p {
+                margin: 0;
+            }
+    </style>
+</head>
+<body>
+    @Html.Partial("_header")
+
+    <div class="details-container">
+        <h2 class="details-title">Detalles del Incidente</h2>
+        <hr />
+        <dl class="details-list row">
+            <dt class="col-sm-4">Usuario</dt>
+            <dd class="col-sm-8">@Html.DisplayFor(model => model.Usuario.nombre_usuario)</dd>
+
+            <dt class="col-sm-4">Joven</dt>
+            <dd class="col-sm-8">@Html.DisplayFor(model => model.Joven.nombre)</dd>
+
+            <dt class="col-sm-4">Fecha y Hora</dt>
+            <dd class="col-sm-8">@Html.DisplayFor(model => model.fecha_hora)</dd>
+
+            <dt class="col-sm-4">Descripción</dt>
+            <dd class="col-sm-8">@Html.DisplayFor(model => model.descripcion)</dd>
+        </dl>
+        <div class="action-links">
+            <a asp-action="Edit" asp-route-id="@Model?.Id" class="btn btn-primary">Editar</a>
+            <a asp-action="Index" class="btn btn-secondary">Volver al Listado</a>
+        </div>
+    </div>
+    @Html.Partial("_footer")
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
