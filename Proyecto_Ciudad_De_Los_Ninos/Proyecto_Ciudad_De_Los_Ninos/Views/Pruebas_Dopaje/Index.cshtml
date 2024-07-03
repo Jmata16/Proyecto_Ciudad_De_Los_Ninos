@@ -111,8 +111,8 @@
                     @foreach (var item in Model)
                     {
                         <tr>
-                            <td>@Html.DisplayFor(modelItem => item.id_usuario)</td>
-                            <td>@Html.DisplayFor(modelItem => item.id_joven)</td>
+                            <td>@item.Usuario?.nombre_usuario</td>
+                            <td>@item.Joven?.nombre</td>
                             <td>@Html.DisplayFor(modelItem => item.fecha)</td>
                             <td>@Html.DisplayFor(modelItem => item.lugar)</td>
                             <td>@Html.DisplayFor(modelItem => item.resultado)</td>

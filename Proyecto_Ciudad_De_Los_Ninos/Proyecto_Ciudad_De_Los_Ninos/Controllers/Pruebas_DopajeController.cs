@@ -6,9 +6,12 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using API_Ciudad_De_Los_Ninos.Models;
 using Proyecto_Ciudad_De_Los_Ninos.Models;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Proyecto_Ciudad_De_Los_Ninos.Controllers
 {
+    [Authorize]
     public class Pruebas_DopajeController : Controller
     {
         private readonly ApplicationDBContext _context;
@@ -21,7 +24,11 @@ namespace Proyecto_Ciudad_De_Los_Ninos.Controllers
         // GET: Pruebas_Dopaje
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Pruebas_Dopaje.ToListAsync());
+            var pruebasDopaje = _context.Pruebas_Dopaje
+                .Include(p => p.Usuario)
+                .Include(p => p.Joven);
+
+            return View(await pruebasDopaje.ToListAsync());
         }
 
         // GET: Pruebas_Dopaje/Details/5
@@ -32,19 +39,24 @@ namespace Proyecto_Ciudad_De_Los_Ninos.Controllers
                 return NotFound();
             }
 
-            var pruebas_Dopaje = await _context.Pruebas_Dopaje
+            var pruebasDopaje = await _context.Pruebas_Dopaje
+                .Include(p => p.Usuario)
+                .Include(p => p.Joven)
                 .FirstOrDefaultAsync(m => m.Id == id);
-            if (pruebas_Dopaje == null)
+            if (pruebasDopaje == null)
             {
                 return NotFound();
             }
 
-            return View(pruebas_Dopaje);
+            return View(pruebasDopaje);
         }
 
         // GET: Pruebas_Dopaje/Create
         public IActionResult Create()
         {
+            // Cargar usuarios y jóvenes en ViewBag
+            ViewBag.Usuarios = new SelectList(_context.Users, "Id", "nombre_usuario");
+            ViewBag.Jovenes = new SelectList(_context.Jovenes, "Id", "nombre");
             return View();
         }
 
@@ -59,6 +71,10 @@ namespace Proyecto_Ciudad_De_Los_Ninos.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
+
+            // Si hay errores de validación, recargar las listas de ViewBag
+            ViewBag.Usuarios = new SelectList(_context.Users, "Id", "nombre_usuario");
+            ViewBag.Jovenes = new SelectList(_context.Jovenes, "Id", "nombre");
             return View(pruebas_Dopaje);
         }
 
@@ -75,6 +91,10 @@ namespace Proyecto_Ciudad_De_Los_Ninos.Controllers
             {
                 return NotFound();
             }
+
+            // Cargar usuarios y jóvenes en ViewBag
+            ViewBag.Usuarios = new SelectList(_context.Users, "Id", "nombre_usuario");
+            ViewBag.Jovenes = new SelectList(_context.Jovenes, "Id", "nombre");
             return View(pruebas_Dopaje);
         }
 
@@ -108,9 +128,12 @@ namespace Proyecto_Ciudad_De_Los_Ninos.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
+
+            // Si hay errores de validación, recargar las listas de ViewBag
+            ViewBag.Usuarios = new SelectList(_context.Users, "Id", "nombre_usuario");
+            ViewBag.Jovenes = new SelectList(_context.Jovenes, "Id", "nombre");
             return View(pruebas_Dopaje);
         }
-
         // GET: Pruebas_Dopaje/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
@@ -120,6 +143,8 @@ namespace Proyecto_Ciudad_De_Los_Ninos.Controllers
             }
 
             var pruebas_Dopaje = await _context.Pruebas_Dopaje
+                .Include(p => p.Usuario)
+                .Include(p => p.Joven)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (pruebas_Dopaje == null)
             {
@@ -138,9 +163,9 @@ namespace Proyecto_Ciudad_De_Los_Ninos.Controllers
             if (pruebas_Dopaje != null)
             {
                 _context.Pruebas_Dopaje.Remove(pruebas_Dopaje);
+                await _context.SaveChangesAsync();
             }
 
-            await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 

@@ -1,0 +1,103 @@
+﻿@model API_Ciudad_De_Los_Ninos.Models.Jovenes
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Detalles de Joven</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        /* Estilos CSS adicionales específicos para esta vista */
+        .details-container {
+            width: 60%; /* Ajuste del ancho del contenedor */
+            margin: 50px auto;
+            padding: 15px; /* Reducción del padding */
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            background-color: #f9f9f9;
+        }
+
+        .form-group {
+            margin-bottom: 15px; /* Reducción del margen inferior de los grupos */
+        }
+
+            .form-group label {
+                font-weight: bold;
+            }
+
+            .form-group input[type="text"],
+            .form-group input[type="number"],
+            .form-group input[type="date"],
+            .form-group textarea,
+            .form-group select {
+                width: 100%;
+                padding: 8px;
+                border: 1px solid #ccc;
+                border-radius: 4px;
+                background-color: #fff; /* Fondo blanco para campos de texto */
+                pointer-events: none; /* Deshabilitar interacción con los campos */
+            }
+
+        .back-button {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 1em;
+            color: white;
+            background-color: #007bff;
+            border: none;
+            border-radius: 5px;
+            text-align: center;
+            text-decoration: none;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+
+            .back-button:hover {
+                background-color: #0056b3;
+            }
+    </style>
+</head>
+<body>
+    @Html.Partial("_header")
+
+    <div class="details-container">
+        <h2 class="text-center mb-4">Detalles de Joven</h2>
+        <form asp-action="Details">
+            <div class="form-group">
+                <label asp-for="cedula" class="control-label">Cédula:</label>
+                <input asp-for="cedula" class="form-control" readonly />
+            </div>
+            <div class="form-group">
+                <label asp-for="nombre" class="control-label">Nombre:</label>
+                <input asp-for="nombre" class="form-control" readonly />
+            </div>
+            <div class="form-group">
+                <label asp-for="edad" class="control-label">Edad:</label>
+                <input asp-for="edad" class="form-control" readonly />
+            </div>
+            <div class="form-group">
+                <label asp-for="direccion" class="control-label">Dirección:</label>
+                <input asp-for="direccion" class="form-control" readonly />
+            </div>
+            <div class="form-group">
+                <label asp-for="telefono_contacto" class="control-label">Teléfono de Contacto:</label>
+                <input asp-for="telefono_contacto" class="form-control" readonly />
+            </div>
+        </form>
+        <a href="@Url.Action("Index")" class="back-button">Volver al Listado</a>
+    </div>
+
+    @Html.Partial("_footer")
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+    <script type="text/javascript" src="~/js/bootstrap.bundle.min.js"></script>
+    <script type="text/javascript" src="~/js/plugins.js"></script>
+    <script type="text/javascript" src="~/js/script.js"></script>
+</body>
+</html>
+

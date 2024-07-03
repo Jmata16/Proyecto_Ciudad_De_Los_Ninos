@@ -5,9 +5,11 @@ using Microsoft.EntityFrameworkCore;
 using API_Ciudad_De_Los_Ninos.Models;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Proyecto_Ciudad_De_Los_Ninos.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace API_Ciudad_De_Los_Ninos.Controllers
 {
+    [Authorize]
     public class IncidentesController : Controller
     {
         private readonly ApplicationDBContext _context;

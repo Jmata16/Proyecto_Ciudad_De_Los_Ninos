@@ -19,18 +19,18 @@
         .container-main {
             background-color: #ffffff;
             padding: 20px;
-            border: 1px solid #ddd; 
+            border: 1px solid #ddd;
             border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1); 
-            margin: 20px auto; 
-            max-width: 800px; 
-            overflow: hidden; 
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            margin: 20px auto;
+            max-width: 800px;
+            overflow: hidden;
         }
 
         .row {
             display: flex;
             flex-wrap: wrap;
-            margin-bottom: 10px; 
+            margin-bottom: 10px;
         }
 
         .col-sm-2 {
@@ -79,11 +79,11 @@
             }
 
         #footer {
-            margin-top: 20px; 
-            background-color: #f8f9fa; 
+            margin-top: 20px;
+            background-color: #f8f9fa;
             padding: 10px 0;
-            text-align: left; 
-            clear: both; 
+            text-align: left;
+            clear: both;
         }
 
             #footer p {
@@ -100,10 +100,10 @@
         <h4>Detalles de la Prueba de Dopaje</h4>
         <hr />
         <div class="row">
-            <dt class="col-sm-2">ID Usuario</dt>
-            <dd class="col-sm-10">@Html.DisplayFor(model => model.id_usuario)</dd>
-            <dt class="col-sm-2">ID Joven</dt>
-            <dd class="col-sm-10">@Html.DisplayFor(model => model.id_joven)</dd>
+            <dt class="col-sm-2">Usuario</dt>
+            <dd class="col-sm-10">@Model.Usuario?.nombre_usuario</dd>
+            <dt class="col-sm-2">Joven</dt>
+            <dd class="col-sm-10">@Model.Joven?.nombre</dd>
             <dt class="col-sm-2">Fecha</dt>
             <dd class="col-sm-10">@Html.DisplayFor(model => model.fecha)</dd>
             <dt class="col-sm-2">Lugar</dt>
@@ -134,4 +134,3 @@
     <script src="~/js/script.js"></script>
 </body>
 </html>
-

@@ -21,8 +21,8 @@
 
         .form-container {
             width: 50%;
-            margin: 50px auto;
-            padding: 20px;
+            margin:auto;
+            padding: 10px;
             border: 1px solid #ddd;
             border-radius: 8px;
             background-color: #f9f9f9;
@@ -82,18 +82,7 @@
                 background-color: #0056b3;
             }
 
-        /* Estilos del footer */
-        footer {
-            background-color: #f8f9fa;
-            padding: 20px 0;
-            position: absolute;
-            bottom: 0;
-            width: 100%;
-        }
 
-            footer p {
-                margin: 0;
-            }
     </style>
 </head>
 <body>
@@ -138,9 +127,9 @@
         <a href="@Url.Action("Index")" class="back-button">Volver</a>
     </div>
 
-    <footer>
+
         @Html.Partial("_footer")
-    </footer>
+
 
     <script src="js/jquery-1.11.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>

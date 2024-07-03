@@ -15,9 +15,11 @@ using Proyecto_Ciudad_De_Los_Ninos.Models;
 using System.Drawing.Printing;
 using System.Globalization;
 using System.Text;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Proyecto_Ciudad_De_Los_Ninos.Controllers
 {
+    [Authorize]
     public class ExpedientesController : Controller
     {
         private readonly ApplicationDBContext _context;

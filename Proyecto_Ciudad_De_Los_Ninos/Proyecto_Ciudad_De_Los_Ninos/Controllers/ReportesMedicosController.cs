@@ -7,9 +7,11 @@ using Microsoft.EntityFrameworkCore;
 using API_Ciudad_De_Los_Ninos.Models;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Proyecto_Ciudad_De_Los_Ninos.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Proyecto_Ciudad_De_Los_Ninos.Controllers
 {
+    [Authorize]
     public class ReportesMedicosController : Controller
     {
         private readonly ApplicationDBContext _context;
