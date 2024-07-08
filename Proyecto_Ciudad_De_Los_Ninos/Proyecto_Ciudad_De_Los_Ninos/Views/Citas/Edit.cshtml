@@ -8,62 +8,67 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>Edit</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/bootstrap/css/bootstrap.min.css">
     <style>
-        /* Estilos personalizados */
-        .form-container {
-            width: 50%;
-            margin: 50px auto;
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+        }
+
+        h4 {
+            color: #333;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        .container-main {
+            background-color: #ffffff;
             padding: 20px;
             border: 1px solid #ddd;
             border-radius: 8px;
-            background-color: #f9f9f9;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            margin: 20px auto;
+            max-width: 800px;
+            overflow: hidden;
         }
 
         .form-group {
-            margin-bottom: 20px;
+            margin-bottom: 15px;
         }
 
             .form-group label {
                 font-weight: bold;
+                color: #333;
+                margin-bottom: 10px;
+                display: block;
             }
 
-            .form-group input[type="text"],
-            .form-group input[type="date"],
-            .form-group select {
-                width: 100%;
-                padding: 8px;
-                border: 1px solid #ccc;
-                border-radius: 4px;
-            }
-
-            .form-group button[type="submit"] {
-                padding: 10px 20px;
-                background-color: #007bff;
-                color: white;
-                border: none;
-                border-radius: 4px;
-                cursor: pointer;
-            }
-
-                .form-group button[type="submit"]:hover {
-                    background-color: #0056b3;
-                }
-
-        .text-danger {
-            color: #dc3545;
+        .form-control {
+            padding: 8px;
+            font-size: 14px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            width: 100%;
         }
 
-        /* Estilos para el botón "Back to List" */
-        .back-link {
-            margin-top: 20px;
+        .edit-button {
             display: inline-block;
+            padding: 10px 20px;
+            font-size: 1.2em;
+            color: white;
+            background-color: #007bff;
+            border: none;
+            border-radius: 5px;
+            text-align: center;
             text-decoration: none;
-            color: #007bff;
+            cursor: pointer;
+            margin-right: 10px;
         }
 
-            .back-link:hover {
-                color: #0056b3;
+            .edit-button:hover {
+                background-color: #0056b3;
             }
     </style>
 </head>
@@ -122,61 +127,74 @@
             }
         </style>
 
-        <div class="container">
-            <h2>Editando Cita</h2>
+        <div class="container-main">
+            <h4 class="text-center">Editando Cita</h4>
             <hr />
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="form-container">
-                        <form asp-action="Edit">
-                            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-                            <input type="hidden" asp-for="Id" />
-                            <div class="form-group">
-                                <label asp-for="id_usuario" class="control-label">Usuario</label>
-                                <select asp-for="id_usuario" class="form-control" asp-items="ViewBag.Users"></select>
-                            </div>
-
-                            <div class="form-group">
-                                <label asp-for="id_joven" class="control-label">Jovenes</label>
-                                <select asp-for="id_joven" class="form-control" asp-items="ViewBag.Jovenes"></select>
-                            </div>
-                            <div class="form-group">
-                                <label asp-for="fecha" class="control-label">Fecha de la Cita:</label>
-                                <input asp-for="fecha" class="form-control" />
-                                <span asp-validation-for="fecha" class="text-danger"></span>
-                            </div>
-                            <div class="form-group">
-                                <label asp-for="tipo_usuario" class="control-label">Tipo de Usuario:</label>
-                                <select asp-for="tipo_usuario" class="form-control">
-                                    <option value="psicólogo">Psicólogo</option>
-                                    <option value="trabajador_social">Trabajador Social</option>
-                                </select>
-                                <span asp-validation-for="tipo_usuario" class="text-danger"></span>
-                            </div>
-                            <div class="form-group">
-                                <label asp-for="detalles" class="control-label">Detalles:</label>
-                                <input asp-for="detalles" class="form-control" />
-                                <span asp-validation-for="detalles" class="text-danger"></span>
-                            </div>
-                            <div class="form-group">
-                                <button type="submit" class="btn btn-primary">Guardar</button>
-                            </div>
-                            <div>
-                                <a asp-action="Index" class="back-link">Cancelar</a>
-                            </div>
-                        </form>
+            <form asp-action="Edit">
+                <input type="hidden" asp-for="Id" />
+                <div class="row mb-3">
+                    <label for="id_usuario" class="col-sm-2 col-form-label">Usuario</label>
+                    <div class="col-sm-10">
+                        <select asp-for="id_usuario" class="form-select" asp-items="ViewBag.Users">
+                            <option value="">Seleccione...</option>
+                        </select>
+                        <span asp-validation-for="id_usuario" class="text-danger"></span>
                     </div>
                 </div>
+                <div class="row mb-3">
+                    <label for="id_joven" class="col-sm-2 col-form-label">Joven</label>
+                    <div class="col-sm-10">
+                        <select asp-for="id_joven" class="form-select" asp-items="ViewBag.Jovenes">
+                            <option value="">Seleccione...</option>
+                        </select>
+                        <span asp-validation-for="id_joven" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <label for="fecha" class="col-sm-2 col-form-label">Fecha de la Cita</label>
+                    <div class="col-sm-10">
+                        <input asp-for="fecha" class="form-control" />
+                        <span asp-validation-for="fecha" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <label for="tipo_usuario" class="col-sm-2 col-form-label">Tipo de Usuario</label>
+                    <div class="col-sm-10">
+                        <select asp-for="tipo_usuario" class="form-select">
+                            <option value="psicólogo">Psicólogo</option>
+                            <option value="trabajador_social">Trabajador Social</option>
+                        </select>
+                        <span asp-validation-for="tipo_usuario" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <label for="detalles" class="col-sm-2 col-form-label">Detalles</label>
+                    <div class="col-sm-10">
+                        <input asp-for="detalles" class="form-control" />
+                        <span asp-validation-for="detalles" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col-sm-10 offset-sm-2">
+                        <button type="submit" class="btn btn-warning">Guardar</button>
+                    </div>
+                </div>
+            </form>
+            <div class="row mt-3">
+                <div class="col text-end">
+                    <a asp-action="Index" class="btn btn-secondary"><i class="ri-arrow-left-circle-line"></i> Volver atrás</a>
+                </div>
             </div>
-            
         </div>
 
+
         @Html.Partial("_footer")
+        <!-- Scripts -->
         <script src="js/jquery-1.11.0.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
-        <script type="text/javascript" src="~/js/bootstrap.bundle.min.js"></script>
-        <script type="text/javascript" src="~/js/plugins.js"></script>
-        <script type="text/javascript" src="~/js/script.js"></script>
+        <script src="~/js/bootstrap.bundle.min.js"></script>
+        <script src="~/js/plugins.js"></script>
+        <script src="~/js/script.js"></script>
 
         @section Scripts {
             @{

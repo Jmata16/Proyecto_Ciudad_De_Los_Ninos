@@ -24,7 +24,7 @@
             flex: 1;
             display: flex;
             flex-direction: column;
-            justify-content: center; 
+            justify-content: center;
         }
 
         .container {
@@ -32,30 +32,30 @@
         }
 
         /*table {
-            width: 100%;
-            border-collapse: collapse;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-            background-color: #fff;
-        }
+                    width: 100%;
+                    border-collapse: collapse;
+                    border-radius: 8px;
+                    overflow: hidden;
+                    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+                    background-color: #fff;
+                }
 
-        th, td {
-            padding: 12px 15px;
-            text-align: left;
-            border-bottom: 1px solid #e0e0e0;
-        }
+                th, td {
+                    padding: 12px 15px;
+                    text-align: left;
+                    border-bottom: 1px solid #e0e0e0;
+                }
 
-        th {
-            background-color: #f8f8f8;
-            font-weight: bold;
-            color: #333;
-            text-transform: uppercase;
-        }
+                th {
+                    background-color: #f8f8f8;
+                    font-weight: bold;
+                    color: #333;
+                    text-transform: uppercase;
+                }
 
-        tr:hover {
-            background-color: #f5f5f5;
-        }*/
+                tr:hover {
+                    background-color: #f5f5f5;
+                }*/
 
         .actions a {
             margin-right: 10px;
@@ -63,9 +63,9 @@
             transition: color 0.3s ease;
         }
 
-        .actions a:hover {
-             color: #0056b3;
-         }
+            .actions a:hover {
+                color: #0056b3;
+            }
 
         .create-button {
             display: inline-block;
@@ -80,9 +80,9 @@
             cursor: pointer;
         }
 
-        .create-button:hover {
-            background-color: #0056b3;
-        }
+            .create-button:hover {
+                background-color: #0056b3;
+            }
     </style>
 </head>
 <body>
@@ -119,8 +119,8 @@
                                 <td>@Html.DisplayFor(modelItem => item.resultado)</td>
                                 <td>@Html.DisplayFor(modelItem => item.observaciones)</td>
                                 <td class="actions d-flex">
-                                    <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-warning btn-sm d-inline-flex align-items-center"><i class="ri-edit-line me-1" title="Editar"></i> </a>
-                                    <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-info btn-sm d-inline-flex align-items-center"><i class="ri-eye-line me-1" title="Detalles"></i> </a>
+                                    <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-warning btn-sm d-inline-flex align-items-center me-2"><i class="ri-edit-line me-1" title="Editar"></i> </a>
+                                    <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-info btn-sm d-inline-flex align-items-center me-2"><i class="ri-eye-line me-1" title="Detalles"></i> </a>
                                     <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger btn-sm d-inline-flex align-items-center"><i class="ri-delete-bin-2-line me-1" title="Eliminar"></i> </a>
                                 </td>
                             </tr>

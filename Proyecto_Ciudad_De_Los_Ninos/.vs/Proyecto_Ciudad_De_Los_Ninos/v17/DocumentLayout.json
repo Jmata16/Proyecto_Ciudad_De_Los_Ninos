@@ -3,6 +3,30 @@
   "WorkspaceRootPath": "C:\\Users\\daniela\\Documents\\GitHub\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{0BB77200-2FDD-4CCF-9BA9-00696BA1678C}|Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos.csproj|c:\\users\\daniela\\documents\\github\\proyecto_ciudad_de_los_ninos\\proyecto_ciudad_de_los_ninos\\proyecto_ciudad_de_los_ninos\\views\\citas\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{0BB77200-2FDD-4CCF-9BA9-00696BA1678C}|Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos.csproj|solutionrelative:proyecto_ciudad_de_los_ninos\\views\\citas\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0BB77200-2FDD-4CCF-9BA9-00696BA1678C}|Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos.csproj|c:\\users\\daniela\\documents\\github\\proyecto_ciudad_de_los_ninos\\proyecto_ciudad_de_los_ninos\\proyecto_ciudad_de_los_ninos\\views\\citas\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{0BB77200-2FDD-4CCF-9BA9-00696BA1678C}|Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos.csproj|solutionrelative:proyecto_ciudad_de_los_ninos\\views\\citas\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0BB77200-2FDD-4CCF-9BA9-00696BA1678C}|Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos.csproj|c:\\users\\daniela\\documents\\github\\proyecto_ciudad_de_los_ninos\\proyecto_ciudad_de_los_ninos\\proyecto_ciudad_de_los_ninos\\views\\citas\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{0BB77200-2FDD-4CCF-9BA9-00696BA1678C}|Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos.csproj|solutionrelative:proyecto_ciudad_de_los_ninos\\views\\citas\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0BB77200-2FDD-4CCF-9BA9-00696BA1678C}|Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos.csproj|c:\\users\\daniela\\documents\\github\\proyecto_ciudad_de_los_ninos\\proyecto_ciudad_de_los_ninos\\proyecto_ciudad_de_los_ninos\\views\\citas\\delete.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{0BB77200-2FDD-4CCF-9BA9-00696BA1678C}|Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos.csproj|solutionrelative:proyecto_ciudad_de_los_ninos\\views\\citas\\delete.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0BB77200-2FDD-4CCF-9BA9-00696BA1678C}|Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos.csproj|c:\\users\\daniela\\documents\\github\\proyecto_ciudad_de_los_ninos\\proyecto_ciudad_de_los_ninos\\proyecto_ciudad_de_los_ninos\\views\\citas\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{0BB77200-2FDD-4CCF-9BA9-00696BA1678C}|Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos.csproj|solutionrelative:proyecto_ciudad_de_los_ninos\\views\\citas\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0BB77200-2FDD-4CCF-9BA9-00696BA1678C}|Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos.csproj|c:\\users\\daniela\\documents\\github\\proyecto_ciudad_de_los_ninos\\proyecto_ciudad_de_los_ninos\\proyecto_ciudad_de_los_ninos\\views\\pruebas_dopaje\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{0BB77200-2FDD-4CCF-9BA9-00696BA1678C}|Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos.csproj|solutionrelative:proyecto_ciudad_de_los_ninos\\views\\pruebas_dopaje\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{0BB77200-2FDD-4CCF-9BA9-00696BA1678C}|Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos.csproj|c:\\users\\daniela\\documents\\github\\proyecto_ciudad_de_los_ninos\\proyecto_ciudad_de_los_ninos\\proyecto_ciudad_de_los_ninos\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{0BB77200-2FDD-4CCF-9BA9-00696BA1678C}|Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos.csproj|solutionrelative:proyecto_ciudad_de_los_ninos\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
@@ -17,10 +41,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{0BB77200-2FDD-4CCF-9BA9-00696BA1678C}|Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos.csproj|c:\\users\\daniela\\documents\\github\\proyecto_ciudad_de_los_ninos\\proyecto_ciudad_de_los_ninos\\proyecto_ciudad_de_los_ninos\\views\\pruebas_dopaje\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{0BB77200-2FDD-4CCF-9BA9-00696BA1678C}|Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos.csproj|solutionrelative:proyecto_ciudad_de_los_ninos\\views\\pruebas_dopaje\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0BB77200-2FDD-4CCF-9BA9-00696BA1678C}|Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos.csproj|c:\\users\\daniela\\documents\\github\\proyecto_ciudad_de_los_ninos\\proyecto_ciudad_de_los_ninos\\proyecto_ciudad_de_los_ninos\\views\\pruebas_dopaje\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{0BB77200-2FDD-4CCF-9BA9-00696BA1678C}|Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos.csproj|solutionrelative:proyecto_ciudad_de_los_ninos\\views\\pruebas_dopaje\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{0BB77200-2FDD-4CCF-9BA9-00696BA1678C}|Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos.csproj|c:\\users\\daniela\\documents\\github\\proyecto_ciudad_de_los_ninos\\proyecto_ciudad_de_los_ninos\\proyecto_ciudad_de_los_ninos\\views\\shared\\_footer.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
@@ -54,24 +74,76 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 10,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "stylefooter.css",
-              "DocumentMoniker": "C:\\Users\\daniela\\Documents\\GitHub\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\wwwroot\\css\\stylefooter.css",
-              "RelativeDocumentMoniker": "Proyecto_Ciudad_De_Los_Ninos\\wwwroot\\css\\stylefooter.css",
-              "ToolTip": "C:\\Users\\daniela\\Documents\\GitHub\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\wwwroot\\css\\stylefooter.css",
-              "RelativeToolTip": "Proyecto_Ciudad_De_Los_Ninos\\wwwroot\\css\\stylefooter.css",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABcAAAAXAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2024-07-08T18:12:51.459Z",
+              "DocumentIndex": 0,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\daniela\\Documents\\GitHub\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\Views\\Citas\\Index.cshtml",
+              "RelativeDocumentMoniker": "Proyecto_Ciudad_De_Los_Ninos\\Views\\Citas\\Index.cshtml",
+              "ToolTip": "C:\\Users\\daniela\\Documents\\GitHub\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\Views\\Citas\\Index.cshtml",
+              "RelativeToolTip": "Proyecto_Ciudad_De_Los_Ninos\\Views\\Citas\\Index.cshtml",
+              "ViewState": "AQIAAFAAAAAAAAAAAAAcwIcAAAArAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-07-08T21:04:35.089Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 1,
+              "Title": "Edit.cshtml",
+              "DocumentMoniker": "C:\\Users\\daniela\\Documents\\GitHub\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\Views\\Citas\\Edit.cshtml",
+              "RelativeDocumentMoniker": "Proyecto_Ciudad_De_Los_Ninos\\Views\\Citas\\Edit.cshtml",
+              "ToolTip": "C:\\Users\\daniela\\Documents\\GitHub\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\Views\\Citas\\Edit.cshtml",
+              "RelativeToolTip": "Proyecto_Ciudad_De_Los_Ninos\\Views\\Citas\\Edit.cshtml",
+              "ViewState": "AQIAAJIAAAAAAAAAAAAcwM4AAAAHAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-07-08T21:04:15.968Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Details.cshtml",
+              "DocumentMoniker": "C:\\Users\\daniela\\Documents\\GitHub\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\Views\\Citas\\Details.cshtml",
+              "RelativeDocumentMoniker": "Proyecto_Ciudad_De_Los_Ninos\\Views\\Citas\\Details.cshtml",
+              "ToolTip": "C:\\Users\\daniela\\Documents\\GitHub\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\Views\\Citas\\Details.cshtml",
+              "RelativeToolTip": "Proyecto_Ciudad_De_Los_Ninos\\Views\\Citas\\Details.cshtml",
+              "ViewState": "AQIAAFwAAAAAAAAAAAAcwJgAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-07-08T21:04:02.595Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Delete.cshtml",
+              "DocumentMoniker": "C:\\Users\\daniela\\Documents\\GitHub\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\Views\\Citas\\Delete.cshtml",
+              "RelativeDocumentMoniker": "Proyecto_Ciudad_De_Los_Ninos\\Views\\Citas\\Delete.cshtml",
+              "ToolTip": "C:\\Users\\daniela\\Documents\\GitHub\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\Views\\Citas\\Delete.cshtml",
+              "RelativeToolTip": "Proyecto_Ciudad_De_Los_Ninos\\Views\\Citas\\Delete.cshtml",
+              "ViewState": "AQIAAFgAAAAAAAAAAAAcwJUAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-07-08T21:03:47.235Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Create.cshtml",
+              "DocumentMoniker": "C:\\Users\\daniela\\Documents\\GitHub\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\Views\\Citas\\Create.cshtml",
+              "RelativeDocumentMoniker": "Proyecto_Ciudad_De_Los_Ninos\\Views\\Citas\\Create.cshtml",
+              "ToolTip": "C:\\Users\\daniela\\Documents\\GitHub\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\Views\\Citas\\Create.cshtml",
+              "RelativeToolTip": "Proyecto_Ciudad_De_Los_Ninos\\Views\\Citas\\Create.cshtml",
+              "ViewState": "AQIAAGUAAAAAAAAAAAAcwKEAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-07-08T21:03:28.969Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
               "Title": "Pruebas_Dopaje.cs",
               "DocumentMoniker": "C:\\Users\\daniela\\Documents\\GitHub\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\Models\\Pruebas_Dopaje.cs",
               "RelativeDocumentMoniker": "Proyecto_Ciudad_De_Los_Ninos\\Models\\Pruebas_Dopaje.cs",
@@ -79,12 +151,11 @@
               "RelativeToolTip": "Proyecto_Ciudad_De_Los_Ninos\\Models\\Pruebas_Dopaje.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAB4AAAAZAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-08T15:46:28.313Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-07-08T15:46:28.313Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 9,
               "Title": "Edit.cshtml",
               "DocumentMoniker": "C:\\Users\\daniela\\Documents\\GitHub\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\Views\\Pruebas_Dopaje\\Edit.cshtml",
               "RelativeDocumentMoniker": "Proyecto_Ciudad_De_Los_Ninos\\Views\\Pruebas_Dopaje\\Edit.cshtml",
@@ -92,12 +163,11 @@
               "RelativeToolTip": "Proyecto_Ciudad_De_Los_Ninos\\Views\\Pruebas_Dopaje\\Edit.cshtml",
               "ViewState": "AQIAABsAAAAAAAAAAAAAAIcAAABJAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-07-08T15:33:48.423Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-07-08T15:33:48.423Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 8,
               "Title": "Details.cshtml",
               "DocumentMoniker": "C:\\Users\\daniela\\Documents\\GitHub\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\Views\\Pruebas_Dopaje\\Details.cshtml",
               "RelativeDocumentMoniker": "Proyecto_Ciudad_De_Los_Ninos\\Views\\Pruebas_Dopaje\\Details.cshtml",
@@ -105,12 +175,11 @@
               "RelativeToolTip": "Proyecto_Ciudad_De_Los_Ninos\\Views\\Pruebas_Dopaje\\Details.cshtml",
               "ViewState": "AQIAAGAAAAAAAAAAAAAAAIcAAAB/AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-07-08T15:29:33.961Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-07-08T15:29:33.961Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 13,
               "Title": "Delete.cshtml",
               "DocumentMoniker": "C:\\Users\\daniela\\Documents\\GitHub\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\Views\\Pruebas_Dopaje\\Delete.cshtml",
               "RelativeDocumentMoniker": "Proyecto_Ciudad_De_Los_Ninos\\Views\\Pruebas_Dopaje\\Delete.cshtml",
@@ -118,12 +187,11 @@
               "RelativeToolTip": "Proyecto_Ciudad_De_Los_Ninos\\Views\\Pruebas_Dopaje\\Delete.cshtml",
               "ViewState": "AQIAAGQAAAAAAAAAAAAAAIYAAAB7AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-07-08T15:07:51.694Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-07-08T15:07:51.694Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 11,
               "Title": "Create.cshtml",
               "DocumentMoniker": "C:\\Users\\daniela\\Documents\\GitHub\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\Views\\Pruebas_Dopaje\\Create.cshtml",
               "RelativeDocumentMoniker": "Proyecto_Ciudad_De_Los_Ninos\\Views\\Pruebas_Dopaje\\Create.cshtml",
@@ -131,25 +199,24 @@
               "RelativeToolTip": "Proyecto_Ciudad_De_Los_Ninos\\Views\\Pruebas_Dopaje\\Create.cshtml",
               "ViewState": "AQIAAGcAAAAAAAAAAAAAAIUAAAAiAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-07-08T15:04:55.3Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-07-08T15:04:55.3Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "Index.cshtml",
               "DocumentMoniker": "C:\\Users\\daniela\\Documents\\GitHub\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\Views\\Pruebas_Dopaje\\Index.cshtml",
               "RelativeDocumentMoniker": "Proyecto_Ciudad_De_Los_Ninos\\Views\\Pruebas_Dopaje\\Index.cshtml",
               "ToolTip": "C:\\Users\\daniela\\Documents\\GitHub\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\Views\\Pruebas_Dopaje\\Index.cshtml",
               "RelativeToolTip": "Proyecto_Ciudad_De_Los_Ninos\\Views\\Pruebas_Dopaje\\Index.cshtml",
-              "ViewState": "AQIAAGAAAAAAAAAAAAAAAI0AAAAqAAAA",
+              "ViewState": "AQIAAFMAAAAAAAAAAAAcwI8AAAAHAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2024-07-08T14:25:19.946Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 10,
               "Title": "_footer.cshtml",
               "DocumentMoniker": "C:\\Users\\daniela\\Documents\\GitHub\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\Views\\Shared\\_footer.cshtml",
               "RelativeDocumentMoniker": "Proyecto_Ciudad_De_Los_Ninos\\Views\\Shared\\_footer.cshtml",
@@ -157,12 +224,11 @@
               "RelativeToolTip": "Proyecto_Ciudad_De_Los_Ninos\\Views\\Shared\\_footer.cshtml",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAACkAAAA+AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-07-08T14:21:13.1Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-07-08T14:21:13.1Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 12,
               "Title": "_header.cshtml",
               "DocumentMoniker": "C:\\Users\\daniela\\Documents\\GitHub\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\Views\\Shared\\_header.cshtml",
               "RelativeDocumentMoniker": "Proyecto_Ciudad_De_Los_Ninos\\Views\\Shared\\_header.cshtml",
@@ -170,12 +236,11 @@
               "RelativeToolTip": "Proyecto_Ciudad_De_Los_Ninos\\Views\\Shared\\_header.cshtml",
               "ViewState": "AQIAAFQAAAAAAAAAAAAAAHYAAAAxAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-07-08T14:17:50.996Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-07-08T14:17:50.996Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 15,
               "Title": "style.css",
               "DocumentMoniker": "C:\\Users\\daniela\\Documents\\GitHub\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\wwwroot\\css\\style.css",
               "RelativeDocumentMoniker": "Proyecto_Ciudad_De_Los_Ninos\\wwwroot\\css\\style.css",
@@ -183,12 +248,11 @@
               "RelativeToolTip": "Proyecto_Ciudad_De_Los_Ninos\\wwwroot\\css\\style.css",
               "ViewState": "AQIAAA4EAAAAAAAAAAAAABwEAAAUAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2024-07-08T14:05:20.755Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-07-08T14:05:20.755Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 6,
               "Title": "Index.cshtml",
               "DocumentMoniker": "C:\\Users\\daniela\\Documents\\GitHub\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\Views\\Home\\Index.cshtml",
               "RelativeDocumentMoniker": "Proyecto_Ciudad_De_Los_Ninos\\Views\\Home\\Index.cshtml",
@@ -198,6 +262,18 @@
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2024-07-08T13:53:20.352Z",
               "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "stylefooter.css",
+              "DocumentMoniker": "C:\\Users\\daniela\\Documents\\GitHub\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\wwwroot\\css\\stylefooter.css",
+              "RelativeDocumentMoniker": "Proyecto_Ciudad_De_Los_Ninos\\wwwroot\\css\\stylefooter.css",
+              "ToolTip": "C:\\Users\\daniela\\Documents\\GitHub\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\wwwroot\\css\\stylefooter.css",
+              "RelativeToolTip": "Proyecto_Ciudad_De_Los_Ninos\\wwwroot\\css\\stylefooter.css",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABcAAAAXAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2024-07-08T18:12:51.459Z"
             }
           ]
         }
