@@ -129,28 +129,45 @@ namespace Proyecto_Ciudad_De_Los_Ninos.Controllers
         }
 
 
-        // POST: Capacitaciones/Delete/5
+
+        // GET: Capacitacionestest/Delete/5
+        public async Task<IActionResult> Delete(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var capacitaciones = await _context.Capacitaciones
+                .Include(c => c.User)
+                .FirstOrDefaultAsync(m => m.Id == id);
+            if (capacitaciones == null)
+            {
+                return NotFound();
+            }
+
+            return View(capacitaciones);
+        }
+
+        // POST: Capacitacionestest/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            // Buscar la capacitación por el Id
             var capacitaciones = await _context.Capacitaciones.FindAsync(id);
-
-            // Verificar si la capacitación existe
-            if (capacitaciones == null)
+            if (capacitaciones != null)
             {
-                return NotFound(); // Si no existe, devolver Not Found
+                _context.Capacitaciones.Remove(capacitaciones);
             }
 
-            // Eliminar la capacitación del contexto
-            _context.Capacitaciones.Remove(capacitaciones);
-
-            // Guardar los cambios en la base de datos
             await _context.SaveChangesAsync();
-
-            // Redirigir a la acción Index después de la eliminación
             return RedirectToAction(nameof(Index));
-        } 
-    }}
+        }
+
+        private bool CapacitacionesExists(int id)
+        {
+            return _context.Capacitaciones.Any(e => e.Id == id);
+        }
+    }
+}
 

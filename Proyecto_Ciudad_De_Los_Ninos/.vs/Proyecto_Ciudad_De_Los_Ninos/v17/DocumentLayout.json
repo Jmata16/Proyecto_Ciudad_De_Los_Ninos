@@ -3,6 +3,18 @@
   "WorkspaceRootPath": "C:\\Users\\daniela\\Documents\\GitHub\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{0BB77200-2FDD-4CCF-9BA9-00696BA1678C}|Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos.csproj|c:\\users\\daniela\\documents\\github\\proyecto_ciudad_de_los_ninos\\proyecto_ciudad_de_los_ninos\\proyecto_ciudad_de_los_ninos\\views\\capacitaciones\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{0BB77200-2FDD-4CCF-9BA9-00696BA1678C}|Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos.csproj|solutionrelative:proyecto_ciudad_de_los_ninos\\views\\capacitaciones\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0BB77200-2FDD-4CCF-9BA9-00696BA1678C}|Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos.csproj|c:\\users\\daniela\\documents\\github\\proyecto_ciudad_de_los_ninos\\proyecto_ciudad_de_los_ninos\\proyecto_ciudad_de_los_ninos\\controllers\\capacitacionescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0BB77200-2FDD-4CCF-9BA9-00696BA1678C}|Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos.csproj|solutionrelative:proyecto_ciudad_de_los_ninos\\controllers\\capacitacionescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0BB77200-2FDD-4CCF-9BA9-00696BA1678C}|Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos.csproj|c:\\users\\daniela\\documents\\github\\proyecto_ciudad_de_los_ninos\\proyecto_ciudad_de_los_ninos\\proyecto_ciudad_de_los_ninos\\views\\capacitaciones\\delete.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{0BB77200-2FDD-4CCF-9BA9-00696BA1678C}|Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos.csproj|solutionrelative:proyecto_ciudad_de_los_ninos\\views\\capacitaciones\\delete.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{0BB77200-2FDD-4CCF-9BA9-00696BA1678C}|Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos.csproj|c:\\users\\daniela\\documents\\github\\proyecto_ciudad_de_los_ninos\\proyecto_ciudad_de_los_ninos\\proyecto_ciudad_de_los_ninos\\views\\capacitaciones\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{0BB77200-2FDD-4CCF-9BA9-00696BA1678C}|Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos.csproj|solutionrelative:proyecto_ciudad_de_los_ninos\\views\\capacitaciones\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
@@ -11,16 +23,12 @@
       "RelativeMoniker": "D:0:0:{0BB77200-2FDD-4CCF-9BA9-00696BA1678C}|Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos.csproj|solutionrelative:proyecto_ciudad_de_los_ninos\\views\\capacitaciones\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{0BB77200-2FDD-4CCF-9BA9-00696BA1678C}|Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos.csproj|c:\\users\\daniela\\documents\\github\\proyecto_ciudad_de_los_ninos\\proyecto_ciudad_de_los_ninos\\proyecto_ciudad_de_los_ninos\\views\\pruebas_dopaje\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{0BB77200-2FDD-4CCF-9BA9-00696BA1678C}|Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos.csproj|solutionrelative:proyecto_ciudad_de_los_ninos\\views\\pruebas_dopaje\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{0BB77200-2FDD-4CCF-9BA9-00696BA1678C}|Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos.csproj|c:\\users\\daniela\\documents\\github\\proyecto_ciudad_de_los_ninos\\proyecto_ciudad_de_los_ninos\\proyecto_ciudad_de_los_ninos\\views\\capacitaciones\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{0BB77200-2FDD-4CCF-9BA9-00696BA1678C}|Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos.csproj|solutionrelative:proyecto_ciudad_de_los_ninos\\views\\capacitaciones\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{0BB77200-2FDD-4CCF-9BA9-00696BA1678C}|Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos.csproj|c:\\users\\daniela\\documents\\github\\proyecto_ciudad_de_los_ninos\\proyecto_ciudad_de_los_ninos\\proyecto_ciudad_de_los_ninos\\views\\capacitaciones\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{0BB77200-2FDD-4CCF-9BA9-00696BA1678C}|Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos.csproj|solutionrelative:proyecto_ciudad_de_los_ninos\\views\\capacitaciones\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{0BB77200-2FDD-4CCF-9BA9-00696BA1678C}|Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos.csproj|c:\\users\\daniela\\documents\\github\\proyecto_ciudad_de_los_ninos\\proyecto_ciudad_de_los_ninos\\proyecto_ciudad_de_los_ninos\\views\\pruebas_dopaje\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{0BB77200-2FDD-4CCF-9BA9-00696BA1678C}|Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos.csproj|solutionrelative:proyecto_ciudad_de_los_ninos\\views\\pruebas_dopaje\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{0BB77200-2FDD-4CCF-9BA9-00696BA1678C}|Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos.csproj|c:\\users\\daniela\\documents\\github\\proyecto_ciudad_de_los_ninos\\proyecto_ciudad_de_los_ninos\\proyecto_ciudad_de_los_ninos\\views\\reportesmedicos\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
@@ -98,59 +106,85 @@
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 1,
+              "Title": "CapacitacionesController.cs",
+              "DocumentMoniker": "C:\\Users\\daniela\\Documents\\GitHub\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\Controllers\\CapacitacionesController.cs",
+              "RelativeDocumentMoniker": "Proyecto_Ciudad_De_Los_Ninos\\Controllers\\CapacitacionesController.cs",
+              "ToolTip": "C:\\Users\\daniela\\Documents\\GitHub\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\Controllers\\CapacitacionesController.cs",
+              "RelativeToolTip": "Proyecto_Ciudad_De_Los_Ninos\\Controllers\\CapacitacionesController.cs",
+              "ViewState": "AQIAAHQAAAAAAAAAAAAuwKkAAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-10T20:49:33.213Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Delete.cshtml",
+              "DocumentMoniker": "C:\\Users\\daniela\\Documents\\GitHub\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\Views\\Capacitaciones\\Delete.cshtml",
+              "RelativeDocumentMoniker": "Proyecto_Ciudad_De_Los_Ninos\\Views\\Capacitaciones\\Delete.cshtml",
+              "ToolTip": "C:\\Users\\daniela\\Documents\\GitHub\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\Views\\Capacitaciones\\Delete.cshtml",
+              "RelativeToolTip": "Proyecto_Ciudad_De_Los_Ninos\\Views\\Capacitaciones\\Delete.cshtml",
+              "ViewState": "AQIAABUAAAAAAAAAAAAAAIEAAAAKAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-07-10T20:37:19.386Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
               "Title": "Index.cshtml",
               "DocumentMoniker": "C:\\Users\\daniela\\Documents\\GitHub\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\Views\\Capacitaciones\\Index.cshtml",
               "RelativeDocumentMoniker": "Proyecto_Ciudad_De_Los_Ninos\\Views\\Capacitaciones\\Index.cshtml",
               "ToolTip": "C:\\Users\\daniela\\Documents\\GitHub\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\Views\\Capacitaciones\\Index.cshtml",
               "RelativeToolTip": "Proyecto_Ciudad_De_Los_Ninos\\Views\\Capacitaciones\\Index.cshtml",
-              "ViewState": "AQIAADkAAAAAAAAAAAAAAHcAAAAqAAAA",
+              "ViewState": "AQIAAFcAAAAAAAAAAAAAAJQAAAAHAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2024-07-10T20:26:18.374Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 5,
               "Title": "Create.cshtml",
               "DocumentMoniker": "C:\\Users\\daniela\\Documents\\GitHub\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\Views\\Capacitaciones\\Create.cshtml",
               "RelativeDocumentMoniker": "Proyecto_Ciudad_De_Los_Ninos\\Views\\Capacitaciones\\Create.cshtml",
               "ToolTip": "C:\\Users\\daniela\\Documents\\GitHub\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\Views\\Capacitaciones\\Create.cshtml",
               "RelativeToolTip": "Proyecto_Ciudad_De_Los_Ninos\\Views\\Capacitaciones\\Create.cshtml",
-              "ViewState": "AQIAAEUAAAAAAAAAAAAAAH4AAAAAAAAA",
+              "ViewState": "AQIAAD8AAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2024-07-10T20:25:57.867Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 3,
               "Title": "Edit.cshtml",
               "DocumentMoniker": "C:\\Users\\daniela\\Documents\\GitHub\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\Views\\Capacitaciones\\Edit.cshtml",
               "RelativeDocumentMoniker": "Proyecto_Ciudad_De_Los_Ninos\\Views\\Capacitaciones\\Edit.cshtml",
               "ToolTip": "C:\\Users\\daniela\\Documents\\GitHub\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\Views\\Capacitaciones\\Edit.cshtml",
               "RelativeToolTip": "Proyecto_Ciudad_De_Los_Ninos\\Views\\Capacitaciones\\Edit.cshtml",
-              "ViewState": "AQIAAEEAAAAAAAAAAAAAAIgAAAAAAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAEMAAAAcAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2024-07-10T20:25:20.834Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 4,
               "Title": "Details.cshtml",
               "DocumentMoniker": "C:\\Users\\daniela\\Documents\\GitHub\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\Views\\Capacitaciones\\Details.cshtml",
               "RelativeDocumentMoniker": "Proyecto_Ciudad_De_Los_Ninos\\Views\\Capacitaciones\\Details.cshtml",
               "ToolTip": "C:\\Users\\daniela\\Documents\\GitHub\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\Views\\Capacitaciones\\Details.cshtml",
               "RelativeToolTip": "Proyecto_Ciudad_De_Los_Ninos\\Views\\Capacitaciones\\Details.cshtml",
-              "ViewState": "AQIAAEYAAAAAAAAAAAAuwIMAAAAAAAAA",
+              "ViewState": "AQIAAFIAAAAAAAAAAAAuwHYAAAAZAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2024-07-10T20:25:13.871Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 11,
               "Title": "Index.cshtml",
               "DocumentMoniker": "C:\\Users\\daniela\\Documents\\GitHub\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\Views\\ReportesMedicos\\Index.cshtml",
               "RelativeDocumentMoniker": "Proyecto_Ciudad_De_Los_Ninos\\Views\\ReportesMedicos\\Index.cshtml",
@@ -162,7 +196,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 10,
               "Title": "Edit.cshtml",
               "DocumentMoniker": "C:\\Users\\daniela\\Documents\\GitHub\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\Views\\ReportesMedicos\\Edit.cshtml",
               "RelativeDocumentMoniker": "Proyecto_Ciudad_De_Los_Ninos\\Views\\ReportesMedicos\\Edit.cshtml",
@@ -174,7 +208,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 9,
               "Title": "Details.cshtml",
               "DocumentMoniker": "C:\\Users\\daniela\\Documents\\GitHub\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\Views\\ReportesMedicos\\Details.cshtml",
               "RelativeDocumentMoniker": "Proyecto_Ciudad_De_Los_Ninos\\Views\\ReportesMedicos\\Details.cshtml",
@@ -186,7 +220,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 8,
               "Title": "Delete.cshtml",
               "DocumentMoniker": "C:\\Users\\daniela\\Documents\\GitHub\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\Views\\ReportesMedicos\\Delete.cshtml",
               "RelativeDocumentMoniker": "Proyecto_Ciudad_De_Los_Ninos\\Views\\ReportesMedicos\\Delete.cshtml",
@@ -198,7 +232,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 7,
               "Title": "Create.cshtml",
               "DocumentMoniker": "C:\\Users\\daniela\\Documents\\GitHub\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\Views\\ReportesMedicos\\Create.cshtml",
               "RelativeDocumentMoniker": "Proyecto_Ciudad_De_Los_Ninos\\Views\\ReportesMedicos\\Create.cshtml",
@@ -206,12 +240,11 @@
               "RelativeToolTip": "Proyecto_Ciudad_De_Los_Ninos\\Views\\ReportesMedicos\\Create.cshtml",
               "ViewState": "AQIAAFAAAAAAAAAAAAAcwIQAAAAEAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-07-10T14:23:41.156Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-07-10T14:23:41.156Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 6,
               "Title": "Details.cshtml",
               "DocumentMoniker": "C:\\Users\\daniela\\Documents\\GitHub\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\Views\\Pruebas_Dopaje\\Details.cshtml",
               "RelativeDocumentMoniker": "Proyecto_Ciudad_De_Los_Ninos\\Views\\Pruebas_Dopaje\\Details.cshtml",
@@ -219,12 +252,11 @@
               "RelativeToolTip": "Proyecto_Ciudad_De_Los_Ninos\\Views\\Pruebas_Dopaje\\Details.cshtml",
               "ViewState": "AQIAAF0AAAAAAAAAAAAAAIsAAAAKAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-07-09T17:08:31.098Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-07-09T17:08:31.098Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 14,
               "Title": "Index.cshtml",
               "DocumentMoniker": "C:\\Users\\daniela\\Documents\\GitHub\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\Views\\Incidentes\\Index.cshtml",
               "RelativeDocumentMoniker": "Proyecto_Ciudad_De_Los_Ninos\\Views\\Incidentes\\Index.cshtml",
@@ -236,7 +268,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 18,
               "Title": "Edit.cshtml",
               "DocumentMoniker": "C:\\Users\\daniela\\Documents\\GitHub\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\Views\\Incidentes\\Edit.cshtml",
               "RelativeDocumentMoniker": "Proyecto_Ciudad_De_Los_Ninos\\Views\\Incidentes\\Edit.cshtml",
@@ -248,7 +280,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 17,
               "Title": "Details.cshtml",
               "DocumentMoniker": "C:\\Users\\daniela\\Documents\\GitHub\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\Views\\Incidentes\\Details.cshtml",
               "RelativeDocumentMoniker": "Proyecto_Ciudad_De_Los_Ninos\\Views\\Incidentes\\Details.cshtml",
@@ -260,7 +292,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 16,
               "Title": "Delete.cshtml",
               "DocumentMoniker": "C:\\Users\\daniela\\Documents\\GitHub\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\Views\\Incidentes\\Delete.cshtml",
               "RelativeDocumentMoniker": "Proyecto_Ciudad_De_Los_Ninos\\Views\\Incidentes\\Delete.cshtml",
@@ -272,7 +304,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 15,
               "Title": "Create.cshtml",
               "DocumentMoniker": "C:\\Users\\daniela\\Documents\\GitHub\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\Views\\Incidentes\\Create.cshtml",
               "RelativeDocumentMoniker": "Proyecto_Ciudad_De_Los_Ninos\\Views\\Incidentes\\Create.cshtml",
@@ -284,7 +316,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 13,
               "Title": "Create.cshtml",
               "DocumentMoniker": "C:\\Users\\daniela\\Documents\\GitHub\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\Views\\ReportesExpedientes\\Create.cshtml",
               "RelativeDocumentMoniker": "Proyecto_Ciudad_De_Los_Ninos\\Views\\ReportesExpedientes\\Create.cshtml",
@@ -296,7 +328,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 20,
               "Title": "Delete.cshtml",
               "DocumentMoniker": "C:\\Users\\daniela\\Documents\\GitHub\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\Views\\ReportesExpedientes\\Delete.cshtml",
               "RelativeDocumentMoniker": "Proyecto_Ciudad_De_Los_Ninos\\Views\\ReportesExpedientes\\Delete.cshtml",
@@ -308,7 +340,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 19,
               "Title": "Details.cshtml",
               "DocumentMoniker": "C:\\Users\\daniela\\Documents\\GitHub\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\Views\\ReportesExpedientes\\Details.cshtml",
               "RelativeDocumentMoniker": "Proyecto_Ciudad_De_Los_Ninos\\Views\\ReportesExpedientes\\Details.cshtml",
@@ -320,7 +352,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 19,
+              "DocumentIndex": 21,
               "Title": "Edit.cshtml",
               "DocumentMoniker": "C:\\Users\\daniela\\Documents\\GitHub\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\Views\\ReportesExpedientes\\Edit.cshtml",
               "RelativeDocumentMoniker": "Proyecto_Ciudad_De_Los_Ninos\\Views\\ReportesExpedientes\\Edit.cshtml",
@@ -332,7 +364,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 12,
               "Title": "Index.cshtml",
               "DocumentMoniker": "C:\\Users\\daniela\\Documents\\GitHub\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\Views\\ReportesExpedientes\\Index.cshtml",
               "RelativeDocumentMoniker": "Proyecto_Ciudad_De_Los_Ninos\\Views\\ReportesExpedientes\\Index.cshtml",
@@ -344,7 +376,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 20,
+              "DocumentIndex": 22,
               "Title": "Index.cshtml",
               "DocumentMoniker": "C:\\Users\\daniela\\Documents\\GitHub\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\Views\\Citas\\Index.cshtml",
               "RelativeDocumentMoniker": "Proyecto_Ciudad_De_Los_Ninos\\Views\\Citas\\Index.cshtml",
