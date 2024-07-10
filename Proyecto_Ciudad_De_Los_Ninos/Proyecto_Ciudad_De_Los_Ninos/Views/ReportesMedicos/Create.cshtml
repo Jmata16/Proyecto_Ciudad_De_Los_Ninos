@@ -9,59 +9,55 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>Crear Reporte Médico</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/bootstrap/css/bootstrap.min.css">
     <style>
-        /* Estilos CSS para la página */
-        .form-container {
-            width: 50%;
-            margin: 50px auto;
-            padding: 20px;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            background-color: #f9f9f9;
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
         }
 
-        .form-group {
+        h4 {
+            color: #333;
+            font-size: 24px;
             margin-bottom: 20px;
         }
 
-            .form-group label {
-                display: block;
-                font-weight: bold;
-            }
-
-            .form-group input[type="text"],
-            .form-group input[type="number"],
-            .form-group input[type="datetime-local"],
-            .form-group select,
-            .form-group textarea {
-                width: calc(100% - 10px);
-                padding: 8px;
-                border: 1px solid #ccc;
-                border-radius: 4px;
-            }
-
-            .form-group button[type="submit"] {
-                padding: 10px 20px;
-                background-color: #E6282A;
-                color: white;
-                border: none;
-                border-radius: 4px;
-                cursor: pointer;
-            }
-
-                .form-group button[type="submit"]:hover {
-                    background-color: #b21d20;
-                }
-
-        .text-danger {
-            color: #dc3545;
+        .container-main {
+            background-color: #ffffff;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            margin: 20px auto;
+            max-width: 800px;
+            overflow: hidden;
         }
 
-        .back-button {
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+            .form-group label {
+                font-weight: bold;
+                color: #333;
+                margin-bottom: 10px;
+                display: block;
+            }
+
+        .form-control {
+            padding: 8px;
+            font-size: 14px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            width: 100%;
+        }
+
+        .create-button {
             display: inline-block;
             padding: 10px 20px;
-            font-size: 1em;
+            font-size: 1.2em;
             color: white;
             background-color: #007bff;
             border: none;
@@ -69,62 +65,76 @@
             text-align: center;
             text-decoration: none;
             cursor: pointer;
-            margin-top: 20px;
+            margin-right: 10px;
         }
 
-            .back-button:hover {
+            .create-button:hover {
                 background-color: #0056b3;
             }
-
-
     </style>
 </head>
 <body>
     @Html.Partial("_header")
 
-    <div class="form-container">
-        <h2>Crear Reporte Médico</h2>
+    <!-- Contenido principal -->
+    <div class="container-main">
+        <h4 class="text-center">Crear Reporte Médico</h4>
+        <hr />
         <form asp-action="Create">
-            <div asp-validation-summary="All" class="text-danger"></div>
-
-            <div class="form-group">
-                <label asp-for="id_usuario" class="control-label">Usuario</label>
-                <select asp-for="id_usuario" class="form-control" asp-items="ViewBag.Usuarios"></select>
+            <div class="row mb-3">
+                <label for="id_usuario" class="col-sm-2 col-form-label">Usuario</label>
+                <div class="col-sm-10">
+                    <select asp-for="id_usuario" class="form-select" asp-items="ViewBag.Usuarios">
+                        <option value="">Seleccione...</option>
+                    </select>
+                    <span asp-validation-for="id_usuario" class="text-danger"></span>
+                </div>
             </div>
-
-            <div class="form-group">
-                <label asp-for="id_joven" class="control-label">Jovenes</label>
-                <select asp-for="id_joven" class="form-control" asp-items="ViewBag.Jovenes"></select>
+            <div class="row mb-3">
+                <label for="id_joven" class="col-sm-2 col-form-label">Joven</label>
+                <div class="col-sm-10">
+                    <select asp-for="id_joven" class="form-select" asp-items="ViewBag.Jovenes">
+                        <option value="">Seleccione...</option>
+                    </select>
+                    <span asp-validation-for="id_joven" class="text-danger"></span>
+                </div>
             </div>
-
-            <div class="form-group">
-                <label asp-for="fecha_creacion" class="control-label">Fecha de Creación</label>
-                <input asp-for="fecha_creacion" class="form-control" type="datetime-local" />
-                <span asp-validation-for="fecha_creacion" class="text-danger"></span>
+            <div class="row mb-3">
+                <label for="fecha_creacion" class="col-sm-2 col-form-label">Fecha de Creación</label>
+                <div class="col-sm-10">
+                    <input asp-for="fecha_creacion" class="form-control" type="datetime-local" />
+                    <span asp-validation-for="fecha_creacion" class="text-danger"></span>
+                </div>
             </div>
-
-            <div class="form-group">
-                <label asp-for="contenido" class="control-label">Contenido</label>
-                <textarea asp-for="contenido" class="form-control" rows="4"></textarea>
-                <span asp-validation-for="contenido" class="text-danger"></span>
+            <div class="row mb-3">
+                <label for="contenido" class="col-sm-2 col-form-label">Contenido</label>
+                <div class="col-sm-10">
+                    <textarea asp-for="contenido" class="form-control" rows="4"></textarea>
+                    <span asp-validation-for="contenido" class="text-danger"></span>
+                </div>
             </div>
-
-            <div class="form-group">
-                <button type="submit" class="btn btn-primary">Crear Reporte Médico</button>
+            <div class="row mb-3">
+                <div class="col-sm-10 offset-sm-2">
+                    <button type="submit" class="btn btn-primary">Crear</button>
+                </div>
             </div>
         </form>
+        <!-- Volver atrás -->
+        <div class="row mt-3">
+            <div class="col text-end">
+                <a asp-action="Index" class="btn btn-secondary"><i class="ri-arrow-left-circle-line"></i> Volver atrás</a>
+            </div>
+        </div>
     </div>
 
-    <div class="text-center">
-        <a href="@Url.Action("Index")" class="back-button">Volver</a>
-    </div>
-    <br />
+    
     @Html.Partial("_footer")
 
+    <!-- Scripts -->
     <script src="js/jquery-1.11.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
-    <script type="text/javascript" src="~/js/bootstrap.bundle.min.js"></script>
-    <script type="text/javascript" src="~/js/plugins.js"></script>
-    <script type="text/javascript" src="~/js/script.js"></script>
+    <script src="~/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/plugins.js"></script>
+    <script src="~/js/script.js"></script>
 </body>
 </html>

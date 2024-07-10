@@ -9,99 +9,134 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>Eliminar Reporte Médico</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/bootstrap/css/bootstrap.min.css">
     <style>
-        .details-container {
-            width: 50%;
-            margin: 50px auto;
-            padding: 20px;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            background-color: #f9f9f9;
-        }
-
-        .details-title {
-            text-align: center;
+        h4 {
+            color: #333;
+            font-size: 24px;
             margin-bottom: 20px;
         }
 
-        .details-list dt {
-            font-weight: bold;
-            margin-top: 10px;
+        .container-main {
+            background-color: #ffffff;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            margin: 20px auto;
+            max-width: 800px;
+            overflow: hidden;
         }
 
-        .details-list dd {
-            margin-left: 0;
+        .row {
+            display: flex;
+            flex-wrap: wrap;
             margin-bottom: 10px;
         }
 
-        .delete-button {
-            margin-top: 20px;
-            text-align: center;
+        .col-sm-2 {
+            flex: 0 0 20%;
+            max-width: 20%;
+            font-weight: bold;
+            color: #333;
         }
 
-            .delete-button button {
-                width: 150px;
-                padding: 10px;
-                background-color: #dc3545;
-                color: white;
-                border: none;
-                border-radius: 4px;
-                cursor: pointer;
-            }
-
-                .delete-button button:hover {
-                    background-color: #c82333;
-                }
-
-        .action-links {
-            margin-top: 20px;
-            text-align: center;
+        .col-sm-10 {
+            flex: 0 0 80%;
+            max-width: 80%;
+            color: #555;
+            margin-bottom: 15px;
         }
 
-            .action-links a {
-                margin: 0 10px;
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 1.2em;
+            border: none;
+            border-radius: 5px;
+            text-align: center;
+            text-decoration: none;
+            cursor: pointer;
+            margin-right: 10px;
+            margin-top: 20px;
+        }
+
+        .btn-danger {
+            background-color: #dc3545;
+            color: white;
+        }
+
+            .btn-danger:hover {
+                background-color: #c82333;
             }
 
+        .btn-success {
+            background-color: #28a745;
+            color: white;
+        }
+
+            .btn-success:hover {
+                background-color: #218838;
+            }
+
+        #footer {
+            margin-top: 20px;
+            background-color: #f8f9fa;
+            padding: 10px 0;
+            text-align: left;
+            clear: both;
+        }
+
+            #footer p {
+                margin: 0;
+            }
     </style>
 </head>
 <body>
     @Html.Partial("_header")
 
-    <div class="details-container">
-        <h2 class="details-title">Eliminar Reporte Médico</h2>
+    <div class="container-main">
+        <h4>Eliminar Reporte Médico</h4>
         <hr />
-        <dl class="details-list row">
-            <dt class="col-sm-4">Fecha de Creación</dt>
-            <dd class="col-sm-8">@Html.DisplayFor(model => model.fecha_creacion)</dd>
-
-            <dt class="col-sm-4">Contenido</dt>
-            <dd class="col-sm-8">@Html.DisplayFor(model => model.contenido)</dd>
-
-            <dt class="col-sm-4">Usuario</dt>
-            <dd class="col-sm-8">@Html.DisplayFor(model => model.Usuario.nombre_usuario)</dd>
-
-            <dt class="col-sm-4">Joven</dt>
-            <dd class="col-sm-8">@Html.DisplayFor(model => model.Joven.nombre)</dd>
-        </dl>
-
-        <div class="delete-button">
-            <form asp-action="Delete" asp-route-id="@Model?.Id" method="post" onsubmit="return confirm('¿Estás seguro de que quieres eliminar este reporte médico?')">
-                <button type="submit" class="btn btn-danger">Eliminar Reporte Médico</button>
-            </form>
+        <div class="table-responsive">
+            <table class="table table-bordered table-striped">
+                <tbody>
+                    <tr>
+                        <th scope="row">Fecha de Creación</th>
+                        <td>@Html.DisplayFor(model => model.fecha_creacion)</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Contenido</th>
+                        <td>@Html.DisplayFor(model => model.contenido)</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Usuario</th>
+                        <td>@Html.DisplayFor(model => model.Usuario.nombre_usuario)</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Joven</th>
+                        <td>@Html.DisplayFor(model => model.Joven.nombre)</td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
-
-        <div class="action-links">
-            <a asp-action="Index" class="btn btn-secondary">Volver al Listado</a>
-        </div>
+        <form asp-action="Delete" asp-route-id="@Model?.Id" method="post" onsubmit="return confirm('¿Estás seguro de que quieres eliminar este reporte médico?')">
+            <input type="hidden" asp-for="Id" />
+            <button type="submit" class="btn btn-danger">Eliminar</button>
+            <div class="col text-end">
+                <a asp-action="Index" class="btn btn-secondary"><i class="ri-arrow-left-circle-line"></i> Volver atrás</a>
+            </div>
+        </form>
     </div>
+
 
     @Html.Partial("_footer")
 
+    <!-- Scripts -->
     <script src="js/jquery-1.11.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
-    <script type="text/javascript" src="~/js/bootstrap.bundle.min.js"></script>
-    <script type="text/javascript" src="~/js/plugins.js"></script>
-    <script type="text/javascript" src="~/js/script.js"></script>
+    <script src="~/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/plugins.js"></script>
+    <script src="~/js/script.js"></script>
 </body>
 </html>

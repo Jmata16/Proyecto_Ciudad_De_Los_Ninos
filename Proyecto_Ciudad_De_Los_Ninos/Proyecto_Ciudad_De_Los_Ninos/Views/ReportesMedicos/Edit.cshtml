@@ -9,116 +9,134 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>Editando Reporte Médico</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/bootstrap/css/bootstrap.min.css">
     <style>
-        /* Estilos personalizados */
-        .form-container {
-            width: 50%;
-            margin: 50px auto;
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+        }
+
+        h4 {
+            color: #333;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        .container-main {
+            background-color: #ffffff;
             padding: 20px;
             border: 1px solid #ddd;
             border-radius: 8px;
-            background-color: #f9f9f9;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            margin: 20px auto;
+            max-width: 800px;
+            overflow: hidden;
         }
 
         .form-group {
-            margin-bottom: 20px;
+            margin-bottom: 15px;
         }
 
             .form-group label {
                 font-weight: bold;
+                color: #333;
+                margin-bottom: 10px;
+                display: block;
             }
 
-            .form-group input[type="text"],
-            .form-group input[type="date"],
-            .form-group select {
-                width: 100%;
-                padding: 8px;
-                border: 1px solid #ccc;
-                border-radius: 4px;
-            }
-
-            .form-group button[type="submit"] {
-                padding: 10px 20px;
-                background-color: #007bff;
-                color: white;
-                border: none;
-                border-radius: 4px;
-                cursor: pointer;
-            }
-
-                .form-group button[type="submit"]:hover {
-                    background-color: #0056b3;
-                }
-
-        .text-danger {
-            color: #dc3545;
+        .form-control {
+            padding: 8px;
+            font-size: 14px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            width: 100%;
         }
 
-        /* Estilos para el botón "Back to List" */
-        .back-link {
-            margin-top: 20px;
+        .edit-button {
             display: inline-block;
+            padding: 10px 20px;
+            font-size: 1.2em;
+            color: white;
+            background-color: #007bff;
+            border: none;
+            border-radius: 5px;
+            text-align: center;
             text-decoration: none;
-            color: #007bff;
+            cursor: pointer;
+            margin-right: 10px;
         }
 
-            .back-link:hover {
-                color: #0056b3;
+            .edit-button:hover {
+                background-color: #0056b3;
             }
-
     </style>
 </head>
 <body>
 
     @Html.Partial("_header")
 
-    <div class="form-container">
-        <h2>Editando Reporte Médico</h2>
+    <div class="container-main">
+        <h4 class="text-center">Editando Reporte Médico</h4>
+        <hr />
         <form asp-action="Edit">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="Id" />
-            <div class="form-group">
-                <label asp-for="id_usuario" class="control-label">Usuario</label>
-                <select asp-for="id_usuario" class="form-control" asp-items="ViewBag.Usuarios"></select>
-                <span asp-validation-for="id_usuario" class="text-danger"></span>
+            <div class="row mb-3">
+                <label for="id_usuario" class="col-sm-2 col-form-label">Usuario</label>
+                <div class="col-sm-10">
+                    <select asp-for="id_usuario" class="form-select" asp-items="ViewBag.Usuarios">
+                        <option value="">Seleccione...</option>
+                    </select>
+                    <span asp-validation-for="id_usuario" class="text-danger"></span>
+                </div>
             </div>
-
-            <div class="form-group">
-                <label asp-for="id_joven" class="control-label">Joven</label>
-                <select asp-for="id_joven" class="form-control" asp-items="ViewBag.Jovenes"></select>
-                <span asp-validation-for="id_joven" class="text-danger"></span>
+            <div class="row mb-3">
+                <label for="id_joven" class="col-sm-2 col-form-label">Joven</label>
+                <div class="col-sm-10">
+                    <select asp-for="id_joven" class="form-select" asp-items="ViewBag.Jovenes">
+                        <option value="">Seleccione...</option>
+                    </select>
+                    <span asp-validation-for="id_joven" class="text-danger"></span>
+                </div>
             </div>
-
-            <div class="form-group">
-                <label asp-for="fecha_creacion" class="control-label">Fecha de Creación</label>
-                <input asp-for="fecha_creacion" class="form-control" />
-                <span asp-validation-for="fecha_creacion" class="text-danger"></span>
+            <div class="row mb-3">
+                <label for="fecha_creacion" class="col-sm-2 col-form-label">Fecha de Creación</label>
+                <div class="col-sm-10">
+                    <input asp-for="fecha_creacion" class="form-control" />
+                    <span asp-validation-for="fecha_creacion" class="text-danger"></span>
+                </div>
             </div>
-
-            <div class="form-group">
-                <label asp-for="contenido" class="control-label">Contenido</label>
-                <input asp-for="contenido" class="form-control" />
-                <span asp-validation-for="contenido" class="text-danger"></span>
+            <div class="row mb-3">
+                <label for="contenido" class="col-sm-2 col-form-label">Contenido</label>
+                <div class="col-sm-10">
+                    <input asp-for="contenido" class="form-control" />
+                    <span asp-validation-for="contenido" class="text-danger"></span>
+                </div>
             </div>
-
-            <div class="form-group">
-                <button type="submit" class="btn btn-primary">Guardar</button>
-            </div>
-
-            <div>
-                <a asp-action="Index" class="back-link">Cancelar</a>
+            <div class="row mb-3">
+                <div class="col-sm-10 offset-sm-2">
+                    <button type="submit" class="btn btn-warning">Guardar</button>
+                </div>
             </div>
         </form>
+        <!-- Volver atrás -->
+        <div class="row mt-3">
+            <div class="col text-end">
+                <a asp-action="Index" class="btn btn-secondary"><i class="ri-arrow-left-circle-line"></i> Volver atrás</a>
+            </div>
+        </div>
     </div>
+
 
     @Html.Partial("_footer")
 
+    <!-- Scripts -->
     <script src="js/jquery-1.11.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
-    <script type="text/javascript" src="~/js/bootstrap.bundle.min.js"></script>
-    <script type="text/javascript" src="~/js/plugins.js"></script>
-    <script type="text/javascript" src="~/js/script.js"></script>
+    <script src="~/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/plugins.js"></script>
+    <script src="~/js/script.js"></script>
 
     @section Scripts {
         @{
