@@ -7,32 +7,87 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/bootstrap/css/bootstrap.min.css">
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-            padding-bottom: 50px; /* Ajuste para el footer */
+        h4 {
+            color: #333;
+            font-size: 24px;
+            margin-bottom: 20px;
         }
 
-        .card {
-            border: none;
-            border-radius: 10px;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-            background-color: #fff;
-        }
-
-        .card-body {
+        .container-main {
+            background-color: #ffffff;
             padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            margin: 20px auto;
+            max-width: 800px;
+            overflow: hidden;
         }
+
+        .row {
+            display: flex;
+            flex-wrap: wrap;
+            margin-bottom: 10px;
+        }
+
+        .col-sm-2 {
+            flex: 0 0 20%;
+            max-width: 20%;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .col-sm-10 {
+            flex: 0 0 80%;
+            max-width: 80%;
+            color: #555;
+            margin-bottom: 15px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 1.2em;
+            border: none;
+            border-radius: 5px;
+            text-align: center;
+            text-decoration: none;
+            cursor: pointer;
+            margin-right: 10px;
+            margin-top: 20px;
+        }
+
+        .btn-primary {
+            background-color: #007bff;
+            color: white;
+        }
+
+            .btn-primary:hover {
+                background-color: #0056b3;
+            }
+
+        .btn-success {
+            background-color: #28a745;
+            color: white;
+        }
+
+            .btn-success:hover {
+                background-color: #218838;
+            }
 
         #footer {
-            position: absolute;
-            bottom: 0;
-            width: 100%;
-
-
+            margin-top: 20px;
+            background-color: #f8f9fa;
+            padding: 10px 0;
+            text-align: left;
+            clear: both;
         }
+
+            #footer p {
+                margin: 0;
+            }
     </style>
 </head>
 <body>
@@ -40,23 +95,41 @@
     @Html.Partial("_header")
 
     <!-- Contenido principal -->
-    <div class="container mt-5">
-        <h4 class="mb-4">Detalles de Capacitación</h4>
-        <div class="card">
-            <div class="card-body">
-                <dl class="row">
-                    <dt class="col-sm-3">Nombre de la Capacitación:</dt>
-                    <dd class="col-sm-9">@Html.DisplayFor(model => model.nombre_capacitacion)</dd>
-                    <dt class="col-sm-3">Fecha:</dt>
-                    <dd class="col-sm-9">@Html.DisplayFor(model => model.fecha)</dd>
-                    <dt class="col-sm-3">Descripción:</dt>
-                    <dd class="col-sm-9">@Html.DisplayFor(model => model.descripcion)</dd>
-                    <dt class="col-sm-3">Usuario:</dt>
-                    <dd class="col-sm-9">@Html.DisplayFor(model => model.User.nombre) @Html.DisplayFor(model => model.User.apellidos)</dd>
-                </dl>
+    <div class="container-main">
+        <h4>Detalles de Capacitación</h4>
+        <hr />
+        <div class="table-responsive">
+            <table class="table table-bordered table-striped">
+                <tbody>
+                    <tr>
+                        <th scope="row">Nombre de la Capacitación</th>
+                        <td>@Html.DisplayFor(model => model.nombre_capacitacion)</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Fecha</th>
+                        <td>@Html.DisplayFor(model => model.fecha)</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Descripción</th>
+                        <td>@Html.DisplayFor(model => model.descripcion)</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Usuario</th>
+                        <td>@Html.DisplayFor(model => model.User.nombre) @Html.DisplayFor(model => model.User.apellidos)</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="row mt-3">
+            <div class="col-md-12">
+                <a asp-action="Edit" asp-route-id="@Model?.Id" class="btn btn-warning">Editar</a>
+                <div class="col text-end">
+                    <a asp-action="Index" class="btn btn-secondary"><i class="ri-arrow-left-circle-line"></i> Volver atrás</a>
+                </div>
             </div>
         </div>
     </div>
+
 
     <!-- Footer -->
     <footer id="footer">
@@ -65,7 +138,10 @@
     </footer>
 
     <!-- Scripts -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="js/jquery-1.11.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+    <script src="~/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/plugins.js"></script>
+    <script src="~/js/script.js"></script>
 </body>
 </html>

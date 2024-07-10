@@ -9,61 +9,69 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>Edit</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
-          integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
-          crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css">
+    
+    <link rel="stylesheet" href="~/bootstrap/css/bootstrap.min.css">
     <style>
         body {
-            padding-top: 20px;
+            margin: 0;
+            padding: 0;
             font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
         }
 
-        .container {
-            max-width: 800px;
-            margin: auto;
-        }
-
-        .form-group {
+        h4 {
+            color: #333;
+            font-size: 24px;
             margin-bottom: 20px;
         }
 
-        label {
-            font-weight: bold;
+        .container-main {
+            background-color: #ffffff;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            margin: 20px auto;
+            max-width: 800px;
+            overflow: hidden;
         }
 
-        input[type="text"], input[type="date"], textarea {
-            width: 100%;
-            padding: 8px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            box-sizing: border-box;
+        .form-group {
+            margin-bottom: 15px;
         }
 
-        input[type="submit"] {
-            background-color: #007bff;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            text-align: center;
-            text-decoration: none;
-            display: inline-block;
-            font-size: 16px;
-            margin-top: 10px;
-            cursor: pointer;
-            border-radius: 4px;
-        }
-
-            input[type="submit"]:hover {
-                background-color: #0056b3;
+            .form-group label {
+                font-weight: bold;
+                color: #333;
+                margin-bottom: 10px;
+                display: block;
             }
 
-        #footer {
-            background-color: #f8f9fa;
-            padding: 20px 0;
-            text-align: center;
-            margin-top: 20px;
+        .form-control {
+            padding: 8px;
+            font-size: 14px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            width: 100%;
         }
+
+        .edit-button {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 1.2em;
+            color: white;
+            background-color: #007bff;
+            border: none;
+            border-radius: 5px;
+            text-align: center;
+            text-decoration: none;
+            cursor: pointer;
+            margin-right: 10px;
+        }
+
+            .edit-button:hover {
+                background-color: #0056b3;
+            }
     </style>
 </head>
 <body>
@@ -73,43 +81,56 @@
     </header>
 
     <!-- Contenido principal -->
-    <div class="container">
-        <h4>Editar Capacitación</h4>
+    <div class="container-main">
+        <h4 class="text-center">Editar Capacitación</h4>
         <hr />
-        <div class="row">
-            <div class="col-md-6">
-                <form asp-action="Edit">
-                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-                    <input type="hidden" asp-for="Id" />
+        <form asp-action="Edit">
+            <input type="hidden" asp-for="Id" />
 
-                    <div class="form-group">
-                        <label asp-for="id_usuario" class="control-label">Empleado</label>
-                        <select asp-for="id_usuario" class="form-control" asp-items="@ViewBag.id_usuario"></select>
-                        <span asp-validation-for="id_usuario" class="text-danger"></span>
-                    </div>
+            <div class="row mb-3">
+                <label for="id_usuario" class="col-sm-2 col-form-label">Empleado</label>
+                <div class="col-sm-10">
+                    <select asp-for="id_usuario" class="form-select" asp-items="ViewBag.id_usuario">
+                        <option value="">Seleccione...</option>
+                    </select>
+                    <span asp-validation-for="id_usuario" class="text-danger"></span>
+                </div>
+            </div>
 
-                    <div class="form-group">
-                        <label asp-for="nombre_capacitacion" class="control-label">Nombre de la Capacitación</label>
-                        <input asp-for="nombre_capacitacion" class="form-control" />
-                        <span asp-validation-for="nombre_capacitacion" class="text-danger"></span>
-                    </div>
+            <div class="row mb-3">
+                <label for="nombre_capacitacion" class="col-sm-2 col-form-label">Nombre de la Capacitación</label>
+                <div class="col-sm-10">
+                    <input asp-for="nombre_capacitacion" class="form-control" />
+                    <span asp-validation-for="nombre_capacitacion" class="text-danger"></span>
+                </div>
+            </div>
 
-                    <div class="form-group">
-                        <label asp-for="fecha" class="control-label">Fecha</label>
-                        <input asp-for="fecha" type="date" class="form-control" />
-                        <span asp-validation-for="fecha" class="text-danger"></span>
-                    </div>
+            <div class="row mb-3">
+                <label for="fecha" class="col-sm-2 col-form-label">Fecha</label>
+                <div class="col-sm-10">
+                    <input asp-for="fecha" type="date" class="form-control" />
+                    <span asp-validation-for="fecha" class="text-danger"></span>
+                </div>
+            </div>
 
-                    <div class="form-group">
-                        <label asp-for="descripcion" class="control-label">Descripción</label>
-                        <textarea asp-for="descripcion" class="form-control" rows="4"></textarea>
-                        <span asp-validation-for="descripcion" class="text-danger"></span>
-                    </div>
+            <div class="row mb-3">
+                <label for="descripcion" class="col-sm-2 col-form-label">Descripción</label>
+                <div class="col-sm-10">
+                    <textarea asp-for="descripcion" class="form-control" rows="4"></textarea>
+                    <span asp-validation-for="descripcion" class="text-danger"></span>
+                </div>
+            </div>
 
-                    <div class="form-group">
-                        <input type="submit" value="Guardar cambios" class="btn btn-primary" />
-                    </div>
-                </form>
+            <div class="row mb-3">
+                <div class="col-sm-10 offset-sm-2">
+                    <button type="submit" class="btn btn-warning">Guardar</button>
+                </div>
+            </div>
+        </form>
+        <!-- Volver atrás -->
+        <div class="row mt-3">
+            <div class="col text-end">
+                <a asp-action="Index" class="btn btn-secondary"><i class="ri-arrow-left-circle-line"></i> Volver atrás</a>
             </div>
         </div>
     </div>
@@ -120,10 +141,9 @@
     </footer>
 
     <!-- Scripts -->
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"
-            integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
-            crossorigin="anonymous"></script>
+    <script src="js/jquery-1.11.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+    <script src="~/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/plugins.js"></script>
     <script src="~/js/script.js"></script>
 </body>
