@@ -8,7 +8,7 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>Crear Inventario</title>
+    <title>Crear Inventario Comedor</title>
     <style>
         body {
             margin: 0;
@@ -17,35 +17,40 @@
             background-color: #f4f4f4;
         }
 
-
-
         h4 {
-            color: red;
+            color: #333;
             font-size: 24px;
             margin-bottom: 20px;
         }
 
-        .row {
-            display: flex;
-            flex-wrap: wrap;
-        }
-
-        .col-md-4 {
-            flex: 0 0 33.33%;
-            max-width: 33.33%;
-            padding: 10px;
+        .container-main {
+            background-color: #ffffff;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            margin: 20px auto;
+            max-width: 800px;
+            overflow: hidden;
         }
 
         .form-group {
-            margin-bottom: 20px;
+            margin-bottom: 15px;
         }
 
+            .form-group label {
+                font-weight: bold;
+                color: #333;
+                margin-bottom: 10px;
+                display: block;
+            }
+
         .form-control {
-            width: 100%;
             padding: 8px;
             font-size: 14px;
             border: 1px solid #ccc;
             border-radius: 4px;
+            width: 100%;
         }
 
         .create-button {
@@ -65,7 +70,6 @@
             .create-button:hover {
                 background-color: #0056b3;
             }
-
     </style>
 </head>
 <body>
@@ -73,78 +77,65 @@
     @Html.Partial("_header")
 
     <!-- Contenido principal -->
-    <div class="container text-center">
-        <h4>Bienvenido a la creación del Inventario Comedor</h4>
+    <div class="container-main">
+        <h4 class="text-center">Crear Inventario Comedor</h4>
         <hr />
-        <div class="row justify-content-center">
-            <div class="col-md-10">
-                <form asp-action="Create" style="font-size: 15px;color:black;" method="post" enctype="multipart/form-data">
-                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="form-group row">
-                                <label asp-for="nombre_alimento" class="col-sm-4 col-form-label text-right">Nombre del Alimento</label>
-                                <div class="col-sm-8">
-                                    <input asp-for="nombre_alimento" class="form-control" />
-                                    <span asp-validation-for="nombre_alimento" class="text-danger"></span>
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <label asp-for="cantidad_disponible" class="col-sm-4 col-form-label text-right">Cantidad Disponible</label>
-                                <div class="col-sm-8">
-                                    <input asp-for="cantidad_disponible" class="form-control" />
-                                    <span asp-validation-for="cantidad_disponible" class="text-danger"></span>
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <label asp-for="fecha_ultima_reposicion" class="col-sm-4 col-form-label text-right">Fecha de la última reposición</label>
-                                <div class="col-sm-8">
-                                    <input asp-for="fecha_ultima_reposicion" class="form-control" />
-                                    <span asp-validation-for="fecha_ultima_reposicion" class="text-danger"></span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-group row">
-                                <label asp-for="proveedor" class="col-sm-4 col-form-label text-right">Proveedor</label>
-                                <div class="col-sm-8">
-                                    <input asp-for="proveedor" class="form-control" />
-                                    <span asp-validation-for="proveedor" class="text-danger"></span>
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <label asp-for="imagen" class="col-sm-4 col-form-label text-right">Imagen</label>
-                                <div class="col-sm-8">
-                                    <input asp-for="imagen" type="file" class="form-control" />
-                                    <span asp-validation-for="imagen" class="text-danger"></span>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <input type="submit" value="Crear Inventario" class="create-button" />
-                            </div>
-                        </div>
-                    </div>
-                </form>
+        <form asp-action="Create" method="post" enctype="multipart/form-data">
+            <div class="row mb-3">
+                <label for="nombre_alimento" class="col-sm-2 col-form-label">Nombre del Alimento</label>
+                <div class="col-sm-10">
+                    <input asp-for="nombre_alimento" class="form-control" />
+                    <span asp-validation-for="nombre_alimento" class="text-danger"></span>
+                </div>
             </div>
-        </div>
+            <div class="row mb-3">
+                <label for="cantidad_disponible" class="col-sm-2 col-form-label">Cantidad Disponible</label>
+                <div class="col-sm-10">
+                    <input asp-for="cantidad_disponible" class="form-control" />
+                    <span asp-validation-for="cantidad_disponible" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="row mb-3">
+                <label for="fecha_ultima_reposicion" class="col-sm-2 col-form-label">Fecha de la Última Reposición</label>
+                <div class="col-sm-10">
+                    <input asp-for="fecha_ultima_reposicion" class="form-control" />
+                    <span asp-validation-for="fecha_ultima_reposicion" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="row mb-3">
+                <label for="proveedor" class="col-sm-2 col-form-label">Proveedor</label>
+                <div class="col-sm-10">
+                    <input asp-for="proveedor" class="form-control" />
+                    <span asp-validation-for="proveedor" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="row mb-3">
+                <label for="imagen" class="col-sm-2 col-form-label">Imagen</label>
+                <div class="col-sm-10">
+                    <input asp-for="imagen" type="file" class="form-control" />
+                    <span asp-validation-for="imagen" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="row mb-3">
+                <div class="col-sm-10 offset-sm-2">
+                    <button type="submit" class="create-button">Crear</button>
+                </div>
+            </div>
+        </form>
         <!-- Volver atrás -->
-        <div>
-            <a asp-action="Index" class="create-button">Volver atrás</a>
+        <div class="row mt-3">
+            <div class="col text-end">
+                <a asp-action="Index" class="btn btn-secondary"><i class="ri-arrow-left-circle-line"></i> Volver atrás</a>
+            </div>
         </div>
     </div>
 
-
+    <!-- Footer -->
+    <div id="footer">
+        @Html.Partial("_footer")
+    </div>
 
     <!-- Scripts -->
-    @section Scripts {
-        @{
-            await Html.RenderPartialAsync("_ValidationScriptsPartial");
-        }
-    }
-
-    <!-- Footer -->
-    @Html.Partial("_footer")
-
     <script src="js/jquery-1.11.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
     <script src="~/js/bootstrap.bundle.min.js"></script>
