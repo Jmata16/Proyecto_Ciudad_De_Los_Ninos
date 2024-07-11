@@ -127,10 +127,12 @@
                 </tbody>
             </table>
         </div>
-
-        <form asp-action="Delete" asp-route-id="@Model.Id" method="post" onsubmit="return confirm('¿Estás seguro de que deseas eliminar este registro?');">
+        <form asp-action="Delete">
+            <input type="hidden" asp-for="Id" />
             <button type="submit" class="btn btn-danger">Eliminar</button>
-            <a asp-action="Index" class="btn btn-primary">Cancelar</a>
+            <div class="col text-end">
+                <a asp-action="Index" class="btn btn-secondary"><i class="ri-arrow-left-circle-line"></i>  Volver atrás</a>
+            </div>
         </form>
     </div>
 
