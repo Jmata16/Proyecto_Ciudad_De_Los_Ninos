@@ -15,22 +15,43 @@
             background-color: #f4f4f4;
         }
 
-        .container {
-            width: 80%;
+        .container-main {
+            background-color: #ffffff;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
             margin: 20px auto;
+            max-width: 800px;
+            overflow: hidden;
         }
 
         .form-group {
-            margin-bottom: 20px;
+            margin-bottom: 15px;
         }
 
-        .control-label {
-            font-weight: bold;
+            .form-group label {
+                font-weight: bold;
+                color: #333;
+                margin-bottom: 10px;
+                display: block;
+            }
+
+        .form-control {
+            padding: 8px;
+            font-size: 14px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            width: 100%;
         }
 
         .btn-primary {
             background-color: #007bff;
             border-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
         }
 
             .btn-primary:hover {
@@ -41,6 +62,10 @@
         .btn-secondary {
             background-color: #6c757d;
             border-color: #6c757d;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
         }
 
             .btn-secondary:hover {
@@ -54,73 +79,79 @@
     </style>
 </head>
 <body>
- 
+
     @Html.Partial("_header")
 
-
-    <div class="container">
-        <h2>@ViewData["Title"]</h2>
-
-        <h4>Asistencia</h4>
+    <div class="container-main">
+        <h4 class="text-center">@ViewData["Title"]</h4>
         <hr />
-        <div class="row">
-            <div class="col-md-4">
-                <form asp-action="Edit">
-                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-                    <input type="hidden" asp-for="ID" />
+        <form asp-action="Edit">
+            <input type="hidden" asp-for="ID" />
 
-                    <div class="form-group">
-                        <label asp-for="id_usuario" class="control-label">Empleado</label>
-                        <select asp-for="id_usuario" class="form-control" asp-items="ViewBag.id_usuario"></select>
-                        <span asp-validation-for="id_usuario" class="text-danger"></span>
-                    </div>
+            <div class="form-group">
+                <label asp-for="id_usuario" class="col-sm-2 col-form-label">Empleado</label>
+                <select asp-for="id_usuario" class="form-select" asp-items="ViewBag.id_usuario">
+                    <option value="">Seleccione...</option>
+                </select>
+                <span asp-validation-for="id_usuario" class="text-danger"></span>
+            </div>
 
-                    <div class="form-group">
-                        <label asp-for="estado" class="control-label">Estado</label>
-                        <input asp-for="estado" class="form-control" />
-                        <span asp-validation-for="estado" class="text-danger"></span>
-                    </div>
+            <div class="form-group">
+                <label asp-for="estado" class="col-sm-2 col-form-label">Estado</label>
+                <input asp-for="estado" class="form-control" />
+                <span asp-validation-for="estado" class="text-danger"></span>
+            </div>
 
-                    <div class="form-group">
-                        <label asp-for="fecha" class="control-label">Fecha</label>
-                        <input asp-for="fecha" class="form-control" type="date" />
-                        <span asp-validation-for="fecha" class="text-danger"></span>
-                    </div>
+            <div class="form-group">
+                <label asp-for="fecha" class="col-sm-2 col-form-label">Fecha</label>
+                <input asp-for="fecha" class="form-control" type="date" />
+                <span asp-validation-for="fecha" class="text-danger"></span>
+            </div>
 
-                    <div class="form-group">
-                        <label asp-for="horaRegistro" class="control-label">Hora de Registro</label>
-                        <input asp-for="horaRegistro" class="form-control" type="time" />
-                        <span asp-validation-for="horaRegistro" class="text-danger"></span>
-                    </div>
+            <div class="form-group">
+                <label asp-for="horaRegistro" class="col-sm-2 col-form-label">Hora de Registro</label>
+                <input asp-for="horaRegistro" class="form-control" type="time" />
+                <span asp-validation-for="horaRegistro" class="text-danger"></span>
+            </div>
 
-                    <div class="form-group">
-                        <label asp-for="horaSalida" class="control-label">Hora de Salida</label>
-                        <input asp-for="horaSalida" class="form-control" type="time" />
-                        <span asp-validation-for="horaSalida" class="text-danger"></span>
-                    </div>
+            <div class="form-group">
+                <label asp-for="horaSalida" class="col-sm-2 col-form-label">Hora de Salida</label>
+                <input asp-for="horaSalida" class="form-control" type="time" />
+                <span asp-validation-for="horaSalida" class="text-danger"></span>
+            </div>
 
-                    <div class="form-group">
-                        <label asp-for="justificacion" class="control-label">Justificación</label>
-                        <input asp-for="justificacion" class="form-control" />
-                        <span asp-validation-for="justificacion" class="text-danger"></span>
-                    </div>
+            <div class="form-group">
+                <label asp-for="justificacion" class="col-sm-2 col-form-label">Justificación</label>
+                <input asp-for="justificacion" class="form-control" />
+                <span asp-validation-for="justificacion" class="text-danger"></span>
+            </div>
 
-                    <div class="form-group">
-                        <input type="submit" value="Guardar" class="btn btn-primary" />
-                        <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
-                    </div>
-                </form>
+            <div class="form-group">
+                <button type="submit" class="btn btn-warning">Guardar</button>
+               
+            </div>
+        </form>
+        <div class="row mt-3">
+            <div class="col text-end">
+                <a asp-action="Index" class="btn btn-secondary"><i class="ri-arrow-left-circle-line"></i> Volver atrás</a>
             </div>
         </div>
     </div>
 
+    @Html.Partial("_footer")
 
-        @Html.Partial("_footer")
+    <!-- Scripts -->
+    <script src="js/jquery-1.11.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+    <script src="~/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/plugins.js"></script>
+    <script src="~/js/script.js"></script>
+
+    @section Scripts {
+        @{
+            await Html.RenderPartialAsync("_ValidationScriptsPartial");
+        }
+    }
 
 </body>
 </html>
-<script src="js/jquery-1.11.0.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
-<script src="~/js/bootstrap.bundle.min.js"></script>
-<script src="~/js/plugins.js"></script>
-<script src="~/js/script.js"></script>

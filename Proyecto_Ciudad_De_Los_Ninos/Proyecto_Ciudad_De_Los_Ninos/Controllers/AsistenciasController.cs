@@ -18,22 +18,23 @@ namespace Proyecto_Ciudad_De_Los_Ninos.Controllers
         }
 
 
-        public async Task<IActionResult> Index(DateTime? fecha)
+        public IActionResult Index(DateTime? fecha)
         {
-            var asistenciasQuery = _context.Asistencia
-                .Include(a => a.User)
-                .OrderByDescending(a => a.fecha)
-                .AsQueryable();
-
-            if (fecha.HasValue)
+            if (!fecha.HasValue)
             {
-                asistenciasQuery = asistenciasQuery.Where(a => a.fecha.Date == fecha.Value.Date);
+                fecha = DateTime.Today;
             }
 
-            var asistencias = await asistenciasQuery.ToListAsync();
-            ViewData["fecha"] = fecha?.ToString("yyyy-MM-dd");
+            var asistencias = _context.Asistencia
+                .Include(a => a.User)
+                .Where(a => a.fecha.Date == fecha.Value.Date)
+                .ToList();
+
+            ViewData["fecha"] = fecha.Value.ToString("yyyy-MM-dd");
+
             return View(asistencias);
         }
+
 
 
 

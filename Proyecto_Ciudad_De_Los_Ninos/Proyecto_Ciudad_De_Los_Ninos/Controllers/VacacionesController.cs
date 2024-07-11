@@ -150,7 +150,6 @@ namespace Proyecto_Ciudad_De_Los_Ninos.Controllers
             return View(vacaciones);
         }
 
-        // POST: Vacaciones/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
@@ -159,11 +158,12 @@ namespace Proyecto_Ciudad_De_Los_Ninos.Controllers
             if (vacaciones != null)
             {
                 _context.Vacaciones.Remove(vacaciones);
+                await _context.SaveChangesAsync();
             }
 
-            await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
+
 
         private bool VacacionesExists(int id)
         {

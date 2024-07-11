@@ -2,77 +2,124 @@
 
 @{
     ViewData["Title"] = "Lista de Asistencias";
+    DateTime today = DateTime.Today;
 }
 
-<!-- Contenido del encabezado -->
-@Html.Partial("_header")
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewData["Title"]</title>
+    <link rel="stylesheet" href="~/bootstrap/css/bootstrap.min.css">
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+        }
 
-<!-- Contenido principal -->
-<div class="container">
-    <h2>@ViewData["Title"]</h2>
+        body {
+            display: flex;
+            flex-direction: column;
+        }
 
-    <form asp-action="Index" method="get">
-        <div class="form-group">
-            <label for="fecha">Filtrar por Fecha:</label>
-            <input type="date" id="fecha" name="fecha" class="form-control" value="@ViewData["fecha"]" />
-        </div>
+        .container {
+            padding: 20px;
+        }
+
+        .actions a {
+            margin-right: 10px;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+            .actions a:hover {
+                color: #0056b3;
+            }
+
+        .create-button {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 1.2em;
+            color: white;
+            background-color: #007bff;
+            border: none;
+            border-radius: 5px;
+            text-align: center;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+            .create-button:hover {
+                background-color: #0056b3;
+            }
+    </style>
+</head>
+<body>
+    @Html.Partial("_header")
+
+    <div class="container">
+        <h2>@ViewData["Title"]</h2>
+
+        <form asp-action="Index" method="get">
+            <div class="form-group">
+                <label for="fecha">Filtrar por Fecha:</label>
+                <input type="date" id="fecha" name="fecha" class="form-control" value="@ViewData["fecha"]" />
+            </div>
+            <br />
+            <button type="submit" class="btn btn-primary">Filtrar</button>
+            <a asp-action="Index" class="btn btn-secondary">Limpiar Filtro</a>
+        </form>
         <br />
-        <button type="submit" class="btn btn-primary">Filtrar</button>
-        <a asp-action="Index" class="btn btn-secondary">Limpiar Filtro</a>
-    </form>
-    <br/> 
-    <br />
-    <p>
-        <a asp-action="Create" class="btn btn-primary">Crear Nueva Asistencia</a>
-    </p>
+        <br />
+        <p>
+            <a asp-action="Create" class="btn btn-primary">Crear Nueva Asistencia</a>
+        </p>
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>Estado</th>
-                <th>Fecha</th>
-                <th>Nombre Empleado</th>
-                <th>Hora de Registro</th>
-                <th>Hora de Salida</th>
-                <th>Justificación</th>
-                <th>Acciones</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var item in Model)
-            {
+        <table class="table table-striped table-bordered table-hover">
+            <thead class="table-danger">
                 <tr>
-                    <td>@item.ID</td>
-                    <td>@item.estado</td>
-                    <td>@item.fecha.ToShortDateString()</td>
-                    <td>@(item.User.nombre + " " + item.User.apellidos)</td>
-                    <td>@item.horaRegistro.ToString("hh:mm tt")</td>
-                    <td>@(item.horaSalida.HasValue ? item.horaSalida.Value.ToString("hh:mm tt") : "No registrada")</td>
-                    <td>@item.justificacion</td>
-                    <td>
-                    <td>
-                        <a asp-action="Edit" asp-route-id="@item.ID">Editar</a> |
-                        <a asp-action="Delete" asp-route-id="@item.ID">Eliminar</a> |
+                    <th>Estado</th>
+                    <th>Fecha</th>
+                    <th>Nombre Empleado</th>
+                    <th>Hora de Registro</th>
+                    <th>Hora de Salida</th>
+                    <th>Justificación</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.estado</td>
+                        <td>@item.fecha.ToShortDateString()</td>
+                        <td>@(item.User.nombre + " " + item.User.apellidos)</td>
+                        <td>@item.horaRegistro.ToString("hh:mm tt")</td>
+                        <td>@(item.horaSalida.HasValue ? item.horaSalida.Value.ToString("hh:mm tt") : "No registrada")</td>
+                        <td>@item.justificacion</td>
+                        <td class="actions">
+                            <a asp-action="Edit" asp-route-id="@item.ID" class="btn btn-warning btn-sm d-inline-flex align-items-center me-2"><i class="ri-edit-line me-1" title="Editar"></i></a>
+                            <a asp-action="Delete" asp-route-id="@item.ID" class="btn btn-danger btn-sm d-inline-flex align-items-center"><i class="ri-delete-bin-2-line me-1" title="Eliminar"></i></a>
                             @if (!item.horaSalida.HasValue)
                             {
-                            <a asp-action="AgregarHoraSalida" asp-route-id="@item.ID" class="text-success">Agregar Hora de Salida</a>
+                                <a asp-action="AgregarHoraSalida" asp-route-id="@item.ID" class="btn btn-success btn-sm d-inline-flex align-items-center me-2"><i class="ri-time-line me-1" title="Agregar Hora de Salida"></i></a>
                             }
-                    </td>
-                    </td>
-                </tr>
-            }
-        </tbody>
-    </table>
-</div>
-<br />
-<br />
-<!-- Footer -->
-<footer id="footer">
-    @Html.Partial("_footer")
-</footer>
-<script src="js/jquery-1.11.0.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
-<script src="~/js/bootstrap.bundle.min.js"></script>
-<script src="~/js/plugins.js"></script>
-<script src="~/js/script.js"></script>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+    <br />
+    <br />
+    <footer id="footer">
+        @Html.Partial("_footer")
+    </footer>
+    <script src="js/jquery-1.11.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+    <script src="~/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/plugins.js"></script>
+    <script src="~/js/script.js"></script>
+</body>
+</html>
+

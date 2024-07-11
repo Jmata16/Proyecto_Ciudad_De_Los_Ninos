@@ -8,6 +8,9 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewData["Title"]</title>
+    <link rel="stylesheet" href="~/bootstrap/css/bootstrap.min.css">
     <style>
         body {
             margin: 0;
@@ -16,106 +19,152 @@
             background-color: #f4f4f4;
         }
 
-        .container {
-            width: 80%;
+        h4 {
+            color: #333;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        .container-main {
+            background-color: #ffffff;
+            padding: 19px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
             margin: 20px auto;
+            max-width: 800px;
+            overflow: hidden;
         }
-
-        .btn-primary {
-            background-color: #007bff;
-            border-color: #007bff;
-        }
-
-            .btn-primary:hover {
-                background-color: #0069d9;
-                border-color: #0062cc;
-            }
-
-        .btn-secondary {
-            background-color: #6c757d;
-            border-color: #6c757d;
-        }
-
-            .btn-secondary:hover {
-                background-color: #5a6268;
-                border-color: #545b62;
-            }
 
         .form-group {
             margin-bottom: 15px;
         }
 
-        .col-md-6 {
-            padding: 0 15px;
+            .form-group label {
+                font-weight: bold;
+                color: #333;
+                margin-bottom: 10px;
+                display: block;
+            }
+
+        .form-control {
+            padding: 8px;
+            font-size: 14px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            width: 100%;
         }
 
-        .control-label {
-            font-weight: bold;
+        .create-button {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 1.2em;
+            color: white;
+            background-color: #007bff;
+            border: none;
+            border-radius: 5px;
+            text-align: center;
+            text-decoration: none;
+            cursor: pointer;
+            margin-right: 10px;
+        }
+
+            .create-button:hover {
+                background-color: #0056b3;
+            }
+
         }
     </style>
 </head>
 <body>
-    <!-- Contenido del encabezado -->
     @Html.Partial("_header")
 
-    <!-- Contenido principal -->
-    <div class="container">
-        <h2>@ViewData["Title"]</h2>
+    @if (!string.IsNullOrEmpty(ViewBag.ErrorMessage))
+    {
+        <div class="alert alert-danger" role="alert">
+            @ViewBag.ErrorMessage
+        </div>
+    }
 
-        <div class="row">
-            <div class="col-md-6">
-                <form asp-action="Create">
-                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-                    <div class="form-group">
-                        <label asp-for="id_usuario" class="control-label">Empleado</label>
-                        <select asp-for="id_usuario" class="form-control" asp-items="ViewBag.id_usuario"></select>
-                        <span asp-validation-for="id_usuario" class="text-danger"></span>
-                    </div>
-                    <div class="form-group">
-                        <label asp-for="estado" class="control-label">Estado</label>
-                        <select asp-for="estado" class="form-control">
-                            <option value="Presente">Presente</option>
-                            <option value="Ausente">Ausente</option>
-                        </select>
-                        <span asp-validation-for="estado" class="text-danger"></span>
-                    </div>
-                    <div class="form-group">
-                        <label asp-for="fecha" class="control-label">Fecha</label>
-                        <input asp-for="fecha" class="form-control" readonly />
-                        <span asp-validation-for="fecha" class="text-danger"></span>
-                    </div>
-                    <div class="form-group">
-                        <label asp-for="horaRegistro" class="control-label">Hora de Registro</label>
-                        <input asp-for="horaRegistro" class="form-control" readonly />
-                        <span asp-validation-for="horaRegistro" class="text-danger"></span>
-                    </div>
-                    <div class="form-group">
-                        <label asp-for="horaSalida" class="control-label">Hora de Salida</label>
-                        <input asp-for="horaSalida" class="form-control" />
-                        <span asp-validation-for="horaSalida" class="text-danger"></span>
-                    </div>
-                    <div class="form-group">
-                        <label asp-for="justificacion" class="control-label">Justificación</label>
-                        <input asp-for="justificacion" class="form-control" />
-                        <span asp-validation-for="justificacion" class="text-danger"></span>
-                    </div>
-                    <div class="form-group">
-                        <button type="submit" class="btn btn-primary">Crear</button>
-                        <a asp-action="Index" class="btn btn-secondary">Volver al Listado</a>
-                    </div>
-                </form>
+    <div class="container-main">
+        <h4 class="text-center">@ViewData["Title"]</h4>
+        <hr />
+        <form asp-action="Create">
+            <div class="row mb-3">
+                <label for="id_usuario" class="col-sm-2 col-form-label">Empleado</label>
+                <div class="col-sm-10">
+                    <select asp-for="id_usuario" class="form-select" asp-items="ViewBag.id_usuario">
+                        <option value="">Seleccione...</option>
+                    </select>
+                    <span asp-validation-for="id_usuario" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="row mb-3">
+                <label for="estado" class="col-sm-2 col-form-label">Estado</label>
+                <div class="col-sm-10">
+                    <select asp-for="estado" class="form-select">
+                        <option value="Presente">Presente</option>
+                        <option value="Ausente">Ausente</option>
+                    </select>
+                    <span asp-validation-for="estado" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="row mb-3" hidden>
+                <label for="fecha" class="col-sm-2 col-form-label">Fecha</label>
+                <div class="col-sm-10">
+                    <input asp-for="fecha" class="form-control" readonly />
+                    <span asp-validation-for="fecha" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="row mb-3" hidden>
+                <label for="horaRegistro" class="col-sm-2 col-form-label">Hora de Registro</label>
+                <div class="col-sm-10">
+                    <input asp-for="horaRegistro" class="form-control" readonly />
+                    <span asp-validation-for="horaRegistro" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="row mb-3" hidden>
+                <label for="horaSalida" class="col-sm-2 col-form-label">Hora de Salida</label>
+                <div class="col-sm-10">
+                    <input asp-for="horaSalida" class="form-control" />
+                    <span asp-validation-for="horaSalida" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="row mb-3">
+                <label for="justificacion" class="col-sm-2 col-form-label">Justificación</label>
+                <div class="col-sm-10">
+                    <input asp-for="justificacion" class="form-control" />
+                    <span asp-validation-for="justificacion" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="row mb-3">
+                <div class="col-sm-10 offset-sm-2">
+                    <button type="submit" class="btn btn-primary">Crear</button>
+                </div>
+            </div>
+        </form>
+        <div class="row mt-3">
+            <div class="col text-end">
+                <a asp-action="Index" class="btn btn-secondary">
+                    <i class="ri-arrow-left-circle-line"></i> Volver al Listado
+                </a>
             </div>
         </div>
     </div>
+    <br/>
+    <br />
+    <br/>
+    <br />
+    <br />
+    <br />
+    <br />
+    @Html.Partial("_footer")
 
-    <!-- Footer -->
-    <footer id="footer">
-        @Html.Partial("_footer")
-    </footer>
+    <!-- Scripts -->
+    <script src="js/jquery-1.11.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+    <script src="~/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/plugins.js"></script>
+    <script src="~/js/script.js"></script>
 </body>
 </html>
-<script src="js/jquery-1.11.0.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
-<script src="~/js/bootstrap.bundle.min.js"></script>
-<script src="~/js/plugins.js"></script>
-<script src="~/js/script.js"></script>

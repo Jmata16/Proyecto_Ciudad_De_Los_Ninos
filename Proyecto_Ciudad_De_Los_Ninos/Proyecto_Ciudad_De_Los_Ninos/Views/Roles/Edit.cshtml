@@ -4,32 +4,82 @@
     Layout = null;
 }
 
-
-@{
-    ViewData["Title"] = "Roles";
-}
-
 <!DOCTYPE html>
 <html>
 <head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Edit</title>
+    <link rel="stylesheet" href="~/bootstrap/css/bootstrap.min.css">
     <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+        }
 
-        #footer {
-            position: absolute;
-            bottom: 0;
+        h4 {
+            color: #333;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        .container-main {
+            background-color: #ffffff;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            margin: 120px auto;
+            max-width: 800px;
+            overflow: hidden;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+            .form-group label {
+                font-weight: bold;
+                color: #333;
+                margin-bottom: 10px;
+                display: block;
+            }
+
+        .form-control {
+            padding: 8px;
+            font-size: 14px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
             width: 100%;
         }
+
+        .edit-button {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 1.2em;
+            color: white;
+            background-color: #007bff;
+            border: none;
+            border-radius: 5px;
+            text-align: center;
+            text-decoration: none;
+            cursor: pointer;
+            margin-right: 10px;
+        }
+
+            .edit-button:hover {
+                background-color: #0056b3;
+            }
     </style>
 </head>
 <body>
-    <!-- Contenido del encabezado -->
+
     @Html.Partial("_header")
 
-    <!-- Contenido principal -->
-    <div class="container">
-        <h4>Editar Rol</h4>
+    <div class="container-main">
+        <h4 class="text-center">Editando Rol</h4>
         <hr />
-
         <form asp-action="Edit" style="max-width: 400px;">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="Id" />
@@ -41,15 +91,17 @@
             </div>
             <br />
             <div class="form-group">
-                <input type="submit" value="Guardar" class="btn btn-primary" />
+                <input type="submit" value="Guardar" class="btn btn-warning" />
             </div>
         </form>
+        <div class="row mt-3">
+            <div class="col text-end">
+                <a asp-action="Index" class="btn btn-secondary"><i class="ri-arrow-left-circle-line"></i> Volver atrás</a>
+            </div>
+        </div>
     </div>
 
-
-
-    <!-- Footer -->
-    <footer id="footer">@Html.Partial("_footer")</footer>
+    @Html.Partial("_footer")
 
     <!-- Scripts -->
     <script src="js/jquery-1.11.0.min.js"></script>
@@ -57,5 +109,11 @@
     <script src="~/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/plugins.js"></script>
     <script src="~/js/script.js"></script>
+
+    @section Scripts {
+        @{
+            await Html.RenderPartialAsync("_ValidationScriptsPartial");
+        }
+    }
 </body>
 </html>

@@ -1,107 +1,146 @@
 ﻿@model Proyecto_Ciudad_De_Los_Ninos.Models.Vacaciones
 
 @{
-    Layout = null;
+    ViewData["Title"] = "Eliminar Vacaciones";
 }
 
 <!DOCTYPE html>
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>Delete</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
-          integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
-          crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css">
+    <title>Eliminar Vacaciones</title>
+    <link rel="stylesheet" href="~/bootstrap/css/bootstrap.min.css">
     <style>
-        body {
-            padding-top: 20px;
-            font-family: Arial, sans-serif;
-        }
-
-        .container {
-            max-width: 800px;
-            margin: auto;
-        }
-
-        .form-group {
+        /* Estilos personalizados */
+        h4 {
+            color: #333;
+            font-size: 24px;
             margin-bottom: 20px;
         }
 
-        label {
+        .container-main {
+            background-color: #ffffff;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            margin: 25px auto;
+            max-width: 800px;
+            overflow: hidden;
+        }
+
+        .row {
+            display: flex;
+            flex-wrap: wrap;
+            margin-bottom: 10px;
+        }
+
+        .col-sm-2 {
+            flex: 0 0 20%;
+            max-width: 20%;
             font-weight: bold;
+            color: #333;
         }
 
-        .display-field {
-            font-size: 16px;
-            padding: 8px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            background-color: #f8f9fa;
+        .col-sm-10 {
+            flex: 0 0 80%;
+            max-width: 80%;
+            color: #555;
+            margin-bottom: 15px;
         }
 
-        #footer {
-            background-color: #f8f9fa;
-            padding: 20px 0;
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 1.2em;
+            border: none;
+            border-radius: 5px;
             text-align: center;
+            text-decoration: none;
+            cursor: pointer;
+            margin-right: 10px;
             margin-top: 20px;
         }
+
+        .btn-danger {
+            background-color: #dc3545;
+            color: white;
+        }
+
+            .btn-danger:hover {
+                background-color: #c82333;
+            }
+
+        .btn-secondary {
+            background-color: #6c757d;
+            color: white;
+        }
+
+            .btn-secondary:hover {
+                background-color: #5a6268;
+            }
+
+        #footer {
+            margin-top: 20px;
+            background-color: #f8f9fa;
+            padding: 10px 0;
+            text-align: left;
+            clear: both;
+        }
+
+            #footer p {
+                margin: 0;
+            }
     </style>
 </head>
 <body>
-    <!-- Contenido del encabezado -->
-    <header id="header">
-        @Html.Partial("_header")
-    </header>
+    @Html.Partial("_header")
 
-    <!-- Contenido principal -->
-    <div class="container">
-        <h4>Eliminar Vacaciones</h4>
+    <div class="container-main">
+        <h4 class="text-center">Eliminar Vacaciones</h4>
         <hr />
-        <div class="form-group">
-            <label>ID</label>
-            <div class="display-field">@Model.ID</div>
+        <div class="table-responsive">
+            <table class="table table-bordered table-striped">
+                <tbody>
+                    <tr>
+                        <th scope="row">ID</th>
+                        <td>@Model.ID</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Empleado</th>
+                        <td>@Model.User.nombre @Model.User.apellidos</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Estado</th>
+                        <td>@Model.estado</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Fecha de Inicio</th>
+                        <td>@Model.fechaInicio.ToString("yyyy-MM-dd")</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Fecha de Finalización</th>
+                        <td>@Model.fechaFinaliza.ToString("yyyy-MM-dd")</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Justificación</th>
+                        <td>@Model.justificacion</td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
-
-        <div class="form-group">
-            <label>Empleado</label>
-            <div class="display-field">@Model.User.nombre @Model.User.apellidos</div>
-        </div>
-
-        <div class="form-group">
-            <label>Estado</label>
-            <div class="display-field">@Model.estado</div>
-        </div>
-
-        <div class="form-group">
-            <label>Fecha de Inicio</label>
-            <div class="display-field">@Model.fechaInicio.ToString("yyyy-MM-dd")</div>
-        </div>
-
-        <div class="form-group">
-            <label>Fecha de Finalización</label>
-            <div class="display-field">@Model.fechaFinaliza.ToString("yyyy-MM-dd")</div>
-        </div>
-
-        <div class="form-group">
-            <label>Justificación</label>
-            <div class="display-field">@Model.justificacion</div>
-        </div>
-
         <form asp-action="Delete">
             <input type="hidden" asp-for="ID" />
-            <div class="form-group">
-                <input type="submit" value="Eliminar" class="btn btn-danger" />
-                <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
+            <button type="submit" class="btn btn-danger">Eliminar</button>
+            <div class="col text-end mt-3">
+                <a asp-action="Index" class="btn btn-secondary">
+                    <i class="ri-arrow-left-circle-line"></i> Volver atrás
+                </a>
             </div>
         </form>
     </div>
 
-    <!-- Footer -->
-    <footer id="footer">
-        @Html.Partial("_footer")
-    </footer>
-
+    @Html.Partial("_footer")
     <!-- Scripts -->
     <script src="js/jquery-1.11.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>

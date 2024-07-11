@@ -1,5 +1,4 @@
 ﻿@model API_Ciudad_De_Los_Ninos.Models.User
-
 @{
     Layout = null;
     ViewData["Title"] = "Editar Usuario";
@@ -8,6 +7,9 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewData["Title"]</title>
+    <link rel="stylesheet" href="~/bootstrap/css/bootstrap.min.css">
     <style>
         body {
             margin: 0;
@@ -16,134 +18,142 @@
             background-color: #f4f4f4;
         }
 
-        .container {
-            width: 80%;
-            margin: 20px auto;
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-            background-color: #fff;
-        }
-
-        th, td {
-            padding: 12px 15px;
-            text-align: left;
-            border-bottom: 1px solid #e0e0e0;
-        }
-
-        th {
-            background-color: #f8f8f8;
-            font-weight: bold;
+        h4 {
             color: #333;
-            text-transform: uppercase;
-        }
-
-        tr:hover {
-            background-color: #f5f5f5;
-        }
-
-        .form-group {
+            font-size: 24px;
             margin-bottom: 20px;
         }
 
-        label {
-            font-weight: bold;
+        .container-main {
+            background-color: #ffffff;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            margin: 20px auto;
+            max-width: 800px;
+            overflow: hidden;
         }
 
-        input[type="text"],
-        input[type="password"] {
-            width: 100%;
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            box-sizing: border-box;
+        .form-group {
+            margin-bottom: 15px;
         }
 
-        input[type="submit"] {
-            background-color: #007bff;
-            color: #fff;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 4px;
-            cursor: pointer;
-        }
-
-            input[type="submit"]:hover {
-                background-color: #0056b3;
+            .form-group label {
+                font-weight: bold;
+                color: #333;
+                margin-bottom: 10px;
+                display: block;
             }
 
-        .text-danger {
-            color: #dc3545;
+        .form-control {
+            padding: 8px;
+            font-size: 14px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            width: 100%;
         }
 
+        .edit-button {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 1.2em;
+            color: white;
+            background-color: #007bff;
+            border: none;
+            border-radius: 5px;
+            text-align: center;
+            text-decoration: none;
+            cursor: pointer;
+            margin-right: 10px;
+        }
 
+            .edit-button:hover {
+                background-color: #0056b3;
+            }
     </style>
 </head>
 <body>
-    <!-- Contenido del encabezado -->
+
     @Html.Partial("_header")
 
-    <!-- Contenido principal -->
-    <div class="container">
-        <h4>Editar Usuario</h4>
+    <div class="container-main">
+        <h4 class="text-center">Editar Usuario</h4>
         <hr />
-        <div class="row">
-            <div class="col-md-4">
-                <form asp-action="Edit">
-                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-                    <input type="hidden" asp-for="Id" />
-                    <div class="form-group">
-                        <label asp-for="nombre" class="control-label">Nombre</label>
-                        <input asp-for="nombre" class="form-control" />
-                    </div>
-                    <div class="form-group">
-                        <label asp-for="apellidos" class="control-label">Apellidos</label>
-                        <input asp-for="apellidos" class="form-control" />
-                    </div>
-
-                    <div class="form-group">
-                        <label asp-for="correo" class="control-label">Correo Electronico</label>
-                        <input asp-for="correo" class="form-control" />
-                    </div>
-                    <div class="form-group">
-                        <label asp-for="fecha_nacimiento" class="control-label">Fecha de Nacimiento</label>
-                        <input asp-for="fecha_nacimiento" type="date" class="form-control" max="@DateTime.Now.ToString("yyyy-MM-dd")" />
-                    </div>
-
-                    <div class="form-group">
-                        <label asp-for="cedula" class="control-label">Cedula</label>
-                        <input asp-for="cedula" class="form-control" />
-
-                    </div>
-                    <div class="form-group">
-                        <label asp-for="nombre_usuario" class="control-label">Nombre de Usuario</label>
-                        <input asp-for="nombre_usuario" class="form-control" />
-                    </div>
-                    <div class="form-group">
-                        <label asp-for="contraseña" class="control-label">Contraseña</label>
-                        <input asp-for="contraseña" class="form-control" />
-                    </div>
-                    <div class="form-group">
-                        <label asp-for="id_rol" class="control-label">Rol</label>
-                        <select asp-for="id_rol" class="form-control" asp-items="ViewBag.Roles"></select>
-                    </div>
-
-                    <div class="form-group">
-                        <input type="submit" value="Guardar" class="btn btn-primary" />
-                    </div>
-                </form>
+        <form asp-action="Edit">
+            <input type="hidden" asp-for="Id" />
+            <div class="row mb-3">
+                <label for="nombre" class="col-sm-2 col-form-label">Nombre</label>
+                <div class="col-sm-10">
+                    <input asp-for="nombre" class="form-control" />
+                    <span asp-validation-for="nombre" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="row mb-3">
+                <label for="apellidos" class="col-sm-2 col-form-label">Apellidos</label>
+                <div class="col-sm-10">
+                    <input asp-for="apellidos" class="form-control" />
+                    <span asp-validation-for="apellidos" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="row mb-3">
+                <label for="correo" class="col-sm-2 col-form-label">Correo Electrónico</label>
+                <div class="col-sm-10">
+                    <input asp-for="correo" class="form-control" />
+                    <span asp-validation-for="correo" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="row mb-3">
+                <label for="fecha_nacimiento" class="col-sm-2 col-form-label">Fecha de Nacimiento</label>
+                <div class="col-sm-10">
+                    <input asp-for="fecha_nacimiento" class="form-control" />
+                    <span asp-validation-for="fecha_nacimiento" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="row mb-3">
+                <label for="cedula" class="col-sm-2 col-form-label">Cédula</label>
+                <div class="col-sm-10">
+                    <input asp-for="cedula" class="form-control" />
+                    <span asp-validation-for="cedula" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="row mb-3">
+                <label for="nombre_usuario" class="col-sm-2 col-form-label">Nombre de Usuario</label>
+                <div class="col-sm-10">
+                    <input asp-for="nombre_usuario" class="form-control" />
+                    <span asp-validation-for="nombre_usuario" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="row mb-3">
+                <label for="contraseña" class="col-sm-2 col-form-label">Contraseña</label>
+                <div class="col-sm-10">
+                    <input asp-for="contraseña" class="form-control" />
+                    <span asp-validation-for="contraseña" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="row mb-3">
+                <label for="id_rol" class="col-sm-2 col-form-label">Rol</label>
+                <div class="col-sm-10">
+                    <select asp-for="id_rol" class="form-control" asp-items="ViewBag.Roles">
+                        <option value="">Seleccione...</option>
+                    </select>
+                    <span asp-validation-for="id_rol" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="row mb-3">
+                <div class="col-sm-10 offset-sm-2">
+                    <button type="submit" class="btn btn-warning">Guardar</button>
+                </div>
+            </div>
+        </form>
+        <div class="row mt-3">
+            <div class="col text-end">
+                <a asp-action="Index" class="btn btn-secondary"><i class="ri-arrow-left-circle-line"></i> Volver atrás</a>
             </div>
         </div>
     </div>
 
-
-    <!-- Footer -->
-    <footer id="footer">@Html.Partial("_footer")</footer>
+    @Html.Partial("_footer")
 
     <!-- Scripts -->
     <script src="js/jquery-1.11.0.min.js"></script>
@@ -151,5 +161,12 @@
     <script src="~/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/plugins.js"></script>
     <script src="~/js/script.js"></script>
+
+    @section Scripts {
+        @{
+            await Html.RenderPartialAsync("_ValidationScriptsPartial");
+        }
+    }
+
 </body>
 </html>
