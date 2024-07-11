@@ -1,0 +1,112 @@
+﻿@model Proyecto_Ciudad_De_Los_Ninos.Models.Vacaciones
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Delete</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+          integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+          crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css">
+    <style>
+        body {
+            padding-top: 20px;
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: auto;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        .display-field {
+            font-size: 16px;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            background-color: #f8f9fa;
+        }
+
+        #footer {
+            background-color: #f8f9fa;
+            padding: 20px 0;
+            text-align: center;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Contenido del encabezado -->
+    <header id="header">
+        @Html.Partial("_header")
+    </header>
+
+    <!-- Contenido principal -->
+    <div class="container">
+        <h4>Eliminar Vacaciones</h4>
+        <hr />
+        <div class="form-group">
+            <label>ID</label>
+            <div class="display-field">@Model.ID</div>
+        </div>
+
+        <div class="form-group">
+            <label>Empleado</label>
+            <div class="display-field">@Model.User.nombre @Model.User.apellidos</div>
+        </div>
+
+        <div class="form-group">
+            <label>Estado</label>
+            <div class="display-field">@Model.estado</div>
+        </div>
+
+        <div class="form-group">
+            <label>Fecha de Inicio</label>
+            <div class="display-field">@Model.fechaInicio.ToString("yyyy-MM-dd")</div>
+        </div>
+
+        <div class="form-group">
+            <label>Fecha de Finalización</label>
+            <div class="display-field">@Model.fechaFinaliza.ToString("yyyy-MM-dd")</div>
+        </div>
+
+        <div class="form-group">
+            <label>Justificación</label>
+            <div class="display-field">@Model.justificacion</div>
+        </div>
+
+        <form asp-action="Delete">
+            <input type="hidden" asp-for="ID" />
+            <div class="form-group">
+                <input type="submit" value="Eliminar" class="btn btn-danger" />
+                <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
+            </div>
+        </form>
+    </div>
+
+    <!-- Footer -->
+    <footer id="footer">
+        @Html.Partial("_footer")
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/jquery-1.11.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+    <script src="~/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/plugins.js"></script>
+    <script src="~/js/script.js"></script>
+</body>
+</html>

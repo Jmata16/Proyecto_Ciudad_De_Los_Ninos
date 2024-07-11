@@ -1,0 +1,183 @@
+﻿@model API_Ciudad_De_Los_Ninos.Models.Expedientes
+
+@{
+    ViewData["Title"] = "Crear Expediente";
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Crear Nuevo Expediente</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        .form-container {
+            width: 80%;
+            margin: 50px auto;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            background-color: #f9f9f9;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+            .form-group label {
+                font-weight: bold;
+            }
+
+            .form-group input[type="text"],
+            .form-group input[type="number"],
+            .form-group input[type="date"],
+            .form-group textarea,
+            .form-group select {
+                width: 100%;
+                padding: 8px;
+                border: 1px solid #ccc;
+                border-radius: 4px;
+            }
+
+            .form-group button[type="submit"] {
+                padding: 10px 20px;
+                background-color: #E6282A;
+                color: white;
+                border: none;
+                border-radius: 4px;
+                cursor: pointer;
+            }
+
+                .form-group button[type="submit"]:hover {
+                    background-color: #b21d20;
+                }
+
+        .text-danger {
+            color: #dc3545;
+        }
+
+        .back-button {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 1em;
+            color: white;
+            background-color: #007bff;
+            border: none;
+            border-radius: 5px;
+            text-align: center;
+            text-decoration: none;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+
+            .back-button:hover {
+                background-color: #0056b3;
+            }
+
+        .row {
+            display: flex;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+        }
+
+        .col {
+            flex: 0 0 50%;
+            max-width: 50%;
+            padding-right: 15px;
+            padding-left: 15px;
+        }
+
+    </style>
+</head>
+<body>
+    @Html.Partial("_header")
+    @if (!string.IsNullOrEmpty(ViewBag.ErrorMessage))
+    {
+        <div class="alert alert-danger" role="alert">
+            @ViewBag.ErrorMessage
+        </div>
+    }
+
+    <div class="form-container">
+        <h2 class="text-center mb-4">Crear Nuevo Expediente</h2>
+        <form asp-action="Create">
+            <div asp-validation-summary="All" class="text-danger"></div>
+            <div class="row">
+                <div class="col">
+                    <div class="form-group">
+                        <label asp-for="id_joven" class="control-label">Joven:</label>
+                        <select asp-for="id_joven" class="form-control" asp-items="ViewBag.Jovenes"></select>
+                    </div>
+                    <input type="hidden" asp-for="nombre_joven" />
+                    <div class="form-group">
+                        <label asp-for="edad" class="control-label">Edad:</label>
+                        <input asp-for="edad" class="form-control" />
+                        <span asp-validation-for="edad" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="fecha_ingreso" class="control-label">Fecha de Ingreso:</label>
+                        <input asp-for="fecha_ingreso" class="form-control" type="date" />
+                        <span asp-validation-for="fecha_ingreso" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="direccion" class="control-label">Dirección:</label>
+                        <input asp-for="direccion" class="form-control" />
+                        <span asp-validation-for="direccion" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-group">
+                        <label asp-for="telefono_contacto" class="control-label">Teléfono de Contacto:</label>
+                        <input asp-for="telefono_contacto" class="form-control" />
+                        <span asp-validation-for="telefono_contacto" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="tutor_legal" class="control-label">Tutor Legal:</label>
+                        <input asp-for="tutor_legal" class="form-control" />
+                        <span asp-validation-for="tutor_legal" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="antecedentes_medicos" class="control-label">Antecedentes Médicos:</label>
+                        <input asp-for="antecedentes_medicos" class="form-control" />
+                        <span asp-validation-for="antecedentes_medicos" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="historial_academico" class="control-label">Historial Académico:</label>
+                        <input asp-for="historial_academico" class="form-control" />
+                        <span asp-validation-for="historial_academico" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="notas_adicionales" class="control-label">Notas Adicionales:</label>
+                        <textarea asp-for="notas_adicionales" class="form-control" rows="4"></textarea>
+                        <span asp-validation-for="notas_adicionales" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary btn-block">Crear Expediente</button>
+            </div>
+        </form>
+        <a href="@Url.Action("Index")" class="back-button">Volver</a>
+    </div>
+
+
+    @Html.Partial("_footer")
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#id_joven').change(function () {
+                var selectedOption = $(this).find('option:selected');
+                var nombreJoven = selectedOption.text();
+                $('#nombre_joven').val(nombreJoven);
+            });
+        });
+    </script>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+    <script type="text/javascript" src="~/js/bootstrap.bundle.min.js"></script>
+    <script type="text/javascript" src="~/js/plugins.js"></script>
+    <script type="text/javascript" src="~/js/script.js"></script>
+</body>
+</html>

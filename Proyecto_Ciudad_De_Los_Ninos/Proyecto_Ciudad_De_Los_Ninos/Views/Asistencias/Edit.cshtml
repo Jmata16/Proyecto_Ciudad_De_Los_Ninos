@@ -1,0 +1,126 @@
+﻿@model Proyecto_Ciudad_De_Los_Ninos.Models.Asistencia
+
+@{
+    ViewData["Title"] = "Editar Asistencia";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+        }
+
+        .container {
+            width: 80%;
+            margin: 20px auto;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .control-label {
+            font-weight: bold;
+        }
+
+        .btn-primary {
+            background-color: #007bff;
+            border-color: #007bff;
+        }
+
+            .btn-primary:hover {
+                background-color: #0056b3;
+                border-color: #0056b3;
+            }
+
+        .btn-secondary {
+            background-color: #6c757d;
+            border-color: #6c757d;
+        }
+
+            .btn-secondary:hover {
+                background-color: #5a6268;
+                border-color: #545b62;
+            }
+
+        .text-danger {
+            color: #dc3545;
+        }
+    </style>
+</head>
+<body>
+ 
+    @Html.Partial("_header")
+
+
+    <div class="container">
+        <h2>@ViewData["Title"]</h2>
+
+        <h4>Asistencia</h4>
+        <hr />
+        <div class="row">
+            <div class="col-md-4">
+                <form asp-action="Edit">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <input type="hidden" asp-for="ID" />
+
+                    <div class="form-group">
+                        <label asp-for="id_usuario" class="control-label">Empleado</label>
+                        <select asp-for="id_usuario" class="form-control" asp-items="ViewBag.id_usuario"></select>
+                        <span asp-validation-for="id_usuario" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="estado" class="control-label">Estado</label>
+                        <input asp-for="estado" class="form-control" />
+                        <span asp-validation-for="estado" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="fecha" class="control-label">Fecha</label>
+                        <input asp-for="fecha" class="form-control" type="date" />
+                        <span asp-validation-for="fecha" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="horaRegistro" class="control-label">Hora de Registro</label>
+                        <input asp-for="horaRegistro" class="form-control" type="time" />
+                        <span asp-validation-for="horaRegistro" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="horaSalida" class="control-label">Hora de Salida</label>
+                        <input asp-for="horaSalida" class="form-control" type="time" />
+                        <span asp-validation-for="horaSalida" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="justificacion" class="control-label">Justificación</label>
+                        <input asp-for="justificacion" class="form-control" />
+                        <span asp-validation-for="justificacion" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <input type="submit" value="Guardar" class="btn btn-primary" />
+                        <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+        @Html.Partial("_footer")
+
+</body>
+</html>
+<script src="js/jquery-1.11.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+<script src="~/js/bootstrap.bundle.min.js"></script>
+<script src="~/js/plugins.js"></script>
+<script src="~/js/script.js"></script>

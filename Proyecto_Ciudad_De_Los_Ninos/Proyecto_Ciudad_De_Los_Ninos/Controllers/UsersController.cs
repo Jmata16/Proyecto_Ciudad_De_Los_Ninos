@@ -7,16 +7,20 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using API_Ciudad_De_Los_Ninos.Models;
 using Proyecto_Ciudad_De_Los_Ninos.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Proyecto_Ciudad_De_Los_Ninos.Controllers
 {
+    [Authorize]
     public class UsersController : Controller
     {
         private readonly ApplicationDBContext _context;
+        private readonly EmailService _emailService;
 
-        public UsersController(ApplicationDBContext context)
+        public UsersController(ApplicationDBContext context, EmailService emailService)
         {
             _context = context;
+            _emailService = emailService;
         }
 
         public async Task<IActionResult> Index()
@@ -52,37 +56,63 @@ namespace Proyecto_Ciudad_De_Los_Ninos.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,nombre_usuario,nombre,apellidos,fecha_nacimiento,cedula,contraseña,id_rol")] User user)
+        public async Task<IActionResult> Create([Bind("Id,nombre_usuario,nombre,apellidos,correo,fecha_nacimiento,cedula,contraseña,id_rol")] User user)
         {
             if (ModelState.IsValid)
             {
                 _context.Add(user);
                 await _context.SaveChangesAsync();
+
+                
+                string subject = "¡Bienvenido al Equipo de Ciudad De Los Niños!";
+                string body = $@"
+            <p>Hola {user.nombre},</p>
+            <p>¡Gracias por formar parte de la instirucion Ciudad De Los Niños! 
+            <p>Estamos emocionados de tenerte con nosotros.</p>A continuación, encontrarás tus detalles de usuario:</p>
+            <ul>
+                <li><strong>Nombre de usuario:</strong> {user.nombre_usuario}</li>
+                <li><strong>Nombre:</strong> {user.nombre}</li>
+                <li><strong>Apellidos:</strong> {user.apellidos}</li>
+                <li><strong>Correo:</strong> {user.correo}</li>
+            </ul>
+            <p>Si tienes alguna pregunta, no dudes en contactarnos.</p>
+            <p>Saludos,<br>El equipo del Proyecto Ciudad De Los Niños</p>";
+
+                _emailService.SendEmail(user.correo, subject, body);
+
                 return RedirectToAction(nameof(Index));
             }
             ViewData["Roles"] = new SelectList(_context.Roles, "Id", "nombre_rol", user.id_rol);
             return View(user);
         }
 
+
+        // GET: Editar Usuario
         public async Task<IActionResult> Edit(int? id)
         {
+            // Cargar los roles para el dropdown
             ViewData["Roles"] = new SelectList(_context.Roles, "Id", "nombre_rol");
+
             if (id == null)
             {
                 return NotFound();
             }
 
+            // Buscar el usuario por su ID
             var user = await _context.Users.FindAsync(id);
             if (user == null)
-            {  
+            {
                 return NotFound();
             }
+
+            // Mostrar la vista con los datos del usuario
             return View(user);
         }
 
+        // POST: Editar Usuario
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,nombre_usuario,nombre,apellidos,fecha_nacimiento,cedula,contraseña,id_rol")] User user)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,nombre_usuario,nombre,apellidos,correo,fecha_nacimiento,cedula,contraseña,id_rol")] User user)
         {
             if (id != user.Id)
             {
@@ -93,11 +123,15 @@ namespace Proyecto_Ciudad_De_Los_Ninos.Controllers
             {
                 try
                 {
+                    // Actualizar el usuario en el contexto
                     _context.Update(user);
+                    // Guardar los cambios en la base de datos
                     await _context.SaveChangesAsync();
+                    return RedirectToAction(nameof(Index));
                 }
                 catch (DbUpdateConcurrencyException)
                 {
+                    // Manejar errores de concurrencia aquí si es necesario
                     if (!UserExists(user.Id))
                     {
                         return NotFound();
@@ -107,10 +141,13 @@ namespace Proyecto_Ciudad_De_Los_Ninos.Controllers
                         throw;
                     }
                 }
-                return RedirectToAction(nameof(Index));
             }
+
+            // Si ModelState no es válido, cargar los roles nuevamente para la vista
+            ViewData["Roles"] = new SelectList(_context.Roles, "Id", "nombre_rol", user.id_rol);
             return View(user);
         }
+
 
         public async Task<IActionResult> Delete(int? id)
         {

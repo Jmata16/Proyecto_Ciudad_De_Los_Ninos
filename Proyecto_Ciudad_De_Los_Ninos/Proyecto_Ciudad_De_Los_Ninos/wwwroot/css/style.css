@@ -1046,11 +1046,11 @@ body {
 
 .custom-container {
     max-width: 800px;
-    margin: 50px auto;
-    padding: 20px;
+    margin: 0px auto;
+    /**/padding: 20px;*/
     background-color: #fff;
     box-shadow: 0px 2px 20px rgba(0, 0, 0, 0.1);
-    border-radius: 5px;
+    border-radius: 8px;
 }
 
 .custom-title {

@@ -22,6 +22,9 @@ namespace API_Ciudad_De_Los_Ninos.Models
         [StringLength(100, ErrorMessage = "Los apellidos no pueden exceder los 100 caracteres.")]
         public string apellidos { get; set; }
 
+        [Required(ErrorMessage = "El correo es obligatorio.")]
+        public string correo { get; set; }
+
         [Required(ErrorMessage = "La fecha de nacimiento es obligatoria.")]
         [DataType(DataType.Date, ErrorMessage = "Formato de fecha no válido.")]
         [Range(typeof(DateTime), "01/01/1900", "01/01/2100", ErrorMessage = "La fecha de nacimiento debe estar entre el 01/01/1900 y el 01/01/2100.")]
@@ -44,7 +47,9 @@ namespace API_Ciudad_De_Los_Ninos.Models
         //public ICollection<Pruebas_Dopaje> PruebasDopaje { get; set; }
         //public ICollection<Incidentes> Incidentes { get; set; }
         public ICollection<Citas> ?Citas { get; set; }
-
+        public ICollection<Incidentes>? Incidentes { get; set; }
+        public ICollection<Reportes_Medicos>? ReportesMedicos { get; set; }
+        public ICollection<Reportes_Expedientes>? Reportes_Expedientes { get; set; }
         public ICollection<Pruebas_Dopaje>? Pruebas_Dopaje { get; set; }
     }
 }

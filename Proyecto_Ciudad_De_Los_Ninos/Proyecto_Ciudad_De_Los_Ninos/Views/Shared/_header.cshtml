@@ -6,24 +6,21 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <title>Ministore</title>
     <meta charset="utf-8">
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"]</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="author" content="">
     <meta name="keywords" content="">
     <meta name="description" content="">
-    <link rel="stylesheet" type="text/css" href="~/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="~/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="~/css/style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="~/fonts/remixicon.css">
     <script src="~/js/modernizr.js"></script>
 </head>
 <body>
@@ -123,8 +120,14 @@
                                 <a class=" text-white nav-link me-4 active" href="/Citas/Index">Citas</a>
                             </li>
 
-                            <li class="nav-item">
-                                <a class=" text-white nav-link me-4 active" href="/Pruebas_Dopaje/Index">Dopaje</a>
+                            <li class="nav-item dropdown">
+                                <a class=" text-white nav-link dropdown-toggle me-4" href="#" id="navbarDropdown1" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Pruebas Dopaje
+                                </a>
+                                <ul class="dropdown-menu" aria-labelledby="navbarDropdown1">
+                                    <li><a class="dropdown-item" href="/Pruebas_Dopaje/Index">Pruebas Dopaje</a></li>
+                                    <li><a class="dropdown-item" href="/ChartsDopaje/Index">Gráfico</a></li>
+                                </ul>
                             </li>
 
                             <li class="nav-item dropdown">
@@ -132,31 +135,23 @@
                                     Reportes
                                 </a>
                                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown1">
-                                    <li><a class="dropdown-item" href="/Reportes/ReportesPersonalizados">Reportes Personalizados</a></li>
-                                    <li><a class="dropdown-item" href="/Reportes/Incidentes">Incidentes</a></li>
-                                    <li><a class="dropdown-item" href="/Reportes/ReportesMedicos">Reportes Médicos</a></li>
-                                    <li><a class="dropdown-item" href="/Reportes/Expedientes">Expedientes</a></li>
-                                </ul>
-                            </li>
-                            <li class="nav-item dropdown">
-                                <a class=" text-white nav-link dropdown-toggle me-4" href="#" id="navbarDropdown2" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                    Dashboard
-                                </a>
-                                <ul class="dropdown-menu" aria-labelledby="navbarDropdown2">
-                                    <li><a class="dropdown-item" href="/Dashboard/Dopaje">Dopaje</a></li>
-                                    <li><a class="dropdown-item" href="/Dashboard/MapaAlbergue">Mapa Albergue</a></li>
-                                    <li><a class="dropdown-item" href="/Dashboard/MapaResidencias">Mapa Residencias</a></li>
+                                    <li><a class="dropdown-item" href="/ReportesExpedientes/Index">Reportes Personalizados</a></li>
+                                    <li><a class="dropdown-item" href="/Incidentes/Index">Incidentes</a></li>
+                                    <li><a class="dropdown-item" href="/ReportesMedicos/Index">Reportes Médicos</a></li>
+                                    <li><a class="dropdown-item" href="/Expedientes/Index">Expedientes</a></li>
                                 </ul>
                             </li>
                             <li class="nav-item dropdown">
                                 <a class="text-white nav-link dropdown-toggle me-4" href="#" id="navbarDropdown3" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                    Administración de Empleados
+                                    Administración
                                 </a>
                                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown3">
-                                    <li><a class="dropdown-item" href="/AdministracionDeEmpleados/capacitaciones">Capacitaciones</a></li>
-                                    <li><a class="dropdown-item" href="/AdministracionDeEmpleados/AsistenciaPersonal">Asistencia Del Personal</a></li>
-                                    <li><a class="dropdown-item" href="/AdministracionDeEmpleados/Vacaciones">Vaciones Del Personal</a></li>
-                                    <li><a class="dropdown-item" href="/AdministracionDeEmpleados/UsuariosTablas">Administrar Empleados</a></li>
+                                    <li><a class="dropdown-item" href="/Capacitaciones">Capacitaciones</a></li>
+                                    <li><a class="dropdown-item" href="/Asistencias">Asistencia Del Personal</a></li>
+                                    <li><a class="dropdown-item" href="/Vacaciones">Vaciones Del Personal</a></li>
+                                    <li><a class="dropdown-item" href="/Users">Administrar Empleados</a></li>
+                                    <li><a class="dropdown-item" href="/Roles">Roles</a></li>
+                                    <li><a class="dropdown-item" href="/Jovenes">Jovenes</a></li>
                                 </ul>
                             </li>
                             <li class="nav-item dropdown">
