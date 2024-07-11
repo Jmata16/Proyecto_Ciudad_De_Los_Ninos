@@ -210,6 +210,7 @@
             margin-right: 10px; /* Añade espacio a la derecha del botón */
         }
     </style>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/2.0.2/css/dataTables.dataTables.min.css">
 </head>
 <body>
     @Html.Partial("_header")
@@ -221,7 +222,51 @@
                 <a href="@Url.Action("ExportToCsv")">Exportar a CSV</a>
                 <a href="@Url.Action("ExportToPdf")">Exportar a PDF</a>
             </div>
-            <div class="search-container">
+            <div class="content">
+                <div class="container">
+                     <p>
+                        <a href="@Url.Action("Create")" class="create-button">Crear Expediente</a>
+                    </p>
+                    <div class="table-responsive">
+                        <table id="tableShow" class="table table-striped table-bordered table-hover">
+                            <thead class="table-danger">
+                                <tr>
+                                    <th>Nombre del Joven</th>
+                                    <th>Edad</th>
+                                    <th>Fecha de Ingreso</th>
+                                    <th>Dirección</th>
+                                    <th>Teléfono de Contacto</th>
+                                    <th>Tutor Legal</th>
+                                    <th>Acciones</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                                    <tr>
+                                        <td>@Html.DisplayFor(modelItem => item.nombre_joven)</td>
+                                        <td>@Html.DisplayFor(modelItem => item.edad)</td>
+                                        <td>@Html.DisplayFor(modelItem => item.fecha_ingreso)</td>
+                                        <td>@Html.DisplayFor(modelItem => item.direccion)</td>
+                                        <td>@Html.DisplayFor(modelItem => item.telefono_contacto)</td>
+                                        <td>@Html.DisplayFor(modelItem => item.tutor_legal)</td>
+                                        <td class="actions">
+                                            <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-warning btn-sm d-inline-flex align-items-center me-2"><i class="ri-edit-line me-1" title="Editar"></i></a>
+                                            <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-info btn-sm d-inline-flex align-items-center me-2"><i class="ri-eye-line me-1" title="Detalles"></i></a>
+                                            <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger btn-sm d-inline-flex align-items-center"><i class="ri-delete-bin-2-line me-1" title="Eliminar"></i></a>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+            @*  <div  class="search-container">
                 <form method="get" asp-action="Index" class="search-form form-inline">
                     <div class="form-group mx-sm-3 mb-2">
                         <label for="searchString" class="sr-only">Buscar por nombre</label>
@@ -236,49 +281,19 @@
                    
                     <i class="fas fa-filter search-icon"></i>
                 </form>
-            </div>
+            </div> *@
 
-            <p>
-                <a href="@Url.Action("Create")" class="create-button">Crear Expediente</a>
-            </p>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Nombre del Joven</th>
-                        <th>Edad</th>
-                        <th>Fecha de Ingreso</th>
-                        <th>Dirección</th>
-                        <th>Teléfono de Contacto</th>
-                        <th>Tutor Legal</th>
-                        <th>Acciones</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach (var item in Model)
-                    {
-                        <tr>
-                            <td>@Html.DisplayFor(modelItem => item.nombre_joven)</td>
-                            <td>@Html.DisplayFor(modelItem => item.edad)</td>
-                            <td>@Html.DisplayFor(modelItem => item.fecha_ingreso)</td>
-                            <td>@Html.DisplayFor(modelItem => item.direccion)</td>
-                            <td>@Html.DisplayFor(modelItem => item.telefono_contacto)</td>
-                            <td>@Html.DisplayFor(modelItem => item.tutor_legal)</td>
-                            <td class="actions">
-                                <a href="@Url.Action("Edit", new { id = item.Id })">Editar</a> |
-                                <a href="@Url.Action("Details", new { id = item.Id })">Detalles</a> |
-                                <a href="@Url.Action("Delete", new { id = item.Id })">Eliminar</a>
-                            </td>
-                        </tr>
-                    }
-                </tbody>
-            </table>
+
+           
         </div>
     </div>
 
     <footer>
         @Html.Partial("_footer")
     </footer>
-
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script> <!--Nuevo-->
+    <script type="text/javascript" src="https://cdn.datatables.net/2.0.2/js/dataTables.min.js"></script> <!--Nuevo-->
+    <script src="~/Funciones/DataTable.js"></script> <!--Nuevo-->
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
     <script type="text/javascript" src="~/js/bootstrap.bundle.min.js"></script>
