@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using API_Ciudad_De_Los_Ninos.Models;
 using Proyecto_Ciudad_De_Los_Ninos.Models;
 using Microsoft.AspNetCore.Authorization;
+using PagedList.EntityFramework;
 
 namespace Proyecto_Ciudad_De_Los_Ninos.Controllers
 {
@@ -26,7 +27,6 @@ namespace Proyecto_Ciudad_De_Los_Ninos.Controllers
         {
             return View(await _context.Inventario_Comedor.ToListAsync());
         }
-
 
         public IActionResult Create()
         {

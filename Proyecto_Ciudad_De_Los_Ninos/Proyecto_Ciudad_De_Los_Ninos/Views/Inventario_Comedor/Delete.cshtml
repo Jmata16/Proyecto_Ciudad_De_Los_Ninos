@@ -8,7 +8,7 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>Eliminar Inventario Comedor</title>
+    <title>Eliminación del Inventario Comedor</title>
     <style>
         h4 {
             color: #333;
@@ -97,51 +97,43 @@
 
     <!-- Contenido principal -->
     <div class="container-main">
-        <h4>Eliminar Inventario Comedor</h4>
+        <h4>Eliminación del  Inventario Comedor</h4>
         <hr />
-        <div class="row">
-            <dt class="col-sm-2">
-                Alimento
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.nombre_alimento)
-            </dd>
-
-            <dt class="col-sm-2">
-                Cantidad
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.cantidad_disponible)
-            </dd>
-
-            <dt class="col-sm-2">
-                Reposición
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.fecha_ultima_reposicion)
-            </dd>
-
-            <dt class="col-sm-2">
-                Proveedor
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.proveedor)
-            </dd>
-
-            <dt class="col-sm-2">
-                Imágen
-            </dt>
-            <dd class="col-sm-10">
-                <img src="@Url.Action("GetImage", new { id = Model.Id })" width="100" height="100" class="img-fluid" />
-            </dd>
+        <div class="table-responsive">
+            <table class="table table-bordered table-striped">
+                <tbody>
+                    <tr>
+                        <th scope="row">Alimento</th>
+                        <td>@Html.DisplayFor(model => model.nombre_alimento)</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Cantidad</th>
+                        <td>@Html.DisplayFor(model => model.cantidad_disponible)</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Reposición</th>
+                        <td>@Html.DisplayFor(model => model.fecha_ultima_reposicion)</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Proveedor</th>
+                        <td>@Html.DisplayFor(model => model.proveedor)</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Imágen</th>
+                        <td>
+                            <img src="@Url.Action("GetImage", new { id = Model.Id })" width="100" height="100" class="img-thumbnail" />
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
-
-        <div>
-            <form asp-action="Delete" asp-route-id="@Model.Id" method="post" onsubmit="return confirm('¿Estás seguro de que deseas eliminar este registro?');">
-                <button type="submit" class="btn btn-danger">Eliminar</button>
-                <a asp-action="Index" class="btn btn-primary">Cancelar</a>
-            </form>
-        </div>
+        <form asp-action="Delete">
+            <input type="hidden" asp-for="Id" />
+            <button type="submit" class="btn btn-danger">Eliminar</button>
+            <div class="col text-end">
+                <a asp-action="Index" class="btn btn-secondary"><i class="ri-arrow-left-circle-line"></i>  Volver atrás</a>
+            </div>
+        </form>
     </div>
 
     <br />
