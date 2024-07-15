@@ -89,6 +89,19 @@
             #footer p {
                 margin: 0;
             }
+
+        .table td {
+            word-wrap: break-word;
+            white-space: normal;
+            vertical-align: middle; /* Asegura el centrado vertical de contenido */
+        }
+
+            .table td.observaciones {
+                max-width: 200px; /* Ajusta este valor según tus necesidades */
+                overflow-wrap: break-word;
+                word-wrap: break-word;
+                white-space: normal;
+            }
     </style>
 </head>
 <body>
@@ -124,7 +137,7 @@
                     </tr>
                     <tr>
                         <th scope="row">Observaciones</th>
-                        <td>@Html.DisplayFor(model => model.observaciones)</td>
+                        <td class="observaciones">@Html.DisplayFor(model => model.observaciones)</td>
                     </tr>
                 </tbody>
             </table>

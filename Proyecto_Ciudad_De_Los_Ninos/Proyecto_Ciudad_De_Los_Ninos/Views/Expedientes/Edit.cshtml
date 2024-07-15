@@ -8,64 +8,77 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>Edit Expediente</title>
+    <title>Edición de Expediente</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <style>
-        /* Estilos personalizados */
-        .form-container {
-            width: 80%;
-            margin: 50px auto;
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+        }
+
+        h4 {
+            color: #333;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        .container-main {
+            background-color: #ffffff;
             padding: 20px;
             border: 1px solid #ddd;
             border-radius: 8px;
-            background-color: #f9f9f9;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            margin: 20px auto;
+            max-width: 800px;
+            overflow: hidden;
         }
 
         .form-group {
-            margin-bottom: 20px;
+            margin-bottom: 15px;
         }
 
             .form-group label {
                 font-weight: bold;
+                color: #333;
+                margin-bottom: 10px;
+                display: block;
             }
 
-            .form-group input[type="text"],
-            .form-group input[type="date"],
-            .form-group select {
-                width: 100%;
-                padding: 8px;
-                border: 1px solid #ccc;
-                border-radius: 4px;
+        .form-control {
+            padding: 8px;
+            font-size: 14px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            width: 100%;
+        }
+
+        .edit-button {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 1.2em;
+            color: white;
+            background-color: #007bff;
+            border: none;
+            border-radius: 5px;
+            text-align: center;
+            text-decoration: none;
+            cursor: pointer;
+            margin-right: 10px;
+        }
+
+            .edit-button:hover {
+                background-color: #0056b3;
             }
 
-            .form-group button[type="submit"] {
-                padding: 10px 20px;
-                background-color: #007bff;
-                color: white;
-                border: none;
-                border-radius: 4px;
-                cursor: pointer;
-            }
-
-                .form-group button[type="submit"]:hover {
-                    background-color: #0056b3;
-                }
+        textarea {
+            resize: vertical;
+        }
 
         .text-danger {
             color: #dc3545;
         }
-
-        /* Estilos para el botón "Back to List" */
-        .back-link {
-            margin-top: 20px;
-            display: inline-block;
-            text-decoration: none;
-            color: #007bff;
-        }
-
-            .back-link:hover {
-                color: #0056b3;
-            }
 
         .row {
             display: flex;
@@ -79,90 +92,83 @@
             padding-right: 15px;
             padding-left: 15px;
         }
-
     </style>
 </head>
 <body>
     @Html.Partial("_header")
 
-    <div class="form-container">
-        <h2>Editando Expediente</h2>
+    <div class="container-main">
+        <h4 class="text-center">Edición de Expediente</h4>
         <hr />
         <form asp-action="Edit">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="Id" />
-
-            <div class="row">
+            <div class="row mb-3">
                 <div class="col">
-                    <div class="form-group">
-                        <label asp-for="id_joven" class="control-label">Joven</label>
-                        <select asp-for="id_joven" class="form-control" asp-items="ViewBag.Jovenes"></select>
-                        <span asp-validation-for="id_joven" class="text-danger"></span>
-                    </div>
-
-                    <input type="hidden" asp-for="nombre_joven" />
-
-                    <div class="form-group">
-                        <label asp-for="edad" class="control-label">Edad</label>
-                        <input asp-for="edad" class="form-control" />
-                        <span asp-validation-for="edad" class="text-danger"></span>
-                    </div>
-
-                    <div class="form-group">
-                        <label asp-for="fecha_ingreso" class="control-label">Fecha de Ingreso</label>
-                        <input asp-for="fecha_ingreso" class="form-control" />
-                        <span asp-validation-for="fecha_ingreso" class="text-danger"></span>
-                    </div>
-
-                    <div class="form-group">
-                        <label asp-for="direccion" class="control-label">Dirección</label>
-                        <input asp-for="direccion" class="form-control" />
-                        <span asp-validation-for="direccion" class="text-danger"></span>
-                    </div>
+                    <label for="id_joven" class="col-form-label">Joven</label>
+                    <select asp-for="id_joven" class="form-select" asp-items="ViewBag.Jovenes"></select>
+                    <span asp-validation-for="id_joven" class="text-danger"></span>
                 </div>
-
                 <div class="col">
-                    <div class="form-group">
-                        <label asp-for="telefono_contacto" class="control-label">Teléfono de Contacto</label>
-                        <input asp-for="telefono_contacto" class="form-control" />
-                        <span asp-validation-for="telefono_contacto" class="text-danger"></span>
-                    </div>
-
-                    <div class="form-group">
-                        <label asp-for="tutor_legal" class="control-label">Tutor Legal</label>
-                        <input asp-for="tutor_legal" class="form-control" />
-                        <span asp-validation-for="tutor_legal" class="text-danger"></span>
-                    </div>
-
-                    <div class="form-group">
-                        <label asp-for="antecedentes_medicos" class="control-label">Antecedentes Médicos</label>
-                        <input asp-for="antecedentes_medicos" class="form-control" />
-                        <span asp-validation-for="antecedentes_medicos" class="text-danger"></span>
-                    </div>
-
-                    <div class="form-group">
-                        <label asp-for="historial_academico" class="control-label">Historial Académico</label>
-                        <input asp-for="historial_academico" class="form-control" />
-                        <span asp-validation-for="historial_academico" class="text-danger"></span>
-                    </div>
-
-                    <div class="form-group">
-                        <label asp-for="notas_adicionales" class="control-label">Notas Adicionales</label>
-                        <input asp-for="notas_adicionales" class="form-control" />
-                        <span asp-validation-for="notas_adicionales" class="text-danger"></span>
-                    </div>
+                    <label for="edad" class="col-form-label">Edad</label>
+                    <input asp-for="edad" class="form-control" />
+                    <span asp-validation-for="edad" class="text-danger"></span>
                 </div>
             </div>
-
-            <div class="form-group">
-                <button type="submit" class="btn btn-primary">Guardar Expediente</button>
+            <div class="row mb-3">
+                <div class="col">
+                    <label for="fecha_ingreso" class="col-form-label">Fecha de Ingreso</label>
+                    <input asp-for="fecha_ingreso" class="form-control" />
+                    <span asp-validation-for="fecha_ingreso" class="text-danger"></span>
+                </div>
+                <div class="col">
+                    <label for="direccion" class="col-form-label">Dirección</label>
+                    <input asp-for="direccion" class="form-control" />
+                    <span asp-validation-for="direccion" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="row mb-3">
+                <div class="col">
+                    <label for="telefono_contacto" class="col-form-label">Teléfono de Contacto</label>
+                    <input asp-for="telefono_contacto" class="form-control" />
+                    <span asp-validation-for="telefono_contacto" class="text-danger"></span>
+                </div>
+                <div class="col">
+                    <label for="tutor_legal" class="col-form-label">Tutor Legal</label>
+                    <input asp-for="tutor_legal" class="form-control" />
+                    <span asp-validation-for="tutor_legal" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="row mb-3">
+                <div class="col">
+                    <label for="antecedentes_medicos" class="col-form-label">Antecedentes Médicos</label>
+                    <textarea asp-for="antecedentes_medicos" class="form-control"> </textarea>
+                    <span asp-validation-for="antecedentes_medicos" class="text-danger"></span>
+                </div>
+                <div class="col">
+                    <label for="historial_academico" class="col-form-label">Historial Académico</label>
+                    <textarea asp-for="historial_academico" class="form-control" ></textarea>
+                    <span asp-validation-for="historial_academico" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="row mb-3">
+                <label for="notas_adicionales" class="col-sm-2 col-form-label">Notas Adicionales</label>
+                <div class="col-sm-10">
+                    <textarea asp-for="notas_adicionales" class="form-control"></textarea>
+                    <span asp-validation-for="notas_adicionales" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="row mb-3">
+                <div class="col-sm-10 offset-sm-2">
+                    <button type="submit" class="btn btn-warning">Guardar</button>
+                </div>
             </div>
         </form>
-    </div>
-
-
-    <div class="text-center">
-        <a asp-action="Index" class="back-link">Volver al Listado</a>
+        <!-- Volver atrás -->
+        <div class="row mt-3">
+            <div class="col text-end">
+                <a asp-action="Index" class="btn btn-secondary"><i class="ri-arrow-left-circle-line"></i> Volver atrás</a>
+            </div>
+        </div>
     </div>
 
     @Html.Partial("_footer")

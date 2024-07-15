@@ -154,11 +154,18 @@
                     </div>
                 </div>
             </div>
-            <div class="form-group">
-                <button type="submit" class="btn btn-primary btn-block">Crear Expediente</button>
+            <div class="row mb-3">
+                <div class="col-sm-10 offset-sm-2">
+                    <button type="submit" class="btn btn-primary">Crear</button>
+                </div>
             </div>
         </form>
-        <a href="@Url.Action("Index")" class="back-button">Volver</a>
+        <!-- Volver atrás -->
+        <div class="row mt-3">
+            <div class="col text-end">
+                <a asp-action="Index" class="btn btn-secondary"><i class="ri-arrow-left-circle-line"></i>  Volver atrás</a>
+            </div>
+        </div>
     </div>
 
 
