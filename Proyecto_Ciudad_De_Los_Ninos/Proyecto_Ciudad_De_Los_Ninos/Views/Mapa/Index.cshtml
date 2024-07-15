@@ -1,0 +1,31 @@
+﻿@{
+    ViewData["Title"] = "Mapa de Ciudad de los Niños";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>@ViewData["Title"]</title>
+    <link rel="stylesheet" href="~/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="~/css/style.css" />
+</head>
+<body>
+    @Html.Partial("_header")
+
+    <div class="container">
+        <h2>Mapa de Ciudad de los Niños</h2>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3931.200240581571!2d-83.92001642427081!3d9.833542975875444!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8fa12011229c2699%3A0xf294efb5d6cb4a94!2sCiudad%20de%20los%20Ni%C3%B1os!5e0!3m2!1ses-419!2scr!4v1721051141509!5m2!1ses-419!2scr" width="800" height="600" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+
+    @Html.Partial("_footer")
+
+    <!-- Scripts -->
+    <script src="~/js/jquery-1.11.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+    <script src="~/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/plugins.js"></script>
+    <script src="~/js/script.js"></script>
+</body>
+</html>
+
