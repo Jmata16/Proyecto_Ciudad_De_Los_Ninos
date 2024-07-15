@@ -293,6 +293,10 @@
       "PackagePath": "staticwebassets\\images\\CDN1.jpg"
     },
     {
+      "Id": "D:\\Repos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\wwwroot\\images\\CDN1_upscayl_5x_realesrgan-x4plus.png",
+      "PackagePath": "staticwebassets\\images\\CDN1_upscayl_5x_realesrgan-x4plus.png"
+    },
+    {
       "Id": "D:\\Repos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\wwwroot\\images\\CorreoLogo.png",
       "PackagePath": "staticwebassets\\images\\CorreoLogo.png"
     },
@@ -315,6 +319,10 @@
     {
       "Id": "D:\\Repos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\wwwroot\\images\\Residencia.JPG",
       "PackagePath": "staticwebassets\\images\\Residencia.JPG"
+    },
+    {
+      "Id": "D:\\Repos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\wwwroot\\images\\cdnwall.jpg",
+      "PackagePath": "staticwebassets\\images\\cdnwall.jpg"
     },
     {
       "Id": "D:\\Repos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\wwwroot\\images\\logo.png",

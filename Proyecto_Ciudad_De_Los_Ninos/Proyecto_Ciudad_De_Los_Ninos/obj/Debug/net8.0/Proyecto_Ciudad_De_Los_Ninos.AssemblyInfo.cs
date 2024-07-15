@@ -15,7 +15,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Proyecto_Ciudad_De_Los_Ninos")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d0da1415f67f0f477c88a43d5c9d48e0f8cb0f6d")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+900a4835300832c90a47d37db4b188d636349020")]
 [assembly: System.Reflection.AssemblyProductAttribute("Proyecto_Ciudad_De_Los_Ninos")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Proyecto_Ciudad_De_Los_Ninos")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
