@@ -70,6 +70,10 @@
             .edit-button:hover {
                 background-color: #0056b3;
             }
+
+        textarea {
+            resize: vertical;
+        }
     </style>
 </head>
 <body>
@@ -127,7 +131,7 @@
             <div class="row mb-3">
                 <label for="observaciones" class="col-sm-2 col-form-label">Observaciones</label>
                 <div class="col-sm-10">
-                    <input asp-for="observaciones" class="form-control" />
+                    <textarea asp-for="observaciones" class="form-control"></textarea>
                     <span asp-validation-for="observaciones" class="text-danger"></span>
                 </div>
             </div>
@@ -140,12 +144,10 @@
         <!-- Volver atrás -->
         <div class="row mt-3">
             <div class="col text-end">
-                <a asp-action="Index" class="btn btn-secondary"><i class="ri-arrow-left-circle-line"></i>  Volver atrás</a>
+                <a asp-action="Index" class="btn btn-secondary"><i class="ri-arrow-left-circle-line"></i> Volver atrás</a>
             </div>
         </div>
     </div>
-
-
 
     <!-- Footer  -->
     <div id="footer">

@@ -97,7 +97,8 @@
             <a href="@Url.Action("ExportExpedienteToCsv", new { id = Model.Id })" class="btn btn-primary">Exportar a CSV</a>
             <a href="@Url.Action("ExportExpedienteToPdf", new { id = Model.Id })" class="btn btn-info">Exportar a PDF</a>
             <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-warning">Editar</a>
-            <a asp-action="Index" class="btn btn-secondary">Volver al Listado</a>
+            <a asp-action="Index" class="btn btn-secondary"><i class="ri-arrow-left-circle-line"></i> Volver atrás</a>
+              
         </div>
     </div>
     @Html.Partial("_footer")

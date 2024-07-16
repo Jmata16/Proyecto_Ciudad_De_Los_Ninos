@@ -62,7 +62,17 @@
                 }
 
         /* Estilos del footer */
+        footer {
+            background-color: #f8f9fa;
+            padding: 20px 0;
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+        }
 
+            footer p {
+                margin: 0;
+            }
 
     </style>
 </head>
@@ -100,16 +110,15 @@
             <dt class="col-sm-4">Notas Adicionales</dt>
             <dd class="col-sm-8">@Html.DisplayFor(model => model.notas_adicionales)</dd>
         </dl>
-        <div class="delete-button">
-            <form asp-action="Delete" asp-route-id="@Model?.Id" method="post" onsubmit="return confirm('¿Estás seguro de que quieres eliminar este expediente?')">
-                <button type="submit" class="btn btn-danger">Eliminar Expediente</button>
+        
+            <form asp-action="Delete" asp-route-id="@Model?.Id" method="post" >
+                <button type="submit" class="btn btn-danger">Eliminar</button>
                
             </form>
             
-        </div>
-        <div class="action-links">
-            <a asp-action="Index" class="btn btn-secondary">Volver al Listado</a>
-
+        
+        <div class="col text-end">
+            <a asp-action="Index" class="btn btn-secondary"><i class="ri-arrow-left-circle-line"></i>  Volver atrás</a>
         </div>
         
     </div>
