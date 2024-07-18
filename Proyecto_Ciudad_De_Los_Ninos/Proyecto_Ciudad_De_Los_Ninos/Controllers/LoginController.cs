@@ -36,7 +36,10 @@ namespace Proyecto_Ciudad_De_Los_Ninos.Controllers
             {
                 new Claim(ClaimTypes.Name, model.nombre_usuario),
                 new Claim(ClaimTypes.Role, loginUser.id_rol.ToString()),
-                new Claim("UserId", loginUser.Id.ToString()) // Agregar el ID del usuario como reclamación
+                new Claim("UserId", loginUser.Id.ToString()),
+                new Claim(ClaimTypes.Email, loginUser.correo)
+
+
             };
 
                     var identity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);

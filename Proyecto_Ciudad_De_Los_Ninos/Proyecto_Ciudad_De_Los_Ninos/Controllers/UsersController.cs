@@ -63,28 +63,31 @@ namespace Proyecto_Ciudad_De_Los_Ninos.Controllers
                 _context.Add(user);
                 await _context.SaveChangesAsync();
 
-                
                 string subject = "¡Bienvenido al Equipo de Ciudad De Los Niños!";
                 string body = $@"
-            <p>Hola {user.nombre},</p>
-            <p>¡Gracias por formar parte de la instirucion Ciudad De Los Niños! 
-            <p>Estamos emocionados de tenerte con nosotros.</p>A continuación, encontrarás tus detalles de usuario:</p>
-            <ul>
-                <li><strong>Nombre de usuario:</strong> {user.nombre_usuario}</li>
-                <li><strong>Nombre:</strong> {user.nombre}</li>
-                <li><strong>Apellidos:</strong> {user.apellidos}</li>
-                <li><strong>Correo:</strong> {user.correo}</li>
-            </ul>
-            <p>Si tienes alguna pregunta, no dudes en contactarnos.</p>
-            <p>Saludos,<br>El equipo del Proyecto Ciudad De Los Niños</p>";
+        <p>Hola {user.nombre},</p>
+        <p>¡Gracias por formar parte de la institución Ciudad De Los Niños!</p>
+        <p>Estamos emocionados de tenerte con nosotros.</p>
+        <p>A continuación, encontrarás tus detalles de usuario:</p>
+        <ul>
+            <li><strong>Nombre de usuario:</strong> {user.nombre_usuario}</li>
+            <li><strong>Nombre:</strong> {user.nombre}</li>
+            <li><strong>Apellidos:</strong> {user.apellidos}</li>
+            <li><strong>Correo:</strong> {user.correo}</li>
+        </ul>
+        <p>Si tienes alguna pregunta, no dudes en contactarnos.</p>
+        <p>Saludos,<br>El equipo del Proyecto Ciudad De Los Niños</p>";
 
+                // Enviar el correo electrónico
                 _emailService.SendEmail(user.correo, subject, body);
 
                 return RedirectToAction(nameof(Index));
             }
+
             ViewData["Roles"] = new SelectList(_context.Roles, "Id", "nombre_rol", user.id_rol);
             return View(user);
         }
+
 
 
         // GET: Editar Usuario
