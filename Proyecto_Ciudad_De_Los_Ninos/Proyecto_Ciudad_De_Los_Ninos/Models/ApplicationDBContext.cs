@@ -22,7 +22,7 @@ namespace Proyecto_Ciudad_De_Los_Ninos.Models
         public DbSet<Citas> Citas { get; set; }
         public DbSet<Inventario_Comedor> Inventario_Comedor { get; set; }
         public DbSet<Inventario_Higiene_Personal> Inventario_Higiene_Personal { get; set; }
-
+        public DbSet<RegistroCompra> RegistroCompra { get; set; }
         public DbSet<Tickete> Tickete { get; set; }
 
         public DbSet<Asistencia> Asistencia { get; set; }
@@ -147,7 +147,18 @@ namespace Proyecto_Ciudad_De_Los_Ninos.Models
                     .WithMany(p => p.Reportes_Expedientes)
                     .HasForeignKey(d => d.id_usuario);
             });
+            modelBuilder.Entity<RegistroCompra>(entity =>
+            {
+                entity.HasKey(e => e.Id);
+                entity.Property(e => e.Id).HasColumnName("Id").ValueGeneratedOnAdd();
+                entity.Property(e => e.TicketeId).HasColumnName("TicketeId");
+                entity.Property(e => e.UserId).HasColumnName("UserId");
+                entity.Property(e => e.estado).HasColumnName("estado");
 
+                entity.HasOne(d => d.User)
+                    .WithMany(p => p.RegistroCompras)
+                    .HasForeignKey(d => d.UserId);
+            });
 
             // Configuración adicional de los modelos para Roles y User
             modelBuilder.Entity<Roles>().HasIndex(r => r.nombre_rol).IsUnique();

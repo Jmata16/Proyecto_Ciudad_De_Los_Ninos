@@ -7,14 +7,14 @@ public class EmailService
     private readonly string _smtpServer = "smtp.office365.com";
     private readonly int _port = 587;
     private readonly bool _enableSsl = true;
-    private readonly string _username = "proyectocdn2@outlook.com";
+    private readonly string _username = "proyectocdn3@outlook.com";
     private readonly string _password = "CDN123Proyecto";
 
     public void SendEmail(string toEmail, string subject, string body)
     {
         var mailMessage = new MailMessage
         {
-            From = new MailAddress("proyectocdn2@outlook.com", "Proyecto Ciudad De Los Niños"),
+            From = new MailAddress("proyectocdn3@outlook.com", "Proyecto Ciudad De Los Niños"),
             Subject = subject,
             Body = body,
             IsBodyHtml = true
@@ -34,7 +34,7 @@ public class EmailService
     {
         var mailMessage = new MailMessage
         {
-            From = new MailAddress("proyectocdn2@outlook.com", "Proyecto Ciudad De Los Niños"),
+            From = new MailAddress("proyectocdn3@outlook.com", "Proyecto Ciudad De Los Niños"),
             Subject = subject,
             IsBodyHtml = true,
             Body = body

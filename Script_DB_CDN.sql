@@ -287,3 +287,31 @@ CREATE TABLE Tickete (
     FOREIGN KEY (id_joven) REFERENCES Jovenes(ID)
 );
 
+
+
+
+
+--Nuevo 17/7
+
+
+ALTER TABLE Tickete
+DROP CONSTRAINT FK__Tickete__id_jove__6477ECF3;
+
+ALTER TABLE Tickete
+DROP COLUMN id_joven;
+
+ALTER TABLE Tickete
+ADD id_usuario INT; 
+
+ALTER TABLE Tickete
+ADD CONSTRAINT FK_Tickete_Users FOREIGN KEY (id_usuario)
+REFERENCES Users(Id);
+
+
+CREATE TABLE RegistroCompra (
+    Id INT PRIMARY KEY IDENTITY,
+    TicketeId INT NOT NULL,
+    UserId INT NOT NULL,
+	estado VARCHAR(255),
+    FOREIGN KEY (UserId) REFERENCES Users(ID) 
+);

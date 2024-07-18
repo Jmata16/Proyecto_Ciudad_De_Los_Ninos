@@ -258,6 +258,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJ1ZWJhc19Eb3BhamVcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/Repos/Proyecto_Ciudad_De_Los_Ninos/Proyecto_Ciudad_De_Los_Ninos/Proyecto_Ciudad_De_Los_Ninos/Views/RegistroCompra/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVnaXN0cm9Db21wcmFcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/Repos/Proyecto_Ciudad_De_Los_Ninos/Proyecto_Ciudad_De_Los_Ninos/Proyecto_Ciudad_De_Los_Ninos/Views/ReportesExpedientes/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVwb3J0ZXNFeHBlZGllbnRlc1xDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
@@ -356,10 +360,6 @@ build_metadata.AdditionalFiles.CssScope =
 
 [D:/Repos/Proyecto_Ciudad_De_Los_Ninos/Proyecto_Ciudad_De_Los_Ninos/Proyecto_Ciudad_De_Los_Ninos/Views/Tienda/Carrito.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGllbmRhXENhcnJpdG8uY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
-[D:/Repos/Proyecto_Ciudad_De_Los_Ninos/Proyecto_Ciudad_De_Los_Ninos/Proyecto_Ciudad_De_Los_Ninos/Views/Tienda/Factura.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGllbmRhXEZhY3R1cmEuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/Repos/Proyecto_Ciudad_De_Los_Ninos/Proyecto_Ciudad_De_Los_Ninos/Proyecto_Ciudad_De_Los_Ninos/Views/Tienda/Index.cshtml]

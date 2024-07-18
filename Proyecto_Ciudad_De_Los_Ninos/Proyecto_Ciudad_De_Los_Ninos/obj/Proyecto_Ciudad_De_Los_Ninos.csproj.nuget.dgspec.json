@@ -54,7 +54,11 @@
             },
             "Microsoft.AspNetCore.Components.QuickGrid.EntityFrameworkAdapter": {
               "target": "Package",
-              "version": "[8.0.4, )"
+              "version": "[8.0.7, )"
+            },
+            "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[8.0.7, )"
             },
             "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
               "target": "Package",
@@ -94,7 +98,7 @@
             },
             "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
               "target": "Package",
-              "version": "[8.0.2, )"
+              "version": "[8.0.3, )"
             },
             "Newtonsoft.Json": {
               "target": "Package",

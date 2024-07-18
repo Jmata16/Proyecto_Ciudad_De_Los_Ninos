@@ -1965,3 +1965,4 @@ D:\Repos\Proyecto_Ciudad_De_Los_Ninos\Proyecto_Ciudad_De_Los_Ninos\Proyecto_Ciud
 D:\Repos\Proyecto_Ciudad_De_Los_Ninos\Proyecto_Ciudad_De_Los_Ninos\Proyecto_Ciudad_De_Los_Ninos\bin\Debug\net8.0\SixLabors.ImageSharp.dll
 D:\Repos\Proyecto_Ciudad_De_Los_Ninos\Proyecto_Ciudad_De_Los_Ninos\Proyecto_Ciudad_De_Los_Ninos\bin\Debug\net8.0\de\PdfSharpCore.resources.dll
 D:\Repos\Proyecto_Ciudad_De_Los_Ninos\Proyecto_Ciudad_De_Los_Ninos\Proyecto_Ciudad_De_Los_Ninos\bin\Debug\net8.0\Rotativa.AspNetCore.dll
+D:\Repos\Proyecto_Ciudad_De_Los_Ninos\Proyecto_Ciudad_De_Los_Ninos\Proyecto_Ciudad_De_Los_Ninos\bin\Debug\net8.0\Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore.dll

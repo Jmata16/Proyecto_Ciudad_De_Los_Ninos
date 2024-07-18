@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using Proyecto_Ciudad_De_Los_Ninos.Models;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
@@ -9,8 +10,7 @@ using Microsoft.EntityFrameworkCore;
 using PdfSharpCore.Drawing;
 using PdfSharpCore.Drawing.Layout;
 using PdfSharpCore.Pdf;
-using Proyecto_Ciudad_De_Los_Ninos.Models;
-using static System.Runtime.InteropServices.JavaScript.JSType;
+using API_Ciudad_De_Los_Ninos.Models;
 
 namespace Proyecto_Ciudad_De_Los_Ninos.Controllers
 {
@@ -51,7 +51,6 @@ namespace Proyecto_Ciudad_De_Los_Ninos.Controllers
                 return NotFound("Usuario no encontrado o ID de usuario no válido.");
             }
 
-            // Verificar si el producto ya está en el carrito del usuario
             var existingItem = await _context.Tickete
                 .FirstOrDefaultAsync(t => t.id_usuario == userId && t.id_inventario_higiene_personal == idProducto);
 
@@ -60,20 +59,17 @@ namespace Proyecto_Ciudad_De_Los_Ninos.Controllers
                 return RedirectToAction(nameof(Index));
             }
 
-            // Obtener el producto del inventario
             var productoInventario = await _context.Inventario_Higiene_Personal.FindAsync(idProducto);
             if (productoInventario == null)
             {
                 return NotFound("Producto no encontrado en el inventario.");
             }
 
-            // Verificar disponibilidad
             if (productoInventario.cantidad_disponible <= 0)
             {
                 return BadRequest("El producto no está disponible en el inventario.");
             }
 
-            // Agregar al carrito
             var tickete = new Tickete
             {
                 id_usuario = userId,
@@ -83,7 +79,6 @@ namespace Proyecto_Ciudad_De_Los_Ninos.Controllers
 
             _context.Tickete.Add(tickete);
 
-            // Restar la cantidad del inventario
             productoInventario.cantidad_disponible--;
 
             try
@@ -140,9 +135,8 @@ namespace Proyecto_Ciudad_De_Los_Ninos.Controllers
                 return BadRequest("El carrito está vacío.");
             }
 
-            // Construir el cuerpo del correo
             var emailBody = "<html><body>";
-            emailBody += "<h2 style='color: #007bff;'>Gracias por su compra!</h2>";
+            emailBody += "<h2 style='color: #007bff;'>Gracias por su Orden!</h2>";
             emailBody += "<p>Aquí está el resumen de su carrito:</p>";
             emailBody += "<table style='width: 100%; border-collapse: collapse;'>";
             emailBody += "<tr><th style='border: 1px solid #ddd; padding: 8px;'>Producto</th><th style='border: 1px solid #ddd; padding: 8px;'>Cantidad</th><th style='border: 1px solid #ddd; padding: 8px;'>Precio Unitario</th><th style='border: 1px solid #ddd; padding: 8px;'>Total</th></tr>";
@@ -151,6 +145,12 @@ namespace Proyecto_Ciudad_De_Los_Ninos.Controllers
 
             foreach (var item in productosCarrito)
             {
+                var registroCompra = new RegistroCompra
+                {
+                    TicketeId = item.Id,
+                    UserId = userId,
+                    estado = "Sin entregar"
+                };
                 decimal precioUnitario = item.inventario_Higiene_Personal.precio_unitario ?? 0m;
                 decimal subtotal = precioUnitario * item.tickete;
                 totalCompra += subtotal;
@@ -160,32 +160,29 @@ namespace Proyecto_Ciudad_De_Los_Ninos.Controllers
                 emailBody += $"<td style='border: 1px solid #ddd; padding: 8px; text-align: right;'>${precioUnitario.ToString("0.00")}</td>";
                 emailBody += $"<td style='border: 1px solid #ddd; padding: 8px; text-align: right;'>${subtotal.ToString("0.00")}</td></tr>";
 
-                // Eliminar el producto del carrito después de procesarlo
-                _context.Tickete.Remove(item);
+                _context.RegistroCompra.Add(registroCompra);
             }
 
             emailBody += "</table>";
-            emailBody += $"<p style='text-align: right; margin-top: 20px;'><strong>Total de la compra: ${totalCompra.ToString("0.00")}</strong></p>";
+            emailBody += $"<p style='text-align: right; margin-top: 20px;'><strong>Total de la Orden: ${totalCompra.ToString("0.00")}</strong></p>";
             emailBody += "</body></html>";
 
-            // Generar y enviar el PDF como adjunto
-            // Generar y enviar el PDF como adjunto
-            // Llamada a GeneratePDF en el método EnviarCorreo
-            var clienteNombre = User.Identity.Name; // Obtener el nombre del cliente
+            var clienteNombre = User.Identity.Name;
             var pdfBytes = GeneratePDF(productosCarrito, clienteNombre);
 
-
-            // Definir el tipo MIME del archivo adjunto (application/pdf en este caso)
             string mimeType = "application/pdf";
             string attachmentFileName = "ResumenCompra.pdf";
 
-            // Enviar correo electrónico con el PDF adjunto
             _emailService.SendEmailWithAttachment(userEmailClaim, "Resumen de su Carrito de Compras", emailBody, pdfBytes, attachmentFileName, mimeType);
 
             await _context.SaveChangesAsync();
 
+            _context.Tickete.RemoveRange(productosCarrito);
+            await _context.SaveChangesAsync();
+
             return RedirectToAction(nameof(Index));
         }
+
         private byte[] GeneratePDF(List<Tickete> productosCarrito, string clienteNombre)
         {
             using (var stream = new MemoryStream())
@@ -200,60 +197,42 @@ namespace Proyecto_Ciudad_De_Los_Ninos.Controllers
                 const int margin = 40;
                 var yPos = margin;
 
-                // Header
-                gfx.DrawString("Factura de Compra", fontTitle, XBrushes.Black, new XRect(margin, yPos, page.Width - 2 * margin, 30), XStringFormats.TopCenter);
+                gfx.DrawString("Factura de Orden", fontTitle, XBrushes.Black, new XRect(margin, yPos, page.Width - 2 * margin, 30), XStringFormats.TopCenter);
                 yPos += 40;
 
-                // Cliente
                 gfx.DrawString($"Cliente: {clienteNombre}", fontBody, XBrushes.Black, new XRect(margin, yPos, page.Width - 2 * margin, 20), XStringFormats.TopLeft);
                 yPos += 20;
 
-                // Fecha
                 gfx.DrawString($"Fecha: {DateTime.Now.ToString("dd/MM/yyyy")}", fontBody, XBrushes.Black, new XRect(margin, yPos, page.Width - 2 * margin, 20), XStringFormats.TopLeft);
                 yPos += 20;
 
-                // Table headers
                 gfx.DrawRectangle(XPens.Black, margin, yPos, page.Width - 2 * margin, 30);
-                gfx.DrawString("Producto", fontHeader, XBrushes.Black, new XRect(margin + 10, yPos + 10, 200, 20), XStringFormats.TopLeft);
-                gfx.DrawString("Cantidad", fontHeader, XBrushes.Black, new XRect(margin + 210, yPos + 10, 100, 20), XStringFormats.TopLeft);
-                gfx.DrawString("Precio Unitario", fontHeader, XBrushes.Black, new XRect(margin + 310, yPos + 10, 100, 20), XStringFormats.TopLeft);
-                gfx.DrawString("Total", fontHeader, XBrushes.Black, new XRect(margin + 410, yPos + 10, page.Width - 2 * margin - 410, 20), XStringFormats.TopLeft);
-                yPos += 40;
+                gfx.DrawString("Producto", fontHeader, XBrushes.Black, new XRect(margin + 10, yPos + 10, 150, 20), XStringFormats.TopLeft);
+                gfx.DrawString("Cantidad", fontHeader, XBrushes.Black, new XRect(margin + 160, yPos + 10, 70, 20), XStringFormats.TopLeft);
+                gfx.DrawString("Precio Unitario", fontHeader, XBrushes.Black, new XRect(margin + 230, yPos + 10, 100, 20), XStringFormats.TopLeft);
+                gfx.DrawString("Total", fontHeader, XBrushes.Black, new XRect(margin + 330, yPos + 10, 70, 20), XStringFormats.TopLeft);
+                gfx.DrawString("Tickete ID", fontHeader, XBrushes.Black, new XRect(margin + 400, yPos + 10, page.Width - 2 * margin - 400, 20), XStringFormats.TopLeft);
+                yPos += 30;
 
-                // Table content
-                decimal totalGeneral = 0m;
-
-                foreach (var producto in productosCarrito)
+                foreach (var item in productosCarrito)
                 {
-                    var nombreProducto = producto.inventario_Higiene_Personal.nombre_producto;
-                    var cantidad = producto.tickete;
-                    var precioUnitario = producto.inventario_Higiene_Personal.precio_unitario ?? 0m;
-                    var subtotalProducto = cantidad * precioUnitario;
+                    var producto = item.inventario_Higiene_Personal.nombre_producto;
+                    var cantidad = item.tickete.ToString();
+                    var precioUnitario = item.inventario_Higiene_Personal.precio_unitario ?? 0m;
+                    var total = (precioUnitario * item.tickete).ToString("0.00");
+                    var ticketeId = item.Id.ToString();
 
-                    // Draw row
-                    gfx.DrawRectangle(XPens.Black, margin, yPos, page.Width - 2 * margin, 20);
-                    gfx.DrawString(nombreProducto, fontBody, XBrushes.Black, new XRect(margin + 10, yPos + 2, 200, 20), XStringFormats.TopLeft);
-                    gfx.DrawString(cantidad.ToString(), fontBody, XBrushes.Black, new XRect(margin + 210, yPos + 2, 100, 20), XStringFormats.TopLeft);
-                    gfx.DrawString(precioUnitario.ToString("0.00"), fontBody, XBrushes.Black, new XRect(margin + 310, yPos + 2, 100, 20), XStringFormats.TopLeft);
-                    gfx.DrawString(subtotalProducto.ToString("0.00"), fontBody, XBrushes.Black, new XRect(margin + 410, yPos + 2, page.Width - 2 * margin - 410, 20), XStringFormats.TopLeft);
-
+                    gfx.DrawString(producto, fontBody, XBrushes.Black, new XRect(margin + 10, yPos, 150, 20), XStringFormats.TopLeft);
+                    gfx.DrawString(cantidad, fontBody, XBrushes.Black, new XRect(margin + 160, yPos, 70, 20), XStringFormats.TopLeft);
+                    gfx.DrawString($"${precioUnitario.ToString("0.00")}", fontBody, XBrushes.Black, new XRect(margin + 230, yPos, 100, 20), XStringFormats.TopLeft);
+                    gfx.DrawString($"${total}", fontBody, XBrushes.Black, new XRect(margin + 330, yPos, 70, 20), XStringFormats.TopLeft);
+                    gfx.DrawString(ticketeId, fontBody, XBrushes.Black, new XRect(margin + 400, yPos, page.Width - 2 * margin - 400, 20), XStringFormats.TopLeft);
                     yPos += 20;
-                    totalGeneral += subtotalProducto;
                 }
-
-                // Total general
-                yPos += 10;
-                gfx.DrawString($"Total: ${totalGeneral.ToString("0.00")}", fontHeader, XBrushes.Black, new XRect(margin, yPos, page.Width - 2 * margin, 30), XStringFormats.TopLeft);
 
                 pdf.Save(stream, false);
                 return stream.ToArray();
             }
         }
-
-
-
-
-
-
     }
 }
