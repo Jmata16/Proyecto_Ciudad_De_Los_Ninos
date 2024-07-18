@@ -96,7 +96,7 @@ namespace Proyecto_Ciudad_De_Los_Ninos.Controllers
         // POST: Inventario_Higiene_Personal/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,nombre_producto,cantidad_disponible,fecha_ultima_reposicion,proveedor,imagen,precio_unitario")] Inventario_Higiene_Personal inventario_Higiene_Personal, IFormFile? imagen)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,nombre_producto,cantidad_disponible,fecha_ultima_reposicion,proveedor,imagen,precio_unitario")] Inventario_Higiene_Personal inventario_Higiene_Personal, IFormFile? newImagen)
         {
             if (id != inventario_Higiene_Personal.Id)
             {
@@ -107,10 +107,10 @@ namespace Proyecto_Ciudad_De_Los_Ninos.Controllers
             {
                 try
                 {
-                    if (imagen != null && imagen.Length > 0)
+                    if (newImagen != null && newImagen.Length > 0)
                     {
                         var allowedExtensions = new[] { ".jpg", ".jpeg", ".png" };
-                        var extension = Path.GetExtension(imagen.FileName).ToLower();
+                        var extension = Path.GetExtension(newImagen.FileName).ToLower();
                         if (!allowedExtensions.Contains(extension))
                         {
                             ModelState.AddModelError("imagen", "Solo se permiten archivos de imagen en formato PNG o JPEG.");
@@ -119,7 +119,7 @@ namespace Proyecto_Ciudad_De_Los_Ninos.Controllers
 
                         using (var memoryStream = new MemoryStream())
                         {
-                            await imagen.CopyToAsync(memoryStream);
+                            await newImagen.CopyToAsync(memoryStream);
                             inventario_Higiene_Personal.imagen = memoryStream.ToArray();
                         }
                     }
@@ -194,8 +194,21 @@ namespace Proyecto_Ciudad_De_Los_Ninos.Controllers
             var inventario_Higiene_Personal = await _context.Inventario_Higiene_Personal.FindAsync(id);
             if (inventario_Higiene_Personal != null)
             {
+                var tickete = _context.Tickete.FirstOrDefault(m => m.id_inventario_higiene_personal == id);
+
+                if (tickete != null)
+                {
+
+                    _context.Tickete.Remove(tickete);
+                    await _context.SaveChangesAsync();
+
+                   
+                }
+
                 _context.Inventario_Higiene_Personal.Remove(inventario_Higiene_Personal);
                 await _context.SaveChangesAsync();
+
+                return RedirectToAction(nameof(Index));
             }
             return RedirectToAction(nameof(Index));
         }
@@ -204,6 +217,13 @@ namespace Proyecto_Ciudad_De_Los_Ninos.Controllers
         {
             return _context.Inventario_Higiene_Personal.Any(e => e.Id == id);
         }
+
+
+
+
+
+
+
 
         // Parte nueva para la imagen
 

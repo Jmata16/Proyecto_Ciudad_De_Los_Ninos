@@ -3,33 +3,169 @@
     ViewData["Title"] = "Registro de Compras";
 }
 
-<h2>@ViewData["Title"]</h2>
 
-<table class="table table-striped">
-    <thead>
-        <tr>
-            <th>Id</th>
-            <th>Tickete Id</th>
-            <th>Usuario</th> 
-            <th>Estado</th>
-            <th>Acciones</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model)
-        {
-            <tr class="estado-@item.estado">
-                <td>@item.Id</td>
-                <td>@item.TicketeId</td>
-                <td>@item.User.nombre</td> 
-                <td>@item.estado</td>
-                <td>
-                    @if (item.estado != "Entregado")
-                    {
-                        <a asp-controller="RegistroCompra" asp-action="Edit" asp-route-id="@item.Id" class="btn btn-primary">Entregado</a>
-                    }
-                </td>
-            </tr>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <style>
+
+        html, body {
+            height: 100%;
+            margin: 0;
         }
-    </tbody>
-</table>
+
+        body {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .container {
+            padding: 20px;
+        }
+
+        /*table {
+            width: 100%;
+            border-collapse: collapse;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            background-color: #fff;
+        }
+
+        th, td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        th {
+            background-color: #f8f8f8;
+            font-weight: bold;
+            color: #333;
+            text-transform: uppercase;
+        }
+
+        tr:hover {
+            background-color: #f5f5f5;
+        }
+
+        */
+
+
+        .table td {
+            word-wrap: break-word;
+            white-space: normal;
+            vertical-align: middle;
+        }
+
+        .table td.observaciones {
+            max-width: 200px;
+            overflow-wrap: break-word;
+            word-wrap: break-word;
+            white-space: normal;
+        }
+
+
+        .actions a {
+            margin-right: 10px;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+            .actions a:hover {
+                color: #0056b3;
+            }
+
+        .create-button {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 1.2em;
+            color: white;
+            background-color: #007bff;
+            border: none;
+            border-radius: 5px;
+            text-align: center;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+            .create-button:hover {
+                background-color: #0056b3;
+            }
+
+    </style>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/2.0.2/css/dataTables.dataTables.min.css"> <!--Paso Primero-->
+</head>
+
+
+
+<body>
+
+
+
+    <!-- Contenido del encabezado -->
+    @Html.Partial("_header")
+
+    <!-- Contenido principal -->
+    <div class="container">
+
+        <div class="table-responsive">
+            <table id="tableShow" class="table table-striped table-bordered table-hover">
+                <!--Tener Id de la Tabla-->
+                <thead class="table-danger">
+                    <tr>
+                        <th>Id</th>
+                        <th>Tickete Id</th>
+                        <th>Usuario</th>
+                        <th>Estado</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr class="estado-@item.estado">
+                            <td>@item.Id</td>
+                            <td>@item.TicketeId</td>
+                            <td>@item.User.nombre</td>
+                            <td>@item.estado</td>
+                            <td>
+                                @if (item.estado != "Entregado")
+                                {
+                                    <a asp-controller="RegistroCompra" asp-action="Edit" asp-route-id="@item.Id" class="btn btn-primary">Entregado</a>
+                                }
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+    </br>
+    <!-- Footer -->
+    @Html.Partial("_footer")
+
+
+    <!-- Scripts -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script> <!--Paso 2-->
+    <script type="text/javascript" src="https://cdn.datatables.net/2.0.2/js/dataTables.min.js"></script> <!--Paso 3-->
+    <script src="~/Funciones/DataTable.js"></script> <!--Paso 4-->
+    <script src="js/jquery-1.11.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+    <script src="~/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/plugins.js"></script>
+    <script src="~/js/script.js"></script>
+
+
+</body>
+</html>

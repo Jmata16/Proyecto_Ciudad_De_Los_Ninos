@@ -113,6 +113,13 @@
                 </div>
             </div>
             <br/>
+            <div class="row mb-3">
+                <div class="col-sm-6">
+                    <label for="precio_unitario" class="col-form-label">Precio Unitario</label>
+                    <input asp-for="precio_unitario" class="form-control" />
+                    <span asp-validation-for="precio_unitario" class="text-danger"></span>
+                </div>
+                <br />
             @if (Model.imagen != null)
             {
                 <div class="row mb-3">
