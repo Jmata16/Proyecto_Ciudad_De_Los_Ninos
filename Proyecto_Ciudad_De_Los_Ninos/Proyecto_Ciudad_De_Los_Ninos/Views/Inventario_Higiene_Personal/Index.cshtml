@@ -133,7 +133,7 @@
                             <td>@Html.DisplayFor(modelItem => item.cantidad_disponible)</td>
                             <td>@Html.DisplayFor(modelItem => item.fecha_ultima_reposicion)</td>
                             <td>@Html.DisplayFor(modelItem => item.proveedor)</td>
-                            <td>@Html.DisplayFor(modelItem => item.precio_unitario)</td>
+                            <td>₡@Html.DisplayFor(modelItem => item.precio_unitario)</td>
                             <td>
                                 <img src="@Url.Action("GetImage", new{id= item.Id})" width="100" height="100" alt="@item.nombre_producto" class="img-fluid" />
                             </td>

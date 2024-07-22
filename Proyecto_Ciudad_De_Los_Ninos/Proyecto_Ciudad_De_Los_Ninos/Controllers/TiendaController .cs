@@ -28,8 +28,40 @@ namespace Proyecto_Ciudad_De_Los_Ninos.Controllers
         public async Task<IActionResult> Index()
         {
             var productos = await _context.Inventario_Higiene_Personal.ToListAsync();
+            var userIdClaim = User.Claims.FirstOrDefault(c => c.Type == "UserId")?.Value;
+
+            if (userIdClaim != null && int.TryParse(userIdClaim, out int userId))
+            {
+                // Contar los productos en el carrito
+                var ticketCounts = await _context.Tickete
+                    .Where(t => t.id_usuario == userId)
+                    .GroupBy(t => t.id_usuario)
+                    .Select(g => new { UserId = g.Key, Count = g.Count() })
+                    .FirstOrDefaultAsync();
+
+                ViewBag.TicketCount = ticketCounts?.Count ?? 0;
+
+                // Calcular el total del precio de los productos en el carrito
+                var ticketTotal = await _context.Tickete
+                    .Where(t => t.id_usuario == userId)
+                    .Join(_context.Inventario_Higiene_Personal,
+                        t => t.id_inventario_higiene_personal,
+                        p => p.Id,
+                        (t, p) => new { t, p })
+                    .SumAsync(tp => tp.p.precio_unitario);
+
+                ViewBag.TicketTotal = ticketTotal;
+            }
+            else
+            {
+                ViewBag.TicketCount = 0;
+                ViewBag.TicketTotal = 0.0m;
+            }
+
             return View(productos);
         }
+
+
         public IActionResult OrdenRecibida()
         {
             return View();

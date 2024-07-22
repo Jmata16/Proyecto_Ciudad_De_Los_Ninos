@@ -1,8 +1,8 @@
 ﻿@model IEnumerable<API_Ciudad_De_Los_Ninos.Models.Inventario_Higiene_Personal>
-
-
 @{
     Layout = null;
+    var ticketCount = ViewBag.TicketCount as int? ?? 0;
+    var ticketTotal = ViewBag.TicketTotal as decimal? ?? 0.0m;
 }
 
 <!DOCTYPE html>
@@ -10,6 +10,7 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>Index</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <style>
         table {
             width: 100%;
@@ -69,6 +70,26 @@
             bottom: 0;
             width: 100%;
         }
+
+        .header-info {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end; /* Alinea al contenido al final (derecha) */
+            padding: 10px; /* Espaciado opcional */
+            border-bottom: 1px solid #e0e0e0; /* Línea inferior opcional */
+        }
+
+            .header-info p {
+                margin: 0;
+                font-size: 18px; /* Tamaño de fuente opcional */
+                color: #333; /* Color del texto opcional */
+            }
+
+            .header-info .fa-shopping-cart {
+                font-size: 24px;
+                margin-left: 10px;
+                color: #007bff; /* Color opcional para el icono */
+            }
     </style>
 </head>
 <body>
@@ -76,6 +97,11 @@
     @Html.Partial("_header")
 
     <div class="container">
+        <div class="header-info">
+            
+            <i class="fa fa-shopping-cart"></i> <p>: ₡ @ticketTotal - @ticketCount producto(s)</p>
+        </div>
+
         <div class="row">
             @foreach (var item in Model)
             {
@@ -85,7 +111,7 @@
 
                         <div class="card-body">
                             <h5 class="card-title">@Html.DisplayFor(modelItem => item.nombre_producto)</h5>
-                            <p class="card-text">Precio Unitario: @Html.DisplayFor(modelItem => item.precio_unitario)</p>
+                            <p class="card-text">Precio Unitario: ₡@Html.DisplayFor(modelItem => item.precio_unitario)</p>
                             <form asp-action="AgregarAlCarrito" method="post">
                                 <input type="hidden" name="idProducto" value="@item.Id" />
                                 <button type="submit" class="btn btn-primary">Agregar al Carrito</button>
