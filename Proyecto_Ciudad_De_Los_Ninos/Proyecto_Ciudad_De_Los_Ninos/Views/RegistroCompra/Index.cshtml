@@ -127,6 +127,7 @@
                         <th>Id</th>
                         <th>Tickete Id</th>
                         <th>Usuario</th>
+                        <th>Producto</th>
                         <th>Estado</th>
                         <th>Acciones</th>
                     </tr>
@@ -138,6 +139,7 @@
                             <td>@item.Id</td>
                             <td>@item.TicketeId</td>
                             <td>@item.User.nombre</td>
+                            <td>@item.Inventario_Higiene.nombre_producto</td>
                             <td>@item.estado</td>
                             <td>
                                 @if (item.estado != "Entregado")

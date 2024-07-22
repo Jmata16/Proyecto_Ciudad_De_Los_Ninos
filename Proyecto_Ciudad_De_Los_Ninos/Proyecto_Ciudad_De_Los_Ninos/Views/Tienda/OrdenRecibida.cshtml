@@ -1,0 +1,89 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Gracias por su Compra</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="~/css/pagado.css">
+    <style>
+        .content {
+            text-align: center;
+        }
+
+        .containerP {
+            padding: 10px;
+            text-align: center;
+        }
+
+        svg {
+            width: 300px;
+            height: 300px;
+            margin-top: 20px;
+        }
+
+        .btn {
+            background-color: #63A819;
+            color: white;
+            font-weight: bold;
+        }
+
+            .btn:hover {
+                background-color: #4a8d1f;
+            }
+
+        .message {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #e7f0e9;
+            border: 1px solid #c3e6cb;
+            border-radius: 5px;
+            color: #155724;
+            max-width: 700px; 
+            display: inline-block; 
+            text-align: center; 
+        }
+
+
+    </style>
+</head>
+<body>
+    <!-- Contenido del encabezado -->
+    @Html.Partial("_header")
+
+    <div class="content">
+        <div class="containerP">
+            <h2>Gracias por su orden</h2>
+        </div>
+
+        <div class="message">
+            Se le ha enviado un correo con los detalles de su orden. Por favor, revise su bandeja de entrada para más información.
+        </div>
+
+        <div class="containerP">
+            <svg viewBox="0 0 26 26" xmlns="http://www.w3.org/2000/svg">
+                <g stroke="currentColor" stroke-width="2" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round">
+                    <path class="circle" d="M13 1C6.372583 1 1 6.372583 1 13s5.372583 12 12 12 12-5.372583 12-12S19.627417 1 13 1z" />
+                    <path class="tick" d="M6.5 13.5L10 17 l8.808621-8.308621" />
+                </g>
+            </svg>
+        </div>
+
+        <div class="containerP">
+            <a href="/" class="btn">Ir al Inicio</a>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        @Html.Partial("_footer")
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        let path = document.querySelector(".tick");
+        let length = path.getTotalLength();
+        console.log(length);
+    </script>
+</body>
+</html>

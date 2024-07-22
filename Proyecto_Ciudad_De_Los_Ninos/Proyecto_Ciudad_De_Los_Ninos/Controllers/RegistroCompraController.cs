@@ -17,7 +17,8 @@ namespace Proyecto_Ciudad_De_Los_Ninos.Controllers
         public async Task<IActionResult> Index()
         {
             var registroCompras = await _context.RegistroCompra
-                .Include(rc => rc.User) 
+                .Include(rc => rc.User)
+                .Include(rc => rc.Inventario_Higiene)
                 .ToListAsync();
 
             return View(registroCompras);

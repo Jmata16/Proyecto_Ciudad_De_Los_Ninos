@@ -312,6 +312,8 @@ CREATE TABLE RegistroCompra (
     Id INT PRIMARY KEY IDENTITY,
     TicketeId INT NOT NULL,
     UserId INT NOT NULL,
+	Inventario_HigieneId INT NOT NULL,
 	estado VARCHAR(255),
-    FOREIGN KEY (UserId) REFERENCES Users(ID) 
+    FOREIGN KEY (UserId) REFERENCES Users(ID),
+	FOREIGN KEY (Inventario_HigieneId) REFERENCES Inventario_Higiene_Personal(ID)
 );

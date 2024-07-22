@@ -7,8 +7,18 @@
     <title>Carrito de Compras</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
-        .container {
-            margin-top: 50px;
+        html, body {
+            height: 100%;
+            margin: 0;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .content {
+            flex: 1;
         }
 
         table {
@@ -54,53 +64,48 @@
     <!-- Contenido del encabezado -->
     @Html.Partial("_header")
 
-
     <div class="content">
         <div class="container">
-          <h2>Carrito de Compras</h2>
+            <h2>Carrito de Compras</h2>
             <div class="table-responsive">
                 <table id="tableShow" class="table table-striped table-bordered table-hover">
-                    <thead class="table-danger">   
-                    <tr>
-                        <th>Producto</th>
-                        <th>Cantidad</th>
-                        <th>Imagen</th>
-                        <th>Precio Unitario</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach (var item in Model)
-                    {
+                    <thead class="table-danger">
                         <tr>
-                            <td>@item.inventario_Higiene_Personal.nombre_producto</td>
-                            <td>@item.tickete</td>
-                            <td><img src="@Url.Action("GetImage", new { id = item.inventario_Higiene_Personal.Id })" class="product-image" alt="@item.inventario_Higiene_Personal.nombre_producto"></td>
-                            <td>@string.Format("{0:0.00}", item.inventario_Higiene_Personal.precio_unitario)</td>
+                            <th>Producto</th>
+                            <th>Cantidad</th>
+                            <th>Imagen</th>
+                            <th>Precio Unitario</th>
                         </tr>
-                    }
-                    <tr>
-                        <td colspan="3" style="text-align: right; font-weight: bold;">Total:</td>
-                        <td style="font-weight: bold;">
-                            @string.Format("{0:0.00}", Model.Sum(item => item.inventario_Higiene_Personal.precio_unitario * item.tickete))
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>@item.inventario_Higiene_Personal.nombre_producto</td>
+                                <td>@item.tickete</td>
+                                <td><img src="@Url.Action("GetImage", new { id = item.inventario_Higiene_Personal.Id })" class="product-image" alt="@item.inventario_Higiene_Personal.nombre_producto"></td>
+                                <td>@string.Format("{0:0.00}", item.inventario_Higiene_Personal.precio_unitario)</td>
+                            </tr>
+                        }
+                        <tr>
+                            <td colspan="3" style="text-align: right; font-weight: bold;">Total:</td>
+                            <td style="font-weight: bold;">
+                                @string.Format("{0:0.00}", Model.Sum(item => item.inventario_Higiene_Personal.precio_unitario * item.tickete))
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
 
-            <form asp-action="EnviarCorreo" method="post" class="text-center">
-                <button type="submit" class="btn btn-primary btn-confirm">Confirmar Compra</button>
-            </form>
-        </div>
+                <form asp-action="EnviarCorreo" method="post" class="text-center">
+                    <button type="submit" class="btn btn-primary btn-confirm">Confirmar Orden</button>
+                </form>
+            </div>
         </div>
     </div>
-    </br>
-    </br>
-    </br>
-    </br>
-    </br>
-
+    <br />
     <!-- Footer -->
     @Html.Partial("_footer")
+
     <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 </body>

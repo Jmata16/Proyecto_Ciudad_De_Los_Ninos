@@ -154,11 +154,17 @@ namespace Proyecto_Ciudad_De_Los_Ninos.Models
                 entity.Property(e => e.TicketeId).HasColumnName("TicketeId");
                 entity.Property(e => e.UserId).HasColumnName("UserId");
                 entity.Property(e => e.estado).HasColumnName("estado");
+                entity.Property(e => e.Inventario_HigieneId).HasColumnName("Inventario_HigieneId");
 
                 entity.HasOne(d => d.User)
                     .WithMany(p => p.RegistroCompras)
                     .HasForeignKey(d => d.UserId);
+
+                entity.HasOne(d => d.Inventario_Higiene)
+                    .WithMany()
+                    .HasForeignKey(d => d.Inventario_HigieneId);
             });
+
 
             // Configuración adicional de los modelos para Roles y User
             modelBuilder.Entity<Roles>().HasIndex(r => r.nombre_rol).IsUnique();
