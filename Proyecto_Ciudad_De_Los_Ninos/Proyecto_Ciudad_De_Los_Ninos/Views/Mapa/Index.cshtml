@@ -3,19 +3,114 @@
 }
 
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewData["Title"]</title>
     <link rel="stylesheet" href="~/css/bootstrap.min.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" />
     <link rel="stylesheet" href="~/css/style.css" />
+    <style>
+        .map-container {
+            position: relative;
+            width: 100%;
+            max-width: 1000px;
+            margin: auto;
+        }
+
+        .map-image {
+            width: 100%;
+            height: auto;
+            display: block;
+            margin: auto;
+        }
+
+        .tooltip {
+            position: absolute;
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 5px;
+            border-radius: 5px;
+            display: none;
+        }
+
+        footer {
+            background-color: #f8f9fa;
+            padding: 20px 0;
+            position: relative;
+            width: 100%;
+            text-align: center;
+        }
+
+            footer p {
+                margin: 0;
+            }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        .content {
+            flex: 1;
+        }
+
+        area {
+            outline: none; /* Hace invisibles las áreas interactivas */
+        }
+    </style>
 </head>
 <body>
     @Html.Partial("_header")
 
-    <div class="container">
-        <h2>Mapa de Ciudad de los Niños</h2>
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3931.200240581571!2d-83.92001642427081!3d9.833542975875444!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8fa12011229c2699%3A0xf294efb5d6cb4a94!2sCiudad%20de%20los%20Ni%C3%B1os!5e0!3m2!1ses-419!2scr!4v1721051141509!5m2!1ses-419!2scr" width="800" height="600" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    <div class="card">
+        <div class="card-body">
+            <div class="content">
+                <h5 style="text-align: center">Mapa Ciudad de los Niños</h5>
+                <br />
+
+                <div class="map-container">
+                    <img src="~/images/MapaCiudad.png" alt="Mapa" class="map-image" usemap="#map">
+                    <map name="map">
+                        <!-- Coordenadas relativas al tamaño original de la imagen -->
+                        <area shape="rect" coords="476,431,583,458" href="#" alt="Casa 1" data-info="Residencia 7" data-original-coords="476,431,583,458" class="interactive-area" data-habitantes="20">
+                        <area shape="rect" coords="327,246,419,276" href="#" alt="Casa 2" data-info="Residencia 3" data-original-coords="327,246,419,276" class="interactive-area" data-habitantes="15">
+                        <area shape="rect" coords="565,22,609,70" href="#" alt="Casa 2" data-info="Albergue 1" data-original-coords="565,22,609,70" class="interactive-area" data-habitantes="10">
+                        <area shape="rect" coords="633,62,664,115" href="#" alt="Casa 2" data-info="Albergue 2" data-original-coords="633,62,664,115" class="interactive-area" data-habitantes="12">
+                        <area shape="rect" coords="461,84,578,168" href="#" alt="Casa 2" data-info="Residencia 2" data-original-coords="461,84,578,168" class="interactive-area" data-habitantes="18">
+                        <area shape="rect" coords="309,365,388,387" href="#" alt="Casa 2" data-info="Albergue 4" data-original-coords="309,365,388,387" class="interactive-area" data-habitantes="14">
+                        <area shape="rect" coords="327,470,388,498" href="#" alt="Casa 2" data-info="Albergue 5" data-original-coords="327,470,388,498" class="interactive-area" data-habitantes="11">
+                        <area shape="rect" coords="644,346,689,386" href="#" alt="Casa 2" data-info="Albergue 6" data-original-coords="644,346,689,386" class="interactive-area" data-habitantes="13">
+                        <area shape="rect" coords="777,342,823,387" href="#" alt="Casa 2" data-info="Albergue 7" data-original-coords="777,342,823,387" class="interactive-area" data-habitantes="16">
+                        <area shape="rect" coords="413,97,430,201" href="#" alt="Casa 2" data-info="Residencia 1" data-original-coords="413,97,430,201" class="interactive-area" data-habitantes="22">
+                        <area shape="rect" coords="379,288,412,329" href="#" alt="Casa 2" data-info="Albergue 3" data-original-coords="379,288,412,329" class="interactive-area" data-habitantes="17">
+                        <area shape="rect" coords="400,352,461,492" href="#" alt="Casa 2" data-info="Residencia 6" data-original-coords="400,352,461,492" class="interactive-area" data-habitantes="21">
+                        <area shape="rect" coords="451,320,562,352" href="#" alt="Casa 2" data-info="Residencia 5" data-original-coords="451,320,562,352" class="interactive-area" data-habitantes="19">
+                        <area shape="rect" coords="451,213,550,271" href="#" alt="Casa 2" data-info="Residencia 4" data-original-coords="451,213,550,271" class="interactive-area" data-habitantes="20">
+                    </map>
+                    <div id="tooltip" class="tooltip"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="infoModal" tabindex="-1" aria-labelledby="infoModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="infoModalLabel">Información de la Casa</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p id="modalInfo">Información de la residencia o albergue.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
     </div>
 
     @Html.Partial("_footer")
@@ -26,6 +121,57 @@
     <script src="~/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/plugins.js"></script>
     <script src="~/js/script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const areas = document.querySelectorAll('area');
+            const tooltip = document.getElementById('tooltip');
+            const mapImage = document.querySelector('.map-image');
+
+            function updateCoords() {
+                const originalWidth = 1000;  // Cambia esto al ancho original de tu imagen
+                const scale = mapImage.clientWidth / originalWidth;
+
+                areas.forEach(area => {
+                    const originalCoords = area.getAttribute('data-original-coords').split(',').map(Number);
+                    const scaledCoords = originalCoords.map(coord => coord * scale);
+                    area.coords = scaledCoords.join(',');
+                });
+            }
+
+            mapImage.addEventListener('load', updateCoords);
+            window.addEventListener('resize', updateCoords);
+
+            areas.forEach(area => {
+                area.addEventListener('mouseenter', function () {
+                    const info = area.getAttribute('data-info');
+                    tooltip.textContent = info;
+                    tooltip.style.display = 'block';
+                    const rect = area.getBoundingClientRect();
+                    tooltip.style.top = `${rect.top + window.scrollY}px`;
+                    tooltip.style.left = `${rect.left + window.scrollX}px`;
+                });
+
+                area.addEventListener('mouseleave', function () {
+                    tooltip.style.display = 'none';
+                });
+
+                area.addEventListener('click', function (event) {
+                    event.preventDefault();
+                    const info = area.getAttribute('data-info');
+                    const habitantes = area.getAttribute('data-habitantes');
+                    const modalInfo = document.getElementById('modalInfo');
+                    modalInfo.textContent = `Interacción con ${info}. Actualmente, hay ${habitantes} jovenes alojadas.`;
+                    const infoModal = new bootstrap.Modal(document.getElementById('infoModal'));
+                    infoModal.show();
+                });
+            });
+
+            document.addEventListener('mousemove', function (e) {
+                const rect = tooltip.getBoundingClientRect();
+                tooltip.style.top = `${e.pageY + 10}px`;
+                tooltip.style.left = `${e.pageX + 10}px`;
+            });
+        });
+    </script>
 </body>
 </html>
-
