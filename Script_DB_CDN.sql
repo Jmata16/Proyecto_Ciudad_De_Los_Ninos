@@ -292,20 +292,17 @@ CREATE TABLE Tickete (
 
 
 --Nuevo 17/7
+DROP TABLE Tickete;
 
+CREATE TABLE Tickete (
+    ID INT PRIMARY KEY IDENTITY,
+    id_usuario INT,
+    id_inventario_higiene_personal INT,
+    Tickete INT,
+    FOREIGN KEY (id_inventario_higiene_personal) REFERENCES Inventario_Higiene_Personal(ID),
+    FOREIGN KEY (id_usuario) REFERENCES Users(Id)
+);
 
-ALTER TABLE Tickete
-DROP CONSTRAINT FK__Tickete__id_jove__6477ECF3;
-
-ALTER TABLE Tickete
-DROP COLUMN id_joven;
-
-ALTER TABLE Tickete
-ADD id_usuario INT; 
-
-ALTER TABLE Tickete
-ADD CONSTRAINT FK_Tickete_Users FOREIGN KEY (id_usuario)
-REFERENCES Users(Id);
 
 
 CREATE TABLE RegistroCompra (
