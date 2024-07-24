@@ -1990,3 +1990,10 @@ C:\Users\dyure\Documents\GitHub\Proyecto_Ciudad_De_Los_Ninos\Proyecto_Ciudad_De_
 C:\Users\dyure\Documents\GitHub\Proyecto_Ciudad_De_Los_Ninos\Proyecto_Ciudad_De_Los_Ninos\Proyecto_Ciudad_De_Los_Ninos\bin\Debug\net8.0\SixLabors.Fonts.dll
 C:\Users\dyure\Documents\GitHub\Proyecto_Ciudad_De_Los_Ninos\Proyecto_Ciudad_De_Los_Ninos\Proyecto_Ciudad_De_Los_Ninos\bin\Debug\net8.0\System.IO.Packaging.dll
 C:\Users\dyure\Documents\GitHub\Proyecto_Ciudad_De_Los_Ninos\Proyecto_Ciudad_De_Los_Ninos\Proyecto_Ciudad_De_Los_Ninos\bin\Debug\net8.0\XLParser.dll
+D:\Repos\Proyecto_Ciudad_De_Los_Ninos\Proyecto_Ciudad_De_Los_Ninos\Proyecto_Ciudad_De_Los_Ninos\bin\Debug\net8.0\Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore.dll
+D:\Repos\Proyecto_Ciudad_De_Los_Ninos\Proyecto_Ciudad_De_Los_Ninos\Proyecto_Ciudad_De_Los_Ninos\bin\Debug\net8.0\PdfSharpCore.dll
+D:\Repos\Proyecto_Ciudad_De_Los_Ninos\Proyecto_Ciudad_De_Los_Ninos\Proyecto_Ciudad_De_Los_Ninos\bin\Debug\net8.0\QRCoder.dll
+D:\Repos\Proyecto_Ciudad_De_Los_Ninos\Proyecto_Ciudad_De_Los_Ninos\Proyecto_Ciudad_De_Los_Ninos\bin\Debug\net8.0\Rotativa.AspNetCore.dll
+D:\Repos\Proyecto_Ciudad_De_Los_Ninos\Proyecto_Ciudad_De_Los_Ninos\Proyecto_Ciudad_De_Los_Ninos\bin\Debug\net8.0\ICSharpCode.SharpZipLib.dll
+D:\Repos\Proyecto_Ciudad_De_Los_Ninos\Proyecto_Ciudad_De_Los_Ninos\Proyecto_Ciudad_De_Los_Ninos\bin\Debug\net8.0\SixLabors.ImageSharp.dll
+D:\Repos\Proyecto_Ciudad_De_Los_Ninos\Proyecto_Ciudad_De_Los_Ninos\Proyecto_Ciudad_De_Los_Ninos\bin\Debug\net8.0\de\PdfSharpCore.resources.dll

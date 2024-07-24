@@ -29,6 +29,64 @@ namespace Proyecto_Ciudad_De_Los_Ninos.Models
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
+            modelBuilder.Entity<Jovenes>(entity =>
+            {
+                entity.HasKey(e => e.Id);
+
+                entity.Property(e => e.Id)
+                      .HasColumnName("Id")
+                      .ValueGeneratedOnAdd();
+
+                entity.Property(e => e.cedula)
+                      .HasColumnName("cedula")
+                      .IsRequired();
+
+                entity.Property(e => e.nombre)
+                      .HasColumnName("nombre")
+                      .IsRequired()
+                      .HasMaxLength(100);
+
+                entity.Property(e => e.edad)
+                      .HasColumnName("edad")
+                      .IsRequired();
+
+                entity.Property(e => e.direccion)
+                      .HasColumnName("direccion")
+                      .IsRequired()
+                      .HasMaxLength(200);
+
+                entity.Property(e => e.Localizacion)
+                      .HasColumnName("Localizacion")
+                      .IsRequired()
+                      .HasMaxLength(200);
+
+                entity.Property(e => e.telefono_contacto)
+                      .HasColumnName("telefono_contacto")
+                      .IsRequired()
+                      .HasMaxLength(15)
+                      .IsFixedLength();
+
+                // Configuración de relaciones
+                entity.HasMany(e => e.Expedientes)
+                      .WithOne(e => e.Joven)
+                      .HasForeignKey(e => e.id_joven);
+
+                entity.HasMany(e => e.ReportesMedicos)
+                      .WithOne(e => e.Joven)
+                      .HasForeignKey(e => e.id_joven);
+
+                entity.HasMany(e => e.Pruebas_Dopaje)
+                      .WithOne(e => e.Joven)
+                      .HasForeignKey(e => e.id_joven);
+
+                entity.HasMany(e => e.Incidentes)
+                      .WithOne(e => e.Joven)
+                      .HasForeignKey(e => e.id_joven);
+
+                entity.HasMany(e => e.Citas)
+                      .WithOne(e => e.Joven)
+                      .HasForeignKey(e => e.id_joven);
+            });
 
             // Configuración adicional de los modelos para Reportes_Medicos
             modelBuilder.Entity< Reportes_Medicos> (entity =>

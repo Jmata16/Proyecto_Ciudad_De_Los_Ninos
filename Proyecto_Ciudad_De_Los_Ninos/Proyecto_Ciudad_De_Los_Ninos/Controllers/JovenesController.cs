@@ -21,13 +21,23 @@ namespace Proyecto_Ciudad_De_Los_Ninos.Controllers
             _context = context;
         }
 
-        // GET: Jovenes
+       
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Jovenes.ToListAsync());
+            try
+            {
+                var jovenes = await _context.Jovenes.ToListAsync();
+                return View(jovenes);
+            }
+            catch (Exception ex)
+            {
+                
+                return StatusCode(StatusCodes.Status500InternalServerError, ex.Message);
+            }
         }
 
-        // GET: Jovenes/Details/5
+
+ 
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -45,18 +55,16 @@ namespace Proyecto_Ciudad_De_Los_Ninos.Controllers
             return View(jovenes);
         }
 
-        // GET: Jovenes/Create
+
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: Jovenes/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,cedula,nombre,edad,direccion,telefono_contacto")] Jovenes jovenes)
+        public async Task<IActionResult> Create([Bind("Id,cedula,nombre,edad,direccion,telefono_contacto,Localizacion")] Jovenes jovenes)
         {
             if (ModelState.IsValid)
             {
@@ -67,7 +75,8 @@ namespace Proyecto_Ciudad_De_Los_Ninos.Controllers
             return View(jovenes);
         }
 
-        // GET: Jovenes/Edit/5
+
+
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -83,12 +92,10 @@ namespace Proyecto_Ciudad_De_Los_Ninos.Controllers
             return View(jovenes);
         }
 
-        // POST: Jovenes/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,cedula,nombre,edad,direccion,telefono_contacto")] Jovenes jovenes)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,cedula,nombre,edad,direccion,telefono_contacto,Localizacion")] Jovenes jovenes)
         {
             if (id != jovenes.Id)
             {
@@ -118,7 +125,7 @@ namespace Proyecto_Ciudad_De_Los_Ninos.Controllers
             return View(jovenes);
         }
 
-        // GET: Jovenes/Delete/5
+        
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -136,7 +143,7 @@ namespace Proyecto_Ciudad_De_Los_Ninos.Controllers
             return View(jovenes);
         }
 
-        // POST: Jovenes/Delete/5
+       
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)

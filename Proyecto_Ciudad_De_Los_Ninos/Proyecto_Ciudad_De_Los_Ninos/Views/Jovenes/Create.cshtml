@@ -144,7 +144,28 @@
                 <input asp-for="direccion" class="form-control" />
                 <span asp-validation-for="direccion" class="text-danger"></span>
             </div>
-
+            <div class="form-group">
+                <label asp-for="Localizacion" class="control-label">Localización:</label>
+                <select asp-for="Localizacion" class="form-control">
+                    <option value="">Seleccione una opción</option>
+                    <option value="Residencia Cartago">Residencia Cartago</option>
+                    <option value="Residencia Heredia">Residencia Heredia</option>
+                    <option value="Residencia Guanacaste">Residencia Guanacaste</option>
+                    <option value="Residencia Limon">Residencia Limon</option>
+                    <option value="Residencia Alajuela">Residencia Alajuela</option>
+                    <option value="Albergue San Agustín">Albergue San Agustín</option>
+                    <option value="Albergue San Nicolás">Albergue San Nicolás</option>
+                    <option value="Albergue Santa Magdalena">Albergue Santa Magdalena</option>
+                    <option value="Albergue Santa Mónica">Albergue Santa Mónica</option>
+                    <option value="Albergue Santa Rita">Albergue Santa Rita</option>
+                    <option value="Albergue Miami">Albergue Miami</option>
+                    <option value="Albergue Cipreses">Albergue Cipreses</option>
+                    <option value="Albergue La Gloria">Albergue La Gloria</option>
+                    <option value="Albergue Los Ángeles">Albergue Los Ángeles</option>
+                    <option value="Sin algergue o residencia">Sin algergue o residencia </option>
+                </select>
+                <span asp-validation-for="Localizacion" class="text-danger"></span>
+            </div>
             <div class="form-group">
                 <label asp-for="telefono_contacto" class="control-label">Teléfono de Contacto:</label>
                 <input asp-for="telefono_contacto" class="form-control" />

@@ -1,5 +1,9 @@
-﻿@{
+﻿@using Newtonsoft.Json
+
+@{
     ViewData["Title"] = "Mapa de Ciudad de los Niños";
+    var locaciones = ViewData["DatosLocacion"] as IEnumerable<dynamic>;
+    var locacionesJson = JsonConvert.SerializeObject(locaciones);
 }
 
 <!DOCTYPE html>
@@ -32,6 +36,7 @@
             padding: 5px;
             border-radius: 5px;
             display: none;
+            border: 1px solid #ccc;
         }
 
         footer {
@@ -57,7 +62,7 @@
         }
 
         area {
-            outline: none; /* Hace invisibles las áreas interactivas */
+            outline: none;
         }
     </style>
 </head>
@@ -74,20 +79,20 @@
                     <img src="~/images/MapaCiudad.png" alt="Mapa" class="map-image" usemap="#map">
                     <map name="map">
                         <!-- Coordenadas relativas al tamaño original de la imagen -->
-                        <area shape="rect" coords="476,431,583,458" href="#" alt="Casa 1" data-info="Residencia 7" data-original-coords="476,431,583,458" class="interactive-area" data-habitantes="20">
-                        <area shape="rect" coords="327,246,419,276" href="#" alt="Casa 2" data-info="Residencia 3" data-original-coords="327,246,419,276" class="interactive-area" data-habitantes="15">
-                        <area shape="rect" coords="565,22,609,70" href="#" alt="Casa 2" data-info="Albergue 1" data-original-coords="565,22,609,70" class="interactive-area" data-habitantes="10">
-                        <area shape="rect" coords="633,62,664,115" href="#" alt="Casa 2" data-info="Albergue 2" data-original-coords="633,62,664,115" class="interactive-area" data-habitantes="12">
-                        <area shape="rect" coords="461,84,578,168" href="#" alt="Casa 2" data-info="Residencia 2" data-original-coords="461,84,578,168" class="interactive-area" data-habitantes="18">
-                        <area shape="rect" coords="309,365,388,387" href="#" alt="Casa 2" data-info="Albergue 4" data-original-coords="309,365,388,387" class="interactive-area" data-habitantes="14">
-                        <area shape="rect" coords="327,470,388,498" href="#" alt="Casa 2" data-info="Albergue 5" data-original-coords="327,470,388,498" class="interactive-area" data-habitantes="11">
-                        <area shape="rect" coords="644,346,689,386" href="#" alt="Casa 2" data-info="Albergue 6" data-original-coords="644,346,689,386" class="interactive-area" data-habitantes="13">
-                        <area shape="rect" coords="777,342,823,387" href="#" alt="Casa 2" data-info="Albergue 7" data-original-coords="777,342,823,387" class="interactive-area" data-habitantes="16">
-                        <area shape="rect" coords="413,97,430,201" href="#" alt="Casa 2" data-info="Residencia 1" data-original-coords="413,97,430,201" class="interactive-area" data-habitantes="22">
-                        <area shape="rect" coords="379,288,412,329" href="#" alt="Casa 2" data-info="Albergue 3" data-original-coords="379,288,412,329" class="interactive-area" data-habitantes="17">
-                        <area shape="rect" coords="400,352,461,492" href="#" alt="Casa 2" data-info="Residencia 6" data-original-coords="400,352,461,492" class="interactive-area" data-habitantes="21">
-                        <area shape="rect" coords="451,320,562,352" href="#" alt="Casa 2" data-info="Residencia 5" data-original-coords="451,320,562,352" class="interactive-area" data-habitantes="19">
-                        <area shape="rect" coords="451,213,550,271" href="#" alt="Casa 2" data-info="Residencia 4" data-original-coords="451,213,550,271" class="interactive-area" data-habitantes="20">
+                        <area shape="rect" coords="476,431,583,458" href="#" alt="Residencia Cartago" data-info="Residencia Cartago" data-original-coords="476,431,583,458" class="interactive-area" data-habitantes="0">
+                        <area shape="rect" coords="327,246,419,276" href="#" alt="Residencia Heredia" data-info="Residencia Heredia" data-original-coords="327,246,419,276" class="interactive-area" data-habitantes="0">
+                        <area shape="rect" coords="565,22,609,70" href="#" alt="Albergue San Agustín" data-info="Albergue San Agustín" data-original-coords="565,22,609,70" class="interactive-area" data-habitantes="0">
+                        <area shape="rect" coords="633,62,664,115" href="#" alt="Albergue San Nicolás" data-info="Albergue San Nicolás" data-original-coords="633,62,664,115" class="interactive-area" data-habitantes="0">
+                        <area shape="rect" coords="461,84,578,168" href="#" alt="Residencia Guanacaste" data-info="Residencia Guanacaste" data-original-coords="461,84,578,168" class="interactive-area" data-habitantes="0">
+                        <area shape="rect" coords="309,365,388,387" href="#" alt="Albergue Santa Magdalena" data-info="Albergue Santa Magdalena" data-original-coords="309,365,388,387" class="interactive-area" data-habitantes="0">
+                        <area shape="rect" coords="327,470,388,498" href="#" alt="Albergue Santa Mónica" data-info="Albergue Santa Mónica" data-original-coords="327,470,388,498" class="interactive-area" data-habitantes="0">
+                        <area shape="rect" coords="644,346,689,386" href="#" alt="Albergue Santa Rita" data-info="Albergue Santa Rita" data-original-coords="644,346,689,386" class="interactive-area" data-habitantes="0">
+                        <area shape="rect" coords="777,342,823,387" href="#" alt="Albergue Miami" data-info="Albergue Miami" data-original-coords="777,342,823,387" class="interactive-area" data-habitantes="0">
+                        <area shape="rect" coords="413,97,430,201" href="#" alt="Residencia Limon" data-info="Residencia Limon" data-original-coords="413,97,430,201" class="interactive-area" data-habitantes="0">
+                        <area shape="rect" coords="379,288,412,329" href="#" alt="Albergue Cipreses" data-info="Albergue Cipreses" data-original-coords="379,288,412,329" class="interactive-area" data-habitantes="0">
+                        <area shape="rect" coords="400,352,461,492" href="#" alt="Residencia Alajuela" data-info="Residencia Alajuela" data-original-coords="400,352,461,492" class="interactive-area" data-habitantes="0">
+                        <area shape="rect" coords="451,320,562,352" href="#" alt="Residencia San José" data-info="Residencia San José" data-original-coords="451,320,562,352" class="interactive-area" data-habitantes="0">
+                        <area shape="rect" coords="451,213,550,271" href="#" alt="Residencia San Carlos" data-info="Residencia San Carlos" data-original-coords="451,213,550,271" class="interactive-area" data-habitantes="0">
                     </map>
                     <div id="tooltip" class="tooltip"></div>
                 </div>
@@ -100,7 +105,7 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="infoModalLabel">Información de la Casa</h5>
+                    <h5 class="modal-title" id="infoModalLabel">Información de la Ubicación</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
@@ -126,6 +131,9 @@
             const areas = document.querySelectorAll('area');
             const tooltip = document.getElementById('tooltip');
             const mapImage = document.querySelector('.map-image');
+
+            // Convertir datos a objeto
+            const locaciones = @Html.Raw(locacionesJson);
 
             function updateCoords() {
                 const originalWidth = 1000;  // Cambia esto al ancho original de tu imagen
@@ -160,7 +168,7 @@
                     const info = area.getAttribute('data-info');
                     const habitantes = area.getAttribute('data-habitantes');
                     const modalInfo = document.getElementById('modalInfo');
-                    modalInfo.textContent = `Interacción con ${info}. Actualmente, hay ${habitantes} jovenes alojadas.`;
+                    modalInfo.textContent = ` ${info}: Actualmente, hay ${habitantes} jóvenes alojados.`;
                     const infoModal = new bootstrap.Modal(document.getElementById('infoModal'));
                     infoModal.show();
                 });
@@ -170,6 +178,15 @@
                 const rect = tooltip.getBoundingClientRect();
                 tooltip.style.top = `${e.pageY + 10}px`;
                 tooltip.style.left = `${e.pageX + 10}px`;
+            });
+
+            // Actualizar el número de jóvenes en cada área
+            areas.forEach(area => {
+                const info = area.getAttribute('data-info');
+                const locacionData = locaciones.find(loc => loc.Locacion === info);
+                if (locacionData) {
+                    area.setAttribute('data-habitantes', locacionData.TotalJovenes);
+                }
             });
         });
     </script>

@@ -317,3 +317,58 @@ CREATE TABLE RegistroCompra (
     FOREIGN KEY (UserId) REFERENCES Users(ID),
 	FOREIGN KEY (Inventario_HigieneId) REFERENCES Inventario_Higiene_Personal(ID)
 );
+
+
+
+
+ALTER TABLE Jovenes
+ADD Localizacion VARCHAR(255);
+
+
+
+INSERT INTO Jovenes (cedula, nombre, edad, direccion, telefono_contacto, Localizacion)
+VALUES
+(123456789, 'Juan Pérez', 20, 'Calle 1, Ciudad', '555-1234', 'Residencia Cartago'),
+(234567890, 'Ana Gómez', 22, 'Calle 2, Ciudad', '555-2345', 'Albergue San Agustín'),
+(345678901, 'Luis Fernández', 19, 'Calle 3, Ciudad', '555-3456', 'Residencia Heredia'),
+(456789012, 'María López', 21, 'Calle 4, Ciudad', '555-4567', 'Albergue Santa Magdalena'),
+(567890123, 'Carlos Martínez', 18, 'Calle 5, Ciudad', '555-5678', 'Residencia Guanacaste'),
+(678901234, 'Laura Fernández', 23, 'Calle 6, Ciudad', '555-6789', 'Albergue Santa Mónica'),
+(789012345, 'Pedro González', 20, 'Calle 7, Ciudad', '555-7890', 'Residencia Limon'),
+(890123456, 'Isabel Ramírez', 22, 'Calle 8, Ciudad', '555-8901', 'Albergue Santa Rita'),
+(901234567, 'José Rodríguez', 19, 'Calle 9, Ciudad', '555-9012', 'Albergue Miami'),
+(123456780, 'Sandra Silva', 21, 'Calle 10, Ciudad', '555-0123', 'Residencia Alajuela'),
+(234567891, 'Roberto Morales', 18, 'Calle 11, Ciudad', '555-1234', 'Albergue Cipreses'),
+(345678902, 'Mariana Castro', 22, 'Calle 12, Ciudad', '555-2345', 'Residencia Cartago'),
+(456789013, 'Andrés Jiménez', 20, 'Calle 13, Ciudad', '555-3456', 'Albergue Los Ángeles'),
+(567890134, 'Verónica Ruiz', 21, 'Calle 14, Ciudad', '555-4567', 'Residencia Heredia'),
+(678901245, 'David Moreno', 23, 'Calle 15, Ciudad', '555-5678', 'Albergue San Agustín'),
+(789012356, 'Julia Vargas', 18, 'Calle 16, Ciudad', '555-6789', 'Residencia Guanacaste'),
+(890123467, 'Eduardo Sánchez', 22, 'Calle 17, Ciudad', '555-7890', 'Albergue Santa Magdalena'),
+(901234578, 'Sofía Pérez', 20, 'Calle 18, Ciudad', '555-8901', 'Residencia Limon'),
+(123456791, 'Ricardo Vega', 21, 'Calle 19, Ciudad', '555-9012', 'Albergue Santa Mónica'),
+(234567902, 'Carmen Díaz', 19, 'Calle 20, Ciudad', '555-0123', 'Residencia Alajuela'),
+(345678913, 'Miguel Ángel', 22, 'Calle 21, Ciudad', '555-1234', 'Albergue Santa Rita'),
+(456789024, 'Gabriela Martínez', 18, 'Calle 22, Ciudad', '555-2345', 'Albergue Miami'),
+(567890135, 'Fernando López', 23, 'Calle 23, Ciudad', '555-3456', 'Residencia Cartago'),
+(678901246, 'Estela Gómez', 21, 'Calle 24, Ciudad', '555-4567', 'Albergue Cipreses'),
+(789012357, 'Mario Pérez', 20, 'Calle 25, Ciudad', '555-5678', 'Residencia Heredia'),
+(890123468, 'Beatriz Ruiz', 22, 'Calle 26, Ciudad', '555-6789', 'Albergue Los Ángeles'),
+(901234579, 'Jorge Castro', 19, 'Calle 27, Ciudad', '555-7890', 'Residencia Guanacaste'),
+(123456792, 'Nina Ramírez', 21, 'Calle 28, Ciudad', '555-8901', 'Albergue San Agustín'),
+(234567903, 'Luis Hernández', 20, 'Calle 29, Ciudad', '555-9012', 'Residencia Limon'),
+(345678914, 'Sara Gómez', 18, 'Calle 30, Ciudad', '555-0123', 'Albergue Santa Magdalena'),
+(456789025, 'Alejandro Vargas', 23, 'Calle 31, Ciudad', '555-1234', 'Residencia Alajuela'),
+(567890146, 'Mariela Silva', 22, 'Calle 32, Ciudad', '555-2345', 'Albergue Santa Mónica'),
+(678901257, 'Héctor Moreno', 21, 'Calle 33, Ciudad', '555-3456', 'Residencia Cartago'),
+(789012368, 'Fernanda Castro', 20, 'Calle 34, Ciudad', '555-4567', 'Albergue Santa Rita'),
+(890123479, 'Ricardo Díaz', 19, 'Calle 35, Ciudad', '555-5678', 'Albergue Miami'),
+(901234580, 'Silvia López', 23, 'Calle 36, Ciudad', '555-6789', 'Residencia Guanacaste'),
+(123456803, 'Alejandra Pérez', 21, 'Calle 37, Ciudad', '555-7890', 'Albergue Cipreses'),
+(234567914, 'Carlos Silva', 20, 'Calle 38, Ciudad', '555-8901', 'Residencia Heredia'),
+(345678925, 'Tatiana Gómez', 18, 'Calle 39, Ciudad', '555-9012', 'Albergue Los Ángeles'),
+(456789036, 'Emilio Fernández', 22, 'Calle 40, Ciudad', '555-0123', 'Residencia Limon');
+
+
+UPDATE Jovenes
+SET telefono_contacto = '12345678';
