@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "oiTHqe7ff12/mpiV14t00cLtbjYwClMM9Lrhrtb6OiQ=",
+  "Hash": "FTlmPPbMwvE8GQZJMSgwin0pJkZIBQTdOhO7T70RVD8=",
   "Source": "Proyecto_Ciudad_De_Los_Ninos",
   "BasePath": "_content/Proyecto_Ciudad_De_Los_Ninos",
   "Mode": "Default",
@@ -2829,6 +2829,25 @@
       "OriginalItemSpec": "wwwroot\\images\\Residencia.JPG"
     },
     {
+      "Identity": "D:\\Repos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\wwwroot\\js\\.gitkeep",
+      "SourceId": "Proyecto_Ciudad_De_Los_Ninos",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Repos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\wwwroot\\",
+      "BasePath": "_content/Proyecto_Ciudad_De_Los_Ninos",
+      "RelativePath": "js/.gitkeep",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\.gitkeep"
+    },
+    {
       "Identity": "D:\\Repos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\wwwroot\\js\\ajax-loader.gif",
       "SourceId": "Proyecto_Ciudad_De_Los_Ninos",
       "SourceType": "Discovered",
@@ -2867,6 +2886,25 @@
       "OriginalItemSpec": "wwwroot\\js\\bootstrap.bundle.min.js"
     },
     {
+      "Identity": "D:\\Repos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\wwwroot\\js\\chart.js",
+      "SourceId": "Proyecto_Ciudad_De_Los_Ninos",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Repos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\wwwroot\\",
+      "BasePath": "_content/Proyecto_Ciudad_De_Los_Ninos",
+      "RelativePath": "js/chart.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\chart.js"
+    },
+    {
       "Identity": "D:\\Repos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\wwwroot\\js\\jquery-1.11.0.min.js",
       "SourceId": "Proyecto_Ciudad_De_Los_Ninos",
       "SourceType": "Discovered",
@@ -2884,6 +2922,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\js\\jquery-1.11.0.min.js"
+    },
+    {
+      "Identity": "D:\\Repos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\wwwroot\\js\\main.js",
+      "SourceId": "Proyecto_Ciudad_De_Los_Ninos",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Repos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\wwwroot\\",
+      "BasePath": "_content/Proyecto_Ciudad_De_Los_Ninos",
+      "RelativePath": "js/main.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\main.js"
     },
     {
       "Identity": "D:\\Repos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\wwwroot\\js\\modernizr.js",

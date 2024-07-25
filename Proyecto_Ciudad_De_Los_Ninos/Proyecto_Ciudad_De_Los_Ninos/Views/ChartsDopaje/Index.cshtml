@@ -1,129 +1,340 @@
-﻿@model IEnumerable<dynamic>
+﻿<!doctype html>
+<html lang="en">
 
-@{
-    ViewData["Title"] = "Ejemplo";
-    ViewData["Gráfico"] = "Gráfico de Distribución de Resultados de Pruebas de Dopaje";
-}
-
-<!DOCTYPE html>
-<html>
 <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>Bootstrap 4 Admin Dashboard Template | Irfan Maulana</title>
+
+    <meta name="language" content="en-EN" />
+    <meta name="author" content="Irfan Maulana" />
+    <link rel="author" href="https://plus.google.com/u/0/+irfanmaulana-mazipan/posts" />
+    <link rel="publisher" href="https://plus.google.com/u/0/+irfanmaulana-mazipan" />
+    <meta name="keywords" content="bootstrap, bootstrap 4, bootstrap 4 template, bootstrap 4 admin, bootstrap 4 dashboard" />
+    <meta name="description" content="Bootstrap 4 admin dashboard template by Irfan Maulana" />
+    <meta property="og:title" content="Bootstrap 4 Admin Dashboard Template | Irfan Maulana" />
+    <meta property="og:description" content="Bootstrap 4 admin dashboard template by Irfan Maulana" />
+    <meta property="og:url" content="https://mazipan.github.io/bootstrap4-admin-dashboard-template/" />
+    <meta property="og:site_name" content="Bootstrap 4 Admin Dashboard Template" />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <meta name="twitter:title" content="Bootstrap 4 Admin Dashboard Template | Irfan Maulana" />
+    <meta name="twitter:description" content="Bootstrap 4 admin dashboard template by Irfan Maulana" />
+    <meta name="twitter:domain" content="https://mazipan.github.io/bootstrap4-admin-dashboard-template/" />
+    <link rel="home" href="https://mazipan.github.io/bootstrap4-admin-dashboard-template/">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://mazipan.github.io/favicon/favicon-16x16.png">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+          crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="dist/main.css">
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-25065548-2"></script>
+    <script>window.dataLayer = window.dataLayer || []; function gtag() { dataLayer.push(arguments); } gtag('js', new Date()); gtag('config', 'UA-25065548-2');</script>
+
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+        (adsbygoogle = window.adsbygoogle || []).push({
+            google_ad_client: "ca-pub-5442972248172818",
+            enable_page_level_ads: true
+        });
+    </script>
     <style>
-        html, body {
-            height: 100%;
-            margin: 0;
-        }
-
-        body {
-            display: flex;
-            flex-direction: column;
-        }
-
-        .content {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            justify-content: center; 
-        }
-
-        .clear-container {
-            background-color: #ffffff; 
-            padding: 20px;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            max-width: 800px;
-            margin: 20px auto; 
-        }
-
-        #chartContainer {
-            width: 100%; 
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin: 0 auto; 
-        }
-
-        canvas {
-            max-width: 600px; 
-            max-height: 400px; 
-        }
-
-        h2 {
-            font-size: 18px; 
-            text-align: center;
-        }
-
-        footer {
-            background: #f1f1f1;
-            padding: 10px;
+        .container-fluid {
+            max-width: 99%; /* Ajusta según el tamaño que necesites */
+            margin: 0 auto;
         }
     </style>
+
 </head>
+    
 <body>
-
     @Html.Partial("_header")
+    <div class="container-fluid">
+        <div class="row">
 
-    <div class="content">
-        <div class="clear-container">
-            <h2>@ViewData["Gráfico"]</h2>
+            <main class="">
+                <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
+                    <h1 class="h2"><i class="fa fa-tachometer"></i> Dashboard Pruebas Dopaje</h1>
+                </div>
 
-            <div id="chartContainer">
-                <canvas id="myChart"></canvas>
-            </div>
+                <div class="row">
+
+                    <div class="col-lg-3 col-md-6 col-sm-12 pr-0 mb-3">
+                        <div class="card card-inverse card-success">
+                            <div class="card-header bg-success text-white">
+                                <div class="row">
+                                    <div class="col-3">
+                                        <i class="fa fa-check-circle fa-5x"></i>
+                                    </div>
+                                    <div class="col-9 text-right">
+                                        <h2 class="card-title">@ViewBag.PositivoCount</h2>
+                                        <p class="card-text text-light">Pruebas Positivas</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-footer bg-success text-white">
+                                <a href="/Pruebas_Dopaje/Index" class="card-link text-white">Ver Detalles <i class="fa fa-angle-right float-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-md-6 col-sm-12 pr-0 mb-3">
+                        <div class="card card-inverse card-danger">
+                            <div class="card-header bg-danger text-white">
+                                <div class="row">
+                                    <div class="col-3">
+                                        <i class="fa fa-times-circle fa-5x"></i>
+                                    </div>
+                                    <div class="col-9 text-right">
+                                        <h2 class="card-title">@ViewBag.NegativoCount</h2>
+                                        <p class="card-text text-light">Pruebas Negativas</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-footer bg-danger text-white">
+                                <a href="/Pruebas_Dopaje/Index" class="card-link text-white">Ver Detalles <i class="fa fa-angle-right float-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-md-6 col-sm-12 pr-0 mb-3">
+                        <div class="card card-inverse card-info">
+                            <div class="card-header bg-info text-white">
+                                <div class="row">
+                                    <div class="col-3">
+                                        <i class="fa fa-list-alt fa-5x"></i>
+                                    </div>
+                                    <div class="col-9 text-right">
+                                        <h2 class="card-title">@ViewBag.TotalPruebas</h2>
+                                        <p class="card-text text-light">Total de Pruebas de Dopaje</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-footer bg-info text-white">
+                                <a href="/Pruebas_Dopaje/Index" class="card-link text-white">Ver Detalles <i class="fa fa-angle-right float-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-md-6 col-sm-12 pr-0 mb-3">
+                        <div class="card card-inverse card-warning">
+                            <div class="card-header bg-warning text-dark">
+                                <div class="row">
+                                    <div class="col-3">
+                                        <i class="fa fa-users fa-5x"></i>
+                                    </div>
+                                    <div class="col-9 text-right">
+                                        <h2 class="card-title">@ViewBag.TotalJovenes</h2>
+                                        <p class="card-text text-black">Total de Jóvenes</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-footer bg-warning text-dark">
+                                <a href="/Jovenes" class="card-link text-dark">Ver Detalles <i class="fa fa-angle-right float-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-6 col-md-6 col-sm-12 pr-0 mb-3">
+                        <div class="card-collapsible card">
+                            <div class="card-header">
+                                Gráfico de Distribución de Resultados de Pruebas de Dopaje <i class="fa fa-caret-down caret"></i>
+                            </div>
+                            <div class="card-body d-flex justify-content-around">
+                                <canvas class="chart w-100" id="pieChart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-12 pr-0 mb-3">
+                        <div class="card-collapsible card">
+                            <div class="card-header">
+                                Pruebas De Dopaje Distribuidas Por Mes <i class="fa fa-caret-down caret"></i>
+                            </div>
+                            <div class="card-body d-flex justify-content-around">
+                                <canvas class="chart w-100" id="lineChart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-6 col-md-6 col-sm-12 pr-0 mb-3">
+                        <div class="card-collapsible card">
+                            <div class="card-header">
+
+                                Gráfico de Barras De Dopaje Distribuidas Por Mes<i class="fa fa-caret-down caret"></i>
+                            </div>
+
+                            <div class="card-body d-flex justify-content-around">
+                                <canvas class="chart w-100" id="barChart"></canvas>
+  
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6 col-md-6 col-sm-12 pr-0 mb-3">
+                        <div class="card-collapsible card">
+                            <div class="card-header">
+                                Tabla Pruebas Realizadas Por Mes<i class="fa fa-caret-down caret"></i>
+                            </div>
+                            <div class="card-body d-flex justify-content-around">
+                                <table class="table table-bordered table-sm" >
+                                    <thead>
+                                        <tr>
+                                            <th>Mes</th>
+                                            <th>Pruebas</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach (var item in ViewBag.PruebasPorMes)
+                                        {
+                                            <tr>
+                                                <td>@item.Mes</td>
+                                                <td>@item.Count</td>
+                                            </tr>
+                                        }
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </main>
+
         </div>
     </div>
 
     @Html.Partial("_footer")
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha384-tsQFqpERiu6YpazuKOxStBhvHhxdP3W2kRy6eBlzI/j9l5YkMf8RT1z4rW1p2Ucz"
+            crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX38pIbbVYUew+OrCXaRkfj"
+            crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+            crossorigin="anonymous"></script>
 
-    <script src="js/jquery-1.11.0.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
-    <script src="~/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/plugins.js"></script>
-    <script src="~/js/script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/chart.js"></script>
+    <script>
+        var resultados = @Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(Model));
 
-    @section Scripts {
-        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-        <script>
-            var resultados = @Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(Model));
+        var labels = resultados.map(r => r.Resultado);
+        var data = resultados.map(r => r.Count);
 
-            var labels = resultados.map(r => r.Resultado);
-            var data = resultados.map(r => r.Count);
+        var pieCtx = document.getElementById('pieChart').getContext('2d');
+        var pieChart = new Chart(pieCtx, {
+            type: 'doughnut',
+            data: {
+                labels: labels,
+                datasets: [{
+                    label: 'Resultados de Pruebas de Dopaje',
+                    data: data,
+                    backgroundColor: ['#FF6384', '#36A2EB', '#FFCE56']
+                }]
+            }
+        });
 
-            var ctx = document.getElementById('myChart').getContext('2d');
-            var myChart = new Chart(ctx, {
-                type: 'pie',
-                data: {
-                    labels: labels,
-                    datasets: [{
-                        label: 'Número de Pruebas',
-                        data: data,
-                        backgroundColor: [
-                            'rgba(255, 99, 132, 0.2)',
-                            'rgba(54, 162, 235, 0.2)',
-                        ],
-                        borderColor: [
-                            'rgba(255, 99, 132, 1)',
-                            'rgba(54, 162, 235, 1)',
-                        ],
-                        borderWidth: 1
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    plugins: {
-                        legend: {
-                            position: 'bottom',
-                            labels: {
-                                boxWidth: 12,
-                                fontSize: 10
+        var pruebasPorMes = @Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(ViewBag.PruebasPorMes));
+        var lineLabels = pruebasPorMes.map(p => p.Mes);
+        var lineData = pruebasPorMes.map(p => p.Count);
+
+        var lineCtx = document.getElementById('lineChart').getContext('2d');
+        var lineChart = new Chart(lineCtx, {
+            type: 'line',
+            data: {
+                labels: lineLabels,
+                datasets: [{
+                    label: 'Pruebas de Dopaje por Mes',
+                    data: lineData,
+                    backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                    borderColor: '#36A2EB',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    x: {
+                        beginAtZero: true
+                    },
+                    y: {
+                        beginAtZero: true,
+                        suggestedMin: 0,
+                        ticks: {
+                            stepSize: 1,
+                            callback: function (value, index, values) {
+                                return Number.isInteger(value) ? value : null;
                             }
                         }
                     }
                 }
-            });
-        </script>
-    }
+            }
+        });
+
+        var pruebasPorMes = @Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(ViewBag.PruebasPorMes));
+        var barLabels = pruebasPorMes.map(p => p.Mes);
+        var barValues = pruebasPorMes.map(p => p.Count);
+
+
+        var backgroundColors = [
+            'rgba(255, 99, 132, 0.8)',  
+            'rgba(54, 162, 235, 0.8)',  
+            'rgba(255, 206, 86, 0.8)', 
+            'rgba(75, 192, 192, 0.8)',  
+            'rgba(153, 102, 255, 0.8)', 
+            'rgba(255, 159, 64, 0.8)'   
+        ];
+
+        var borderColors = [
+            'rgba(255, 99, 132, 1)',
+            'rgba(54, 162, 235, 1)',
+            'rgba(255, 206, 86, 1)',
+            'rgba(75, 192, 192, 1)',
+            'rgba(153, 102, 255, 1)',
+            'rgba(255, 159, 64, 1)'
+        ];
+
+        // Create a color array for the bars
+        var colors = barLabels.map((_, i) => backgroundColors[i % backgroundColors.length]);
+        var borders = barLabels.map((_, i) => borderColors[i % borderColors.length]);
+
+        var barCtx = document.getElementById('barChart').getContext('2d');
+        var barChart = new Chart(barCtx, {
+            type: 'bar',
+            data: {
+                labels: barLabels,
+                datasets: [{
+                    label: 'Datos del Gráfico de Barras',
+                    data: barValues,
+                    backgroundColor: colors,  
+                    borderColor: borders, 
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    x: {
+                        beginAtZero: true
+                    },
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+
+
+
+    </script>
 </body>
+
 </html>

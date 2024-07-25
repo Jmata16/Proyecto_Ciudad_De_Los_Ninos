@@ -74,32 +74,40 @@
         .header-info {
             display: flex;
             align-items: center;
-            justify-content: flex-end; /* Alinea al contenido al final (derecha) */
-            padding: 10px; /* Espaciado opcional */
-            border-bottom: 1px solid #e0e0e0; /* Línea inferior opcional */
+            justify-content: flex-end;
+            padding: 10px;
+            border-bottom: 1px solid #e0e0e0;
         }
 
             .header-info p {
                 margin: 0;
-                font-size: 18px; /* Tamaño de fuente opcional */
-                color: #333; /* Color del texto opcional */
+                font-size: 18px;
+                color: #333;
             }
 
             .header-info .fa-shopping-cart {
                 font-size: 24px;
                 margin-left: 10px;
-                color: #007bff; /* Color opcional para el icono */
+                color: #007bff;
             }
+
+        .shopping-cart-link {
+            text-decoration: none;
+            color: inherit;
+            display: flex;
+            align-items: center;
+        }
     </style>
 </head>
 <body>
-    <!-- Contenido del encabezado -->
     @Html.Partial("_header")
 
     <div class="container">
         <div class="header-info">
-            
-            <i class="fa fa-shopping-cart"></i> <p>: ₡ @ticketTotal - @ticketCount producto(s)</p>
+            <a href="/Tienda/Carrito" class="shopping-cart-link">
+                <i class="fa fa-shopping-cart"></i>
+                <p>: ₡ @ticketTotal - @ticketCount producto(s)</p>
+            </a>
         </div>
 
         <div class="row">
@@ -123,10 +131,8 @@
         </div>
     </div>
 
-    <!-- Footer -->
     @Html.Partial("_footer")
 
-    <!-- Scripts -->
     <script src="js/jquery-1.11.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
     <script src="~/js/bootstrap.bundle.min.js"></script>
