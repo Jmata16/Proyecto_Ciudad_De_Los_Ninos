@@ -35,7 +35,8 @@ namespace Proyecto_Ciudad_De_Los_Ninos.Controllers
                     var claims = new List<Claim>
             {
                 new Claim(ClaimTypes.Name, model.nombre_usuario),
-                new Claim(ClaimTypes.Role, loginUser.id_rol.ToString()),
+               new Claim(ClaimTypes.Role, loginUser.id_rol.ToString()),
+
                 new Claim("UserId", loginUser.Id.ToString()),
                 new Claim(ClaimTypes.Email, loginUser.correo)
 
