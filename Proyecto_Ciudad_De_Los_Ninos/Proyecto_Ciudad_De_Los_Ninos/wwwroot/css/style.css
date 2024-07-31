@@ -680,17 +680,19 @@ h3.cart-title {
 }
 
 @media only screen and (max-width: 767px) {
-  #billboard .banner-content {
-      margin-top: 210px;
-  }
-  #billboard .image-holder {
-      margin-top: -390px;
-      opacity: 0.3;
-  }
-  #billboard .swiper-arrow {
-      top: 400px;
-  }
+    #billboard .banner-content {
+        margin-top: 210px;
+    }
+
+    #billboard .image-holder {
+        display: none;
+    }
+
+    #billboard .swiper-arrow {
+        top: 400px;
+    }
 }
+
 
 /* 3. Icon Box - Company Services
 /*----------------------------------------------*/
