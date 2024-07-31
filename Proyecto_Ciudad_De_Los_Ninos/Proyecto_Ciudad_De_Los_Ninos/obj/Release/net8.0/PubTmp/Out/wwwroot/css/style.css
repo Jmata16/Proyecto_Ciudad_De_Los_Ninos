@@ -685,7 +685,7 @@ h3.cart-title {
     }
 
     #billboard .image-holder {
-        display: none; /* Oculta completamente la imagen */
+        display: none;
     }
 
     #billboard .swiper-arrow {
