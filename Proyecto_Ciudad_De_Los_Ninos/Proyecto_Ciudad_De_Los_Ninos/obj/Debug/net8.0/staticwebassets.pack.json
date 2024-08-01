@@ -313,14 +313,6 @@
       "PackagePath": "staticwebassets\\images\\MapaCiudad.png"
     },
     {
-      "Id": "D:\\Repos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\wwwroot\\images\\Niños 2.JPG",
-      "PackagePath": "staticwebassets\\images\\Niños 2.JPG"
-    },
-    {
-      "Id": "D:\\Repos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\wwwroot\\images\\Niños.JPG",
-      "PackagePath": "staticwebassets\\images\\Niños.JPG"
-    },
-    {
       "Id": "D:\\Repos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\wwwroot\\images\\Residencia 2.JPG",
       "PackagePath": "staticwebassets\\images\\Residencia 2.JPG"
     },

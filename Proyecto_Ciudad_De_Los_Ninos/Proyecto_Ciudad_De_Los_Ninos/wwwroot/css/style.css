@@ -627,7 +627,7 @@ h3.cart-title {
 }
 #header-nav .offcanvas.show {
     z-index: 9999;
-    background-color: var(--light-blue-color);
+    background-color: #E6282A;
 }
 #header-nav .offcanvas-end {
     width: 500px;
@@ -1091,3 +1091,5 @@ body {
 .icon-box-icon {
     margin-bottom: 10px; /* Ajusta el margen entre el ícono y el texto */
 }
+
+
