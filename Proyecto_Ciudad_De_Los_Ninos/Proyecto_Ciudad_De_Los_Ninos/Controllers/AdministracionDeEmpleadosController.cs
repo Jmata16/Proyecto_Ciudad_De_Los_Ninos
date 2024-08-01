@@ -1,8 +1,10 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using System;
 
 namespace Proyecto_Ciudad_De_Los_Ninos.Controllers
 {
+    [Authorize]
     public class AdministracionDeEmpleadosController : Controller
     {
         public IActionResult Capacitaciones()

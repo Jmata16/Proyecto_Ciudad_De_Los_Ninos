@@ -11,9 +11,11 @@ using PdfSharpCore.Drawing;
 using PdfSharpCore.Drawing.Layout;
 using PdfSharpCore.Pdf;
 using API_Ciudad_De_Los_Ninos.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Proyecto_Ciudad_De_Los_Ninos.Controllers
 {
+    [Authorize]
     public class TiendaController : Controller
     {
         private readonly ApplicationDBContext _context;

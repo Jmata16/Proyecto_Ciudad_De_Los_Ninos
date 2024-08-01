@@ -1,11 +1,13 @@
 ﻿using System.Globalization;
 using System.Linq;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Proyecto_Ciudad_De_Los_Ninos.Models;
 
 namespace Proyecto_Ciudad_De_Los_Ninos.Controllers
 {
+    [Authorize]
     public class ChartsDopajeController : Controller
     {
         private readonly ApplicationDBContext _context;

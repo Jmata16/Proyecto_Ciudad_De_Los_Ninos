@@ -228,7 +228,9 @@ namespace Proyecto_Ciudad_De_Los_Ninos.Models
             modelBuilder.Entity<Roles>().HasIndex(r => r.nombre_rol).IsUnique();
 
             modelBuilder.Entity<User>()
-                       .HasIndex(u => u.nombre_usuario).IsUnique();
+                 .HasIndex(u => u.nombre_usuario)
+                 .IsUnique();
+
         }
         public DbSet<Proyecto_Ciudad_De_Los_Ninos.Models.Capacitaciones> Capacitaciones { get; set; } = default!;
         public DbSet<Proyecto_Ciudad_De_Los_Ninos.Models.Vacaciones> Vacaciones { get; set; } = default!;

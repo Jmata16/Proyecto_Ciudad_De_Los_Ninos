@@ -10,7 +10,7 @@ namespace API_Ciudad_De_Los_Ninos.Models
         public int Id { get; set; }
         public string nombre_rol { get; set; }
 
-        //public ICollection<User> Users { get; set; }
+        public ICollection<User> ?Users { get; set; } // Relación con usuarios
     }
 }
 

@@ -23,8 +23,15 @@ builder.Services.AddDefaultIdentity<IdentityUser>(options =>
 {
     options.SignIn.RequireConfirmedAccount = false;
 })
-.AddRoles<IdentityRole>()
-.AddEntityFrameworkStores<ApplicationDBContext>();
+builder.Services.AddAuthorization(options =>
+{
+    options.AddPolicy(RoleClaims.Admin, policy => policy.RequireClaim("RoleId", "1"));
+    options.AddPolicy(RoleClaims.Estudiante, policy => policy.RequireClaim("RoleId", "5"));
+    options.AddPolicy(RoleClaims.Psicologo, policy => policy.RequireClaim("RoleId", "3"));
+    options.AddPolicy(RoleClaims.Salud, policy => policy.RequireClaim("RoleId", "2"));
+    options.AddPolicy(RoleClaims.TrabajadorSocial, policy => policy.RequireClaim("RoleId", "4"));
+    options.AddPolicy(RoleClaims.Ventas, policy => policy.RequireClaim("RoleId", "6"));
+});
 
 // Configura autenticación
 builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)

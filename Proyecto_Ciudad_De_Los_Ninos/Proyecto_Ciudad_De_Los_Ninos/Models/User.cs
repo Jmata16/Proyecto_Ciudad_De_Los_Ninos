@@ -46,6 +46,8 @@ namespace API_Ciudad_De_Los_Ninos.Models
         //public ICollection<Reportes_Medicos> ReportesMedicos { get; set; }
         //public ICollection<Pruebas_Dopaje> PruebasDopaje { get; set; }
         //public ICollection<Incidentes> Incidentes { get; set; }
+        [ForeignKey("id_rol")]
+        public Roles ?Rol { get; set; }  // Relación con Roles
         public ICollection<Citas> ?Citas { get; set; }
         public ICollection<Incidentes>? Incidentes { get; set; }
         public ICollection<Reportes_Medicos>? ReportesMedicos { get; set; }
