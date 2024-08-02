@@ -10,7 +10,7 @@ using Proyecto_Ciudad_De_Los_Ninos.Models;
 
 namespace Proyecto_Ciudad_De_Los_Ninos.Controllers
 {
-    [Authorize]
+    [Authorize(Policy = "AdminPolicy")] 
     public class CapacitacionesController : Controller
     {
         private readonly ApplicationDBContext _context;

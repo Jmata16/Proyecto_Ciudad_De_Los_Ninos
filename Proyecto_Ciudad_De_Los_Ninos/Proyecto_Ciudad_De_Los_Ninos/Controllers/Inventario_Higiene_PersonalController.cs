@@ -11,7 +11,7 @@ using Proyecto_Ciudad_De_Los_Ninos.Models;
 
 namespace Proyecto_Ciudad_De_Los_Ninos.Controllers
 {
-    [Authorize]
+    [Authorize(Policy = "Rol16")]
     public class Inventario_Higiene_PersonalController : Controller
     {
         private readonly ApplicationDBContext _context;

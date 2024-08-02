@@ -9,9 +9,10 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace API_Ciudad_De_Los_Ninos.Controllers
 {
-    [Authorize]
+    [Authorize(Policy = "Rol134")]
     public class IncidentesController : Controller
     {
+
         private readonly ApplicationDBContext _context;
 
         public IncidentesController(ApplicationDBContext context)

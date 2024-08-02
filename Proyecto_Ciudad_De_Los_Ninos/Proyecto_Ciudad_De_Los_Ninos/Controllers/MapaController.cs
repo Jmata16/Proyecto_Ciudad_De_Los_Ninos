@@ -4,7 +4,7 @@ using Proyecto_Ciudad_De_Los_Ninos.Models;
 
 namespace Proyecto_Ciudad_De_Los_Ninos.Controllers
 {
-    [Authorize]
+    [Authorize(Policy = "RolAll")]
     public class MapaController : Controller
     {
         private readonly ApplicationDBContext _context;

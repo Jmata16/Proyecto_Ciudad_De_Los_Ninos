@@ -12,7 +12,7 @@ using PagedList.EntityFramework;
 
 namespace Proyecto_Ciudad_De_Los_Ninos.Controllers
 {
-    [Authorize]
+    [Authorize(Policy = "Rol16")]
     public class Inventario_ComedorController : Controller
     {
         private readonly ApplicationDBContext _context;

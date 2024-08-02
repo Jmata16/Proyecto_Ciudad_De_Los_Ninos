@@ -23,14 +23,16 @@ builder.Services.AddDefaultIdentity<IdentityUser>(options =>
 {
     options.SignIn.RequireConfirmedAccount = false;
 })
+.AddRoles<IdentityRole>()
+.AddEntityFrameworkStores<ApplicationDBContext>();
 builder.Services.AddAuthorization(options =>
 {
-    options.AddPolicy(RoleClaims.Admin, policy => policy.RequireClaim("RoleId", "1"));
-    options.AddPolicy(RoleClaims.Estudiante, policy => policy.RequireClaim("RoleId", "5"));
-    options.AddPolicy(RoleClaims.Psicologo, policy => policy.RequireClaim("RoleId", "3"));
-    options.AddPolicy(RoleClaims.Salud, policy => policy.RequireClaim("RoleId", "2"));
-    options.AddPolicy(RoleClaims.TrabajadorSocial, policy => policy.RequireClaim("RoleId", "4"));
-    options.AddPolicy(RoleClaims.Ventas, policy => policy.RequireClaim("RoleId", "6"));
+    options.AddPolicy("AdminPolicy", policy => policy.RequireRole("1"));
+    options.AddPolicy("EstudiantePolicy", policy => policy.RequireRole("5"));
+    options.AddPolicy("PsicologoPolicy", policy => policy.RequireRole("3"));
+    options.AddPolicy("SaludPolicy", policy => policy.RequireRole("2"));
+    options.AddPolicy("TrabajadorSocialPolicy", policy => policy.RequireRole("4"));
+    options.AddPolicy("VentasPolicy", policy => policy.RequireRole("6"));
 });
 
 // Configura autenticación
@@ -44,7 +46,39 @@ builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationSc
         options.AccessDeniedPath = "/Home/AccessDenied";
         options.SlidingExpiration = true;
     });
+builder.Services.AddAuthorization(options =>
+{
 
+    options.AddPolicy("Rol134", policy =>
+        policy.RequireRole("1", "3", "4")); 
+});
+builder.Services.AddAuthorization(options =>
+{
+    options.AddPolicy("Rol1234", policy =>
+        policy.RequireRole("1", "2", "3", "4")); 
+});
+builder.Services.AddAuthorization(options =>
+{
+
+    options.AddPolicy("Rol16", policy =>
+        policy.RequireRole("1", "6")); 
+});
+builder.Services.AddAuthorization(options =>
+{
+    options.AddPolicy("RolAll", policy =>
+        policy.RequireRole("1", "2", "3", "4", "5", "6"));
+});
+builder.Services.AddAuthorization(options =>
+{
+   
+    options.AddPolicy("Rol14", policy =>
+        policy.RequireRole("1", "6")); 
+});
+builder.Services.AddAuthorization(options =>
+{
+    options.AddPolicy("Rol15", policy =>
+        policy.RequireRole("1", "5")); 
+});
 // Otros servicios y configuraciones necesarios (por ejemplo, servicio de email)
 builder.Services.AddTransient<EmailService>();
 

@@ -7,7 +7,7 @@ using Proyecto_Ciudad_De_Los_Ninos.Models;
 
 namespace Proyecto_Ciudad_De_Los_Ninos.Controllers
 {
-    [Authorize]
+    [Authorize(Policy = "Rol1234")]
     public class ChartsDopajeController : Controller
     {
         private readonly ApplicationDBContext _context;

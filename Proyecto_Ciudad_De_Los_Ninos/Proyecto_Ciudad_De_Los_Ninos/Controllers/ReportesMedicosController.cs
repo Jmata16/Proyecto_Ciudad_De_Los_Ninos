@@ -11,7 +11,7 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace Proyecto_Ciudad_De_Los_Ninos.Controllers
 {
-    [Authorize]
+    [Authorize(Policy = "Rol1234")]
     public class ReportesMedicosController : Controller
     {
         private readonly ApplicationDBContext _context;

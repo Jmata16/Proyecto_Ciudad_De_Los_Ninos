@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Proyecto_Ciudad_De_Los_Ninos.Controllers
 {
-    [Authorize]
+    [Authorize(Policy = "Rol14")]
     public class RegistroCompraController : Controller
     {
         private readonly ApplicationDBContext _context;
