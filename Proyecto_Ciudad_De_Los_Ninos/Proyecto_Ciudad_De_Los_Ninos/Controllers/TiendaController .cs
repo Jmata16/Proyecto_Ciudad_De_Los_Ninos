@@ -21,10 +21,10 @@ namespace Proyecto_Ciudad_De_Los_Ninos.Controllers
         private readonly ApplicationDBContext _context;
         private readonly EmailService _emailService;
 
-        public TiendaController(ApplicationDBContext context)
+        public TiendaController(ApplicationDBContext context, EmailService emailService)
         {
             _context = context;
-            _emailService = new EmailService();
+            _emailService = emailService;
         }
 
         public async Task<IActionResult> Index()

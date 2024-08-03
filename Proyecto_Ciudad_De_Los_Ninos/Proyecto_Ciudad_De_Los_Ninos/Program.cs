@@ -34,7 +34,7 @@ builder.Services.AddAuthorization(options =>
     options.AddPolicy("TrabajadorSocialPolicy", policy => policy.RequireRole("4"));
     options.AddPolicy("VentasPolicy", policy => policy.RequireRole("6"));
 });
-
+builder.Services.AddSingleton<EmailService>();
 // Configura autenticación
 builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
     .AddCookie(options =>
