@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "NORw2JPopBs=",
+  "dgSpecHash": "VRoweTF6n6Y=",
   "success": true,
-  "projectFilePath": "C:\\Escritorio\\Repos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos.csproj",
+  "projectFilePath": "C:\\Users\\jdmat\\Downloads\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\jdmat\\.nuget\\packages\\azure.core\\1.35.0\\azure.core.1.35.0.nupkg.sha512",
     "C:\\Users\\jdmat\\.nuget\\packages\\azure.identity\\1.10.3\\azure.identity.1.10.3.nupkg.sha512",
