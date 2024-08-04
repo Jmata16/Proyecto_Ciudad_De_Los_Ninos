@@ -1,4 +1,10 @@
-﻿<!DOCTYPE html>
+﻿@{
+    var userIdClaim = User.Claims.FirstOrDefault(c => c.Type == "UserId")?.Value;
+    var fileName = $"ResumenCompra_{userIdClaim}.pdf";
+}
+
+
+<!DOCTYPE html>
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
@@ -16,8 +22,8 @@
         }
 
         svg {
-            width: 300px;
-            height: 300px;
+            width: 200px;
+            height: 200px;
             margin-top: 20px;
         }
 
@@ -56,8 +62,9 @@
         </div>
 
         <div class="message">
-            Se le ha enviado un correo con los detalles de su orden. Por favor, revise su bandeja de entrada para más información.
+            <p><strong style="color: red;">Advertencia importante:</strong> Para poder retirar los productos de su orden, es indispensable que descargue y presente su factura. Descargue <a href="@Url.Content($"~/pdfs/{fileName}")" style="color: blue; text-decoration: underline;">aquí</a> su Factura para retirar los diferentes productos de su orden.</p>
         </div>
+
 
         <div class="containerP">
             <svg viewBox="0 0 26 26" xmlns="http://www.w3.org/2000/svg">
@@ -67,7 +74,6 @@
                 </g>
             </svg>
         </div>
-
         <div class="containerP">
             <a href="/" class="btn">Ir al Inicio</a>
         </div>

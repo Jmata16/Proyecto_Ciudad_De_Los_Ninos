@@ -601,6 +601,14 @@
       "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.map"
     },
     {
+      "Id": "C:\\Users\\jdmat\\Downloads\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\wwwroot\\pdfs\\ResumenCompra.pdf",
+      "PackagePath": "staticwebassets\\pdfs\\ResumenCompra.pdf"
+    },
+    {
+      "Id": "C:\\Users\\jdmat\\Downloads\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\wwwroot\\pdfs\\ResumenCompra_7.pdf",
+      "PackagePath": "staticwebassets\\pdfs\\ResumenCompra_7.pdf"
+    },
+    {
       "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.Proyecto_Ciudad_De_Los_Ninos.Microsoft.AspNetCore.StaticWebAssets.props",
       "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
     },

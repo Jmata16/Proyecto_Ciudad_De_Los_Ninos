@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "LRikmDmtYxQNFsU9Mza6qoCLvc3jIn3oQYRbs1z0W/8=",
+  "Hash": "zqo6B7A/8HdlsSYouMT5XHQ2JH3ZM0Ejs2JP/IujBzU=",
   "Source": "Proyecto_Ciudad_De_Los_Ninos",
   "BasePath": "_content/Proyecto_Ciudad_De_Los_Ninos",
   "Mode": "Default",
@@ -4062,6 +4062,44 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
+    },
+    {
+      "Identity": "C:\\Users\\jdmat\\Downloads\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\wwwroot\\pdfs\\ResumenCompra.pdf",
+      "SourceId": "Proyecto_Ciudad_De_Los_Ninos",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\jdmat\\Downloads\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\wwwroot\\",
+      "BasePath": "_content/Proyecto_Ciudad_De_Los_Ninos",
+      "RelativePath": "pdfs/ResumenCompra.pdf",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\pdfs\\ResumenCompra.pdf"
+    },
+    {
+      "Identity": "C:\\Users\\jdmat\\Downloads\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\wwwroot\\pdfs\\ResumenCompra_7.pdf",
+      "SourceId": "Proyecto_Ciudad_De_Los_Ninos",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\jdmat\\Downloads\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\wwwroot\\",
+      "BasePath": "_content/Proyecto_Ciudad_De_Los_Ninos",
+      "RelativePath": "pdfs/ResumenCompra_7.pdf",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\pdfs\\ResumenCompra_7.pdf"
     }
   ]
 }

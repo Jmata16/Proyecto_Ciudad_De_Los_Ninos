@@ -156,70 +156,32 @@ namespace Proyecto_Ciudad_De_Los_Ninos.Controllers
                 return NotFound("Usuario no encontrado o ID de usuario no válido.");
             }
 
-            var userEmailClaim = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Email)?.Value;
-            if (string.IsNullOrEmpty(userEmailClaim))
-            {
-                return NotFound("Correo del usuario no encontrado.");
-            }
-
             var productosCarrito = await _context.Tickete
-               .Include(t => t.inventario_Higiene_Personal)
-               .Where(t => t.id_usuario == userId)
-               .ToListAsync();
+                .Include(t => t.inventario_Higiene_Personal)
+                .Where(t => t.id_usuario == userId)
+                .ToListAsync();
 
             if (!productosCarrito.Any())
             {
                 return BadRequest("El carrito está vacío.");
             }
 
-            var emailBody = "<html><body>";
-            emailBody += "<h2 style='color: #007bff;'>Gracias por su Orden!</h2>";
-            emailBody += "<p>Aquí está el resumen de su carrito:</p>";
-            emailBody += "<table style='width: 100%; border-collapse: collapse;'>";
-            emailBody += "<tr><th style='border: 1px solid #ddd; padding: 8px;'>Producto</th><th style='border: 1px solid #ddd; padding: 8px;'>Cantidad</th><th style='border: 1px solid #ddd; padding: 8px;'>Precio Unitario</th><th style='border: 1px solid #ddd; padding: 8px;'>Total</th></tr>";
-
-            decimal totalCompra = 0;
-
-            foreach (var item in productosCarrito)
-            {
-                var registroCompra = new RegistroCompra
-                {
-                    TicketeId = item.Id,
-                    UserId = userId,
-                    Inventario_HigieneId = item.id_inventario_higiene_personal, 
-                    estado = "Sin entregar"
-                };
-                decimal precioUnitario = item.inventario_Higiene_Personal.precio_unitario ?? 0m;
-                decimal subtotal = precioUnitario * item.tickete;
-                totalCompra += subtotal;
-
-                emailBody += $"<tr><td style='border: 1px solid #ddd; padding: 8px;'>{item.inventario_Higiene_Personal.nombre_producto}</td>";
-                emailBody += $"<td style='border: 1px solid #ddd; padding: 8px; text-align: center;'>{item.tickete}</td>";
-                emailBody += $"<td style='border: 1px solid #ddd; padding: 8px; text-align: right;'>${precioUnitario.ToString("0.00")}</td>";
-                emailBody += $"<td style='border: 1px solid #ddd; padding: 8px; text-align: right;'>${subtotal.ToString("0.00")}</td></tr>";
-
-                _context.RegistroCompra.Add(registroCompra);
-            }
-
-            emailBody += "</table>";
-            emailBody += $"<p style='text-align: right; margin-top: 20px;'><strong>Total de la Orden: ${totalCompra.ToString("0.00")}</strong></p>";
-            emailBody += "</body></html>";
-
             var clienteNombre = User.Identity.Name;
             var pdfBytes = GeneratePDF(productosCarrito, clienteNombre);
 
-            string mimeType = "application/pdf";
-            string attachmentFileName = "ResumenCompra.pdf";
+            // Guarda el PDF en el servidor
+            var fileName = $"ResumenCompra_{userId}.pdf";
+            var filePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "pdfs", fileName);
+            await System.IO.File.WriteAllBytesAsync(filePath, pdfBytes);
 
-            _emailService.SendEmailWithAttachment(userEmailClaim, "Resumen de su Carrito de Compras", emailBody, pdfBytes, attachmentFileName, mimeType);
-
-            await _context.SaveChangesAsync();
-
+            // Eliminar los productos del carrito después de generar el PDF
             _context.Tickete.RemoveRange(productosCarrito);
             await _context.SaveChangesAsync();
 
+            // Redirigir a la vista 'OrdenRecibida'
             return RedirectToAction(nameof(OrdenRecibida));
         }
+
         private byte[] GeneratePDF(List<Tickete> productosCarrito, string clienteNombre)
 {
     using (var stream = new MemoryStream())
