@@ -91,7 +91,7 @@
             <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z" />
         </symbol>
         <symbol xmlns="http://www.w3.org/2000/svg" id="navbar-icon" viewBox="0 0 16 16">
-            <path d="M14 10.5a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0 0 1h3a.5.5 0 0 0 .5-.5zm0-3a.5.5 0 0 0-.5-.5h-7a.5.5 0 0 0 0 1h7a.5.5 0 0 0 .5-.5zm0-3a.5.5 0 0 0-.5-.5h-11a.5.5 0 0 0 0 1h11a.5.5 0 0 0 .5-.5z" />
+            <path fill="white" stroke="white" stroke-width="0.5" d="M14 10.5a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0 0 1h3a.5.5 0 0 0 .5-.5zm0-3a.5.5 0 0 0-.5-.5h-7a.5.5 0 0 0 0 1h7a.5.5 0 0 0 .5-.5zm0-3a.5.5 0 0 0-.5-.5h-11a.5.5 0 0 0 0 1h11a.5.5 0 0 0 .5-.5z" />
         </symbol>
     </svg>
     <header id="" class="site-header ">
@@ -105,11 +105,17 @@
                 <a class="navbar-brand">
                     <img src="~/images/logo2.jpg" class="logos">
                 </a>
-                <button class="navbar-toggler d-flex d-lg-none order-3 p-2" type="button" data-bs-toggle="offcanvas" data-bs-target="#bdNavbar" aria-controls="bdNavbar" aria-expanded="false" aria-label="Toggle navigation">
-                    <svg class="navbar-icon">
+
+
+                <button class="navbar-toggler d-flex align-items-center d-lg-none order-3 p-2" type="button" data-bs-toggle="offcanvas" data-bs-target="#bdNavbar" aria-controls="bdNavbar" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="me-2 fw-bold" style="color: white;">Menú</span>
+                    <svg class="navbar-icon" width="20" height="20">
                         <use xlink:href="#navbar-icon"></use>
                     </svg>
                 </button>
+
+
+
                 <div class="offcanvas offcanvas-end" tabindex="-1" id="bdNavbar" aria-labelledby="bdNavbarOffcanvasLabel">
                     <div class="offcanvas-header px-4 pb-0">
                         <a class="navbar-brand" href="index.html">
@@ -216,11 +222,10 @@
                                             {
                                                 <li><a class="dropdown-item" href="/RegistroCompra/Index">Entregas</a></li>
                                             }
-                                            @* <li><a class="dropdown-item" href="/RegistroCompra/MisCompras">Mis Compras</a></li> *@
+                                             <li><a class="dropdown-item" href="/RegistroCompra/MisCompras">Mis Compras</a></li> 
                                         </ul>
                                     </li>
                                 }
-
                                 <!-- Bienvenida y Logout -->
                                 <li class="nav-item dropdown pe-3">
                                     <a class="nav-link dropdown-toggle text-light" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">

@@ -2,7 +2,7 @@
 svg {
     display: block;
     height: auto;
-    width: 500px;
+    width: 420px;
     color: #63a819
 }
 
@@ -44,6 +44,6 @@ svg {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 100px;
+    margin-top: 20px;
     margin-bottom: 100px;
 }
