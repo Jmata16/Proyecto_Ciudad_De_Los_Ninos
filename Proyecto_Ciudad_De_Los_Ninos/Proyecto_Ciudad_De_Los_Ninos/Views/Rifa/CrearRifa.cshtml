@@ -1,0 +1,19 @@
+﻿@model Proyecto_Ciudad_De_Los_Ninos.Models.Rifa
+
+@{
+    ViewBag.Title = "Crear Rifa";
+}
+
+<h2>Crear Nueva Rifa</h2>
+
+<form asp-action="CrearRifa" method="post">
+    <div class="form-group">
+        <label for="FechaRifa">Fecha de la Rifa</label>
+        <input type="date" class="form-control" id="FechaRifa" name="FechaRifa" required />
+    </div>
+    <div class="form-group">
+        <label for="Premio">Premio</label>
+        <input type="text" class="form-control" id="Premio" name="Premio" required />
+    </div>
+    <button type="submit" class="btn btn-primary">Crear Rifa</button>
+</form>

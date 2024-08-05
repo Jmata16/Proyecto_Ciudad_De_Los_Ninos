@@ -24,6 +24,8 @@ namespace Proyecto_Ciudad_De_Los_Ninos.Models
         public DbSet<Inventario_Higiene_Personal> Inventario_Higiene_Personal { get; set; }
         public DbSet<RegistroCompra> RegistroCompra { get; set; }
         public DbSet<Tickete> Tickete { get; set; }
+        public DbSet<Rifa> Rifas { get; set; }
+        public DbSet<RifaEntry> RifaEntries { get; set; }
 
         public DbSet<Asistencia> Asistencia { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)

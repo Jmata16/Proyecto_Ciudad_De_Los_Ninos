@@ -130,6 +130,24 @@
                             <li class="nav-item">
                                 <a class="text-white nav-link me-4 active" href="/home/index">Inicio</a>
                             </li>
+                            <li class="nav-item dropdown">
+                                <a class="text-white nav-link dropdown-toggle me-4" href="#" id="navbarDropdownTools" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Rifaa
+                                </a>
+                                <ul class="dropdown-menu" aria-labelledby="navbarDropdownTools">
+
+
+                                    <li class="nav-item">
+                                    <li>
+                                        <a class="dropdown-item" href="/Rifa/index">Rifa</a>
+                                    </li>
+                                    <li class="nav-item">
+                                    <li>
+                                        <a class="dropdown-item" href="/Rifa/RifaDetalles">Rifa Detalles</a>
+                                    </li>
+                                    </ul>
+                                </li>
+
 
                             @if (User.Identity.IsAuthenticated)
                             {
@@ -179,11 +197,20 @@
                                             }
 
                                         <!-- Pruebas Dopaje para roles 1, 2, 3, 4 -->
-                                        @if (userRole == "1" || userRole == "2" || userRole == "3" || userRole == "4")
-                                        {
-                                            <li><a class="dropdown-item" href="/Pruebas_Dopaje/Index">Pruebas Dopaje</a></li>
-                                            <li><a class="dropdown-item" href="/ChartsDopaje/Index">Dashboard</a></li>
-                                        }
+                                            @if (userRole == "1" || userRole == "2" || userRole == "3" || userRole == "4")
+                                            {
+                                                <li><a class="dropdown-item" href="/Pruebas_Dopaje/Index">Pruebas Dopaje</a></li>
+                                                <li><a class="dropdown-item" href="/ChartsDopaje/Index">Dashboard</a></li>
+                                            }
+
+                                            @if (userRole == "1")
+                                            {
+                                                <li><a class="dropdown-item" href="/Rifa/CrearRifa">Crear Rifa</a></li>
+                                            }
+
+
+
+
                                     </ul>
                                 </li>
                             }

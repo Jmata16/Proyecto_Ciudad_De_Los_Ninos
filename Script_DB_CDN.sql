@@ -369,3 +369,36 @@ VALUES
 
 UPDATE Jovenes
 SET telefono_contacto = '12345678';
+
+
+
+CREATE TABLE Rifas (
+    RifaId INT PRIMARY KEY IDENTITY,
+    FechaRifa DATETIME,
+	 NumeroGanador INT,
+    Premio NVARCHAR(255)
+);
+
+
+CREATE TABLE RifaEntries (
+    Id INT PRIMARY KEY IDENTITY,
+    Nombre NVARCHAR(100),
+    Apellido NVARCHAR(100),
+    Correo NVARCHAR(100),
+    NumeroComprado INT,
+    FechaCompra DATETIME DEFAULT GETDATE(),
+    RifaId INT,
+    FOREIGN KEY (RifaId) REFERENCES Rifas(RifaId)
+);
+
+
+INSERT INTO Rifas (FechaRifa, NumeroGanador, Premio)
+VALUES ('2024-08-15', NULL, 'Premio de Ejemplo');
+INSERT INTO Rifas (FechaRifa, Premio, NumeroGanador)
+VALUES ('2024-08-04 17:39:00', 'Premio Especial', NULL);
+INSERT INTO Rifas (FechaRifa, Premio, NumeroGanador)
+VALUES ('2024-08-04 17:59:00', 'Premio Especial', NULL);
+
+
+alter table Rifas
+ADD valor int; 

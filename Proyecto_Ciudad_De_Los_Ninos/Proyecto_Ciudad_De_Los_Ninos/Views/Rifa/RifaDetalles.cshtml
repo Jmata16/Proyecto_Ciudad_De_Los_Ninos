@@ -1,0 +1,50 @@
+﻿@{
+    var rifas = ViewBag.Rifas as IEnumerable<Proyecto_Ciudad_De_Los_Ninos.Models.Rifa>;
+}
+
+<h2>Detalles de las Rifas</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Fecha de la Rifa</th>
+            <th>Premio</th>
+            <th>Número Ganador</th>
+            <th>Tiempo Restante</th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (rifas != null && rifas.Any())
+        {
+            foreach (var rifa in rifas)
+            {
+                <tr>
+                    <td>@rifa.FechaRifa.ToString("dd/MM/yyyy HH:mm:ss")</td>
+                    <td>@rifa.Premio</td>
+                    <td>
+                        @(rifa.NumeroGanador.HasValue
+                            ? rifa.NumeroGanador.Value.ToString()
+                            : "No determinado")
+                    </td>
+                    <td>
+                        @if (rifa.FechaRifa > DateTime.Now)
+                        {
+                            var tiempoRestante = rifa.FechaRifa - DateTime.Now;
+                            <span>@tiempoRestante.Days días, @tiempoRestante.Hours horas, @tiempoRestante.Minutes minutos</span>
+                        }
+                        else
+                        {
+                            <span>Rifa pasada</span>
+                        }
+                    </td>
+                </tr>
+            }
+        }
+        else
+        {
+            <tr>
+                <td colspan="4">No hay rifas disponibles.</td>
+            </tr>
+        }
+    </tbody>
+</table>
