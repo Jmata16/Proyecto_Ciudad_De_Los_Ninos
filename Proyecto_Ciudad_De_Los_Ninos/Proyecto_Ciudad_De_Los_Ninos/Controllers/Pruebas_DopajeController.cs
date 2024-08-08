@@ -8,6 +8,7 @@ using API_Ciudad_De_Los_Ninos.Models;
 using Proyecto_Ciudad_De_Los_Ninos.Models;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.AspNetCore.Authorization;
+using System.Diagnostics;
 
 namespace Proyecto_Ciudad_De_Los_Ninos.Controllers
 {
@@ -154,20 +155,36 @@ namespace Proyecto_Ciudad_De_Los_Ninos.Controllers
             return View(pruebas_Dopaje);
         }
 
-        // POST: Pruebas_Dopaje/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var pruebas_Dopaje = await _context.Pruebas_Dopaje.FindAsync(id);
-            if (pruebas_Dopaje != null)
+            try
             {
+                var pruebas_Dopaje = await _context.Pruebas_Dopaje.FindAsync(id);
+                if (pruebas_Dopaje == null)
+                {
+                    return RedirectToAction(nameof(Index), new { errorMessage = "La prueba de dopaje no se encontró." });
+                }
+
                 _context.Pruebas_Dopaje.Remove(pruebas_Dopaje);
                 await _context.SaveChangesAsync();
-            }
 
-            return RedirectToAction(nameof(Index));
+                return RedirectToAction(nameof(Index));
+            }
+            catch (Exception)
+            {
+                var errorViewModel = new ErrorViewModel
+                {
+                    StatusCode = 500,
+                    Message = "Ocurrió un error al intentar eliminar la prueba de dopaje.",
+                    RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier
+                };
+
+                return View("Error", errorViewModel);
+            }
         }
+
 
         private bool Pruebas_DopajeExists(int id)
         {

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
@@ -151,20 +152,38 @@ namespace Proyecto_Ciudad_De_Los_Ninos.Controllers
             return View(capacitaciones);
         }
 
-        // POST: Capacitacionestest/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var capacitaciones = await _context.Capacitaciones.FindAsync(id);
-            if (capacitaciones != null)
+            try
             {
-                _context.Capacitaciones.Remove(capacitaciones);
-            }
+                var capacitaciones = await _context.Capacitaciones.FindAsync(id);
+                if (capacitaciones != null)
+                {
+                    _context.Capacitaciones.Remove(capacitaciones);
+                    await _context.SaveChangesAsync();
+                    return RedirectToAction(nameof(Index));
+                }
 
-            await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
+                // Si el objeto no se encuentra, redirige al índice con un mensaje de error
+                TempData["ErrorMessage"] = "El objeto no se encontró.";
+                return RedirectToAction(nameof(Index));
+            }
+            catch
+            {
+                // Crea un modelo de vista de error y redirige a la vista de error
+                var errorViewModel = new ErrorViewModel
+                {
+                    StatusCode = 500, // Código de estado HTTP para errores internos del servidor
+                    Message = "Ocurrió un error al intentar eliminar el objeto.",
+                    RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier
+                };
+
+                return View("Error", errorViewModel);
+            }
         }
+
 
         private bool CapacitacionesExists(int id)
         {
