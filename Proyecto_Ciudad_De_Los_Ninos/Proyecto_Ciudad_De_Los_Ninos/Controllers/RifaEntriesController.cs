@@ -14,6 +14,7 @@ namespace Proyecto_Ciudad_De_Los_Ninos.Controllers
     public class RifaEntriesController : Controller
     {
         private readonly ApplicationDBContext _context;
+        private const decimal TicketPrice = 1500;
 
         public RifaEntriesController(ApplicationDBContext context)
         {
@@ -83,23 +84,27 @@ namespace Proyecto_Ciudad_De_Los_Ninos.Controllers
                     return NotFound();
                 }
 
+                // Calcular el total
+                var totalCost = numbers.Count * TicketPrice;
+
                 // Generar PDF
-                var pdfBytes = GeneratePDF(numbers, entry.Nombre, rifa.FechaRifa, rifa.Premio); // Cambiar a `Premio` si `Nombre` no está disponible
+                var pdfBytes = GeneratePDF(numbers, entry.Nombre, entry.Apellido, rifa.FechaRifa, rifa.Premio, totalCost);
 
                 // Guardar PDF en el servidor
                 var fileName = $"ResumenCompra_{DateTime.Now:yyyyMMddHHmmss}.pdf";
                 var filePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "pdfs", fileName);
                 await System.IO.File.WriteAllBytesAsync(filePath, pdfBytes);
 
-                return RedirectToAction("Confirmacion", new { fileName });
+                return RedirectToAction("Confirmacion", new { fileName, totalCost });
             }
             ViewBag.Rifas = _context.Rifas.ToList();
             return View(entry);
         }
 
-        public IActionResult Confirmacion(string fileName)
+        public IActionResult Confirmacion(string fileName, decimal totalCost)
         {
             ViewBag.FileName = fileName;
+            ViewBag.TotalCost = totalCost; // Pasar el total al ViewBag
             return View();
         }
 
@@ -116,7 +121,7 @@ namespace Proyecto_Ciudad_De_Los_Ninos.Controllers
             return RedirectToAction("Index");
         }
 
-        private byte[] GeneratePDF(List<int> numbers, string clienteNombre, DateTime rifaDate, string rifaName)
+        private byte[] GeneratePDF(List<int> numbers, string clienteNombre, string clienteApellido, DateTime rifaDate, string rifaName, decimal totalCost)
         {
             using (var stream = new MemoryStream())
             {
@@ -126,6 +131,7 @@ namespace Proyecto_Ciudad_De_Los_Ninos.Controllers
                 var fontTitle = new XFont("Arial", 24, XFontStyle.Bold);
                 var fontSubtitle = new XFont("Arial", 18, XFontStyle.Bold);
                 var fontBody = new XFont("Arial", 12, XFontStyle.Regular);
+                var fontFooter = new XFont("Arial", 14, XFontStyle.Bold);
 
                 const int margin = 40;
                 int tableWidth = (int)(page.Width - 2 * margin);
@@ -145,7 +151,7 @@ namespace Proyecto_Ciudad_De_Los_Ninos.Controllers
                 yPos += 50;
 
                 // Información del cliente
-                gfx.DrawString($"Cliente: {clienteNombre}", fontSubtitle, XBrushes.Black, new XRect(margin, yPos, page.Width - 2 * margin, 30), XStringFormats.TopLeft);
+                gfx.DrawString($"Cliente: {clienteNombre} {clienteApellido}", fontSubtitle, XBrushes.Black, new XRect(margin, yPos, page.Width - 2 * margin, 30), XStringFormats.TopLeft);
                 yPos += 35;
 
                 // Información de la rifa
@@ -170,10 +176,13 @@ namespace Proyecto_Ciudad_De_Los_Ninos.Controllers
                 // Línea final para cerrar el boleto
                 gfx.DrawLine(XPens.Black, margin, yPos + 10, page.Width - margin, yPos + 10);
 
+                // Mostrar el costo total con símbolo ₡
+                yPos += 20; // Ajustar espacio antes del costo total
+                gfx.DrawString($"Costo Total: ₡{totalCost:N0}", fontFooter, XBrushes.Black, new XRect(margin, yPos, page.Width - 2 * margin, 30), XStringFormats.TopLeft);
+
                 pdf.Save(stream, false);
                 return stream.ToArray();
             }
         }
-
     }
 }

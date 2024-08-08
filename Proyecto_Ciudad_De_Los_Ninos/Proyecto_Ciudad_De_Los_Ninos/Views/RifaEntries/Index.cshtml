@@ -1,115 +1,236 @@
 ﻿@model API_Ciudad_De_Los_Ninos.Models.RifaEntry
 
-<h2>Participa en la Rifa</h2>
+@{
+    ViewData["Title"] = "Participa en la Rifa";
+}
 
-<form asp-action="Index" method="post" id="rifaForm">
-    <div class="form-group">
-        <label for="Nombre">Nombre</label>
-        <input type="text" class="form-control" id="Nombre" name="Nombre" required />
-    </div>
-    <div class="form-group">
-        <label for="Apellido">Apellido</label>
-        <input type="text" class="form-control" id="Apellido" name="Apellido" required />
-    </div>
-    <div class="form-group">
-        <label for="Correo">Correo Electrónico</label>
-        <input type="email" class="form-control" id="Correo" name="Correo" required />
-    </div>
-
-    <div class="form-group">
-        <label for="RifaId">Rifa</label>
-        <select class="form-control" id="RifaId" name="RifaId" required>
-            <option value="">Selecciona una rifa</option>
-            @foreach (var rifa in ViewBag.Rifas)
-            {
-                <option value="@rifa.RifaId">@rifa.Premio - @rifa.FechaRifa.ToShortDateString()</option>
-            }
-        </select>
-    </div>
-
-    <div class="form-group">
-        <label for="NumeroComprado">Números Comprados</label>
-        <table class="table table-bordered" id="numbersTable">
-            <tbody>
-                <!-- Las filas y columnas se llenarán dinámicamente aquí -->
-            </tbody>
-        </table>
-    </div>
-
-    <input type="hidden" id="SelectedNumbers" name="SelectedNumbers" />
-
-    <button type="submit" class="btn btn-primary">Comprar Boletos</button>
-</form>
-
-@section Scripts {
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script>
-        $(document).ready(function () {
-            $('#RifaId').change(function () {
-                var rifaId = $(this).val();
-                if (rifaId) {
-                    $.ajax({
-                        url: '@Url.Action("GetAvailableNumbers", "RifaEntries")',
-                        type: 'GET',
-                        data: { rifaId: rifaId },
-                        success: function (data) {
-                            var $tableBody = $('#numbersTable tbody');
-                            $tableBody.empty();
-                            var rows = '';
-                            var numCols = 10;
-                            var numRows = Math.ceil(data.length / numCols);
-
-                            for (var i = 0; i < numRows; i++) {
-                                rows += '<tr>';
-                                for (var j = 0; j < numCols; j++) {
-                                    var index = i * numCols + j;
-                                    if (index < data.length) {
-                                        var number = data[index];
-                                        rows += '<td style="background-color: lightgreen; text-align: center; cursor: pointer;" data-number="' + number + '">' + number + '</td>';
-                                    }
-                                }
-                                rows += '</tr>';
-                            }
-                            $tableBody.html(rows);
-
-                            $('#numbersTable').on('click', 'td', function () {
-                                var $cell = $(this);
-                                var maxSelections = 5;
-                                if ($cell.hasClass('selected')) {
-                                    $cell.removeClass('selected');
-                                } else {
-                                    if ($('#numbersTable td.selected').length < maxSelections) {
-                                        $cell.addClass('selected');
-                                    } else {
-                                        alert('Puedes seleccionar un máximo de 5 números.');
-                                    }
-                                }
-                                var selectedNumbers = [];
-                                $('#numbersTable td.selected').each(function () {
-                                    selectedNumbers.push($(this).data('number'));
-                                });
-                                $('#SelectedNumbers').val(selectedNumbers.join(','));
-                            });
-                        },
-                        error: function () {
-                            alert('Error al cargar los datos de los números.');
-                        }
-                    });
-                } else {
-                    $('#numbersTable tbody').empty();
-                }
-            });
-        });
-    </script>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Participar en la Rifa</title>
+    <link rel="stylesheet" href="~/bootstrap/css/bootstrap.min.css">
     <style>
-        td {
-            transition: background-color 0.3s ease;
+        /* Estilos CSS para la página */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
         }
+
+        h2 {
+            color: #333;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        .container-main {
+            background-color: #ffffff;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            margin: 20px auto;
+            max-width: 800px;
+            overflow: hidden;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+            .form-group label {
+                font-weight: bold;
+                color: #333;
+                margin-bottom: 10px;
+                display: block;
+            }
+
+        .form-control {
+            padding: 8px;
+            font-size: 14px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            width: 100%;
+        }
+
+        .btn-primary {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 1.2em;
+            color: white;
+            background-color: #007bff;
+            border: none;
+            border-radius: 5px;
+            text-align: center;
+            text-decoration: none;
+            cursor: pointer;
+            margin-right: 10px;
+        }
+
+            .btn-primary:hover {
+                background-color: #0056b3;
+            }
+
+        .btn-secondary {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 1em;
+            color: white;
+            background-color: #6c757d;
+            border: none;
+            border-radius: 5px;
+            text-align: center;
+            text-decoration: none;
+        }
+
+            .btn-secondary:hover {
+                background-color: #5a6268;
+            }
 
         .selected {
             background-color: blue !important;
             color: white;
             border: 2px solid black;
         }
+
+        td {
+            transition: background-color 0.3s ease;
+        }
+
+        .total-cost {
+            font-weight: bold;
+            font-size: 1.2em;
+            margin-top: 20px;
+        }
     </style>
-}
+</head>
+<body>
+    @Html.Partial("_header")
+
+    <div class="container-main">
+        <h2 class="text-center">Participa en la Rifa</h2>
+        <hr />
+        <form asp-action="Index" method="post" id="rifaForm">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="Nombre">Nombre</label>
+                        <input type="text" class="form-control" id="Nombre" name="Nombre" required />
+                    </div>
+                    <div class="form-group">
+                        <label for="Apellido">Apellido</label>
+                        <input type="text" class="form-control" id="Apellido" name="Apellido" required />
+                    </div>
+                    <div class="form-group">
+                        <label for="Correo">Correo Electrónico</label>
+                        <input type="email" class="form-control" id="Correo" name="Correo" required />
+                    </div>
+                    <div class="form-group">
+                        <label for="RifaId">Rifa</label>
+                        <select class="form-control" id="RifaId" name="RifaId" required>
+                            <option value="">Selecciona una rifa</option>
+                            @foreach (var rifa in ViewBag.Rifas)
+                            {
+                                <option value="@rifa.RifaId">@rifa.Premio - @rifa.FechaRifa.ToShortDateString()</option>
+                            }
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="NumeroComprado">Números Comprados</label>
+                        <table class="table table-bordered" id="numbersTable">
+                            <tbody>
+                                <!-- Las filas y columnas se llenarán dinámicamente aquí -->
+                            </tbody>
+                        </table>
+                        <p class="total-cost">Costo Total: <span id="totalCost">₡0</span></p>
+                    </div>
+                    <input type="hidden" id="SelectedNumbers" name="SelectedNumbers" />
+                    <button type="submit" class="btn btn-primary">Comprar Boletos</button>
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="col text-end">
+                    <a asp-action="Index" class="btn btn-secondary">
+                        <i class="ri-arrow-left-circle-line"></i> Volver atrás
+                    </a>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    @Html.Partial("_footer")
+
+    @section Scripts {
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script>
+            $(document).ready(function () {
+                var costPerNumber = 1500; // El costo por número
+                $('#RifaId').change(function () {
+                    var rifaId = $(this).val();
+                    if (rifaId) {
+                        $.ajax({
+                            url: '@Url.Action("GetAvailableNumbers", "RifaEntries")',
+                            type: 'GET',
+                            data: { rifaId: rifaId },
+                            success: function (data) {
+                                var $tableBody = $('#numbersTable tbody');
+                                $tableBody.empty();
+                                var rows = '';
+                                var numCols = 10;
+                                var numRows = Math.ceil(data.length / numCols);
+
+                                for (var i = 0; i < numRows; i++) {
+                                    rows += '<tr>';
+                                    for (var j = 0; j < numCols; j++) {
+                                        var index = i * numCols + j;
+                                        if (index < data.length) {
+                                            var number = data[index];
+                                            rows += '<td style="background-color: lightgreen; text-align: center; cursor: pointer;" data-number="' + number + '">' + number + '</td>';
+                                        }
+                                    }
+                                    rows += '</tr>';
+                                }
+                                $tableBody.html(rows);
+
+                                $('#numbersTable').on('click', 'td', function () {
+                                    var $cell = $(this);
+                                    var maxSelections = 5;
+                                    if ($cell.hasClass('selected')) {
+                                        $cell.removeClass('selected');
+                                    } else {
+                                        if ($('#numbersTable td.selected').length < maxSelections) {
+                                            $cell.addClass('selected');
+                                        } else {
+                                            alert('Puedes seleccionar un máximo de 5 números.');
+                                        }
+                                    }
+                                    var selectedNumbers = [];
+                                    $('#numbersTable td.selected').each(function () {
+                                        selectedNumbers.push($(this).data('number'));
+                                    });
+                                    $('#SelectedNumbers').val(selectedNumbers.join(','));
+
+                                    // Actualiza el costo total
+                                    var numberOfSelected = $('#numbersTable td.selected').length;
+                                    var totalCost = numberOfSelected * costPerNumber;
+                                    $('#totalCost').text('₡' + totalCost.toLocaleString());
+                                });
+                            },
+                            error: function () {
+                                alert('Error al cargar los datos de los números.');
+                            }
+                        });
+                    } else {
+                        $('#numbersTable tbody').empty();
+                        $('#totalCost').text('₡0');
+                    }
+                });
+            });
+        </script>
+    }
+</body>
+</html>
