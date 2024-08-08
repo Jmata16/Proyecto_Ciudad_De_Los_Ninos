@@ -29,14 +29,35 @@
                     <td>
                         @if (rifa.FechaRifa > DateTime.Now)
                         {
-                            var tiempoRestante = rifa.FechaRifa - DateTime.Now;
-                            <span>@tiempoRestante.Days días, @tiempoRestante.Hours horas, @tiempoRestante.Minutes minutos</span>
+                            <span id="tiempo-restante-@rifa.RifaId" data-fecha="@rifa.FechaRifa.ToString("o")"></span>
+                            <script>
+                                (function () {
+                                    var countdownElement = document.getElementById("tiempo-restante-@rifa.RifaId");
+                                    var fechaRifa = new Date(countdownElement.dataset.fecha);
+                                    var interval = setInterval(function () {
+                                        var now = new Date();
+                                        var tiempoRestante = fechaRifa - now;
+
+                                        if (tiempoRestante > 0) {
+                                            var days = Math.floor(tiempoRestante / (1000 * 60 * 60 * 24));
+                                            var hours = Math.floor((tiempoRestante % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                                            var minutes = Math.floor((tiempoRestante % (1000 * 60 * 60)) / (1000 * 60));
+                                            countdownElement.innerHTML = `${days} días, ${hours} horas, ${minutes} minutos`;
+                                        } else {
+                                            clearInterval(interval);
+                                            countdownElement.innerHTML = "Tiempo terminado, el ganador se anunciará pronto...";
+                                            // Aquí puedes realizar una petición al servidor para verificar el ganador
+                                        }
+                                    }, 1000);
+                                })();
+                            </script>
                         }
                         else
                         {
                             <span>Rifa pasada</span>
                         }
                     </td>
+
                 </tr>
             }
         }

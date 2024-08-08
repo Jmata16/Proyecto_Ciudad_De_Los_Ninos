@@ -55,25 +55,22 @@ namespace Proyecto_Ciudad_De_Los_Ninos.Controllers
             return View(rifa);
         }
 
-        public async Task<IActionResult> DeterminarGanador()
+        public async Task<IActionResult> DeterminarGanador(int rifaId)
         {
-            var rifas = _context.Rifas.ToList();
-            foreach (var rifa in rifas)
+            var rifa = await _context.Rifas.FindAsync(rifaId);
+            if (rifa != null && rifa.FechaRifa <= DateTime.Now && rifa.NumeroGanador == null)
             {
-                if (rifa.FechaRifa <= DateTime.Now && rifa.NumeroGanador == null)
-                {
-                    var random = new Random();
-                    // Seleciona un numero aleatorio entre 1 y 100
-                    var numeroGanador = random.Next(1, 101);
-                    rifa.NumeroGanador = numeroGanador;  
+                var random = new Random();
+                var numeroGanador = random.Next(1, 101);
+                rifa.NumeroGanador = numeroGanador;
 
-                    _context.Rifas.Update(rifa);
-                    await _context.SaveChangesAsync();
-                }
+                _context.Rifas.Update(rifa);
+                await _context.SaveChangesAsync();
             }
 
             return RedirectToAction("RifaDetalles");
         }
+
 
         public IActionResult RifaDetalles()
         {
@@ -100,6 +97,17 @@ namespace Proyecto_Ciudad_De_Los_Ninos.Controllers
             ViewBag.Rifas = rifas;
 
             return View();
+        }
+
+
+        public IActionResult RifasProximas()
+        {
+            var rifasProximas = _context.Rifas
+                .Where(r => r.FechaRifa >= DateTime.Now)
+                .OrderBy(r => r.FechaRifa)
+                .ToList();
+
+            return View(rifasProximas);
         }
 
 
