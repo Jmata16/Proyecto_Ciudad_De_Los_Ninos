@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Proyecto_Ciudad_De_Los_Ninos.Models;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Proyecto_Ciudad_De_Los_Ninos.Controllers
 {
@@ -75,7 +76,7 @@ namespace Proyecto_Ciudad_De_Los_Ninos.Controllers
 
 
 
-
+        [Authorize(Policy = "AdminPolicy")]
         public IActionResult RifaDetalles()
         {
             var rifas = _context.Rifas
@@ -125,12 +126,14 @@ namespace Proyecto_Ciudad_De_Los_Ninos.Controllers
         // Lista todas las rifas
 
         // Muestra el formulario para crear una nueva rifa
+        [Authorize(Policy = "AdminPolicy")]
         public IActionResult Create()
         {
             return View();
         }
 
         // Procesa el formulario de creación de una nueva rifa
+        [Authorize(Policy = "AdminPolicy")]
         [HttpPost]
         public IActionResult Create(Rifa rifa)
         {
@@ -145,6 +148,7 @@ namespace Proyecto_Ciudad_De_Los_Ninos.Controllers
         }
 
         // Muestra el formulario para editar una rifa existente
+        [Authorize(Policy = "AdminPolicy")]
         public IActionResult Edit(int id)
         {
             var rifa = _context.Rifas.Find(id);
@@ -156,6 +160,7 @@ namespace Proyecto_Ciudad_De_Los_Ninos.Controllers
         }
 
         // Procesa el formulario de edición de una rifa existente
+        [Authorize(Policy = "AdminPolicy")]
         [HttpPost]
         public IActionResult Edit(Rifa rifa)
         {
@@ -196,6 +201,7 @@ namespace Proyecto_Ciudad_De_Los_Ninos.Controllers
 
 
         // Muestra el formulario para eliminar una rifa existente
+        [Authorize(Policy = "AdminPolicy")]
         public IActionResult Delete(int id)
         {
             var rifa = _context.Rifas.Find(id);
@@ -207,6 +213,7 @@ namespace Proyecto_Ciudad_De_Los_Ninos.Controllers
         }
 
         // Procesa la eliminación de una rifa existente
+        [Authorize(Policy = "AdminPolicy")]
         [HttpPost, ActionName("Delete")]
         public IActionResult DeleteConfirmed(int id)
         {
