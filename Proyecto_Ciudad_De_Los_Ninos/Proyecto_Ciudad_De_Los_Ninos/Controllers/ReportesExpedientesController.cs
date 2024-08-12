@@ -8,7 +8,6 @@ using API_Ciudad_De_Los_Ninos.Models;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Proyecto_Ciudad_De_Los_Ninos.Models;
 using Microsoft.AspNetCore.Authorization;
-using System.Diagnostics;
 
 namespace Proyecto_Ciudad_De_Los_Ninos.Controllers
 {
@@ -136,36 +135,16 @@ namespace Proyecto_Ciudad_De_Los_Ninos.Controllers
             return View(reporteExpediente);
         }
 
+        // POST: ReportesExpedientes/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            try
-            {
-                var reporteExpediente = await _context.Reportes_Expedientes.FindAsync(id);
-                if (reporteExpediente == null)
-                {
-                    return RedirectToAction(nameof(Index), new { errorMessage = "El reporte de expediente no se encontró." });
-                }
-
-                _context.Reportes_Expedientes.Remove(reporteExpediente);
-                await _context.SaveChangesAsync();
-
-                return RedirectToAction(nameof(Index));
-            }
-            catch (Exception)
-            {
-                var errorViewModel = new ErrorViewModel
-                {
-                    StatusCode = 500,
-                    Message = "Ocurrió un error al intentar eliminar el reporte de expediente.",
-                    RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier
-                };
-
-                return View("Error", errorViewModel);
-            }
+            var reporteExpediente = await _context.Reportes_Expedientes.FindAsync(id);
+            _context.Reportes_Expedientes.Remove(reporteExpediente);
+            await _context.SaveChangesAsync();
+            return RedirectToAction(nameof(Index));
         }
-
 
         private bool ReporteExpedienteExists(int id)
         {

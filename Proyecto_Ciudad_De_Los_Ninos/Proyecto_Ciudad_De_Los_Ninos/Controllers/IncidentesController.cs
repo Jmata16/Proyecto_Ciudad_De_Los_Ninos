@@ -6,7 +6,6 @@ using API_Ciudad_De_Los_Ninos.Models;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Proyecto_Ciudad_De_Los_Ninos.Models;
 using Microsoft.AspNetCore.Authorization;
-using System.Diagnostics;
 
 namespace API_Ciudad_De_Los_Ninos.Controllers
 {
@@ -136,37 +135,16 @@ namespace API_Ciudad_De_Los_Ninos.Controllers
             return View(incidente);
         }
 
+        // POST: Incidentes/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            try
-            {
-                var incidente = await _context.Incidentes.FindAsync(id);
-                if (incidente == null)
-                {
-                    return RedirectToAction(nameof(Index), new { errorMessage = "El incidente no se encontró." });
-                }
-
-                _context.Incidentes.Remove(incidente);
-                await _context.SaveChangesAsync();
-
-                return RedirectToAction(nameof(Index));
-            }
-            catch (Exception)
-            {
-                var errorViewModel = new ErrorViewModel
-                {
-                    StatusCode = 500,
-                    Message = "Ocurrió un error al intentar eliminar el incidente.",
-                    RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier
-                };
-
-                return View("Error", errorViewModel);
-            }
+            var incidente = await _context.Incidentes.FindAsync(id);
+            _context.Incidentes.Remove(incidente);
+            await _context.SaveChangesAsync();
+            return RedirectToAction(nameof(Index));
         }
-
-
 
         private bool IncidenteExists(int id)
         {

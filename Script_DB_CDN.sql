@@ -397,7 +397,7 @@ VALUES ('2024-08-15', NULL, 'Premio de Ejemplo');
 INSERT INTO Rifas (FechaRifa, Premio, NumeroGanador)
 VALUES ('2024-08-04 17:39:00', 'Premio Especial', NULL);
 INSERT INTO Rifas (FechaRifa, Premio, NumeroGanador)
-VALUES ('2024-08-07 21:15:00', 'Premio Especial', NULL);
+VALUES ('2024-08-04 17:59:00', 'Premio Especial', NULL);
 
 
 alter table Rifas

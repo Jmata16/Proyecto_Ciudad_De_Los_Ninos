@@ -8,7 +8,6 @@ using Microsoft.EntityFrameworkCore;
 using API_Ciudad_De_Los_Ninos.Models;
 using Proyecto_Ciudad_De_Los_Ninos.Models;
 using Microsoft.AspNetCore.Authorization;
-using System.Diagnostics;
 
 namespace Proyecto_Ciudad_De_Los_Ninos.Controllers
 {
@@ -175,34 +174,14 @@ namespace Proyecto_Ciudad_De_Los_Ninos.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            try
+            var user = await _context.Users.FindAsync(id);
+            if (user != null)
             {
-                var user = await _context.Users.FindAsync(id);
-                if (user == null)
-                {
-                    TempData["ErrorMessage"] = "El usuario no se encontró o ya ha sido eliminado.";
-                    return RedirectToAction(nameof(Index));
-                }
-
                 _context.Users.Remove(user);
                 await _context.SaveChangesAsync();
-
-                TempData["SuccessMessage"] = "El usuario se eliminó correctamente.";
-                return RedirectToAction(nameof(Index));
             }
-            catch (Exception ex)
-            {
-                var errorViewModel = new ErrorViewModel
-                {
-                    StatusCode = 500,
-                    Message = "Ocurrió un error al intentar eliminar el usuario. Por favor, inténtelo de nuevo más tarde.",
-                    RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier
-                };
-
-                return View("Error", errorViewModel);
-            }
+            return RedirectToAction(nameof(Index));
         }
-
 
         private bool UserExists(int id)
         {

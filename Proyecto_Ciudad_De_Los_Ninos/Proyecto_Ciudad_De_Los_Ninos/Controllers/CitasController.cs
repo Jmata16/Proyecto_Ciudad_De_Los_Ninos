@@ -8,7 +8,6 @@ using API_Ciudad_De_Los_Ninos.Models;
 using Proyecto_Ciudad_De_Los_Ninos.Models;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.AspNetCore.Authorization;
-using System.Diagnostics;
 
 namespace Proyecto_Ciudad_De_Los_Ninos.Controllers
 {
@@ -163,37 +162,16 @@ namespace Proyecto_Ciudad_De_Los_Ninos.Controllers
             return View(cita);
         }
 
+        // POST: CitasController/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            try
-            {
-                var cita = await _context.Citas.FindAsync(id);
-                if (cita == null)
-                {
-                    return RedirectToAction(nameof(Index), new { errorMessage = "La cita no se encontró." });
-                }
-
-                _context.Citas.Remove(cita);
-                await _context.SaveChangesAsync();
-
-                return RedirectToAction(nameof(Index));
-            }
-            catch (Exception)
-            {
-                var errorViewModel = new ErrorViewModel
-                {
-                    StatusCode = 500,
-                    Message = "Ocurrió un error al intentar eliminar la cita.",
-                    RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier
-                };
-
-                return View("Error", errorViewModel);
-            }
+            var cita = await _context.Citas.FindAsync(id);
+            _context.Citas.Remove(cita);
+            await _context.SaveChangesAsync();
+            return RedirectToAction(nameof(Index));
         }
-
-
 
         private bool CitaExists(int id)
         {

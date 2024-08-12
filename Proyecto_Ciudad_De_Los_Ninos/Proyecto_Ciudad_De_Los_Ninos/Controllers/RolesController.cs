@@ -8,7 +8,6 @@ using Microsoft.EntityFrameworkCore;
 using API_Ciudad_De_Los_Ninos.Models;
 using Proyecto_Ciudad_De_Los_Ninos.Models;
 using Microsoft.AspNetCore.Authorization;
-using System.Diagnostics;
 
 namespace Proyecto_Ciudad_De_Los_Ninos.Controllers
 {
@@ -137,34 +136,15 @@ namespace Proyecto_Ciudad_De_Los_Ninos.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            try
+            var roles = await _context.Roles.FindAsync(id);
+            if (roles != null)
             {
-                var roles = await _context.Roles.FindAsync(id);
-                if (roles == null)
-                {
-                    TempData["ErrorMessage"] = "El rol no se encontró o ya ha sido eliminado.";
-                    return RedirectToAction(nameof(Index));
-                }
-
                 _context.Roles.Remove(roles);
-                await _context.SaveChangesAsync();
-
-                TempData["SuccessMessage"] = "El rol se eliminó correctamente.";
-                return RedirectToAction(nameof(Index));
             }
-            catch (Exception ex)
-            {
-                var errorViewModel = new ErrorViewModel
-                {
-                    StatusCode = 500,
-                    Message = "Ocurrió un error al intentar eliminar el rol. Por favor, inténtelo de nuevo más tarde.",
-                    RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier
-                };
 
-                return View("Error", errorViewModel);
-            }
+            await _context.SaveChangesAsync();
+            return RedirectToAction(nameof(Index));
         }
-
 
         private bool RolesExists(int id)
         {

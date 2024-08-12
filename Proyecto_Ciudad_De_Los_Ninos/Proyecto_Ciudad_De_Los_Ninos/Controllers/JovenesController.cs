@@ -8,7 +8,6 @@ using Microsoft.EntityFrameworkCore;
 using API_Ciudad_De_Los_Ninos.Models;
 using Proyecto_Ciudad_De_Los_Ninos.Models;
 using Microsoft.AspNetCore.Authorization;
-using System.Diagnostics;
 
 namespace Proyecto_Ciudad_De_Los_Ninos.Controllers
 {
@@ -144,37 +143,20 @@ namespace Proyecto_Ciudad_De_Los_Ninos.Controllers
             return View(jovenes);
         }
 
-
+       
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            try
+            var jovenes = await _context.Jovenes.FindAsync(id);
+            if (jovenes != null)
             {
-                var jovenes = await _context.Jovenes.FindAsync(id);
-                if (jovenes == null)
-                {
-                    return RedirectToAction(nameof(Index), new { errorMessage = "El registro de jóvenes no se encontró." });
-                }
-
                 _context.Jovenes.Remove(jovenes);
-                await _context.SaveChangesAsync();
-
-                return RedirectToAction(nameof(Index));
             }
-            catch (Exception)
-            {
-                var errorViewModel = new ErrorViewModel
-                {
-                    StatusCode = 500,
-                    Message = "Ocurrió un error al intentar eliminar el registro de jóvenes.",
-                    RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier
-                };
 
-                return View("Error", errorViewModel);
-            }
+            await _context.SaveChangesAsync();
+            return RedirectToAction(nameof(Index));
         }
-
 
         private bool JovenesExists(int id)
         {
