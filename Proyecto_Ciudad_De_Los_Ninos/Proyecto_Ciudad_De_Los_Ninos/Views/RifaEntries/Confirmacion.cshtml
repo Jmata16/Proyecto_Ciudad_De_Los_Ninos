@@ -1,0 +1,116 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewData["Title"]</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="~/css/confirmacion.css">
+    <style>
+        .expiry-date-group {
+            display: flex;
+            gap: 5px;
+        }
+
+            .expiry-date-group input {
+                flex: 1;
+            }
+
+            .expiry-date-group .separator {
+                flex-shrink: 0;
+                padding-top: 8px; /* Ajusta la altura del separador si es necesario */
+            }
+
+        .message {
+            margin-bottom: 30px; /* Ajusta este valor para el espacio deseado */
+        }
+
+        .total-cost {
+            font-weight: bold;
+            font-size: 1.2em;
+            margin-top: 20px;
+        }
+
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    @Html.Partial("_header")
+
+    <div class="content">
+        <div class="containerP">
+            <h2>Pago de Rifa</h2>
+        </div>
+
+        <div class="message">
+            <p><strong style="color: red;">Aviso importante:</strong> Para completar el proceso de compra y poder acceder a los productos adquiridos, es necesario que realice el pago y descargue su factura. Haga clic en el botón de "Pagar" para continuar.</p>
+        </div>
+
+        <div class="containerpago">
+            <h3>Detalles de Pago</h3>
+            <p class="total-cost">Costo Total: <span id="totalCost">₡@ViewBag.TotalCost.ToString("N0")</span></p>
+            <form id="paymentForm" method="post" onsubmit="return processPayment()">
+                <div class="mb-3">
+                    <label for="cardHolder" class="form-label">Titular de la Tarjeta</label>
+                    <input type="text" class="form-control" id="cardHolder" placeholder="Nombre del Titular" required>
+                </div>
+                <div class="mb-3">
+                    <label for="cardNumber" class="form-label">Número de Tarjeta</label>
+                    <input type="text" class="form-control" id="cardNumber" placeholder="1234 5678 9012 3456" required>
+                </div>
+                <div class="mb-3">
+                    <label for="expiryDate" class="form-label">Fecha de Expiración</label>
+                    <div class="expiry-date-group">
+                        <input type="text" class="form-control" id="expiryMonth" placeholder="MM" maxlength="2" required>
+                        <span class="separator">/</span>
+                        <input type="text" class="form-control" id="expiryYear" placeholder="AA" maxlength="2" required>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label for="cvv" class="form-label">CVV</label>
+                    <input type="text" class="form-control" id="cvv" placeholder="123" required>
+                </div>
+                <button type="submit" class="btn btn-primary">Pagar</button>
+            </form>
+        </div>
+
+        <div id="loader" class="loader"></div>
+        <div class="containerP hidden" id="downloadSection">
+            <h3>¡Pago Completo!</h3>
+            <a href="@Url.Content($"~/pdfs/{ViewBag.FileName}")" class="btn btn-success">Descargar PDF</a>
+        </div>
+
+        <div class="containerP">
+            <a href="/" class="btn btn-secondary">Ir al Inicio</a>
+        </div>
+    </div>
+
+    @Html.Partial("_footer")
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        function processPayment() {
+            // Validar si todos los campos están llenos
+            let form = document.getElementById('paymentForm');
+            if (!form.checkValidity()) {
+                return false; // Evita el envío del formulario si hay campos vacíos
+            }
+
+            // Mostrar animación de carga
+            document.getElementById('loader').style.display = 'block';
+
+            // Simular proceso de pago
+            setTimeout(() => {
+                // Ocultar animación de carga
+                document.getElementById('loader').style.display = 'none';
+
+                // Mostrar botón de descarga
+                document.getElementById('downloadSection').classList.remove('hidden');
+            }, 2000); // Simular tiempo de procesamiento del pago (2 segundos)
+
+            return false; // Evita el envío del formulario real
+        }
+    </script>
+</body>
+</html>

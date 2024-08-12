@@ -16,6 +16,7 @@ using System.Drawing.Printing;
 using System.Globalization;
 using System.Text;
 using Microsoft.AspNetCore.Authorization;
+using System.Diagnostics;
 
 namespace Proyecto_Ciudad_De_Los_Ninos.Controllers
 {
@@ -166,16 +167,37 @@ namespace Proyecto_Ciudad_De_Los_Ninos.Controllers
             return View(expediente);
         }
 
-        // POST: Expedientes/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var expediente = await _context.Expedientes.FindAsync(id);
-            _context.Expedientes.Remove(expediente);
-            await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
+            try
+            {
+                var expediente = await _context.Expedientes.FindAsync(id);
+                if (expediente == null)
+                {
+                    return RedirectToAction(nameof(Index), new { errorMessage = "El expediente no se encontró." });
+                }
+
+                _context.Expedientes.Remove(expediente);
+                await _context.SaveChangesAsync();
+
+                return RedirectToAction(nameof(Index));
+            }
+            catch (Exception)
+            {
+                var errorViewModel = new ErrorViewModel
+                {
+                    StatusCode = 500,
+                    Message = "Ocurrió un error al intentar eliminar el expediente.",
+                    RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier
+                };
+
+                return View("Error", errorViewModel);
+            }
         }
+
+
 
         private bool ExpedienteExists(int id)
         {

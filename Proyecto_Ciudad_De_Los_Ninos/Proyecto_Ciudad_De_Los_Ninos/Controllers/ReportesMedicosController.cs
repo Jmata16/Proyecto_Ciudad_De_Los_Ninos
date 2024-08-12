@@ -8,6 +8,7 @@ using API_Ciudad_De_Los_Ninos.Models;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Proyecto_Ciudad_De_Los_Ninos.Models;
 using Microsoft.AspNetCore.Authorization;
+using System.Diagnostics;
 
 namespace Proyecto_Ciudad_De_Los_Ninos.Controllers
 {
@@ -136,16 +137,36 @@ namespace Proyecto_Ciudad_De_Los_Ninos.Controllers
             return View(reporteMedico);
         }
 
-        // POST: ReportesMedicos/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var reporteMedico = await _context.Reportes_Medicos.FindAsync(id);
-            _context.Reportes_Medicos.Remove(reporteMedico);
-            await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
+            try
+            {
+                var reporteMedico = await _context.Reportes_Medicos.FindAsync(id);
+                if (reporteMedico == null)
+                {
+                    return RedirectToAction(nameof(Index), new { errorMessage = "El reporte médico no se encontró." });
+                }
+
+                _context.Reportes_Medicos.Remove(reporteMedico);
+                await _context.SaveChangesAsync();
+
+                return RedirectToAction(nameof(Index));
+            }
+            catch (Exception)
+            {
+                var errorViewModel = new ErrorViewModel
+                {
+                    StatusCode = 500,
+                    Message = "Ocurrió un error al intentar eliminar el reporte médico.",
+                    RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier
+                };
+
+                return View("Error", errorViewModel);
+            }
         }
+
 
         private bool ReporteMedicoExists(int id)
         {

@@ -188,11 +188,30 @@ namespace Proyecto_Ciudad_De_Los_Ninos.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var asistencia = await _context.Asistencia.FindAsync(id);
-            _context.Asistencia.Remove(asistencia);
-            await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
+            try
+            {
+                var asistencia = await _context.Asistencia.FindAsync(id);
+
+                if (asistencia == null)
+                {
+                    TempData["ErrorMessage"] = "El dato no se encontró o ya ha sido eliminado.";
+                    return RedirectToAction(nameof(Index));
+                }
+
+                _context.Asistencia.Remove(asistencia);
+                await _context.SaveChangesAsync();
+
+                TempData["SuccessMessage"] = "La asistencia se eliminó correctamente.";
+                return RedirectToAction(nameof(Index));
+            }
+            catch
+            {
+                TempData["ErrorMessage"] = "Ocurrió un error al intentar eliminar la asistencia. Por favor, inténtelo de nuevo más tarde.";
+                return RedirectToAction(nameof(Index));
+            }
         }
+
+
         private bool AsistenciaExists(int id)
         {
             return _context.Asistencia.Any(e => e.ID == id);

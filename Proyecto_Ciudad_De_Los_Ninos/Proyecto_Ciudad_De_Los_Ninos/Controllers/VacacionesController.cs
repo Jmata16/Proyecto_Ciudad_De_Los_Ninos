@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
@@ -154,14 +155,32 @@ namespace Proyecto_Ciudad_De_Los_Ninos.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var vacaciones = await _context.Vacaciones.FindAsync(id);
-            if (vacaciones != null)
+            try
             {
+                var vacaciones = await _context.Vacaciones.FindAsync(id);
+                if (vacaciones == null)
+                {
+                    TempData["ErrorMessage"] = "El registro de vacaciones no se encontró o ya ha sido eliminado.";
+                    return RedirectToAction(nameof(Index));
+                }
+
                 _context.Vacaciones.Remove(vacaciones);
                 await _context.SaveChangesAsync();
-            }
 
-            return RedirectToAction(nameof(Index));
+                TempData["SuccessMessage"] = "El registro de vacaciones se eliminó correctamente.";
+                return RedirectToAction(nameof(Index));
+            }
+            catch (Exception ex)
+            {
+                var errorViewModel = new ErrorViewModel
+                {
+                    StatusCode = 500,
+                    Message = "Ocurrió un error al intentar eliminar el registro de vacaciones. Por favor, inténtelo de nuevo más tarde.",
+                    RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier
+                };
+
+                return View("Error", errorViewModel);
+            }
         }
 
 
