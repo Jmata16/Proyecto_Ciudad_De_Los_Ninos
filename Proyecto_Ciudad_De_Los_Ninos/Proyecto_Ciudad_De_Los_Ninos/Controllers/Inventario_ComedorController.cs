@@ -9,6 +9,7 @@ using API_Ciudad_De_Los_Ninos.Models;
 using Proyecto_Ciudad_De_Los_Ninos.Models;
 using Microsoft.AspNetCore.Authorization;
 using PagedList.EntityFramework;
+using System.Diagnostics;
 
 namespace Proyecto_Ciudad_De_Los_Ninos.Controllers
 {
@@ -175,15 +176,33 @@ namespace Proyecto_Ciudad_De_Los_Ninos.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var inventario_Comedor = await _context.Inventario_Comedor.FindAsync(id);
-            if (inventario_Comedor != null)
+            try
             {
-                _context.Inventario_Comedor.Remove(inventario_Comedor);
-            }
+                var inventario_Comedor = await _context.Inventario_Comedor.FindAsync(id);
+                if (inventario_Comedor == null)
+                {
+                    return RedirectToAction(nameof(Index), new { errorMessage = "El inventario de comedor no se encontró." });
+                }
 
-            await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
+                _context.Inventario_Comedor.Remove(inventario_Comedor);
+                await _context.SaveChangesAsync();
+
+                return RedirectToAction(nameof(Index));
+            }
+            catch (Exception)
+            {
+                var errorViewModel = new ErrorViewModel
+                {
+                    StatusCode = 500,
+                    Message = "Ocurrió un error al intentar eliminar el inventario de comedor.",
+                    RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier
+                };
+
+                return View("Error", errorViewModel);
+            }
         }
+
+
 
         private bool Inventario_ComedorExists(int id)
         {

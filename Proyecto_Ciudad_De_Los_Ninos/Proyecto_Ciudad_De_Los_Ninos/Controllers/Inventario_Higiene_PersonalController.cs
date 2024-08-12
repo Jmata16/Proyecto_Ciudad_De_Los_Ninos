@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
@@ -186,32 +187,46 @@ namespace Proyecto_Ciudad_De_Los_Ninos.Controllers
             return View(inventario_Higiene_Personal);
         }
 
-        // POST: Inventario_Higiene_Personal/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var inventario_Higiene_Personal = await _context.Inventario_Higiene_Personal.FindAsync(id);
-            if (inventario_Higiene_Personal != null)
+            try
             {
-                var tickete = _context.Tickete.FirstOrDefault(m => m.id_inventario_higiene_personal == id);
-
-                if (tickete != null)
+                var inventario_Higiene_Personal = await _context.Inventario_Higiene_Personal.FindAsync(id);
+                if (inventario_Higiene_Personal != null)
                 {
+                    var tickete = _context.Tickete.FirstOrDefault(m => m.id_inventario_higiene_personal == id);
 
-                    _context.Tickete.Remove(tickete);
+                    if (tickete != null)
+                    {
+                        _context.Tickete.Remove(tickete);
+                        await _context.SaveChangesAsync();
+                    }
+
+                    _context.Inventario_Higiene_Personal.Remove(inventario_Higiene_Personal);
                     await _context.SaveChangesAsync();
 
-                   
+                    return RedirectToAction(nameof(Index));
                 }
 
-                _context.Inventario_Higiene_Personal.Remove(inventario_Higiene_Personal);
-                await _context.SaveChangesAsync();
-
-                return RedirectToAction(nameof(Index));
+                // Si el objeto no se encuentra, redirige al índice con un mensaje de error
+                return RedirectToAction(nameof(Index), new { errorMessage = "El objeto no se encontró." });
             }
-            return RedirectToAction(nameof(Index));
+            catch (Exception)
+            {
+                // Crea un modelo de vista de error y redirige a la vista de error
+                var errorViewModel = new ErrorViewModel
+                {
+                    StatusCode = 500, // Código de estado HTTP para errores internos del servidor
+                    Message = "Ocurrió un error al intentar eliminar el objeto.",
+                    RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier
+                };
+
+                return View("Error", errorViewModel);
+            }
         }
+
 
         private bool Inventario_Higiene_PersonalExists(int id)
         {

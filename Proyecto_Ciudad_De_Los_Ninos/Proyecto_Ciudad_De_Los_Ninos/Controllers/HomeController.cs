@@ -1,12 +1,11 @@
-using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Diagnostics; // Para acceder a detalles de la excepción
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
 using Proyecto_Ciudad_De_Los_Ninos.Models;
 using System.Diagnostics;
+using System.Net;
 
 namespace Proyecto_Ciudad_De_Los_Ninos.Controllers
 {
-    
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
@@ -38,7 +37,20 @@ namespace Proyecto_Ciudad_De_Los_Ninos.Controllers
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+            var statusCode = HttpContext.Response.StatusCode;
+            var exceptionFeature = HttpContext.Features.Get<IExceptionHandlerFeature>();
+            var exception = exceptionFeature?.Error;
+
+            var errorViewModel = new ErrorViewModel
+            {
+                StatusCode = statusCode,
+                Message = exception?.Message ?? "Ha ocurrido un error inesperado.",
+                RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier
+            };
+
+            _logger.LogError(exception, "Error occurred with status code {StatusCode}", statusCode);
+
+            return View(errorViewModel);
         }
     }
 }
