@@ -1,7 +1,6 @@
 {
   "format": 1,
   "restore": {
-<<<<<<< HEAD
     "C:\\repos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos.csproj": {}
   },
   "projects": {
@@ -16,22 +15,6 @@
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\KAREN\\AppData\\Roaming\\NuGet\\NuGet.Config",
-=======
-    "C:\\Users\\dyure\\Documents\\GitHub\\CDN\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos.csproj": {}
-  },
-  "projects": {
-    "C:\\Users\\dyure\\Documents\\GitHub\\CDN\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos.csproj": {
-      "version": "1.0.0",
-      "restore": {
-        "projectUniqueName": "C:\\Users\\dyure\\Documents\\GitHub\\CDN\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos.csproj",
-        "projectName": "Proyecto_Ciudad_De_Los_Ninos",
-        "projectPath": "C:\\Users\\dyure\\Documents\\GitHub\\CDN\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos.csproj",
-        "packagesPath": "C:\\Users\\dyure\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\dyure\\Documents\\GitHub\\CDN\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\obj\\",
-        "projectStyle": "PackageReference",
-        "configFilePaths": [
-          "C:\\Users\\dyure\\AppData\\Roaming\\NuGet\\NuGet.Config",
->>>>>>> origin/Dylan-Rifa
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
