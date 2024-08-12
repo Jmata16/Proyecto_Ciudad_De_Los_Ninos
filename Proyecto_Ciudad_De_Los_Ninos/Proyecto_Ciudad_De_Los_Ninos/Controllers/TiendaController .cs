@@ -245,72 +245,78 @@ namespace Proyecto_Ciudad_De_Los_Ninos.Controllers
 
 
         private byte[] GeneratePDF(List<Tickete> productosCarrito, string clienteNombre)
+        {
+            using (var stream = new MemoryStream())
             {
-                using (var stream = new MemoryStream())
+                var pdf = new PdfDocument();
+                var page = pdf.AddPage();
+                var gfx = XGraphics.FromPdfPage(page);
+                var fontTitle = new XFont("Arial", 18, XFontStyle.Bold);
+                var fontHeader = new XFont("Arial", 12, XFontStyle.Bold);
+                var fontBody = new XFont("Arial", 10, XFontStyle.Regular);
+
+                const int margin = 40;
+                int tableWidth = (int)(page.Width - 2 * margin);
+                const int tableStartX = margin;
+                const int tableStartY = 100;
+                const int cellHeight = 20;
+                int yPos = margin;
+
+                // Agregar logo
+                var logoPath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "images", "logo.png");
+                XImage logo = XImage.FromFile(logoPath);
+                gfx.DrawImage(logo, margin, yPos, 125, 100);  // Ajustar tamaño y posición según necesites
+                yPos += 120;  // Ajustar posición vertical después de añadir el logo
+
+                // Title
+                gfx.DrawString("Factura de Orden", fontTitle, XBrushes.Black, new XRect(margin, yPos, page.Width - 2 * margin, 30), XStringFormats.TopCenter);
+                yPos += 40;
+
+                // Client and Date
+                gfx.DrawString($"Cliente: {clienteNombre}", fontBody, XBrushes.Black, new XRect(margin, yPos, page.Width - 2 * margin, 20), XStringFormats.TopLeft);
+                yPos += 20;
+                gfx.DrawString($"Fecha: {DateTime.Now:dd/MM/yyyy}", fontBody, XBrushes.Black, new XRect(margin, yPos, page.Width - 2 * margin, 20), XStringFormats.TopLeft);
+                yPos += 40;
+
+                // Table headers
+                gfx.DrawRectangle(XPens.Black, tableStartX, yPos, tableWidth, cellHeight);
+                gfx.DrawString("Producto", fontHeader, XBrushes.Black, new XRect(tableStartX + 10, yPos + 5, 150, cellHeight), XStringFormats.TopLeft);
+                gfx.DrawString("Cantidad", fontHeader, XBrushes.Black, new XRect(tableStartX + 160, yPos + 5, 70, cellHeight), XStringFormats.TopLeft);
+                gfx.DrawString("Precio Unitario", fontHeader, XBrushes.Black, new XRect(tableStartX + 230, yPos + 5, 100, cellHeight), XStringFormats.TopLeft);
+                gfx.DrawString("Total", fontHeader, XBrushes.Black, new XRect(tableStartX + 330, yPos + 5, 70, cellHeight), XStringFormats.TopLeft);
+                gfx.DrawString("Tickete ID", fontHeader, XBrushes.Black, new XRect(tableStartX + 400, yPos + 5, page.Width - 2 * margin - 400, cellHeight), XStringFormats.TopLeft);
+                yPos += cellHeight;
+
+                decimal grandTotal = 0;
+
+                // Table rows
+                foreach (var item in productosCarrito)
                 {
-                    var pdf = new PdfDocument();
-                    var page = pdf.AddPage();
-                    var gfx = XGraphics.FromPdfPage(page);
-                    var fontTitle = new XFont("Arial", 18, XFontStyle.Bold);
-                    var fontHeader = new XFont("Arial", 12, XFontStyle.Bold);
-                    var fontBody = new XFont("Arial", 10, XFontStyle.Regular);
+                    var producto = item.inventario_Higiene_Personal.nombre_producto;
+                    var cantidad = item.tickete.ToString();
+                    var precioUnitario = item.inventario_Higiene_Personal.precio_unitario ?? 0m;
+                    var total = precioUnitario * item.tickete;
+                    var ticketeId = item.Id.ToString();
 
-                    const int margin = 40;
-                    int tableWidth = (int)(page.Width - 2 * margin);
-                    const int tableStartX = margin;
-                    const int tableStartY = 100;
-                    const int cellHeight = 20;
-                    int yPos = margin;
-
-                    // Title
-                    gfx.DrawString("Factura de Orden", fontTitle, XBrushes.Black, new XRect(margin, yPos, page.Width - 2 * margin, 30), XStringFormats.TopCenter);
-                    yPos += 40;
-
-                    // Client and Date
-                    gfx.DrawString($"Cliente: {clienteNombre}", fontBody, XBrushes.Black, new XRect(margin, yPos, page.Width - 2 * margin, 20), XStringFormats.TopLeft);
-                    yPos += 20;
-                    gfx.DrawString($"Fecha: {DateTime.Now:dd/MM/yyyy}", fontBody, XBrushes.Black, new XRect(margin, yPos, page.Width - 2 * margin, 20), XStringFormats.TopLeft);
-                    yPos += 40;
-
-                    // Table headers
                     gfx.DrawRectangle(XPens.Black, tableStartX, yPos, tableWidth, cellHeight);
-                    gfx.DrawString("Producto", fontHeader, XBrushes.Black, new XRect(tableStartX + 10, yPos + 5, 150, cellHeight), XStringFormats.TopLeft);
-                    gfx.DrawString("Cantidad", fontHeader, XBrushes.Black, new XRect(tableStartX + 160, yPos + 5, 70, cellHeight), XStringFormats.TopLeft);
-                    gfx.DrawString("Precio Unitario", fontHeader, XBrushes.Black, new XRect(tableStartX + 230, yPos + 5, 100, cellHeight), XStringFormats.TopLeft);
-                    gfx.DrawString("Total", fontHeader, XBrushes.Black, new XRect(tableStartX + 330, yPos + 5, 70, cellHeight), XStringFormats.TopLeft);
-                    gfx.DrawString("Tickete ID", fontHeader, XBrushes.Black, new XRect(tableStartX + 400, yPos + 5, page.Width - 2 * margin - 400, cellHeight), XStringFormats.TopLeft);
+                    gfx.DrawString(producto, fontBody, XBrushes.Black, new XRect(tableStartX + 10, yPos + 5, 150, cellHeight), XStringFormats.TopLeft);
+                    gfx.DrawString(cantidad, fontBody, XBrushes.Black, new XRect(tableStartX + 160, yPos + 5, 70, cellHeight), XStringFormats.TopLeft);
+                    gfx.DrawString($"${precioUnitario:0.00}", fontBody, XBrushes.Black, new XRect(tableStartX + 230, yPos + 5, 100, cellHeight), XStringFormats.TopLeft);
+                    gfx.DrawString($"${total:0.00}", fontBody, XBrushes.Black, new XRect(tableStartX + 330, yPos + 5, 70, cellHeight), XStringFormats.TopLeft);
+                    gfx.DrawString(ticketeId, fontBody, XBrushes.Black, new XRect(tableStartX + 400, yPos + 5, page.Width - 2 * margin - 400, cellHeight), XStringFormats.TopLeft);
                     yPos += cellHeight;
 
-                    decimal grandTotal = 0;
-
-                    // Table rows
-                    foreach (var item in productosCarrito)
-                    {
-                        var producto = item.inventario_Higiene_Personal.nombre_producto;
-                        var cantidad = item.tickete.ToString();
-                        var precioUnitario = item.inventario_Higiene_Personal.precio_unitario ?? 0m;
-                        var total = precioUnitario * item.tickete;
-                        var ticketeId = item.Id.ToString();
-
-                        gfx.DrawRectangle(XPens.Black, tableStartX, yPos, tableWidth, cellHeight);
-                        gfx.DrawString(producto, fontBody, XBrushes.Black, new XRect(tableStartX + 10, yPos + 5, 150, cellHeight), XStringFormats.TopLeft);
-                        gfx.DrawString(cantidad, fontBody, XBrushes.Black, new XRect(tableStartX + 160, yPos + 5, 70, cellHeight), XStringFormats.TopLeft);
-                        gfx.DrawString($"${precioUnitario:0.00}", fontBody, XBrushes.Black, new XRect(tableStartX + 230, yPos + 5, 100, cellHeight), XStringFormats.TopLeft);
-                        gfx.DrawString($"${total:0.00}", fontBody, XBrushes.Black, new XRect(tableStartX + 330, yPos + 5, 70, cellHeight), XStringFormats.TopLeft);
-                        gfx.DrawString(ticketeId, fontBody, XBrushes.Black, new XRect(tableStartX + 400, yPos + 5, page.Width - 2 * margin - 400, cellHeight), XStringFormats.TopLeft);
-                        yPos += cellHeight;
-
-                        grandTotal += total;
-                    }
-
-                    // Total amount
-                    gfx.DrawString($"Total General: ${grandTotal:0.00}", fontHeader, XBrushes.Black, new XRect(tableStartX, yPos + 10, tableWidth, cellHeight), XStringFormats.TopLeft);
-
-                    pdf.Save(stream, false);
-                    return stream.ToArray();
+                    grandTotal += total;
                 }
-            }
 
+                // Total amount
+                gfx.DrawString($"Total General: ${grandTotal:0.00}", fontHeader, XBrushes.Black, new XRect(tableStartX, yPos + 10, tableWidth, cellHeight), XStringFormats.TopLeft);
+
+                pdf.Save(stream, false);
+                return stream.ToArray();
+            }
         }
     }
+
+ }
 
