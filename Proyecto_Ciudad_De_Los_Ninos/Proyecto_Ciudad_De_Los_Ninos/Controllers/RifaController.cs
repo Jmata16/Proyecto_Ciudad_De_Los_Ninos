@@ -1,6 +1,7 @@
 ﻿using API_Ciudad_De_Los_Ninos.Models;
 using Microsoft.AspNetCore.Mvc;
 using Proyecto_Ciudad_De_Los_Ninos.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace Proyecto_Ciudad_De_Los_Ninos.Controllers
 {
@@ -50,7 +51,7 @@ namespace Proyecto_Ciudad_De_Los_Ninos.Controllers
                 rifa.NumeroGanador = null;
                 _context.Rifas.Add(rifa);
                 _context.SaveChanges();
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("RifaDetalles", "Rifa");
             }
             return View(rifa);
         }
@@ -98,29 +99,133 @@ namespace Proyecto_Ciudad_De_Los_Ninos.Controllers
 
             return View();
         }
+       
 
-
-        public IActionResult RifasProximas()
+       public ActionResult RifasProximas()
         {
-            var rifasProximas = _context.Rifas
-                .Where(r => r.FechaRifa >= DateTime.Now)
-                .OrderBy(r => r.FechaRifa)
-                .ToList();
+            var todasLasRifas = _context.Rifas.ToList();
+            var tiempoLimite = DateTime.Now.AddMinutes(-5);
+
+            var rifasProximas = todasLasRifas.Where(r => r.FechaRifa > tiempoLimite).OrderBy(r => r.FechaRifa).ToList();
 
             return View(rifasProximas);
         }
+        public IActionResult HistorialRifas()
+        {
+            var rifas = _context.Rifas.ToList(); // Asegúrate de obtener todas las rifas
+            return View(rifas);
+        }
+
+        // Lista todas las rifas
+       
+        // Muestra el formulario para crear una nueva rifa
+        public IActionResult Create()
+        {
+            return View();
+        }
+
+        // Procesa el formulario de creación de una nueva rifa
+        [HttpPost]
+        public IActionResult Create(Rifa rifa)
+        {
+            if (ModelState.IsValid)
+            {
+                rifa.NumeroGanador = null;  // No se asigna número ganador al crear la rifa
+                _context.Rifas.Add(rifa);
+                _context.SaveChanges();
+                return RedirectToAction("RifaDetalles");
+            }
+            return View(rifa);
+        }
+
+        // Muestra el formulario para editar una rifa existente
+        public IActionResult Edit(int id)
+        {
+            var rifa = _context.Rifas.Find(id);
+            if (rifa == null)
+            {
+                return NotFound();
+            }
+            return View(rifa);
+        }
+
+        // Procesa el formulario de edición de una rifa existente
+        [HttpPost]
+        public IActionResult Edit(Rifa rifa)
+        {
+            var rifaExistente = _context.Rifas.Find(rifa.RifaId);
+            if (rifaExistente == null)
+            {
+                return NotFound();
+            }
+
+            if (ModelState.IsValid)
+            {
+                // Solo se permite actualizar el premio y la fecha
+                rifaExistente.FechaRifa = rifa.FechaRifa;
+                rifaExistente.Premio = rifa.Premio;
+
+                _context.Rifas.Update(rifaExistente);
+                _context.SaveChanges();
+                return RedirectToAction("RifaDetalles");
+            }
+
+            return View(rifa);
+        }
+
+        // Muestra los detalles de una rifa
+        public IActionResult Details(int id)
+        {
+            var rifa = _context.Rifas
+                .Include(r => r.RifaEntries)  // Asegúrate de cargar las entradas de la rifa
+                .FirstOrDefault(r => r.RifaId == id);
+
+            if (rifa == null)
+            {
+                return NotFound();
+            }
+
+            return View(rifa);
+        }
 
 
+        // Muestra el formulario para eliminar una rifa existente
+        public IActionResult Delete(int id)
+        {
+            var rifa = _context.Rifas.Find(id);
+            if (rifa == null)
+            {
+                return NotFound();
+            }
+            return View(rifa);
+        }
 
+        // Procesa la eliminación de una rifa existente
+        [HttpPost, ActionName("Delete")]
+        public IActionResult DeleteConfirmed(int id)
+        {
+            var rifa = _context.Rifas.Find(id);
+            if (rifa == null)
+            {
+                return NotFound();
+            }
 
-
-
-
-
-
-
-
-
-
+            _context.Rifas.Remove(rifa);
+            _context.SaveChanges();
+            return RedirectToAction("RifaDetalles");
+        }
     }
+
+
+
+
+
+
+
+
+
+
+     
+
+
 }
