@@ -128,26 +128,26 @@
                             <li class="nav-item">
                                 <a class="text-white nav-link me-4 active" href="/home/index">Inicio</a>
                             </li>
-                            <li class="nav-item dropdown">
-                                <a class="text-white nav-link dropdown-toggle me-4" href="#" id="navbarDropdownTools" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                    Rifa
-                                </a>
-                                <ul class="dropdown-menu" aria-labelledby="navbarDropdownTools">
-
-                                    <li class="nav-item">
-                                    <li>
-                                        <a class="dropdown-item" href="/Rifa/RifasProximas">Rifas Proximas</a>
-                                    </li>
-                                    <li class="nav-item">
-                                    <li>
-                                        <a class="dropdown-item" href="/RifaEntries/index">Rifa</a>
-                                    </li>
-                                    <li class="nav-item">
-                                    <li>
-                                        <a class="dropdown-item" href="/Rifa/RifaDetalles">Rifa Detalles</a>
-                                    </li>
+                            @if (!User.Identity.IsAuthenticated)
+                            {
+                                <li class="nav-item dropdown">
+                                    <a class="text-white nav-link dropdown-toggle me-4" href="#" id="navbarDropdownTools" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                        Rifa
+                                    </a>
+                                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownTools">
+                                        <li class="nav-item">
+                                            <a class="dropdown-item" href="/Rifa/RifasProximas">Proxima rifa</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="dropdown-item" href="/RifaEntries/index">Comprar numero</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="dropdown-item" href="/Rifa/RifaHistorial">Historial de Rifas</a>
+                                        </li>
                                     </ul>
                                 </li>
+                            }
+
 
 
                             @if (User.Identity.IsAuthenticated)
@@ -206,7 +206,7 @@
 
                                             @if (userRole == "1")
                                             {
-                                                <li><a class="dropdown-item" href="/Rifa/CrearRifa">Crear Rifa</a></li>
+                                                <li><a class="dropdown-item" href="/Rifa/RifaDetalles">Administrar Rifas</a></li>
                                             }
 
 

@@ -56,7 +56,8 @@ namespace Proyecto_Ciudad_De_Los_Ninos.Controllers
             return View(rifa);
         }
 
-        public async Task<IActionResult> DeterminarGanador(int rifaId)
+        [HttpPost]
+        public async Task<IActionResult> DeterminarGanadorAPI(int rifaId)
         {
             var rifa = await _context.Rifas.FindAsync(rifaId);
             if (rifa != null && rifa.FechaRifa <= DateTime.Now && rifa.NumeroGanador == null)
@@ -69,8 +70,10 @@ namespace Proyecto_Ciudad_De_Los_Ninos.Controllers
                 await _context.SaveChangesAsync();
             }
 
-            return RedirectToAction("RifaDetalles");
+            return Ok();
         }
+
+
 
 
         public IActionResult RifaDetalles()
@@ -80,44 +83,47 @@ namespace Proyecto_Ciudad_De_Los_Ninos.Controllers
                 .ToList();
 
            
-            foreach (var rifa in rifas)
-            {
-                if (rifa.FechaRifa <= DateTime.Now && rifa.NumeroGanador == null)
-                {
-                    var random = new Random();
-                    var numeroGanador = random.Next(1, 101);
-
-                    rifa.NumeroGanador = numeroGanador;
-
-                    _context.Rifas.Update(rifa);
-                    _context.SaveChanges();
-                }
-            }
 
 
             ViewBag.Rifas = rifas;
 
             return View();
         }
-       
 
-       public ActionResult RifasProximas()
+        public IActionResult RifaHistorial()
         {
-            var todasLasRifas = _context.Rifas.ToList();
-            var tiempoLimite = DateTime.Now.AddMinutes(-5);
+            var rifas = _context.Rifas
+                .OrderBy(r => r.FechaRifa)
+                .ToList();
 
-            var rifasProximas = todasLasRifas.Where(r => r.FechaRifa > tiempoLimite).OrderBy(r => r.FechaRifa).ToList();
 
-            return View(rifasProximas);
+
+            ViewBag.Rifas = rifas;
+
+            return View();
         }
-        public IActionResult HistorialRifas()
+
+        public IActionResult RifasProximas()
         {
-            var rifas = _context.Rifas.ToList(); // Asegúrate de obtener todas las rifas
-            return View(rifas);
+            var fechaHoy = DateTime.Now.Date;
+            var rifasHoy = _context.Rifas
+                .Where(r => r.FechaRifa.Date == fechaHoy)
+                .OrderBy(r => r.FechaRifa)
+                .ToList();
+
+            var rifasFuturas = _context.Rifas
+                .Where(r => r.FechaRifa.Date > fechaHoy)
+                .OrderBy(r => r.FechaRifa)
+                .ToList();
+
+            ViewBag.RifasHoy = rifasHoy;
+            ViewBag.RifasFuturas = rifasFuturas;
+
+            return View();
         }
 
         // Lista todas las rifas
-       
+
         // Muestra el formulario para crear una nueva rifa
         public IActionResult Create()
         {

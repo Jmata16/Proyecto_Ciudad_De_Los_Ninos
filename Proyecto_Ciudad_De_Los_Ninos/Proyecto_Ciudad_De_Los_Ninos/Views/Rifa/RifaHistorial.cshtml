@@ -1,0 +1,137 @@
+﻿@model IEnumerable<Proyecto_Ciudad_De_Los_Ninos.Models.Rifa>
+
+@{
+    ViewBag.Title = "Gestión de Rifas";
+    var rifas = ViewBag.Rifas as IEnumerable<Proyecto_Ciudad_De_Los_Ninos.Models.Rifa>;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewData["Title"]</title>
+    <link rel="stylesheet" href="~/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/2.0.2/css/dataTables.dataTables.min.css">
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .container {
+            padding: 20px;
+        }
+
+        .actions a {
+            margin-right: 10px;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+            .actions a:hover {
+                color: #0056b3;
+            }
+
+        .create-button {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 1.2em;
+            color: white;
+            background-color: #007bff;
+            border: none;
+            border-radius: 5px;
+            text-align: center;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+            .create-button:hover {
+                background-color: #0056b3;
+            }
+    </style>
+</head>
+<body>
+    @Html.Partial("_header")
+
+    <div class="container">
+        <table id="tableShow" class="table table-striped table-bordered table-hover">
+            <thead class="table-danger">
+                <tr>
+                    <th>Fecha de la Rifa</th>
+                    <th>Premio</th>
+                    <th>Número Ganador</th>
+                    <th>Tiempo Restante</th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (rifas != null && rifas.Any())
+                {
+                    foreach (var rifa in rifas)
+                    {
+                        <tr>
+                            <td>@rifa.FechaRifa.ToString("dd/MM/yyyy HH:mm:ss")</td>
+                            <td>@rifa.Premio</td>
+                            <td>
+                                @(rifa.NumeroGanador.HasValue
+                                    ? rifa.NumeroGanador.Value.ToString()
+                                    : "No determinado")
+                            </td>
+                            <td>
+                                @if (rifa.FechaRifa > DateTime.Now)
+                                {
+                                    <span id="tiempo-restante-@rifa.RifaId" data-fecha="@rifa.FechaRifa.ToString("o")"></span>
+                                    <script>
+                                        (function () {
+                                            var countdownElement = document.getElementById("tiempo-restante-@rifa.RifaId");
+                                            var fechaRifa = new Date(countdownElement.dataset.fecha);
+                                            var interval = setInterval(function () {
+                                                var now = new Date();
+                                                var tiempoRestante = fechaRifa - now;
+
+                                                if (tiempoRestante > 0) {
+                                                    var days = Math.floor(tiempoRestante / (1000 * 60 * 60 * 24));
+                                                    var hours = Math.floor((tiempoRestante % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                                                    var minutes = Math.floor((tiempoRestante % (1000 * 60 * 60)) / (1000 * 60));
+                                                    countdownElement.innerHTML = `${days} días, ${hours} horas, ${minutes} minutos`;
+                                                } else {
+                                                    clearInterval(interval);
+                                                    countdownElement.innerHTML = "Tiempo terminado, el ganador se anunciará pronto...";
+                                                }
+                                            }, 1000);
+                                        })();
+                                    </script>
+                                }
+                                else
+                                {
+                                    <span>Rifa pasada</span>
+                                }
+                            </td>
+                        </tr>
+                    }
+                }
+                else
+                {
+                    <tr>
+                        <td colspan="5">No hay rifas disponibles.</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+    <footer>
+        @Html.Partial("_footer")
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdn.datatables.net/2.0.2/js/dataTables.min.js"></script>
+    <script src="~/js/bootstrap.bundle.min.js"></script>
+    <script src="~/Funciones/DataTable.js"></script>
+</body>
+</html>

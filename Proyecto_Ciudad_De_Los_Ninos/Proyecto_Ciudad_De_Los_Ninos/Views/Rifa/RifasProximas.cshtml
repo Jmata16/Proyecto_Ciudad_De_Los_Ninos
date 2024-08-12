@@ -1,14 +1,14 @@
-﻿@model IEnumerable<Proyecto_Ciudad_De_Los_Ninos.Models.Rifa>
-
-@{
+﻿@{
     ViewBag.Title = "Rifas Próximas";
 }
+
 <!DOCTYPE html>
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>@ViewData["Title"]</title>
     <link rel="stylesheet" href="~/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/2.0.2/css/dataTables.dataTables.min.css">
     <style>
         html, body {
             height: 100%;
@@ -20,8 +20,14 @@
             flex-direction: column;
         }
 
-        .container {
-            padding: 20px;
+        .content {
+            flex: 1;
+        }
+
+        footer {
+            background-color: #f8f9fa;
+            padding: 20px 0;
+            width: 100%;
         }
 
         .actions a {
@@ -47,132 +53,132 @@
             cursor: pointer;
         }
 
-            .create-button:hover {
-                background-color: #0056b3;
-            }
-        /* Estilos del footer */
-        footer {
-            background-color: #f8f9fa;
-            padding: 20px 0;
-            position: absolute;
-            bottom: 0;
-            width: 100%;
-        }
-
-            footer p {
-                margin: 0;
-            }
     </style>
-    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/2.0.2/css/dataTables.dataTables.min.css">
 </head>
 <body>
+    @Html.Partial("_header")
 
-@Html.Partial("_header")
-    <br />
-<h2 class="text-center">Rifas Próximas</h2>
-
-<div class="row">
-    @if (Model != null && Model.Any())
-    {
-        var primeraRifa = Model.First();
-        <div class="col-12 mb-4">
-            <div class="card">
-                <div class="card-body">
-                    <h4 class="card-title display-4 text-center">Premio: @primeraRifa.Premio</h4>
-                    <p class="card-text text-center"><strong>Fecha de la Rifa:</strong> @primeraRifa.FechaRifa.ToString("dd/MM/yyyy HH:mm:ss")</p>
-                    <div class="text-center mb-3">
-                        <h5><strong>Tiempo Restante:</strong></h5>
-                        <span id="tiempo-restante-@primeraRifa.RifaId" data-fecha="@primeraRifa.FechaRifa.ToString("o")" class="display-4"></span>
+    <div class="content">
+        <br />
+        <h2 class="text-center">Rifas de Hoy</h2>
+        <div class="container">
+            <div class="row">
+                <!-- Rifas del día de hoy -->
+                @if (ViewBag.RifasHoy != null && ((List<Rifa>)ViewBag.RifasHoy).Any())
+                {
+                    @foreach (var rifa in (List<Rifa>)ViewBag.RifasHoy)
+                    {
+                        <div class="col-md-12 mb-4">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title text-center">Premio: @rifa.Premio</h5>
+                                    <p class="card-text text-center"><strong>Fecha de la Rifa:</strong> @rifa.FechaRifa.ToString("dd/MM/yyyy HH:mm:ss")</p>
+                                    <div class="text-center mb-3">
+                                        <h5><strong>Tiempo Restante:</strong></h5>
+                                        <h5 class="card-title text-center" id="tiempo-restante-@rifa.RifaId" data-fecha="@rifa.FechaRifa.ToString("o")" class="display-6"></h5>
+                                    </div>
+                                    <p class="card-text text-center">
+                                        <strong>Número Ganador:</strong>
+                                        <span id="numero-ganador-@rifa.RifaId">
+                                            @(rifa.NumeroGanador.HasValue ? rifa.NumeroGanador.Value.ToString() : "No determinado")
+                                        </span>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                }
+                else
+                {
+                    <div class="col-12">
+                        <p>No hay rifas para el día de hoy.</p>
                     </div>
-                    <p class="card-text text-center">
-                        <strong>Número Ganador:</strong>
-                        <span id="numero-ganador-@primeraRifa.RifaId">
-                            @(primeraRifa.NumeroGanador.HasValue ? primeraRifa.NumeroGanador.Value.ToString() : "No determinado")
-                        </span>
-                    </p>
-                </div>
+                }
             </div>
         </div>
 
-        <div class="row">
-            @foreach (var rifa in Model.Skip(1))
-            {
-                <div class="col-md-4 mb-4">
-                    <div class="card">
-                        <div class="card-body">
-                            <h5 class="card-title">Premio: @rifa.Premio</h5>
-                            <p class="card-text"><strong>Fecha de la Rifa:</strong> @rifa.FechaRifa.ToString("dd/MM/yyyy HH:mm:ss")</p>
-                            <p class="card-text">
-                                <strong>Tiempo Restante:</strong>
-                                @if (rifa.FechaRifa > DateTime.Now)
-                                {
-                                    <span id="tiempo-restante-@rifa.RifaId" data-fecha="@rifa.FechaRifa.ToString("o")"></span>
-                                }
-                                else
-                                {
-                                    <span>Rifa pasada</span>
-                                }
-                            </p>
-                            <p class="card-text">
-                                <strong>Número Ganador:</strong>
-                                <span id="numero-ganador-@rifa.RifaId">
-                                    @(rifa.NumeroGanador.HasValue ? rifa.NumeroGanador.Value.ToString() : "No determinado")
-                                </span>
-                            </p>
+        <br />
+        <h2 class="text-center">Próximas Rifas</h2>
+        <div class="container">
+            <div class="row">
+                <!-- Rifas futuras -->
+                @if (ViewBag.RifasFuturas != null && ((List<Rifa>)ViewBag.RifasFuturas).Any())
+                {
+                    @foreach (var rifa in (List<Rifa>)ViewBag.RifasFuturas)
+                    {
+                        <div class="col-md-4 mb-4">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title">Premio: @rifa.Premio</h5>
+                                    <p class="card-text"><strong>Fecha de la Rifa:</strong> @rifa.FechaRifa.ToString("dd/MM/yyyy HH:mm:ss")</p>
+                                    <p class="card-text">
+                                        <strong>Tiempo Restante:</strong>
+                                        @if (rifa.FechaRifa > DateTime.Now)
+                                        {
+                                            <span id="tiempo-restante-@rifa.RifaId" data-fecha="@rifa.FechaRifa.ToString("o")"></span>
+                                        }
+                                        else
+                                        {
+                                            <span>Rifa pasada</span>
+                                        }
+                                    </p>
+                                    <p class="card-text">
+                                        <strong>Número Ganador:</strong>
+                                        <span id="numero-ganador-@rifa.RifaId">
+                                            @(rifa.NumeroGanador.HasValue ? rifa.NumeroGanador.Value.ToString() : "No determinado")
+                                        </span>
+                                    </p>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                </div>
-            }
-        </div>
-    }
-    else
-    {
-        <div class="col-12">
-            <p>No hay rifas próximas.</p>
-        </div>
-    }
-</div>
-
-<script>
-    document.addEventListener("DOMContentLoaded", function () {
-        var countdownElements = document.querySelectorAll("[id^='tiempo-restante-']");
-        countdownElements.forEach(function (countdownElement) {
-            var fechaRifa = new Date(countdownElement.dataset.fecha);
-            var interval = setInterval(function () {
-                var now = new Date();
-                var tiempoRestante = fechaRifa - now;
-
-                if (tiempoRestante > 0) {
-                    if (tiempoRestante <= 30000) {
-                        countdownElement.innerHTML = "Muy pronto se anunciará el ganador...";
-                    } else {
-                        var days = Math.floor(tiempoRestante / (1000 * 60 * 60 * 24));
-                        var hours = Math.floor((tiempoRestante % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                        var minutes = Math.floor((tiempoRestante % (1000 * 60 * 60)) / (1000 * 60));
-                        var seconds = Math.floor((tiempoRestante % (1000 * 60)) / 1000);
-                        countdownElement.innerHTML = `${days} días, ${hours} horas, ${minutes} minutos, ${seconds} segundos`;
-                    }
-                } else {
-                    clearInterval(interval);
-                    var numeroGanadorElement = document.getElementById("numero-ganador-" + countdownElement.id.split("-")[2]);
-                    var numeroGanador = numeroGanadorElement.textContent.trim();
-
-                    if (numeroGanador === "No determinado") {
-                        countdownElement.innerHTML = "Número Ganador: aún no ha sido determinado.";
-                    } else {
-                        countdownElement.innerHTML = "Número Ganador: " + numeroGanador;
                     }
                 }
-            }, 1000);
-        });
-    });
-</script>
+                else
+                {
+                    <div class="col-12">
+                        <p>No hay rifas próximas.</p>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
 
-    <!-- Footer -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            document.querySelectorAll("[id^='tiempo-restante-']").forEach(function (countdownElement) {
+                var fechaRifa = new Date(countdownElement.dataset.fecha);
+                var interval = setInterval(function () {
+                    var now = new Date();
+                    var tiempoRestante = fechaRifa - now;
+
+                    if (tiempoRestante > 0) {
+                        if (tiempoRestante <= 30000) {
+                            countdownElement.textContent = "Muy pronto se anunciará el ganador...";
+                        } else {
+                            var days = Math.floor(tiempoRestante / (1000 * 60 * 60 * 24));
+                            var hours = Math.floor((tiempoRestante % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                            var minutes = Math.floor((tiempoRestante % (1000 * 60 * 60)) / (1000 * 60));
+                            var seconds = Math.floor((tiempoRestante % (1000 * 60)) / 1000);
+                            countdownElement.textContent = `${days} días, ${hours} horas, ${minutes} minutos, ${seconds} segundos`;
+                        }
+                    } else {
+                        clearInterval(interval);
+                        var numeroGanadorElement = document.getElementById("numero-ganador-" + countdownElement.id.split("-")[2]);
+                        var numeroGanador = numeroGanadorElement.textContent.trim();
+
+                        countdownElement.textContent = numeroGanador === "No determinado"
+                            ? "Número Ganador: aún no ha sido determinado."
+                            : "Número Ganador: " + numeroGanador;
+                    }
+                }, 1000);
+            });
+        });
+    </script>
+
     @Html.Partial("_footer")
 
     <!-- Scripts -->
-    <script src="js/jquery-1.11.0.min.js"></script>
+    <script src="~/js/jquery-1.11.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
     <script src="~/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/plugins.js"></script>

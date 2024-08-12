@@ -9,6 +9,10 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Proyecto_Ciudad_De_Los_Ninos.Models;
 using System;
+using System.Linq;
+using System.Threading;
+using System.Threading.Tasks;
+using Microsoft.Extensions.Hosting;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -25,6 +29,7 @@ builder.Services.AddDefaultIdentity<IdentityUser>(options =>
 })
 .AddRoles<IdentityRole>()
 .AddEntityFrameworkStores<ApplicationDBContext>();
+
 builder.Services.AddAuthorization(options =>
 {
     options.AddPolicy("AdminPolicy", policy => policy.RequireRole("1"));
@@ -33,8 +38,14 @@ builder.Services.AddAuthorization(options =>
     options.AddPolicy("SaludPolicy", policy => policy.RequireRole("2"));
     options.AddPolicy("TrabajadorSocialPolicy", policy => policy.RequireRole("4"));
     options.AddPolicy("VentasPolicy", policy => policy.RequireRole("6"));
+    options.AddPolicy("Rol134", policy => policy.RequireRole("1", "3", "4"));
+    options.AddPolicy("Rol1234", policy => policy.RequireRole("1", "2", "3", "4"));
+    options.AddPolicy("Rol16", policy => policy.RequireRole("1", "6"));
+    options.AddPolicy("RolAll", policy => policy.RequireRole("1", "2", "3", "4", "5", "6"));
+    options.AddPolicy("Rol14", policy => policy.RequireRole("1", "6"));
+    options.AddPolicy("Rol15", policy => policy.RequireRole("1", "5"));
 });
-builder.Services.AddSingleton<EmailService>();
+
 // Configura autenticación
 builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
     .AddCookie(options =>
@@ -46,41 +57,12 @@ builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationSc
         options.AccessDeniedPath = "/Home/AccessDenied";
         options.SlidingExpiration = true;
     });
-builder.Services.AddAuthorization(options =>
-{
 
-    options.AddPolicy("Rol134", policy =>
-        policy.RequireRole("1", "3", "4")); 
-});
-builder.Services.AddAuthorization(options =>
-{
-    options.AddPolicy("Rol1234", policy =>
-        policy.RequireRole("1", "2", "3", "4")); 
-});
-builder.Services.AddAuthorization(options =>
-{
-
-    options.AddPolicy("Rol16", policy =>
-        policy.RequireRole("1", "6")); 
-});
-builder.Services.AddAuthorization(options =>
-{
-    options.AddPolicy("RolAll", policy =>
-        policy.RequireRole("1", "2", "3", "4", "5", "6"));
-});
-builder.Services.AddAuthorization(options =>
-{
-   
-    options.AddPolicy("Rol14", policy =>
-        policy.RequireRole("1", "6")); 
-});
-builder.Services.AddAuthorization(options =>
-{
-    options.AddPolicy("Rol15", policy =>
-        policy.RequireRole("1", "5")); 
-});
-// Otros servicios y configuraciones necesarios (por ejemplo, servicio de email)
+// Registra el servicio de correo electrónico
 builder.Services.AddTransient<EmailService>();
+
+// Agrega el servicio de rifa en segundo plano
+builder.Services.AddHostedService<RifaBackgroundService>();
 
 builder.Services.AddControllersWithViews();
 
@@ -111,3 +93,4 @@ app.MapControllerRoute(
 
 // Ejecución de la aplicación
 app.Run();
+
