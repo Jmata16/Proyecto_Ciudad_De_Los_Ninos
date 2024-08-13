@@ -74,7 +74,7 @@ if (!app.Environment.IsDevelopment())
     app.UseExceptionHandler("/Home/Error");
     app.UseHsts();
 }
-
+app.UseStaticFiles();
 // Configuraciones generales de middleware
 app.UseHttpsRedirection();
 app.UseStaticFiles();

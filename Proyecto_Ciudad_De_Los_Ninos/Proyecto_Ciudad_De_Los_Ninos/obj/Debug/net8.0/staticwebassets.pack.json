@@ -293,6 +293,10 @@
       "PackagePath": "staticwebassets\\fonts\\unicode.html"
     },
     {
+      "Id": "D:\\Repos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\wwwroot\\html\\example.html",
+      "PackagePath": "staticwebassets\\html\\example.html"
+    },
+    {
       "Id": "D:\\Repos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\wwwroot\\images\\CDN.jpg",
       "PackagePath": "staticwebassets\\images\\CDN.jpg"
     },

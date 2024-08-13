@@ -1,0 +1,38 @@
+﻿@{
+    ViewData["Title"] = "Ejemplo";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+
+        footer {
+            background-color: #f8f9fa;
+            padding: 20px 0;
+            width: 100%;
+        }
+
+    </style>
+
+</head>
+<body>
+    @Html.Partial("_header")
+    <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+
+
+        <div id="html-content-placeholder">
+            
+
+            <iframe src="/html/example.html" style="width:100%; height:500px; border:none;"></iframe>
+        @Html.Partial("_footer")
+
+        <!-- Scripts -->
+        <script src="js/jquery-1.11.0.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+        <script src="~/js/bootstrap.bundle.min.js"></script>
+        <script src="~/js/plugins.js"></script>
+        <script src="~/js/script.js"></script>
+</body>
+</html>
+

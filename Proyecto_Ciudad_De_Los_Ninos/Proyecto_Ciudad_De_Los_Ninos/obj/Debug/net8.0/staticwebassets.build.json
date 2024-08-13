@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "yTuOYbGP7af+nTFsb1PbaxroByFyzeidgZArLzuh/oM=",
+  "Hash": "uzu0f30yKQLO28ZHUpBkdD5EjUxlIXCgtzbvqiHUE7Y=",
   "Source": "Proyecto_Ciudad_De_Los_Ninos",
   "BasePath": "_content/Proyecto_Ciudad_De_Los_Ninos",
   "Mode": "Default",
@@ -2599,6 +2599,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\Funciones\\DataTable.js"
+    },
+    {
+      "Identity": "D:\\Repos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\wwwroot\\html\\example.html",
+      "SourceId": "Proyecto_Ciudad_De_Los_Ninos",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Repos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\wwwroot\\",
+      "BasePath": "_content/Proyecto_Ciudad_De_Los_Ninos",
+      "RelativePath": "html/example.html",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\html\\example.html"
     },
     {
       "Identity": "D:\\Repos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\wwwroot\\images\\CDN.jpg",

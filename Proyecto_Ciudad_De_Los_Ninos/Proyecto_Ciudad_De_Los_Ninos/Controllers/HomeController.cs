@@ -32,7 +32,13 @@ namespace Proyecto_Ciudad_De_Los_Ninos.Controllers
         {
             return View();
         }
-
+        public async Task<IActionResult> juego()
+        {
+            var filePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/html/example.html");
+            var htmlContent = await System.IO.File.ReadAllTextAsync(filePath);
+            ViewData["HtmlContent"] = htmlContent;
+            return View();
+        }
         // Página de error
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()

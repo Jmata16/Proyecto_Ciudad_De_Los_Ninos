@@ -147,7 +147,14 @@
                                     </ul>
                                 </li>
                             }
-
+                            @if (!User.Identity.IsAuthenticated)
+                            {
+                                <li class="nav-item pe-3">
+                                    <a href="/home/juego" class="nav-link text-light ">
+                                        <span class="me-2">Entretenimiento</span>
+                                    </a>
+                                </li>
+                            }
 
 
                             @if (User.Identity.IsAuthenticated)
