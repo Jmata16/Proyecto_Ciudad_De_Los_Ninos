@@ -1,38 +1,58 @@
 ﻿@{
-    ViewData["Title"] = "Ejemplo";
+    ViewData["Title"] = "Juego";
 }
 
 <!DOCTYPE html>
 <html>
 <head>
     <style>
-
         footer {
             background-color: #f8f9fa;
             padding: 20px 0;
             width: 100%;
         }
 
+        .message {
+            margin: 20px auto;
+            padding: 10px 15px;
+            background-color: #e7f0e9;
+            border: 1px solid #c3e6cb;
+            border-radius: 5px;
+            color: #155724;
+            max-width: 80%; /* Ajusta el máximo ancho */
+            text-align: center;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            font-size: 14px;
+            word-wrap: break-word; /* Permite que el texto largo se ajuste */
+            display: none; /* Oculto por defecto */
+        }
     </style>
-
 </head>
 <body>
     @Html.Partial("_header")
-    <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
 
+    <div class="message" id="mobileWarning">
+        <p>Este juego solo está disponible en la versión de escritorio. Por favor, accede desde una computadora para jugar.</p>
+    </div>
 
-        <div id="html-content-placeholder">
-            
+    <div id="html-content-placeholder">
+        <iframe src="/html/example.html" style="width:100%; height:500px; border:none;"></iframe>
+    </div>
 
-            <iframe src="/html/example.html" style="width:100%; height:500px; border:none;"></iframe>
-        @Html.Partial("_footer")
+    @Html.Partial("_footer")
 
-        <!-- Scripts -->
-        <script src="js/jquery-1.11.0.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
-        <script src="~/js/bootstrap.bundle.min.js"></script>
-        <script src="~/js/plugins.js"></script>
-        <script src="~/js/script.js"></script>
+    <!-- Scripts -->
+    <script src="js/jquery-1.11.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+    <script src="~/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/plugins.js"></script>
+    <script src="~/js/script.js"></script>
+
+    <script>
+        // Detectar si el usuario está en un dispositivo móvil
+        if (/Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent)) {
+            document.getElementById('mobileWarning').style.display = 'block';
+        }
+    </script>
 </body>
 </html>
-

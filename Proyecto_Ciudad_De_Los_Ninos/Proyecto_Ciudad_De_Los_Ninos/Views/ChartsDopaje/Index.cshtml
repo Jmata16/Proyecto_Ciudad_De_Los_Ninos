@@ -49,6 +49,12 @@
             max-width: 99%; /* Ajusta según el tamaño que necesites */
             margin: 0 auto;
         }
+
+        .table-responsive {
+            max-height: 450px; /* Ajusta la altura según sea necesario */
+            overflow-y: auto; /* Permite desplazamiento vertical */
+        }
+
     </style>
 
 </head>
@@ -146,7 +152,7 @@
                     <div class="col-lg-6 col-md-6 col-sm-12 pr-0 mb-3">
                         <div class="card-collapsible card">
                             <div class="card-header">
-                                Gráfico de Distribución de Resultados de Pruebas de Dopaje <i class="fa fa-caret-down caret"></i>
+                                Gráfico de Distribución de Resultados de Pruebas de Dopaje 
                             </div>
                             <div class="card-body d-flex justify-content-around">
                                 <canvas class="chart w-100" id="pieChart"></canvas>
@@ -156,7 +162,7 @@
                     <div class="col-lg-6 col-md-6 col-sm-12 pr-0 mb-3">
                         <div class="card-collapsible card">
                             <div class="card-header">
-                                Pruebas De Dopaje Distribuidas Por Mes <i class="fa fa-caret-down caret"></i>
+                                Pruebas De Dopaje Distribuidas Por Mes De Este Año
                             </div>
                             <div class="card-body d-flex justify-content-around">
                                 <canvas class="chart w-100" id="lineChart"></canvas>
@@ -169,7 +175,7 @@
                         <div class="card-collapsible card">
                             <div class="card-header">
 
-                                Gráfico de Barras De Dopaje Distribuidas Por Mes<i class="fa fa-caret-down caret"></i>
+                                Gráfico de Barras De Dopaje De Los Ultimos 17 meses 
                             </div>
 
                             <div class="card-body d-flex justify-content-around">
@@ -183,30 +189,33 @@
                     <div class="col-lg-6 col-md-6 col-sm-12 pr-0 mb-3">
                         <div class="card-collapsible card">
                             <div class="card-header">
-                                Tabla Pruebas Realizadas Por Mes<i class="fa fa-caret-down caret"></i>
+                                Tabla Pruebas Realizadas Por Mes Y Año
                             </div>
-                            <div class="card-body d-flex justify-content-around">
-                                <table class="table table-bordered table-sm" >
-                                    <thead>
-                                        <tr>
-                                            <th>Mes</th>
-                                            <th>Pruebas</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        @foreach (var item in ViewBag.PruebasPorMes)
-                                        {
+                            <div class="card-body">
+                                <!-- Contenedor con desplazamiento horizontal -->
+                                <div class="table-responsive">
+                                    <table class="table table-bordered table-sm">
+                                        <thead>
                                             <tr>
-                                                <td>@item.Mes</td>
-                                                <td>@item.Count</td>
+                                                <th>Mes</th>
+                                                <th>Pruebas</th>
                                             </tr>
-                                        }
-                                    </tbody>
-                                </table>
+                                        </thead>
+                                        <tbody>
+                                            @foreach (var item in ViewBag.PruebasPorMes)
+                                            {
+                                                <tr>
+                                                    <td>@item.Mes</td>
+                                                    <td>@item.Count</td>
+                                                </tr>
+                                            }
+                                        </tbody>
+                                    </table>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
+
                 </main>
 
         </div>
@@ -284,57 +293,99 @@
             }
         });
 
+
         var pruebasPorMes = @Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(ViewBag.PruebasPorMes));
-        var barLabels = pruebasPorMes.map(p => p.Mes);
-        var barValues = pruebasPorMes.map(p => p.Count);
 
+        // Ordenar los datos por año y mes
+        pruebasPorMes.sort(function (a, b) {
+            var [mesA, anioA] = a.Mes.split(' ');
+            var [mesB, anioB] = b.Mes.split(' ');
 
-        var backgroundColors = [
-            'rgba(255, 99, 132, 0.8)',  
-            'rgba(54, 162, 235, 0.8)',  
-            'rgba(255, 206, 86, 0.8)', 
-            'rgba(75, 192, 192, 0.8)',  
-            'rgba(153, 102, 255, 0.8)', 
-            'rgba(255, 159, 64, 0.8)'   
-        ];
+            var meses = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
+            var indexMesA = meses.indexOf(mesA);
+            var indexMesB = meses.indexOf(mesB);
 
-        var borderColors = [
-            'rgba(255, 99, 132, 1)',
-            'rgba(54, 162, 235, 1)',
-            'rgba(255, 206, 86, 1)',
-            'rgba(75, 192, 192, 1)',
-            'rgba(153, 102, 255, 1)',
-            'rgba(255, 159, 64, 1)'
-        ];
+            if (anioA === anioB) {
+                return indexMesA - indexMesB; // Ordenar por mes si el año es el mismo
+            }
+            return anioA - anioB; // Ordenar por año
+        });
 
-        // Create a color array for the bars
-        var colors = barLabels.map((_, i) => backgroundColors[i % backgroundColors.length]);
-        var borders = barLabels.map((_, i) => borderColors[i % borderColors.length]);
+ var pruebasPorMes = @Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(ViewBag.PruebasPorMes));
 
-        var barCtx = document.getElementById('barChart').getContext('2d');
-        var barChart = new Chart(barCtx, {
-            type: 'bar',
-            data: {
-                labels: barLabels,
-                datasets: [{
-                    label: 'Datos del Gráfico de Barras',
-                    data: barValues,
-                    backgroundColor: colors,  
-                    borderColor: borders, 
-                    borderWidth: 1
-                }]
-            },
-            options: {
-                scales: {
-                    x: {
-                        beginAtZero: true
-                    },
-                    y: {
-                        beginAtZero: true
+    // Ordenar los datos por año y mes
+    pruebasPorMes.sort(function (a, b) {
+        var [mesA, anioA] = a.Mes.split(' ');
+        var [mesB, anioB] = b.Mes.split(' ');
+
+        var meses = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
+        var indexMesA = meses.indexOf(mesA);
+        var indexMesB = meses.indexOf(mesB);
+
+        if (anioA === anioB) {
+            return indexMesA - indexMesB; // Ordenar por mes si el año es el mismo
+        }
+        return anioA - anioB; // Ordenar por año
+    });
+
+    var barLabels = pruebasPorMes.map(p => p.Mes); // Mes y año en la etiqueta
+    var barValues = pruebasPorMes.map(p => p.Count);
+
+    // Color de fondo y borde para las barras
+    var backgroundColors = [
+        'rgba(255, 99, 132, 0.8)',
+        'rgba(54, 162, 235, 0.8)',
+        'rgba(255, 206, 86, 0.8)',
+        'rgba(75, 192, 192, 0.8)',
+        'rgba(153, 102, 255, 0.8)',
+        'rgba(255, 159, 64, 0.8)'
+    ];
+
+    var borderColors = [
+        'rgba(255, 99, 132, 1)',
+        'rgba(54, 162, 235, 1)',
+        'rgba(255, 206, 86, 1)',
+        'rgba(75, 192, 192, 1)',
+        'rgba(153, 102, 255, 1)',
+        'rgba(255, 159, 64, 1)'
+    ];
+
+    // Crear un arreglo de colores para las barras
+    var colors = barLabels.map((_, i) => backgroundColors[i % backgroundColors.length]);
+    var borders = barLabels.map((_, i) => borderColors[i % borderColors.length]);
+
+    // Configurar el gráfico
+    var barCtx = document.getElementById('barChart').getContext('2d');
+    var barChart = new Chart(barCtx, {
+        type: 'bar',
+        data: {
+            labels: barLabels,
+            datasets: [{
+                label: 'Datos del Gráfico de Barras',
+                data: barValues,
+                backgroundColor: colors,
+                borderColor: borders,
+                borderWidth: 1
+            }]
+        },
+        options: {
+            responsive: true, // Asegura que el gráfico sea responsivo
+            maintainAspectRatio: false, // Permite que el gráfico ajuste su tamaño al contenedor
+            scales: {
+                x: {
+                    beginAtZero: true,
+                    ticks: {
+                        autoSkip: false, // Muestra todas las etiquetas
+                        maxRotation: 90, // Ajusta la rotación de las etiquetas si es necesario
+                        minRotation: 0 // Asegura que las etiquetas sean legibles
                     }
+                },
+                y: {
+                    beginAtZero: true
                 }
             }
-        });
+        }
+    });
 
 
 
