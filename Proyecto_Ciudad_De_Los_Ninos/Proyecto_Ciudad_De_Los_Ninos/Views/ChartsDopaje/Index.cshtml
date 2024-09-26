@@ -46,7 +46,7 @@
     </script>
     <style>
         .container-fluid {
-            max-width: 99%; /* Ajusta según el tamaño que necesites */
+            max-width: 80%; /* Ajusta según el tamaño que necesites */
             margin: 0 auto;
         }
 
@@ -205,11 +205,15 @@
                                             @foreach (var item in ViewBag.PruebasPorMes)
                                             {
                                                 <tr>
-                                                    <td>@item.Mes</td>
+                                                    <td>
+                                                        @(@item.Mes.Substring(0, 1).ToUpper() + item.Mes.Substring(1).ToLower())
+                                                    </td>
                                                     <td>@item.Count</td>
                                                 </tr>
                                             }
                                         </tbody>
+
+
                                     </table>
                                 </div>
                             </div>
@@ -258,7 +262,7 @@
         });
 
         var pruebasPorMes = @Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(ViewBag.PruebasPorMes));
-        var lineLabels = pruebasPorMes.map(p => p.Mes);
+        var lineLabels = pruebasPorMes.map(p => p.Mes.charAt(0).toUpperCase() + p.Mes.slice(1).toLowerCase());
         var lineData = pruebasPorMes.map(p => p.Count);
 
         var lineCtx = document.getElementById('lineChart').getContext('2d');
@@ -301,6 +305,10 @@
             var [mesA, anioA] = a.Mes.split(' ');
             var [mesB, anioB] = b.Mes.split(' ');
 
+            // Convertir los meses a mayúscula
+            mesA = mesA.charAt(0).toUpperCase() + mesA.slice(1);
+            mesB = mesB.charAt(0).toUpperCase() + mesB.slice(1);
+
             var meses = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
             var indexMesA = meses.indexOf(mesA);
             var indexMesB = meses.indexOf(mesB);
@@ -311,81 +319,73 @@
             return anioA - anioB; // Ordenar por año
         });
 
- var pruebasPorMes = @Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(ViewBag.PruebasPorMes));
+        // Asegúrate de formatear las etiquetas aquí
+        var barLabels = pruebasPorMes.map(p => {
+            // Formatear cada etiqueta a mayúscula
+            var [mes, anio] = p.Mes.split(' ');
+            return mes.charAt(0).toUpperCase() + mes.slice(1) + ' ' + anio; // Convertir a mayúscula
+        });
 
-    // Ordenar los datos por año y mes
-    pruebasPorMes.sort(function (a, b) {
-        var [mesA, anioA] = a.Mes.split(' ');
-        var [mesB, anioB] = b.Mes.split(' ');
+        // Obtener los valores del gráfico
+        var barValues = pruebasPorMes.map(p => p.Count);
 
-        var meses = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
-        var indexMesA = meses.indexOf(mesA);
-        var indexMesB = meses.indexOf(mesB);
+        // Color de fondo y borde para las barras
+        var backgroundColors = [
+            'rgba(255, 99, 132, 0.8)',
+            'rgba(54, 162, 235, 0.8)',
+            'rgba(255, 206, 86, 0.8)',
+            'rgba(75, 192, 192, 0.8)',
+            'rgba(153, 102, 255, 0.8)',
+            'rgba(255, 159, 64, 0.8)'
+        ];
 
-        if (anioA === anioB) {
-            return indexMesA - indexMesB; // Ordenar por mes si el año es el mismo
-        }
-        return anioA - anioB; // Ordenar por año
-    });
+        var borderColors = [
+            'rgba(255, 99, 132, 1)',
+            'rgba(54, 162, 235, 1)',
+            'rgba(255, 206, 86, 1)',
+            'rgba(75, 192, 192, 1)',
+            'rgba(153, 102, 255, 1)',
+            'rgba(255, 159, 64, 1)'
+        ];
 
-    var barLabels = pruebasPorMes.map(p => p.Mes); // Mes y año en la etiqueta
-    var barValues = pruebasPorMes.map(p => p.Count);
+        // Crear un arreglo de colores para las barras
+        var colors = barLabels.map((_, i) => backgroundColors[i % backgroundColors.length]);
+        var borders = barLabels.map((_, i) => borderColors[i % borderColors.length]);
 
-    // Color de fondo y borde para las barras
-    var backgroundColors = [
-        'rgba(255, 99, 132, 0.8)',
-        'rgba(54, 162, 235, 0.8)',
-        'rgba(255, 206, 86, 0.8)',
-        'rgba(75, 192, 192, 0.8)',
-        'rgba(153, 102, 255, 0.8)',
-        'rgba(255, 159, 64, 0.8)'
-    ];
-
-    var borderColors = [
-        'rgba(255, 99, 132, 1)',
-        'rgba(54, 162, 235, 1)',
-        'rgba(255, 206, 86, 1)',
-        'rgba(75, 192, 192, 1)',
-        'rgba(153, 102, 255, 1)',
-        'rgba(255, 159, 64, 1)'
-    ];
-
-    // Crear un arreglo de colores para las barras
-    var colors = barLabels.map((_, i) => backgroundColors[i % backgroundColors.length]);
-    var borders = barLabels.map((_, i) => borderColors[i % borderColors.length]);
-
-    // Configurar el gráfico
-    var barCtx = document.getElementById('barChart').getContext('2d');
-    var barChart = new Chart(barCtx, {
-        type: 'bar',
-        data: {
-            labels: barLabels,
-            datasets: [{
-                label: 'Datos del Gráfico de Barras',
-                data: barValues,
-                backgroundColor: colors,
-                borderColor: borders,
-                borderWidth: 1
-            }]
-        },
-        options: {
-            responsive: true, // Asegura que el gráfico sea responsivo
-            maintainAspectRatio: false, // Permite que el gráfico ajuste su tamaño al contenedor
-            scales: {
-                x: {
-                    beginAtZero: true,
-                    ticks: {
-                        autoSkip: false, // Muestra todas las etiquetas
-                        maxRotation: 90, // Ajusta la rotación de las etiquetas si es necesario
-                        minRotation: 0 // Asegura que las etiquetas sean legibles
+        // Configurar el gráfico
+        var barCtx = document.getElementById('barChart').getContext('2d');
+        var barChart = new Chart(barCtx, {
+            type: 'bar',
+            data: {
+                labels: barLabels, // Asegúrate de que barLabels tenga los meses en mayúscula
+                datasets: [{
+                    label: 'Datos del Gráfico de Barras',
+                    data: barValues,
+                    backgroundColor: colors,
+                    borderColor: borders,
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true, // Asegura que el gráfico sea responsivo
+                maintainAspectRatio: false, // Permite que el gráfico ajuste su tamaño al contenedor
+                scales: {
+                    x: {
+                        beginAtZero: true,
+                        ticks: {
+                            autoSkip: false, // Muestra todas las etiquetas
+                            maxRotation: 90, // Ajusta la rotación de las etiquetas si es necesario
+                            minRotation: 0 // Asegura que las etiquetas sean legibles
+                        }
+                    },
+                    y: {
+                        beginAtZero: true
                     }
-                },
-                y: {
-                    beginAtZero: true
                 }
             }
-        }
-    });
+        });
+
+
 
 
 
