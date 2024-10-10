@@ -134,7 +134,6 @@ namespace Proyecto_Ciudad_De_Los_Ninos.Models
                 entity.Property(e => e.id_usuario).HasColumnName("id_usuario");
                 entity.Property(e => e.id_joven).HasColumnName("id_joven");
                 entity.Property(e => e.fecha).HasColumnName("fecha");
-                entity.Property(e => e.tipo_usuario).HasColumnName("tipo_usuario");
                 entity.Property(e => e.detalles).HasColumnName("detalles");
 
                 entity.HasOne(d => d.Usuario)

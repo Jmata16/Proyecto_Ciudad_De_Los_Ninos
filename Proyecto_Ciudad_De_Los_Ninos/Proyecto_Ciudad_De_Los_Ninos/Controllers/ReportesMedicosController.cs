@@ -28,11 +28,22 @@ namespace Proyecto_Ciudad_De_Los_Ninos.Controllers
             var reportesMedicos = await _context.Reportes_Medicos
                 .Include(r => r.Usuario)
                 .Include(r => r.Joven)
+                .Where(r => r.estado == "Activo")  
                 .ToListAsync();
 
             return View(reportesMedicos);
         }
 
+        public async Task<IActionResult> Desactivado()
+        {
+            var reportesMedicos = await _context.Reportes_Medicos
+                .Include(r => r.Usuario)
+                .Include(r => r.Joven)
+                .Where(r => r.estado == "Desactivado")
+                .ToListAsync();
+
+            return View(reportesMedicos);
+        }
         // GET: ReportesMedicos/Details/5
         public async Task<IActionResult> Details(int id)
         {
@@ -149,7 +160,8 @@ namespace Proyecto_Ciudad_De_Los_Ninos.Controllers
                     return RedirectToAction(nameof(Index), new { errorMessage = "El reporte médico no se encontró." });
                 }
 
-                _context.Reportes_Medicos.Remove(reporteMedico);
+                reporteMedico.estado = "Desactivado";
+                _context.Update(reporteMedico);
                 await _context.SaveChangesAsync();
 
                 return RedirectToAction(nameof(Index));
@@ -159,13 +171,14 @@ namespace Proyecto_Ciudad_De_Los_Ninos.Controllers
                 var errorViewModel = new ErrorViewModel
                 {
                     StatusCode = 500,
-                    Message = "Ocurrió un error al intentar eliminar el reporte médico.",
+                    Message = "Ocurrió un error al intentar desactivar el reporte médico.",
                     RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier
                 };
 
                 return View("Error", errorViewModel);
             }
         }
+
 
 
         private bool ReporteMedicoExists(int id)

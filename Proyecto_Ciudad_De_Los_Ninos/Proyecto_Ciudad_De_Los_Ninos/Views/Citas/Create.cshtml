@@ -116,17 +116,7 @@
                 </div>
             </div>
 
-            <div class="row mb-3">
-                <label for="tipo_usuario" class="col-sm-2 col-form-label">Tipo de Usuario</label>
-                <div class="col-sm-10">
-                    <select id="tipo_usuario" asp-for="tipo_usuario" class="form-select" disabled>
-                        <option value="">Tipo de Usuario</option> <!-- Opción vacía -->
-                        <option value="psicólogo">Psicólogo</option>
-                        <option value="trabajador_social">Trabajador Social</option>
-                    </select>
-                    <span asp-validation-for="tipo_usuario" class="text-danger"></span>
-                </div>
-            </div>
+
 
 
             <div class="row mb-3">
@@ -152,21 +142,6 @@
     </div>
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script>
-        // Cambiar el tipo de usuario automáticamente según el rol
-        $('#id_usuario').change(function () {
-            var selectedOption = $(this).find('option:selected');
-            var rol = selectedOption.data('rol');
-
-            if (rol == 3) {
-                $('#tipo_usuario').val('psicólogo');
-            } else if (rol == 4) {
-                $('#tipo_usuario').val('trabajador_social');
-            } else {
-                $('#tipo_usuario').val('');
-            }
-        });
-    </script>
 
     @Html.Partial("_footer")
 

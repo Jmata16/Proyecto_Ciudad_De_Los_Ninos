@@ -23,7 +23,6 @@ namespace Proyecto_Ciudad_De_Los_Ninos.Controllers
         }
 
         // GET: CitasController
-        // GET: CitasController
         public async Task<IActionResult> Index()
         {
             var citas = await _context.Citas
@@ -40,12 +39,11 @@ namespace Proyecto_Ciudad_De_Los_Ninos.Controllers
             var citas = await _context.Citas
                 .Include(c => c.Usuario)
                 .Include(c => c.Joven)
-                .Where(c => c.Estado == "Desactivado") 
+                .Where(c => c.Estado == "Desactivado")
                 .ToListAsync();
 
             return View(citas);
         }
-
 
         // GET: CitasController/Details/5
         public async Task<IActionResult> Details(int id)
@@ -62,35 +60,33 @@ namespace Proyecto_Ciudad_De_Los_Ninos.Controllers
 
             return View(cita);
         }
+
         // GET: Citas/Create
         public async Task<IActionResult> Create()
         {
             // Filtrar solo usuarios con roles 3 y 4
-            var users = _context.Users
-                                .Where(u => u.id_rol == 3 || u.id_rol == 4)
-                                .Select(u => new
-                                {
-                                    u.Id,
-                                    u.nombre_usuario,
-                                    u.id_rol
-                                })
-                                .ToList();
+            var users = await _context.Users
+                                      .Where(u => u.id_rol == 3 || u.id_rol == 4)
+                                      .Select(u => new
+                                      {
+                                          u.Id,
+                                          u.nombre_usuario, // Asegúrate de que este sea el campo correcto que contiene el nombre
+                                          u.id_rol
+                                      })
+                                      .ToListAsync();
 
             // En lugar de usar SelectList directamente, pasamos la lista de objetos al ViewBag
             ViewBag.Users = users;
 
-            ViewData["Jovenes"] = new SelectList(_context.Jovenes, "Id", "nombre");
+            ViewData["Jovenes"] = new SelectList(await _context.Jovenes.ToListAsync(), "Id", "nombre");
 
             return View();
         }
 
-
-
-
         // POST: Citas/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,id_usuario,id_joven,fecha,tipo_usuario,detalles")]Citas cita)
+        public async Task<IActionResult> Create([Bind("Id,id_usuario,id_joven,fecha,detalles")] Citas cita) // Elimina tipo_usuario
         {
             if (ModelState.IsValid)
             {
@@ -101,8 +97,8 @@ namespace Proyecto_Ciudad_De_Los_Ninos.Controllers
                 if (existingCita != null)
                 {
                     ModelState.AddModelError("", "Ya existe una cita programada para esta fecha y hora para este usuario o joven.");
-                    ViewData["Users"] = new SelectList(_context.Users, "Id", "nombre_usuario", cita.id_usuario);
-                    ViewData["Jovenes"] = new SelectList(_context.Jovenes, "Id", "nombre", cita.id_joven);
+                    ViewData["Users"] = new SelectList(await _context.Users.Where(u => u.id_rol == 3 || u.id_rol == 4).ToListAsync(), "Id", "nombre_usuario", cita.id_usuario);
+                    ViewData["Jovenes"] = new SelectList(await _context.Jovenes.ToListAsync(), "Id", "nombre", cita.id_joven);
                     return View(cita);
                 }
 
@@ -112,12 +108,12 @@ namespace Proyecto_Ciudad_De_Los_Ninos.Controllers
             }
 
             // Si el modelo no es válido, volver a cargar los SelectList
-            ViewData["Users"] = new SelectList(_context.Users, "Id", "nombre_usuario", cita.id_usuario);
-            ViewData["Jovenes"] = new SelectList(_context.Jovenes, "Id", "nombre", cita.id_joven);
+            ViewData["Users"] = new SelectList(await _context.Users.Where(u => u.id_rol == 3 || u.id_rol == 4).ToListAsync(), "Id", "nombre_usuario", cita.id_usuario);
+            ViewData["Jovenes"] = new SelectList(await _context.Jovenes.ToListAsync(), "Id", "nombre", cita.id_joven);
             return View(cita);
         }
 
-        // GET: CitasController/Edit/5
+        // Método para editar una cita
         public async Task<IActionResult> Edit(int id)
         {
             var cita = await _context.Citas.FindAsync(id);
@@ -125,52 +121,51 @@ namespace Proyecto_Ciudad_De_Los_Ninos.Controllers
             {
                 return NotFound();
             }
-            ViewData["Users"] = new SelectList(_context.Users, "Id", "nombre_usuario", cita.id_usuario);
-            ViewData["Jovenes"] = new SelectList(_context.Jovenes, "Id", "nombre", cita.id_joven);
+
+            // Filtrar usuarios con rol 3 y 4
+            var users = await _context.Users
+                .Where(u => u.id_rol == 3 || u.id_rol == 4)
+                .Select(u => new
+                {
+                    Id = u.Id,
+                    Nombre = u.nombre_usuario, // Asegúrate de que este sea el campo correcto que contiene el nombre
+                    RolId = u.id_rol
+                })
+                .ToListAsync();
+
+            ViewBag.Users = users; // Pasar la lista filtrada a la vista
+
+            // Convertir la lista de jóvenes a un SelectList
+            ViewBag.Jovenes = new SelectList(await _context.Jovenes.ToListAsync(), "Id", "nombre");
+
             return View(cita);
         }
 
-        // POST: CitasController/Edit/5
+        // Método para actualizar una cita
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,id_usuario,id_joven,fecha,tipo_usuario,detalles")] Citas cita)
+        public async Task<IActionResult> Edit(Citas cita)
         {
-            if (id != cita.Id)
-            {
-                return NotFound();
-            }
-
             if (ModelState.IsValid)
             {
-                try
-                {
-                    var existingCita = await _context.Citas
-                        .FirstOrDefaultAsync(c => (c.id_usuario == cita.id_usuario || c.id_joven == cita.id_joven) && c.fecha == cita.fecha && c.Id != id);
-
-                    if (existingCita != null)
-                    {
-                        ModelState.AddModelError("", "Ya existe una cita programada para esta fecha y hora para este usuario o joven.");
-                        return View(cita);
-                    }
-
-                    _context.Update(cita);
-                    await _context.SaveChangesAsync();
-                }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!CitaExists(cita.Id))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
-                }
-                return RedirectToAction(nameof(Index));
+                _context.Update(cita);
+                await _context.SaveChangesAsync();
+                return RedirectToAction("Index"); // Redirigir a la lista de citas después de guardar
             }
-            ViewData["Users"] = new SelectList(_context.Users, "ID", "nombre_usuario", cita.id_usuario);
-            ViewData["Jovenes"] = new SelectList(_context.Jovenes, "ID", "nombre", cita.id_joven);
+
+            // Si la validación falla, volver a cargar los usuarios
+            var users = await _context.Users
+                .Where(u => u.id_rol == 3 || u.id_rol == 4)
+                .Select(u => new
+                {
+                    Id = u.Id,
+                    Nombre = u.nombre_usuario,
+                    RolId = u.id_rol
+                })
+                .ToListAsync();
+
+            ViewBag.Users = users;
+            ViewBag.Jovenes = await _context.Jovenes.ToListAsync();
+
             return View(cita);
         }
 
@@ -221,9 +216,6 @@ namespace Proyecto_Ciudad_De_Los_Ninos.Controllers
                 return View("Error", errorViewModel);
             }
         }
-
-
-
 
         private bool CitaExists(int id)
         {

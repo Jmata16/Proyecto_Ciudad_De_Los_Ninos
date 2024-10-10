@@ -96,7 +96,7 @@
     @Html.Partial("_header")
 
     <div class="container-main">
-        <h4>Eliminar Reporte Médico</h4>
+        <h4>Desactivar Reporte Médico</h4>
         <hr />
         <div class="table-responsive">
             <table class="table table-bordered table-striped">
@@ -120,15 +120,35 @@
                 </tbody>
             </table>
         </div>
-        <form asp-action="Delete" asp-route-id="@Model?.Id" method="post" onsubmit="return confirm('¿Estás seguro de que quieres eliminar este reporte médico?')">
-            <input type="hidden" asp-for="Id" />
-            <button type="submit" class="btn btn-danger">Eliminar</button>
-            <div class="col text-end">
-                <a asp-action="Index" class="btn btn-secondary"><i class="ri-arrow-left-circle-line"></i> Volver atrás</a>
-            </div>
-        </form>
+        <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#confirmModal">
+            Desactivar
+        </button>
+        <div class="col text-end">
+            <a asp-action="Index" class="btn btn-secondary"><i class="ri-arrow-left-circle-line"></i> Volver atrás</a>
+        </div>
     </div>
 
+    <!-- Modal de confirmación -->
+    <div class="modal fade" id="confirmModal" tabindex="-1" aria-labelledby="confirmModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="confirmModalLabel">Confirmar eliminación</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    ¿Estás seguro de que quieres desactivar este reporte médico?
+                </div>
+                <div class="modal-footer">
+                    <form asp-action="Delete" asp-route-id="@Model?.Id" method="post">
+                        <input type="hidden" asp-for="Id" />
+                        <button type="submit" class="btn btn-danger">Desactivar</button>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
 
     @Html.Partial("_footer")
 

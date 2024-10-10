@@ -106,7 +106,6 @@
                             <th>Usuario</th>
                             <th>Joven</th>
                             <th>Fecha</th>
-                            <th>Tipo Usuario</th>
                             <th>Detalles</th>
                             <th>Acciones</th>
                         </tr>
@@ -118,7 +117,6 @@
                                 <td>@item.Usuario?.nombre_usuario</td>
                                 <td>@item.Joven?.nombre</td>
                                 <td>@Html.DisplayFor(modelItem => item.fecha)</td>
-                                <td>@Html.DisplayFor(modelItem => item.tipo_usuario)</td>
                                 <td>@Html.DisplayFor(modelItem => item.detalles)</td>
                                 <td class="actions d-flex">
                                     <a href="@Url.Action("Edit", new { id = item.Id })" class="btn btn-warning btn-sm d-inline-flex align-items-center me-2"><i class="ri-edit-line me-1" title="Editar"></i></a>

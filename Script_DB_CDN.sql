@@ -592,3 +592,29 @@ ADD estado VARCHAR(50) DEFAULT 'Activo';
 UPDATE Expedientes 
 SET estado = 'Activo'
 WHERE estado IS NULL;
+
+
+
+ALTER TABLE Reportes_Medicos  
+ADD estado VARCHAR(50) DEFAULT 'Activo';
+
+-- Actualizar el estado a 'Activo' donde el estado es NULL
+UPDATE Reportes_Medicos 
+SET estado = 'Activo'
+WHERE estado IS NULL;
+
+
+ALTER TABLE Pruebas_Dopaje  
+ADD estado VARCHAR(50) DEFAULT 'Activo';
+
+-- Actualizar el estado a 'Activo' donde el estado es NULL
+UPDATE Pruebas_Dopaje
+SET estado = 'Activo'
+WHERE estado IS NULL;
+
+
+--quitar tipo_usuario no es necesario 
+ALTER TABLE Citas
+DROP COLUMN tipo_usuario;
+
+

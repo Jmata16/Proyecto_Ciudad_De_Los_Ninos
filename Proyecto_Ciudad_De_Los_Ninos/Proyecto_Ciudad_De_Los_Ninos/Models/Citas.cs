@@ -19,8 +19,6 @@ namespace API_Ciudad_De_Los_Ninos.Models
         [Required(ErrorMessage = "El campo Fecha es requerido")]
         public DateTime fecha { get; set; }
 
-        [Required(ErrorMessage = "El campo Tipo de Usuario es requerido")]
-        public string tipo_usuario { get; set; }
 
         [Required(ErrorMessage = "El campo Detalles es requerido")]
         public string detalles { get; set; }
