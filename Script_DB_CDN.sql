@@ -533,3 +533,62 @@ INSERT INTO Pruebas_Dopaje (id_usuario, id_joven, fecha, resultado, observacione
 
 SELECT * FROM Users WHERE ID IN (1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
 SELECT * FROM Jovenes WHERE ID IN (1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
+
+
+
+--Agregar estado de activo y desactivo
+
+--Citas
+ALTER TABLE Citas
+ADD estado VARCHAR(50) DEFAULT 'Activo';
+
+UPDATE Citas
+SET estado = 'Activo'
+WHERE estado IS NULL;
+
+-- Agregar columna estado a la tabla Inventario_Comedor
+ALTER TABLE Inventario_Comedor
+ADD estado VARCHAR(50) DEFAULT 'Activo';
+
+-- Actualizar el estado a 'Activo' donde el estado es NULL
+UPDATE Inventario_Comedor
+SET estado = 'Activo'
+WHERE estado IS NULL;
+
+
+-- Agregar columna estado a la tabla Inventario_Higiene_Personal
+ALTER TABLE Inventario_Higiene_Personal
+ADD estado VARCHAR(50) DEFAULT 'Activo';
+
+-- Actualizar el estado a 'Activo' donde el estado es NULL
+UPDATE Inventario_Higiene_Personal
+SET estado = 'Activo'
+WHERE estado IS NULL;
+
+
+ALTER TABLE Reportes_Expedientes
+ADD estado VARCHAR(50) DEFAULT 'Activo';
+
+-- Actualizar el estado a 'Activo' donde el estado es NULL
+UPDATE Reportes_Expedientes
+SET estado = 'Activo'
+WHERE estado IS NULL;
+
+
+ALTER TABLE Incidentes
+ADD estado VARCHAR(50) DEFAULT 'Activo';
+
+-- Actualizar el estado a 'Activo' donde el estado es NULL
+UPDATE Incidentes
+SET estado = 'Activo'
+WHERE estado IS NULL;
+
+
+
+ALTER TABLE Expedientes  
+ADD estado VARCHAR(50) DEFAULT 'Activo';
+
+-- Actualizar el estado a 'Activo' donde el estado es NULL
+UPDATE Expedientes 
+SET estado = 'Activo'
+WHERE estado IS NULL;

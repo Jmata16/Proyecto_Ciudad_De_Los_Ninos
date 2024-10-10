@@ -20,12 +20,15 @@ namespace Proyecto_Ciudad_De_Los_Ninos.Controllers
         {
             _context = context;
         }
-
         public IActionResult Index()
         {
-            ViewBag.Rifas = _context.Rifas.ToList();
+            var today = DateTime.Now;
+            ViewBag.Rifas = _context.Rifas
+                .Where(r => r.FechaRifa > today)
+                .ToList();
             return View();
         }
+
 
         [HttpGet]
         public JsonResult GetAvailableNumbers(int rifaId)

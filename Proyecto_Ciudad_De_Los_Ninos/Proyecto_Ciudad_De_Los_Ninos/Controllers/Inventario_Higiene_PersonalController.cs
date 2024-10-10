@@ -25,8 +25,22 @@ namespace Proyecto_Ciudad_De_Los_Ninos.Controllers
         // GET: Inventario_Higiene_Personal
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Inventario_Higiene_Personal.ToListAsync());
+            var inventarioActivos = await _context.Inventario_Higiene_Personal
+                .Where(i => i.estado == "Activo") // Filtrar por estado "Activo"
+                .ToListAsync();
+
+            return View(inventarioActivos);
         }
+        public async Task<IActionResult> Desactivado()
+        {
+            var registrosDesactivados = await _context.Inventario_Higiene_Personal
+                .Where(i => i.estado == "Desactivado") // Filtra los registros con estado 'Desactivado'
+                .ToListAsync();
+
+            return View(registrosDesactivados);
+        }
+
+
 
 
         public async Task<IActionResult> Tienda()
@@ -196,15 +210,9 @@ namespace Proyecto_Ciudad_De_Los_Ninos.Controllers
                 var inventario_Higiene_Personal = await _context.Inventario_Higiene_Personal.FindAsync(id);
                 if (inventario_Higiene_Personal != null)
                 {
-                    var tickete = _context.Tickete.FirstOrDefault(m => m.id_inventario_higiene_personal == id);
-
-                    if (tickete != null)
-                    {
-                        _context.Tickete.Remove(tickete);
-                        await _context.SaveChangesAsync();
-                    }
-
-                    _context.Inventario_Higiene_Personal.Remove(inventario_Higiene_Personal);
+                    // Cambiar el estado a "Desactivado"
+                    inventario_Higiene_Personal.estado = "Desactivado";
+                    _context.Update(inventario_Higiene_Personal);
                     await _context.SaveChangesAsync();
 
                     return RedirectToAction(nameof(Index));
@@ -219,13 +227,14 @@ namespace Proyecto_Ciudad_De_Los_Ninos.Controllers
                 var errorViewModel = new ErrorViewModel
                 {
                     StatusCode = 500, // Código de estado HTTP para errores internos del servidor
-                    Message = "Ocurrió un error al intentar eliminar el objeto.",
+                    Message = "Ocurrió un error al intentar desactivar el objeto.",
                     RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier
                 };
 
                 return View("Error", errorViewModel);
             }
         }
+
 
 
         private bool Inventario_Higiene_PersonalExists(int id)

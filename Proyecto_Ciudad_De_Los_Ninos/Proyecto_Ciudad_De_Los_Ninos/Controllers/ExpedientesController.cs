@@ -1,22 +1,16 @@
-﻿using System;
-using System.IO;
+﻿using API_Ciudad_De_Los_Ninos.Models;
 using ClosedXML.Excel;
 using CsvHelper;
 using iTextSharp.text;
 using iTextSharp.text.pdf;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using API_Ciudad_De_Los_Ninos.Models;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.EntityFrameworkCore;
 using Proyecto_Ciudad_De_Los_Ninos.Models;
-using System.Drawing.Printing;
+using System.Diagnostics;
 using System.Globalization;
 using System.Text;
-using Microsoft.AspNetCore.Authorization;
-using System.Diagnostics;
 
 namespace Proyecto_Ciudad_De_Los_Ninos.Controllers
 {
@@ -31,13 +25,13 @@ namespace Proyecto_Ciudad_De_Los_Ninos.Controllers
         }
 
 
-        // Método de búsqueda
         public async Task<IActionResult> Index(string searchString, int? searchAge)
         {
             ViewData["CurrentFilter"] = searchString;
             ViewData["CurrentAgeFilter"] = searchAge;
 
             var expedientes = from e in _context.Expedientes
+                              where e.estado == "Activo" // Filtrar solo por estado "Activo"
                               select e;
 
             if (!String.IsNullOrEmpty(searchString))
@@ -52,7 +46,14 @@ namespace Proyecto_Ciudad_De_Los_Ninos.Controllers
 
             return View(await expedientes.ToListAsync());
         }
+        public async Task<IActionResult> Desactivado()
+        {
+            var expedientesDesactivados = await _context.Expedientes
+                .Where(e => e.estado == "Desactivado") // Filtrar por estado desactivado
+                .ToListAsync();
 
+            return View(expedientesDesactivados);
+        }
 
         // GET: Expedientes/Details/5
         public async Task<IActionResult> Details(int id)
@@ -156,7 +157,6 @@ namespace Proyecto_Ciudad_De_Los_Ninos.Controllers
         {
             var expediente = await _context.Expedientes
                 .Include(e => e.Joven)
-               
                 .FirstOrDefaultAsync(m => m.Id == id);
 
             if (expediente == null)
@@ -179,7 +179,11 @@ namespace Proyecto_Ciudad_De_Los_Ninos.Controllers
                     return RedirectToAction(nameof(Index), new { errorMessage = "El expediente no se encontró." });
                 }
 
-                _context.Expedientes.Remove(expediente);
+                // Cambia el estado a "Desactivado"
+                expediente.estado = "Desactivado";
+
+                // Actualiza el registro en la base de datos
+                _context.Update(expediente);
                 await _context.SaveChangesAsync();
 
                 return RedirectToAction(nameof(Index));
@@ -189,7 +193,7 @@ namespace Proyecto_Ciudad_De_Los_Ninos.Controllers
                 var errorViewModel = new ErrorViewModel
                 {
                     StatusCode = 500,
-                    Message = "Ocurrió un error al intentar eliminar el expediente.",
+                    Message = "Ocurrió un error al intentar desactivar el expediente.",
                     RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier
                 };
 

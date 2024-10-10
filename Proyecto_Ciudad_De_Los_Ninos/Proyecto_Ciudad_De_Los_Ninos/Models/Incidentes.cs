@@ -14,7 +14,7 @@ namespace API_Ciudad_De_Los_Ninos.Models
         public int id_joven { get; set; }
         public DateTime fecha_hora { get; set; }
         public string descripcion { get; set; }
-
+        public string estado { get; set; } 
         public User? Usuario { get; set; }
         public Jovenes? Joven { get; set; }
     }

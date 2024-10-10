@@ -627,13 +627,13 @@ h3.cart-title {
 }
 #header-nav .offcanvas.show {
     z-index: 9999;
-    background-color: #E6282A;
+    background-color: #1c3583;
 }
 #header-nav .offcanvas-end {
     width: 500px;
 }
 .offcanvas.show .nav-item a.nav-link {
-    font-size: 2em;
+    font-size: 1.5em;
 }
 .offcanvas.show .offcanvas-body .navbar-nav {
     align-items: unset!important;

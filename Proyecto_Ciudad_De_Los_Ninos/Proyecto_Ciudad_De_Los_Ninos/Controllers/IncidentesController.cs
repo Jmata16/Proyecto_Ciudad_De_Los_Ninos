@@ -21,16 +21,27 @@ namespace API_Ciudad_De_Los_Ninos.Controllers
             _context = context;
         }
 
-        // GET: Incidentes
         public async Task<IActionResult> Index()
         {
             var incidentes = await _context.Incidentes
                 .Include(i => i.Usuario)
                 .Include(i => i.Joven)
+                .Where(i => i.estado == "Activo") // Solo registros activos
                 .ToListAsync();
 
             return View(incidentes);
         }
+        public async Task<IActionResult> Desactivado()
+        {
+            var incidentesDesactivados = await _context.Incidentes
+                .Include(i => i.Usuario)
+                .Include(i => i.Joven)
+                .Where(i => i.estado == "Desactivado") // Solo registros desactivados
+                .ToListAsync();
+
+            return View(incidentesDesactivados);
+        }
+
 
         // GET: Incidentes/Details/5
         public async Task<IActionResult> Details(int id)
@@ -136,6 +147,7 @@ namespace API_Ciudad_De_Los_Ninos.Controllers
             return View(incidente);
         }
 
+        // POST: Incidentes/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
@@ -148,7 +160,8 @@ namespace API_Ciudad_De_Los_Ninos.Controllers
                     return RedirectToAction(nameof(Index), new { errorMessage = "El incidente no se encontró." });
                 }
 
-                _context.Incidentes.Remove(incidente);
+                incidente.estado = "Desactivado"; // Cambiar el estado a "Desactivado"
+                _context.Update(incidente); // Actualizar el estado
                 await _context.SaveChangesAsync();
 
                 return RedirectToAction(nameof(Index));
@@ -158,13 +171,14 @@ namespace API_Ciudad_De_Los_Ninos.Controllers
                 var errorViewModel = new ErrorViewModel
                 {
                     StatusCode = 500,
-                    Message = "Ocurrió un error al intentar eliminar el incidente.",
+                    Message = "Ocurrió un error al intentar desactivar el incidente.",
                     RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier
                 };
 
                 return View("Error", errorViewModel);
             }
         }
+
 
 
 

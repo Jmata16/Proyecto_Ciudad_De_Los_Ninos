@@ -26,8 +26,22 @@ namespace Proyecto_Ciudad_De_Los_Ninos.Controllers
         // GET: Inventario_Comedor
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Inventario_Comedor.ToListAsync());
+            var inventarios = await _context.Inventario_Comedor
+                .Where(i => i.estado == "Activo") // Filtrar solo los elementos activos
+                .ToListAsync();
+
+            return View(inventarios);
         }
+
+        public async Task<IActionResult> Desactivado()
+        {
+            var inventariosDesactivados = await _context.Inventario_Comedor
+                .Where(i => i.estado == "Desactivado") // Filtrar solo los elementos desactivados
+                .ToListAsync();
+
+            return View(inventariosDesactivados);
+        }
+
 
         public IActionResult Create()
         {
@@ -155,6 +169,7 @@ namespace Proyecto_Ciudad_De_Los_Ninos.Controllers
         return View(inventarioComedor);
     }
 
+        // GET: Inventario_Comedor/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -172,6 +187,7 @@ namespace Proyecto_Ciudad_De_Los_Ninos.Controllers
             return View(inventario_Comedor);
         }
 
+        // POST: Inventario_Comedor/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
@@ -184,7 +200,9 @@ namespace Proyecto_Ciudad_De_Los_Ninos.Controllers
                     return RedirectToAction(nameof(Index), new { errorMessage = "El inventario de comedor no se encontró." });
                 }
 
-                _context.Inventario_Comedor.Remove(inventario_Comedor);
+                // Cambiar el estado a "Desactivado"
+                inventario_Comedor.estado = "Desactivado";
+                _context.Update(inventario_Comedor);
                 await _context.SaveChangesAsync();
 
                 return RedirectToAction(nameof(Index));
@@ -194,13 +212,14 @@ namespace Proyecto_Ciudad_De_Los_Ninos.Controllers
                 var errorViewModel = new ErrorViewModel
                 {
                     StatusCode = 500,
-                    Message = "Ocurrió un error al intentar eliminar el inventario de comedor.",
+                    Message = "Ocurrió un error al intentar desactivar el inventario de comedor.",
                     RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier
                 };
 
                 return View("Error", errorViewModel);
             }
         }
+
 
 
 

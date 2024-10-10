@@ -23,11 +23,24 @@ namespace Proyecto_Ciudad_De_Los_Ninos.Controllers
         }
 
         // GET: CitasController
+        // GET: CitasController
         public async Task<IActionResult> Index()
         {
             var citas = await _context.Citas
                 .Include(c => c.Usuario)
                 .Include(c => c.Joven)
+                .Where(c => c.Estado == "Activo") // Filtrar solo citas activas
+                .ToListAsync();
+
+            return View(citas);
+        }
+
+        public async Task<IActionResult> Desactivado()
+        {
+            var citas = await _context.Citas
+                .Include(c => c.Usuario)
+                .Include(c => c.Joven)
+                .Where(c => c.Estado == "Desactivado") 
                 .ToListAsync();
 
             return View(citas);
@@ -52,12 +65,25 @@ namespace Proyecto_Ciudad_De_Los_Ninos.Controllers
         // GET: Citas/Create
         public async Task<IActionResult> Create()
         {
+            // Filtrar solo usuarios con roles 3 y 4
+            var users = _context.Users
+                                .Where(u => u.id_rol == 3 || u.id_rol == 4)
+                                .Select(u => new
+                                {
+                                    u.Id,
+                                    u.nombre_usuario,
+                                    u.id_rol
+                                })
+                                .ToList();
 
-            ViewData["Users"] = new SelectList(_context.Users, "Id", "nombre_usuario");
+            // En lugar de usar SelectList directamente, pasamos la lista de objetos al ViewBag
+            ViewBag.Users = users;
+
             ViewData["Jovenes"] = new SelectList(_context.Jovenes, "Id", "nombre");
 
             return View();
         }
+
 
 
 
@@ -152,14 +178,15 @@ namespace Proyecto_Ciudad_De_Los_Ninos.Controllers
         public async Task<IActionResult> Delete(int id)
         {
             var cita = await _context.Citas
-               .Include(c => c.Usuario)
-               .Include(c => c.Joven)
-               .FirstOrDefaultAsync(m => m.Id == id);
-            cita = await _context.Citas.FindAsync(id);
+                .Include(c => c.Usuario)
+                .Include(c => c.Joven)
+                .FirstOrDefaultAsync(m => m.Id == id);
+
             if (cita == null)
             {
                 return NotFound();
             }
+
             return View(cita);
         }
 
@@ -175,7 +202,9 @@ namespace Proyecto_Ciudad_De_Los_Ninos.Controllers
                     return RedirectToAction(nameof(Index), new { errorMessage = "La cita no se encontró." });
                 }
 
-                _context.Citas.Remove(cita);
+                // Cambiar el estado de la cita a "Desactivado"
+                cita.Estado = "Desactivado"; // Asegúrate de que la propiedad Estado exista en tu modelo
+                _context.Update(cita);
                 await _context.SaveChangesAsync();
 
                 return RedirectToAction(nameof(Index));
@@ -185,13 +214,14 @@ namespace Proyecto_Ciudad_De_Los_Ninos.Controllers
                 var errorViewModel = new ErrorViewModel
                 {
                     StatusCode = 500,
-                    Message = "Ocurrió un error al intentar eliminar la cita.",
+                    Message = "Ocurrió un error al intentar cambiar el estado de la cita.",
                     RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier
                 };
 
                 return View("Error", errorViewModel);
             }
         }
+
 
 
 

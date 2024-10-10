@@ -28,10 +28,23 @@ namespace Proyecto_Ciudad_De_Los_Ninos.Controllers
             var reportesExpedientes = await _context.Reportes_Expedientes
                 .Include(r => r.Expedientes)
                 .Include(r => r.Usuario)
+                .Where(r => r.estado == "Activo") // Filtrar solo registros activos
                 .ToListAsync();
 
             return View(reportesExpedientes);
         }
+        // GET: ReportesExpedientes/Desactivado
+        public async Task<IActionResult> Desactivado()
+        {
+            var reportesDesactivados = await _context.Reportes_Expedientes
+                .Include(r => r.Expedientes)
+                .Include(r => r.Usuario)
+                .Where(r => r.estado == "Desactivado") // Filtrar solo registros desactivados
+                .ToListAsync();
+
+            return View(reportesDesactivados);
+        }
+
 
         // GET: ReportesExpedientes/Details/5
         public async Task<IActionResult> Details(int id)
@@ -128,43 +141,38 @@ namespace Proyecto_Ciudad_De_Los_Ninos.Controllers
                 .Include(r => r.Expedientes)
                 .Include(r => r.Usuario)
                 .FirstOrDefaultAsync(m => m.Id == id);
+
             if (reporteExpediente == null)
             {
                 return NotFound();
             }
 
-            return View(reporteExpediente);
+            return View(reporteExpediente); // Asegúrate de que aquí se pasa el objeto a la vista
         }
 
+
+        // POST: ReportesExpedientes/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            try
+            var reporteExpediente = await _context.Reportes_Expedientes.FindAsync(id);
+
+            if (reporteExpediente == null)
             {
-                var reporteExpediente = await _context.Reportes_Expedientes.FindAsync(id);
-                if (reporteExpediente == null)
-                {
-                    return RedirectToAction(nameof(Index), new { errorMessage = "El reporte de expediente no se encontró." });
-                }
-
-                _context.Reportes_Expedientes.Remove(reporteExpediente);
-                await _context.SaveChangesAsync();
-
-                return RedirectToAction(nameof(Index));
+                return NotFound();
             }
-            catch (Exception)
-            {
-                var errorViewModel = new ErrorViewModel
-                {
-                    StatusCode = 500,
-                    Message = "Ocurrió un error al intentar eliminar el reporte de expediente.",
-                    RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier
-                };
 
-                return View("Error", errorViewModel);
-            }
+            // Cambiar el estado a "Desactivado" en lugar de eliminar
+            reporteExpediente.estado = "Desactivado";
+
+            // Actualizar el registro en la base de datos
+            _context.Update(reporteExpediente);
+            await _context.SaveChangesAsync();
+
+            return RedirectToAction(nameof(Index));
         }
+
 
 
         private bool ReporteExpedienteExists(int id)

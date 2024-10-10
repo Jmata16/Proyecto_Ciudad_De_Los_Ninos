@@ -32,7 +32,7 @@ namespace API_Ciudad_De_Los_Ninos.Models
 
         [Display(Name="Imágen")]
         public byte[]? imagen { get; set; }
-
+        public string estado { get; set; } = "Activo"; 
 
 
 

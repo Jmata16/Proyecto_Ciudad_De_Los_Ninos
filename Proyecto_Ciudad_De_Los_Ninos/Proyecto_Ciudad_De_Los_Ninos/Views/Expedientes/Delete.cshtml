@@ -1,7 +1,7 @@
 ﻿@model API_Ciudad_De_Los_Ninos.Models.Expedientes
 
 @{
-    Layout = null;
+    ViewData["Title"] = "Eliminar Expediente";
 }
 
 <!DOCTYPE html>
@@ -9,124 +9,183 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>Eliminar Expediente</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/bootstrap/css/bootstrap.min.css">
     <style>
-        .details-container {
-            width: 50%;
-            margin: auto;
-            padding: 20px;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            background-color: #f9f9f9;
-        }
-
-        .details-title {
-            text-align: center;
+        /* Estilos personalizados */
+        h4 {
+            color: #333;
+            font-size: 24px;
             margin-bottom: 20px;
         }
 
-        .details-list dt {
-            font-weight: bold;
-            margin-top: 10px;
+        .container-main {
+            background-color: #ffffff;
+            padding: 25.5px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            margin: 20px auto;
+            max-width: 800px;
+            overflow: hidden;
         }
 
-        .details-list dd {
-            margin-left: 0;
+        .row {
+            display: flex;
+            flex-wrap: wrap;
             margin-bottom: 10px;
         }
 
-        .action-links {
-            margin-top: 20px;
-            text-align: center;
+        .col-sm-2 {
+            flex: 0 0 20%;
+            max-width: 20%;
+            font-weight: bold;
+            color: #333;
         }
 
-
-
-        .delete-button {
-            margin-top: 20px;
-            text-align: center;
+        .col-sm-10 {
+            flex: 0 0 80%;
+            max-width: 80%;
+            color: #555;
+            margin-bottom: 15px;
         }
 
-            .delete-button button {
-                width: 150px;
-                padding: 10px;
-                background-color: #dc3545;
-                color: white;
-                border: none;
-                border-radius: 4px;
-                cursor: pointer;
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 1.2em;
+            border: none;
+            border-radius: 5px;
+            text-align: center;
+            text-decoration: none;
+            cursor: pointer;
+            margin-right: 10px;
+            margin-top: 20px;
+        }
+
+        .btn-danger {
+            background-color: #dc3545;
+            color: white;
+        }
+
+            .btn-danger:hover {
+                background-color: #c82333;
             }
 
-                .delete-button button:hover {
-                    background-color: #c82333;
-                }
-
-        /* Estilos del footer */
-        footer {
-            background-color: #f8f9fa;
-            padding: 20px 0;
-            position: absolute;
-            bottom: 0;
-            width: 100%;
+        .btn-success {
+            background-color: #28a745;
+            color: white;
         }
 
-            footer p {
+            .btn-success:hover {
+                background-color: #218838;
+            }
+
+        #footer {
+            margin-top: 30px;
+            background-color: #f8f9fa;
+            padding: 10px 0;
+            text-align: left;
+            clear: both;
+        }
+
+            #footer p {
                 margin: 0;
             }
-
     </style>
 </head>
 <body>
     @Html.Partial("_header")
 
-    <div class="details-container">
-        <h2 class="">Eliminar Expediente</h2>
+    <div class="container-main">
+        <h4 class="text-center">Desactivar Expediente</h4>
         <hr />
-        <dl class="details-list row">
-            <dt class="col-sm-4">Nombre del Joven</dt>
-            <dd class="col-sm-8">@Html.DisplayFor(model => model.nombre_joven)</dd>
-
-            <dt class="col-sm-4">Edad</dt>
-            <dd class="col-sm-8">@Html.DisplayFor(model => model.edad)</dd>
-
-            <dt class="col-sm-4">Fecha de Ingreso</dt>
-            <dd class="col-sm-8">@Html.DisplayFor(model => model.fecha_ingreso)</dd>
-
-            <dt class="col-sm-4">Dirección</dt>
-            <dd class="col-sm-8">@Html.DisplayFor(model => model.direccion)</dd>
-
-            <dt class="col-sm-4">Teléfono de Contacto</dt>
-            <dd class="col-sm-8">@Html.DisplayFor(model => model.telefono_contacto)</dd>
-
-            <dt class="col-sm-4">Tutor Legal</dt>
-            <dd class="col-sm-8">@Html.DisplayFor(model => model.tutor_legal)</dd>
-
-            <dt class="col-sm-4">Antecedentes Médicos</dt>
-            <dd class="col-sm-8">@Html.DisplayFor(model => model.antecedentes_medicos)</dd>
-
-            <dt class="col-sm-4">Historial Académico</dt>
-            <dd class="col-sm-8">@Html.DisplayFor(model => model.historial_academico)</dd>
-
-            <dt class="col-sm-4">Notas Adicionales</dt>
-            <dd class="col-sm-8">@Html.DisplayFor(model => model.notas_adicionales)</dd>
-        </dl>
-        
-            <form asp-action="Delete" asp-route-id="@Model?.Id" method="post" >
-                <button type="submit" class="btn btn-danger">Eliminar</button>
-               
-            </form>
-            
-        
-        <div class="col text-end">
-            <a asp-action="Index" class="btn btn-secondary"><i class="ri-arrow-left-circle-line"></i>  Volver atrás</a>
+        <div class="table-responsive">
+            <table class="table table-bordered table-striped">
+                <tbody>
+                    <tr>
+                        <th scope="row">Nombre del Joven</th>
+                        <td>@Html.DisplayFor(model => model.nombre_joven)</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Edad</th>
+                        <td>@Html.DisplayFor(model => model.edad)</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Fecha de Ingreso</th>
+                        <td>@Html.DisplayFor(model => model.fecha_ingreso)</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Dirección</th>
+                        <td>@Html.DisplayFor(model => model.direccion)</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Teléfono de Contacto</th>
+                        <td>@Html.DisplayFor(model => model.telefono_contacto)</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Tutor Legal</th>
+                        <td>@Html.DisplayFor(model => model.tutor_legal)</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Antecedentes Médicos</th>
+                        <td>@Html.DisplayFor(model => model.antecedentes_medicos)</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Historial Académico</th>
+                        <td>@Html.DisplayFor(model => model.historial_academico)</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Notas Adicionales</th>
+                        <td>@Html.DisplayFor(model => model.notas_adicionales)</td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
-        
+
+        <!-- Formulario que se enviará -->
+        <form asp-action="Delete" method="post" id="deleteForm">
+            <input type="hidden" name="id" value="@Model.Id" /> <!-- Asegúrate de tener el Id correcto -->
+            <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#confirmDeleteModal">
+                Eliminar
+            </button>
+
+            <div class="col text-end mt-3">
+                <a asp-action="Index" class="btn btn-secondary">
+                    <i class="ri-arrow-left-circle-line"></i> Volver atrás
+                </a>
+            </div>
+        </form>
+
+        <!-- Modal de confirmación -->
+        <div class="modal fade" id="confirmDeleteModal" tabindex="-1" aria-labelledby="confirmDeleteModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="confirmDeleteModalLabel">Confirmar Eliminación</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        ¿Estás seguro de que deseas desactivar el expediente de <strong>@Html.DisplayFor(model => model.nombre_joven)</strong>? Esta acción no se puede deshacer.
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                        <button type="button" class="btn btn-danger" id="confirmDeleteButton">Confirmar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
+
     @Html.Partial("_footer")
-    <script src="js/jquery-1.11.0.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
-    <script type="text/javascript" src="~/js/bootstrap.bundle.min.js"></script>
-    <script type="text/javascript" src="~/js/plugins.js"></script>
-    <script type="text/javascript" src="~/js/script.js"></script>
+    <!-- Scripts -->
+    <script src="~/js/jquery-1.11.0.min.js"></script>
+    <script src="~/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        // Manejar el clic en el botón de confirmar
+        document.getElementById('confirmDeleteButton').addEventListener('click', function () {
+            document.getElementById('deleteForm').submit();
+        });
+    </script>
 </body>
 </html>

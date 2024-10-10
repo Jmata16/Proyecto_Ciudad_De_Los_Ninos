@@ -91,15 +91,13 @@
             #footer p {
                 margin: 0;
             }
-
-        }
     </style>
 </head>
 <body>
     @Html.Partial("_header")
 
     <div class="container-main">
-        <h4 class="text-center">Eliminación de Citas</h4>
+        <h4 class="text-center">Desactivar Citas</h4>
         <hr />
         <div class="table-responsive">
             <table class="table table-bordered table-striped">
@@ -127,23 +125,51 @@
                 </tbody>
             </table>
         </div>
-        <form asp-action="Delete">
-            <input type="hidden" asp-for="Id" />
-            <button type="submit" class="btn btn-danger">Eliminar</button>
+
+        <!-- Formulario que se enviará -->
+        <form asp-action="Delete" method="post" id="deleteForm">
+            <input type="hidden" name="id" value="@Model.Id" /> <!-- Asegúrate de tener el Id correcto -->
+            <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#confirmDeleteModal">
+                Desactivar
+            </button>
+
             <div class="col text-end mt-3">
                 <a asp-action="Index" class="btn btn-secondary">
                     <i class="ri-arrow-left-circle-line"></i> Volver atrás
                 </a>
             </div>
         </form>
+
+        <!-- Modal de confirmación -->
+        <div class="modal fade" id="confirmDeleteModal" tabindex="-1" aria-labelledby="confirmDeleteModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="confirmDeleteModalLabel">Confirmar Desactivación</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        No se eliminarán los datos permanentemente, solo se desactivarán.
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                        <button type="button" class="btn btn-danger" id="confirmDeleteButton">Confirmar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
     @Html.Partial("_footer")
     <!-- Scripts -->
-    <script src="js/jquery-1.11.0.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+    <script src="~/js/jquery-1.11.0.min.js"></script>
     <script src="~/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/plugins.js"></script>
-    <script src="~/js/script.js"></script>
+
+    <script>
+        // Manejar el clic en el botón de confirmar
+        document.getElementById('confirmDeleteButton').addEventListener('click', function () {
+            document.getElementById('deleteForm').submit();
+        });
+    </script>
 </body>
 </html>
