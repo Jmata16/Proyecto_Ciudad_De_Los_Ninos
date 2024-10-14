@@ -36,7 +36,7 @@ namespace API_Ciudad_De_Los_Ninos.Models
         [Display(Name = "PrecioUnitario")]
         public decimal? precio_unitario { get; set; }
 
-        public string estado { get; set; } 
+        public string estado { get; set; } = "Activo"; 
 
 
 

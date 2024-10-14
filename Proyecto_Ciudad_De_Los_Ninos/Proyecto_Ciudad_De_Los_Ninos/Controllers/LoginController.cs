@@ -29,18 +29,26 @@ namespace Proyecto_Ciudad_De_Los_Ninos.Controllers
         {
             if (ModelState.IsValid)
             {
-                var loginUser = await _context.Users.FirstOrDefaultAsync(u => u.nombre_usuario == model.nombre_usuario && u.contraseña == model.contraseña);
+                // Buscamos al usuario que coincida con el nombre de usuario y la contraseña
+                var loginUser = await _context.Users
+                    .FirstOrDefaultAsync(u => u.nombre_usuario == model.nombre_usuario && u.contraseña == model.contraseña);
+
+                // Verificamos si el usuario existe y está activo
                 if (loginUser != null)
                 {
+                    if (loginUser.estado != "Activo") // Cambia "Activo" si el valor es diferente en tu base de datos
+                    {
+                        ModelState.AddModelError(string.Empty, "Tu cuenta no está activa.");
+                        return View(model);
+                    }
+
+                    // Crear las reclamaciones para el usuario
                     var claims = new List<Claim>
             {
                 new Claim(ClaimTypes.Name, model.nombre_usuario),
-               new Claim(ClaimTypes.Role, loginUser.id_rol.ToString()),
-
+                new Claim(ClaimTypes.Role, loginUser.id_rol.ToString()),
                 new Claim("UserId", loginUser.Id.ToString()),
                 new Claim(ClaimTypes.Email, loginUser.correo)
-
-
             };
 
                     var identity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
@@ -48,14 +56,13 @@ namespace Proyecto_Ciudad_De_Los_Ninos.Controllers
 
                     await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, principal);
 
-                    // No es necesario establecer IsAuthenticated en true manualmente
-
                     return RedirectToAction("Index", "Home"); // Redirige a la página de inicio después del inicio de sesión
                 }
                 ModelState.AddModelError(string.Empty, "Nombre de usuario o contraseña incorrectos.");
             }
             return View(model);
         }
+
 
 
         public async Task<IActionResult> Details(int? id)

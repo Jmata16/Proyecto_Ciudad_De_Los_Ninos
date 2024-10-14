@@ -1,0 +1,110 @@
+﻿@model IEnumerable<API_Ciudad_De_Los_Ninos.Models.User>
+
+@{
+    var roles = ViewData["Roles"] as SelectList;
+    ViewData["Title"] = "Lista de Usuarios";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewData["Title"]</title>
+    <link rel="stylesheet" href="~/bootstrap/css/bootstrap.min.css">
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .container {
+            padding: 20px;
+        }
+
+        .actions a {
+            margin-right: 10px;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+            .actions a:hover {
+                color: #0056b3;
+            }
+
+        .create-button {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 1.2em;
+            color: white;
+            background-color: #007bff;
+            border: none;
+            border-radius: 5px;
+            text-align: center;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+            .create-button:hover {
+                background-color: #0056b3;
+            }
+    </style>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/2.0.2/css/dataTables.dataTables.min.css">
+</head>
+<body>
+    @Html.Partial("_header")
+
+    <div class="container">
+        <table id="tableShow" class="table table-striped table-bordered table-hover">
+            <thead class="table-danger">
+                <tr>
+                    <th>Nombre</th>
+                    <th>Apellidos</th>
+                    <th>Correo Electrónico</th>
+                    <th>Fecha Nacimiento</th>
+                    <th>Cédula</th>
+                    <th>Usuario</th>
+                    <th>Rol</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@Html.DisplayFor(modelItem => item.nombre)</td>
+                        <td>@Html.DisplayFor(modelItem => item.apellidos)</td>
+                        <td>@Html.DisplayFor(modelItem => item.correo)</td>
+                        <td>@item.fecha_nacimiento.ToString("yyyy-MM-dd")</td>
+                        <td>@Html.DisplayFor(modelItem => item.cedula)</td>
+                        <td>@Html.DisplayFor(modelItem => item.nombre_usuario)</td>
+                        <td>
+                            @{
+                                var roleName = roles.FirstOrDefault(r => r.Value == item.id_rol.ToString())?.Text;
+                                @roleName
+                            }
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+    <footer>
+        @Html.Partial("_footer")
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/2.0.2/js/dataTables.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+    <script src="~/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/plugins.js"></script>
+    <script src="~/js/script.js"></script>
+    <script src="~/Funciones/DataTable.js"></script>
+</body>
+</html>

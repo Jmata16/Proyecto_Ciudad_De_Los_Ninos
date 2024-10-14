@@ -32,6 +32,7 @@ namespace API_Ciudad_De_Los_Ninos.Models
         public ICollection<Reportes_Medicos>? ReportesMedicos { get; set; }
         public ICollection<Pruebas_Dopaje>? Pruebas_Dopaje { get; set; }
         public ICollection<Incidentes>? Incidentes { get; set; }
+        public string estado { get; set; } = "Activo";
         public ICollection<Citas>? Citas { get; set; }
     }
 }

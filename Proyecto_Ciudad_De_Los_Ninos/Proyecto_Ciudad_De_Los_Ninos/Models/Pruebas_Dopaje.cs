@@ -31,6 +31,8 @@ namespace API_Ciudad_De_Los_Ninos.Models
         [StringLength(255)]
         public string observaciones { get; set; }
 
+        public string estado { get; set; } = "Activo";
+
         public User? Usuario { get; set; }
         public Jovenes? Joven { get; set; }
     }

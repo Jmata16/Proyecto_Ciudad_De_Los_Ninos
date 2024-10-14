@@ -27,10 +27,22 @@ namespace Proyecto_Ciudad_De_Los_Ninos.Controllers
         {
             var pruebasDopaje = _context.Pruebas_Dopaje
                 .Include(p => p.Usuario)
-                .Include(p => p.Joven);
+                .Include(p => p.Joven)
+                .Where(p => p.estado == "Activo"); 
 
             return View(await pruebasDopaje.ToListAsync());
         }
+
+        public async Task<IActionResult> Desactivado()
+        {
+            var pruebasDopaje = _context.Pruebas_Dopaje
+                .Include(p => p.Usuario)
+                .Include(p => p.Joven)
+                .Where(p => p.estado == "Desactivado");
+
+            return View(await pruebasDopaje.ToListAsync());
+        }
+
 
         // GET: Pruebas_Dopaje/Details/5
         public async Task<IActionResult> Details(int? id)
@@ -167,7 +179,9 @@ namespace Proyecto_Ciudad_De_Los_Ninos.Controllers
                     return RedirectToAction(nameof(Index), new { errorMessage = "La prueba de dopaje no se encontró." });
                 }
 
-                _context.Pruebas_Dopaje.Remove(pruebas_Dopaje);
+                // Cambiar el estado a "Desactivado" sin eliminar el registro
+                pruebas_Dopaje.estado = "Desactivado";
+                _context.Pruebas_Dopaje.Update(pruebas_Dopaje);
                 await _context.SaveChangesAsync();
 
                 return RedirectToAction(nameof(Index));
@@ -177,13 +191,15 @@ namespace Proyecto_Ciudad_De_Los_Ninos.Controllers
                 var errorViewModel = new ErrorViewModel
                 {
                     StatusCode = 500,
-                    Message = "Ocurrió un error al intentar eliminar la prueba de dopaje.",
+                    Message = "Ocurrió un error al intentar desactivar la prueba de dopaje.",
                     RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier
                 };
 
                 return View("Error", errorViewModel);
             }
         }
+
+
 
 
         private bool Pruebas_DopajeExists(int id)

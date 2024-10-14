@@ -26,8 +26,25 @@ namespace Proyecto_Ciudad_De_Los_Ninos.Controllers
 
         public async Task<IActionResult> Index()
         {
-            var users = await _context.Users.ToListAsync();
+            // Filtrar solo los usuarios cuyo estado sea "Activo"
+            var users = await _context.Users
+                                      .Where(u => u.estado == "Activo")
+                                      .ToListAsync();
+
             ViewData["Roles"] = new SelectList(_context.Roles, "Id", "nombre_rol");
+
+            return View(users);
+        }
+
+        public async Task<IActionResult> Desactivado()
+        {
+            // Filtrar solo los usuarios cuyo estado sea "Activo"
+            var users = await _context.Users
+                                      .Where(u => u.estado == "Desactivado")
+                                      .ToListAsync();
+
+            ViewData["Roles"] = new SelectList(_context.Roles, "Id", "nombre_rol");
+
             return View(users);
         }
 
@@ -161,8 +178,7 @@ namespace Proyecto_Ciudad_De_Los_Ninos.Controllers
                 return NotFound();
             }
 
-            var user = await _context.Users
-                .FirstOrDefaultAsync(m => m.Id == id);
+            var user = await _context.Users.FirstOrDefaultAsync(m => m.Id == id);
             if (user == null)
             {
                 return NotFound();
@@ -171,6 +187,7 @@ namespace Proyecto_Ciudad_De_Los_Ninos.Controllers
             return View(user);
         }
 
+        // Acción para confirmar la desactivación del usuario
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
@@ -184,10 +201,14 @@ namespace Proyecto_Ciudad_De_Los_Ninos.Controllers
                     return RedirectToAction(nameof(Index));
                 }
 
-                _context.Users.Remove(user);
+                // En lugar de eliminar el usuario, se desactiva cambiando el estado
+                user.estado = "Desactivado";
+
+                // Actualiza los cambios en la base de datos
+                _context.Update(user);
                 await _context.SaveChangesAsync();
 
-                TempData["SuccessMessage"] = "El usuario se eliminó correctamente.";
+                TempData["SuccessMessage"] = "El usuario se desactivó correctamente.";
                 return RedirectToAction(nameof(Index));
             }
             catch (Exception ex)
@@ -195,7 +216,7 @@ namespace Proyecto_Ciudad_De_Los_Ninos.Controllers
                 var errorViewModel = new ErrorViewModel
                 {
                     StatusCode = 500,
-                    Message = "Ocurrió un error al intentar eliminar el usuario. Por favor, inténtelo de nuevo más tarde.",
+                    Message = "Ocurrió un error al intentar desactivar el usuario. Por favor, inténtelo de nuevo más tarde.",
                     RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier
                 };
 

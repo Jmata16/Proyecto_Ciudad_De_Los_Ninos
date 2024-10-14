@@ -22,23 +22,40 @@ namespace Proyecto_Ciudad_De_Los_Ninos.Controllers
             _context = context;
         }
 
-       
+
         public async Task<IActionResult> Index()
         {
             try
             {
-                var jovenes = await _context.Jovenes.ToListAsync();
+                // Filtrar solo los jóvenes con estado "Activo"
+                var jovenes = await _context.Jovenes
+                                             .Where(j => j.estado == "Activo") // Filtra por estado activo
+                                             .ToListAsync();
                 return View(jovenes);
             }
             catch (Exception ex)
             {
-                
+                return StatusCode(StatusCodes.Status500InternalServerError, ex.Message);
+            }
+        }
+
+        public async Task<IActionResult> Desactivado()
+        {
+            try
+            {
+                // Filtrar solo los jóvenes con estado "Desactivado"
+                var jovenes = await _context.Jovenes
+                                             .Where(j => j.estado == "Desactivado") // Filtra por estado activo
+                                             .ToListAsync();
+                return View(jovenes);
+            }
+            catch (Exception ex)
+            {
                 return StatusCode(StatusCodes.Status500InternalServerError, ex.Message);
             }
         }
 
 
- 
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -151,13 +168,15 @@ namespace Proyecto_Ciudad_De_Los_Ninos.Controllers
         {
             try
             {
-                var jovenes = await _context.Jovenes.FindAsync(id);
-                if (jovenes == null)
+                var joven = await _context.Jovenes.FindAsync(id);
+                if (joven == null)
                 {
                     return RedirectToAction(nameof(Index), new { errorMessage = "El registro de jóvenes no se encontró." });
                 }
 
-                _context.Jovenes.Remove(jovenes);
+                // Cambiar el estado a "Desactivado"
+                joven.estado = "Desactivado"; // Ajusta según cómo manejes los estados
+                _context.Jovenes.Update(joven); // Actualiza el registro
                 await _context.SaveChangesAsync();
 
                 return RedirectToAction(nameof(Index));
@@ -167,13 +186,14 @@ namespace Proyecto_Ciudad_De_Los_Ninos.Controllers
                 var errorViewModel = new ErrorViewModel
                 {
                     StatusCode = 500,
-                    Message = "Ocurrió un error al intentar eliminar el registro de jóvenes.",
+                    Message = "Ocurrió un error al intentar desactivar el registro de jóvenes.",
                     RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier
                 };
 
                 return View("Error", errorViewModel);
             }
         }
+
 
 
         private bool JovenesExists(int id)

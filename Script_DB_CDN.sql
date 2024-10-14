@@ -618,3 +618,22 @@ ALTER TABLE Citas
 DROP COLUMN tipo_usuario;
 
 
+
+
+ALTER TABLE Users  
+ADD estado VARCHAR(50) DEFAULT 'Activo';
+
+-- Actualizar el estado a 'Activo' donde el estado es NULL
+UPDATE Users 
+SET estado = 'Activo'
+WHERE estado IS NULL;
+
+
+
+ALTER TABLE Jovenes  
+ADD estado VARCHAR(50) DEFAULT 'Activo';
+
+-- Actualizar el estado a 'Activo' donde el estado es NULL
+UPDATE Jovenes 
+SET estado = 'Activo'
+WHERE estado IS NULL;

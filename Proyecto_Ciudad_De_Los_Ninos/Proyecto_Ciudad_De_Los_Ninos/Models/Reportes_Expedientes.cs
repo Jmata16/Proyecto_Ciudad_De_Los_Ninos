@@ -14,7 +14,7 @@ namespace API_Ciudad_De_Los_Ninos.Models
         public string tipo { get; set; }
         public string contenido { get; set; }
         public DateTime fecha_creacion { get; set; }
-        public string estado { get; set; }
+        public string estado { get; set; } = "Activo";
 
         public Expedientes? Expedientes { get; set; }
         public User? Usuario { get; set; }

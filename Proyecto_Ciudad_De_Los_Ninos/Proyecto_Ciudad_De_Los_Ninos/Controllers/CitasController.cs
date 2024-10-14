@@ -113,7 +113,7 @@ namespace Proyecto_Ciudad_De_Los_Ninos.Controllers
             return View(cita);
         }
 
-        // Método para editar una cita
+        // GET: CitasController/Edit/5
         public async Task<IActionResult> Edit(int id)
         {
             var cita = await _context.Citas.FindAsync(id);
@@ -121,53 +121,55 @@ namespace Proyecto_Ciudad_De_Los_Ninos.Controllers
             {
                 return NotFound();
             }
-
-            // Filtrar usuarios con rol 3 y 4
-            var users = await _context.Users
-                .Where(u => u.id_rol == 3 || u.id_rol == 4)
-                .Select(u => new
-                {
-                    Id = u.Id,
-                    Nombre = u.nombre_usuario, // Asegúrate de que este sea el campo correcto que contiene el nombre
-                    RolId = u.id_rol
-                })
-                .ToListAsync();
-
-            ViewBag.Users = users; // Pasar la lista filtrada a la vista
-
-            // Convertir la lista de jóvenes a un SelectList
-            ViewBag.Jovenes = new SelectList(await _context.Jovenes.ToListAsync(), "Id", "nombre");
-
+            ViewData["Users"] = new SelectList(_context.Users, "Id", "nombre_usuario", cita.id_usuario);
+            ViewData["Jovenes"] = new SelectList(_context.Jovenes, "Id", "nombre", cita.id_joven);
             return View(cita);
         }
 
-        // Método para actualizar una cita
+        // POST: CitasController/Edit/5
         [HttpPost]
-        public async Task<IActionResult> Edit(Citas cita)
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Edit(int id, [Bind("Id,id_usuario,id_joven,fecha,tipo_usuario,detalles")] Citas cita)
         {
-            if (ModelState.IsValid)
+            if (id != cita.Id)
             {
-                _context.Update(cita);
-                await _context.SaveChangesAsync();
-                return RedirectToAction("Index"); // Redirigir a la lista de citas después de guardar
+                return NotFound();
             }
 
-            // Si la validación falla, volver a cargar los usuarios
-            var users = await _context.Users
-                .Where(u => u.id_rol == 3 || u.id_rol == 4)
-                .Select(u => new
+            if (ModelState.IsValid)
+            {
+                try
                 {
-                    Id = u.Id,
-                    Nombre = u.nombre_usuario,
-                    RolId = u.id_rol
-                })
-                .ToListAsync();
+                    var existingCita = await _context.Citas
+                        .FirstOrDefaultAsync(c => (c.id_usuario == cita.id_usuario || c.id_joven == cita.id_joven) && c.fecha == cita.fecha && c.Id != id);
 
-            ViewBag.Users = users;
-            ViewBag.Jovenes = await _context.Jovenes.ToListAsync();
+                    if (existingCita != null)
+                    {
+                        ModelState.AddModelError("", "Ya existe una cita programada para esta fecha y hora para este usuario o joven.");
+                        return View(cita);
+                    }
 
+                    _context.Update(cita);
+                    await _context.SaveChangesAsync();
+                }
+                catch (DbUpdateConcurrencyException)
+                {
+                    if (!CitaExists(cita.Id))
+                    {
+                        return NotFound();
+                    }
+                    else
+                    {
+                        throw;
+                    }
+                }
+                return RedirectToAction(nameof(Index));
+            }
+            ViewData["Users"] = new SelectList(_context.Users, "ID", "nombre_usuario", cita.id_usuario);
+            ViewData["Jovenes"] = new SelectList(_context.Jovenes, "ID", "nombre", cita.id_joven);
             return View(cita);
         }
+
 
         // GET: CitasController/Delete/5
         public async Task<IActionResult> Delete(int id)
