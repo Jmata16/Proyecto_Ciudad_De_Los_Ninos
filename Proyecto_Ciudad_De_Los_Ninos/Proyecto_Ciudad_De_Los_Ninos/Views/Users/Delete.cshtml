@@ -154,7 +154,6 @@
         </form>
 
         <!-- Modal de confirmación -->
-        <!-- Modal de Confirmación -->
         <div class="modal fade" id="confirmDeleteModal" tabindex="-1" aria-labelledby="confirmDeleteModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
@@ -167,17 +166,15 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                        <form asp-action="Deactivate">
-                            <!-- Cambia esto a tu acción de desactivación -->
-                            <input type="hidden" asp-for="Id" />
-                            <button type="submit" class="btn btn-danger">Confirmar Desactivación</button>
-                        </form>
+                        <button type="button" class="btn btn-danger" onclick="document.getElementById('deleteForm').submit();">
+                            Confirmar Desactivación
+                        </button>
                     </div>
                 </div>
             </div>
         </div>
 
-
+        </div>
     @Html.Partial("_footer")
     <!-- Scripts -->
     <script src="~/js/jquery-1.11.0.min.js"></script>

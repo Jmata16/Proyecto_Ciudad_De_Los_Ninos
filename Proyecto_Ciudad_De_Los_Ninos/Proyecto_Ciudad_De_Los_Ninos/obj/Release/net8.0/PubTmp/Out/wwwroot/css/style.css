@@ -627,13 +627,13 @@ h3.cart-title {
 }
 #header-nav .offcanvas.show {
     z-index: 9999;
-    background-color: #E6282A;
+    background-color: #1c3583;
 }
 #header-nav .offcanvas-end {
     width: 500px;
 }
 .offcanvas.show .nav-item a.nav-link {
-    font-size: 2em;
+    font-size: 1.5em;
 }
 .offcanvas.show .offcanvas-body .navbar-nav {
     align-items: unset!important;
@@ -1049,7 +1049,7 @@ body {
 .custom-container {
     max-width: 800px;
     margin: 0px auto;
-    /**/padding: 20px;*/
+    /**/padding: 20px;/**/
     background-color: #fff;
     box-shadow: 0px 2px 20px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
@@ -1062,7 +1062,6 @@ body {
 
     .custom-title h1 {
         font-size: 2.5rem;
-        color: #EC2328;
         font-weight: bold;
     }
 

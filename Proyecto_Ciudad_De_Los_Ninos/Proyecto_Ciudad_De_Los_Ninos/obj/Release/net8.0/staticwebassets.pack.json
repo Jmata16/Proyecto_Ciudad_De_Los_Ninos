@@ -337,6 +337,10 @@
       "PackagePath": "staticwebassets\\images\\logo.png"
     },
     {
+      "Id": "D:\\Repos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\wwwroot\\images\\logo1.png",
+      "PackagePath": "staticwebassets\\images\\logo1.png"
+    },
+    {
       "Id": "D:\\Repos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\wwwroot\\images\\logo2.jpg",
       "PackagePath": "staticwebassets\\images\\logo2.jpg"
     },
@@ -719,6 +723,14 @@
     {
       "Id": "D:\\Repos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\wwwroot\\pdfs\\ResumenCompra_20240808175351.pdf",
       "PackagePath": "staticwebassets\\pdfs\\ResumenCompra_20240808175351.pdf"
+    },
+    {
+      "Id": "D:\\Repos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\wwwroot\\pdfs\\ResumenCompra_20241009151722.pdf",
+      "PackagePath": "staticwebassets\\pdfs\\ResumenCompra_20241009151722.pdf"
+    },
+    {
+      "Id": "D:\\Repos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\wwwroot\\pdfs\\ResumenCompra_20241009151757.pdf",
+      "PackagePath": "staticwebassets\\pdfs\\ResumenCompra_20241009151757.pdf"
     },
     {
       "Id": "D:\\Repos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\Proyecto_Ciudad_De_Los_Ninos\\wwwroot\\pdfs\\ResumenCompra_6.pdf",

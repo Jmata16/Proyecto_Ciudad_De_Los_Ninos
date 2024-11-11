@@ -94,6 +94,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2l0YXNcRGVsZXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/Repos/Proyecto_Ciudad_De_Los_Ninos/Proyecto_Ciudad_De_Los_Ninos/Proyecto_Ciudad_De_Los_Ninos/Views/Citas/Desactivado.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2l0YXNcRGVzYWN0aXZhZG8uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/Repos/Proyecto_Ciudad_De_Los_Ninos/Proyecto_Ciudad_De_Los_Ninos/Proyecto_Ciudad_De_Los_Ninos/Views/Citas/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2l0YXNcRGV0YWlscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
@@ -112,6 +116,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [D:/Repos/Proyecto_Ciudad_De_Los_Ninos/Proyecto_Ciudad_De_Los_Ninos/Proyecto_Ciudad_De_Los_Ninos/Views/Expedientes/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXhwZWRpZW50ZXNcRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Repos/Proyecto_Ciudad_De_Los_Ninos/Proyecto_Ciudad_De_Los_Ninos/Proyecto_Ciudad_De_Los_Ninos/Views/Expedientes/Desactivado.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXhwZWRpZW50ZXNcRGVzYWN0aXZhZG8uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/Repos/Proyecto_Ciudad_De_Los_Ninos/Proyecto_Ciudad_De_Los_Ninos/Proyecto_Ciudad_De_Los_Ninos/Views/Expedientes/Details.cshtml]
@@ -154,6 +162,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW5jaWRlbnRlc1xEZWxldGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/Repos/Proyecto_Ciudad_De_Los_Ninos/Proyecto_Ciudad_De_Los_Ninos/Proyecto_Ciudad_De_Los_Ninos/Views/Incidentes/Desactivado.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW5jaWRlbnRlc1xEZXNhY3RpdmFkby5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/Repos/Proyecto_Ciudad_De_Los_Ninos/Proyecto_Ciudad_De_Los_Ninos/Proyecto_Ciudad_De_Los_Ninos/Views/Incidentes/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW5jaWRlbnRlc1xEZXRhaWxzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
@@ -172,6 +184,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [D:/Repos/Proyecto_Ciudad_De_Los_Ninos/Proyecto_Ciudad_De_Los_Ninos/Proyecto_Ciudad_De_Los_Ninos/Views/Inventario_Comedor/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW52ZW50YXJpb19Db21lZG9yXERlbGV0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Repos/Proyecto_Ciudad_De_Los_Ninos/Proyecto_Ciudad_De_Los_Ninos/Proyecto_Ciudad_De_Los_Ninos/Views/Inventario_Comedor/Desactivado.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW52ZW50YXJpb19Db21lZG9yXERlc2FjdGl2YWRvLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/Repos/Proyecto_Ciudad_De_Los_Ninos/Proyecto_Ciudad_De_Los_Ninos/Proyecto_Ciudad_De_Los_Ninos/Views/Inventario_Comedor/Details.cshtml]
@@ -194,6 +210,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW52ZW50YXJpb19IaWdpZW5lX1BlcnNvbmFsXERlbGV0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/Repos/Proyecto_Ciudad_De_Los_Ninos/Proyecto_Ciudad_De_Los_Ninos/Proyecto_Ciudad_De_Los_Ninos/Views/Inventario_Higiene_Personal/Desactivado.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW52ZW50YXJpb19IaWdpZW5lX1BlcnNvbmFsXERlc2FjdGl2YWRvLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/Repos/Proyecto_Ciudad_De_Los_Ninos/Proyecto_Ciudad_De_Los_Ninos/Proyecto_Ciudad_De_Los_Ninos/Views/Inventario_Higiene_Personal/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW52ZW50YXJpb19IaWdpZW5lX1BlcnNvbmFsXERldGFpbHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
@@ -212,6 +232,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [D:/Repos/Proyecto_Ciudad_De_Los_Ninos/Proyecto_Ciudad_De_Los_Ninos/Proyecto_Ciudad_De_Los_Ninos/Views/Jovenes/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSm92ZW5lc1xEZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Repos/Proyecto_Ciudad_De_Los_Ninos/Proyecto_Ciudad_De_Los_Ninos/Proyecto_Ciudad_De_Los_Ninos/Views/Jovenes/Desactivado.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSm92ZW5lc1xEZXNhY3RpdmFkby5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/Repos/Proyecto_Ciudad_De_Los_Ninos/Proyecto_Ciudad_De_Los_Ninos/Proyecto_Ciudad_De_Los_Ninos/Views/Jovenes/Details.cshtml]
@@ -250,6 +274,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJ1ZWJhc19Eb3BhamVcRGVsZXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/Repos/Proyecto_Ciudad_De_Los_Ninos/Proyecto_Ciudad_De_Los_Ninos/Proyecto_Ciudad_De_Los_Ninos/Views/Pruebas_Dopaje/Desactivado.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJ1ZWJhc19Eb3BhamVcRGVzYWN0aXZhZG8uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/Repos/Proyecto_Ciudad_De_Los_Ninos/Proyecto_Ciudad_De_Los_Ninos/Proyecto_Ciudad_De_Los_Ninos/Views/Pruebas_Dopaje/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJ1ZWJhc19Eb3BhamVcRGV0YWlscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
@@ -278,6 +306,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVwb3J0ZXNFeHBlZGllbnRlc1xEZWxldGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/Repos/Proyecto_Ciudad_De_Los_Ninos/Proyecto_Ciudad_De_Los_Ninos/Proyecto_Ciudad_De_Los_Ninos/Views/ReportesExpedientes/Desactivado.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVwb3J0ZXNFeHBlZGllbnRlc1xEZXNhY3RpdmFkby5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/Repos/Proyecto_Ciudad_De_Los_Ninos/Proyecto_Ciudad_De_Los_Ninos/Proyecto_Ciudad_De_Los_Ninos/Views/ReportesExpedientes/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVwb3J0ZXNFeHBlZGllbnRlc1xEZXRhaWxzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
@@ -296,6 +328,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [D:/Repos/Proyecto_Ciudad_De_Los_Ninos/Proyecto_Ciudad_De_Los_Ninos/Proyecto_Ciudad_De_Los_Ninos/Views/ReportesMedicos/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVwb3J0ZXNNZWRpY29zXERlbGV0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Repos/Proyecto_Ciudad_De_Los_Ninos/Proyecto_Ciudad_De_Los_Ninos/Proyecto_Ciudad_De_Los_Ninos/Views/ReportesMedicos/Desactivado.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVwb3J0ZXNNZWRpY29zXERlc2FjdGl2YWRvLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/Repos/Proyecto_Ciudad_De_Los_Ninos/Proyecto_Ciudad_De_Los_Ninos/Proyecto_Ciudad_De_Los_Ninos/Views/ReportesMedicos/Details.cshtml]
@@ -432,6 +468,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [D:/Repos/Proyecto_Ciudad_De_Los_Ninos/Proyecto_Ciudad_De_Los_Ninos/Proyecto_Ciudad_De_Los_Ninos/Views/Users/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlcnNcRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Repos/Proyecto_Ciudad_De_Los_Ninos/Proyecto_Ciudad_De_Los_Ninos/Proyecto_Ciudad_De_Los_Ninos/Views/Users/Desactivado.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlcnNcRGVzYWN0aXZhZG8uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/Repos/Proyecto_Ciudad_De_Los_Ninos/Proyecto_Ciudad_De_Los_Ninos/Proyecto_Ciudad_De_Los_Ninos/Views/Users/Details.cshtml]
