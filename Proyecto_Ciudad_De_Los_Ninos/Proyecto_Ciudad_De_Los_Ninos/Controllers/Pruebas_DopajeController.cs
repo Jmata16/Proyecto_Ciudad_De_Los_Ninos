@@ -68,7 +68,7 @@ namespace Proyecto_Ciudad_De_Los_Ninos.Controllers
         public IActionResult Create()
         {
             // Cargar usuarios y jóvenes en ViewBag
-            ViewBag.Usuarios = new SelectList(_context.Users, "Id", "nombre_usuario");
+             ViewData["Usuarios"] = new SelectList(_context.Users.Where(user => user.id_rol != 4 && user.id_rol != 5).ToList(), "Id", "nombre_usuario");
             ViewBag.Jovenes = new SelectList(_context.Jovenes, "Id", "nombre");
             return View();
         }

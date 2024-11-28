@@ -63,7 +63,7 @@ namespace Proyecto_Ciudad_De_Los_Ninos.Controllers
         // GET: ReportesMedicos/Create
         public async Task<IActionResult> Create()
         {
-            ViewData["Usuarios"] = new SelectList(_context.Users, "Id", "nombre_usuario");
+            ViewData["Usuarios"] = new SelectList(_context.Users.Where(user => user.id_rol != 4 && user.id_rol != 5).ToList(), "Id", "nombre_usuario");
             ViewData["Jovenes"] = new SelectList(_context.Jovenes, "Id", "nombre");
             return View();
         }
