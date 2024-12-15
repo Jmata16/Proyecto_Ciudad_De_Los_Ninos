@@ -97,8 +97,11 @@
             </div>
 
             <div class="form-group">
-                <label asp-for="estado" class="col-sm-2 col-form-label">Estado</label>
-                <input asp-for="estado" class="form-control" />
+                <label for="estado" class="col-sm-2 col-form-label">Estado</label>
+                <select asp-for="estado" class="form-control">
+                    <option value="Presente">Presente</option>
+                    <option value="Ausente">Ausente</option>
+                </select>
                 <span asp-validation-for="estado" class="text-danger"></span>
             </div>
 
