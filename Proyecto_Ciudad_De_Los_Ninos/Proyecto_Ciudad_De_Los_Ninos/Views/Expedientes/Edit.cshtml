@@ -105,15 +105,15 @@
             <!-- Campo oculto para el nombre del joven -->
             <input type="hidden" asp-for="nombre_joven" id="nombre_joven" />
 
-            <div class="row mb-3">
+             <div class="row mb-3">
                 <div class="col">
                     <label for="id_joven" class="col-form-label">Joven</label>
-                    <select asp-for="id_joven" class="form-control" asp-items="ViewBag.Jovenes" onchange="setNombreJoven()" disabled>
+                    <select asp-for="id_joven" class="form-control" asp-items="ViewBag.Jovenes" onchange="setNombreJoven()">
                         <option value="">Seleccione un joven</option>
                     </select>
                     <span asp-validation-for="id_joven" class="text-danger"></span>
                 </div>
-            </div>
+            </div> 
 
 
             <div class="row mb-3">
