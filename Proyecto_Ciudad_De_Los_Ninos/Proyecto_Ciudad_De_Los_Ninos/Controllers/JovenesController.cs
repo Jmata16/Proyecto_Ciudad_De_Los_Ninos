@@ -84,15 +84,29 @@ namespace Proyecto_Ciudad_De_Los_Ninos.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id,cedula,nombre,edad,direccion,telefono_contacto,Localizacion")] Jovenes jovenes)
         {
-            //Validaciones
-            if (jovenes.cedula < 0) {
-               
-                return View();
+            // Verificar si la cédula ya existe en la base de datos
+            var existeCedula = await _context.Jovenes.AnyAsync(j => j.cedula == jovenes.cedula);
+
+            if (existeCedula)
+            {
+                // Si la cédula ya existe, agregar un mensaje de error
+                ModelState.AddModelError("cedula", "La cédula ya está registrada.");
+                return View(jovenes);
             }
-            if (jovenes.direccion.Length > 254) {
-                return View();
+
+            // Validaciones
+            if (jovenes.cedula < 0)
+            {
+                ModelState.AddModelError("cedula", "La cédula no puede ser negativa.");
+                return View(jovenes);
             }
-            
+
+            if (jovenes.direccion.Length > 254)
+            {
+                ModelState.AddModelError("direccion", "La dirección no puede tener más de 254 caracteres.");
+                return View(jovenes);
+            }
+
             if (ModelState.IsValid)
             {
                 _context.Add(jovenes);
@@ -101,6 +115,7 @@ namespace Proyecto_Ciudad_De_Los_Ninos.Controllers
             }
             return View(jovenes);
         }
+    
 
 
 
