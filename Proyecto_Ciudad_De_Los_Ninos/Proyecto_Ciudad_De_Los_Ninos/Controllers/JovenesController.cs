@@ -84,6 +84,15 @@ namespace Proyecto_Ciudad_De_Los_Ninos.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id,cedula,nombre,edad,direccion,telefono_contacto,Localizacion")] Jovenes jovenes)
         {
+            //Validaciones
+            if (jovenes.cedula < 0) {
+               
+                return View();
+            }
+            if (jovenes.direccion.Length > 254) {
+                return View();
+            }
+            
             if (ModelState.IsValid)
             {
                 _context.Add(jovenes);
@@ -115,6 +124,16 @@ namespace Proyecto_Ciudad_De_Los_Ninos.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("Id,cedula,nombre,edad,direccion,telefono_contacto,Localizacion")] Jovenes jovenes)
         {
+            //Validaciones
+            if (jovenes.cedula < 0)
+            {
+
+                return View();
+            }
+            if (jovenes.direccion.Length > 254)
+            {
+                return View();
+            }
             if (id != jovenes.Id)
             {
                 return NotFound();

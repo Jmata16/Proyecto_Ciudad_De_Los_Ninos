@@ -87,7 +87,8 @@
               "RelativeToolTip": "Proyecto_Ciudad_De_Los_Ninos\\Views\\ReportesMedicos\\Create.cshtml",
               "ViewState": "AgIAAEUAAAAAAAAAAAAAAFYAAABgAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-11-28T05:05:10.781Z"
+              "WhenOpened": "2024-11-28T05:05:10.781Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -99,7 +100,8 @@
               "RelativeToolTip": "Proyecto_Ciudad_De_Los_Ninos\\Controllers\\ReportesMedicosController.cs",
               "ViewState": "AgIAAC8AAAAAAAAAAAAwwEEAAACXAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-28T05:04:10.824Z"
+              "WhenOpened": "2024-11-28T05:04:10.824Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -111,7 +113,8 @@
               "RelativeToolTip": "Proyecto_Ciudad_De_Los_Ninos\\Properties\\launchSettings.json",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAA3AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2024-11-28T04:22:28.422Z"
+              "WhenOpened": "2024-11-28T04:22:28.422Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -123,7 +126,8 @@
               "RelativeToolTip": "Proyecto_Ciudad_De_Los_Ninos\\Views\\Jovenes\\Create.cshtml",
               "ViewState": "AgIAAB4AAAAAAAAAAAAAADQAAAAfAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-11-28T03:54:51.4Z"
+              "WhenOpened": "2024-11-28T03:54:51.4Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -135,7 +139,8 @@
               "RelativeToolTip": "Proyecto_Ciudad_De_Los_Ninos\\Controllers\\JovenesController.cs",
               "ViewState": "AgIAAHUAAAAAAAAAAAAUwIQAAAAvAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-28T03:42:33.677Z"
+              "WhenOpened": "2024-11-28T03:42:33.677Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -147,7 +152,8 @@
               "RelativeToolTip": "Proyecto_Ciudad_De_Los_Ninos\\Models\\Jovenes.cs",
               "ViewState": "AgIAAAUAAAAAAAAAAAAxwBQAAAAQAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-28T02:39:12.405Z"
+              "WhenOpened": "2024-11-28T02:39:12.405Z",
+              "EditorCaption": ""
             }
           ]
         },
