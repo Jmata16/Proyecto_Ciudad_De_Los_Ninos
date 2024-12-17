@@ -76,35 +76,62 @@ namespace Proyecto_Ciudad_De_Los_Ninos.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id,nombre_usuario,nombre,apellidos,correo,fecha_nacimiento,cedula,contraseña,id_rol")] User user)
         {
-            if (ModelState.IsValid)
+            // Validar si la cédula o el correo ya existen en la base de datos
+            bool cedulaExiste = await _context.Users.AnyAsync(u => u.cedula == user.cedula);
+            bool correoExiste = await _context.Users.AnyAsync(u => u.correo == user.correo);
+            bool nombreUsuarioExiste = await _context.Users.AnyAsync(u => u.nombre_usuario == user.nombre_usuario); // Nueva validación para nombre de usuario
+
+            // Validación de fecha de nacimiento
+            if (user.fecha_nacimiento > DateTime.Now)
             {
-                _context.Add(user);
-                await _context.SaveChangesAsync();
-
-                string subject = "¡Bienvenido al Equipo de Ciudad De Los Niños!";
-                string body = $@"
-        <p>Hola {user.nombre},</p>
-        <p>¡Gracias por formar parte de la institución Ciudad De Los Niños!</p>
-        <p>Estamos emocionados de tenerte con nosotros.</p>
-        <p>A continuación, encontrarás tus detalles de usuario:</p>
-        <ul>
-            <li><strong>Nombre de usuario:</strong> {user.nombre_usuario}</li>
-            <li><strong>Nombre:</strong> {user.nombre}</li>
-            <li><strong>Apellidos:</strong> {user.apellidos}</li>
-            <li><strong>Correo:</strong> {user.correo}</li>
-        </ul>
-        <p>Si tienes alguna pregunta, no dudes en contactarnos.</p>
-        <p>Saludos,<br>El equipo del Proyecto Ciudad De Los Niños</p>";
-
-                // Enviar el correo electrónico
-                _emailService.SendEmail(user.correo, subject, body);
-
-                return RedirectToAction(nameof(Index));
+                ModelState.AddModelError("fecha_nacimiento", "La fecha de nacimiento no puede ser en el futuro.");
+            }
+            if (cedulaExiste)
+            {
+                ModelState.AddModelError("cedula", "La cédula ya está registrada.");
             }
 
-            ViewData["Roles"] = new SelectList(_context.Roles, "Id", "nombre_rol", user.id_rol);
-            return View(user);
+            if (correoExiste)
+            {
+                ModelState.AddModelError("correo", "El correo electrónico ya está registrado.");
+            }
+
+            if (nombreUsuarioExiste) // Validación de duplicado de nombre de usuario
+            {
+                ModelState.AddModelError("nombre_usuario", "El nombre de usuario ya está en uso.");
+            }
+
+            // Si hay errores, retornar a la vista con los mensajes
+            if (!ModelState.IsValid)
+            {
+                ViewData["Roles"] = new SelectList(_context.Roles, "Id", "nombre_rol", user.id_rol);
+                return View(user);
+            }
+
+            // Asignar estado inicial
+            user.estado = "Activo";
+
+            // Guardar el usuario en la base de datos sin cifrado de contraseña
+            _context.Add(user);
+            await _context.SaveChangesAsync();
+
+            // Enviar correo de bienvenida
+            string subject = "¡Bienvenido al Equipo de Ciudad De Los Niños!";
+            string body = $@"
+    <p>Hola {user.nombre},</p>
+    <p>¡Gracias por formar parte de la institución Ciudad De Los Niños!</p>
+    <ul>
+        <li><strong>Nombre de usuario:</strong> {user.nombre_usuario}</li>
+        <li><strong>Correo:</strong> {user.correo}</li>
+    </ul>
+    <p>Saludos,<br>El equipo del Proyecto Ciudad De Los Niños</p>";
+
+            _emailService.SendEmail(user.correo, subject, body);
+
+            TempData["SuccessMessage"] = "Usuario creado exitosamente.";
+            return RedirectToAction(nameof(Index));
         }
+
 
 
 
@@ -140,19 +167,33 @@ namespace Proyecto_Ciudad_De_Los_Ninos.Controllers
                 return NotFound();
             }
 
+            // Validación de fecha de nacimiento
+            if (user.fecha_nacimiento > DateTime.Now)
+            {
+                ModelState.AddModelError("fecha_nacimiento", "La fecha de nacimiento no puede ser en el futuro.");
+            }
+
+            // Verificar si ya existe un usuario con el mismo correo o cédula (excluyendo el usuario actual)
+            if (_context.Users.Any(u => u.correo == user.correo && u.Id != user.Id))
+            {
+                ModelState.AddModelError("correo", "El correo electrónico ya está en uso.");
+            }
+
+            if (_context.Users.Any(u => u.cedula == user.cedula && u.Id != user.Id)) // Excluyendo el usuario actual
+            {
+                ModelState.AddModelError("cedula", "La cédula ya está en uso.");
+            }
+
             if (ModelState.IsValid)
             {
                 try
                 {
-                    // Actualizar el usuario en el contexto
                     _context.Update(user);
-                    // Guardar los cambios en la base de datos
                     await _context.SaveChangesAsync();
                     return RedirectToAction(nameof(Index));
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    // Manejar errores de concurrencia aquí si es necesario
                     if (!UserExists(user.Id))
                     {
                         return NotFound();
@@ -164,10 +205,10 @@ namespace Proyecto_Ciudad_De_Los_Ninos.Controllers
                 }
             }
 
-            // Si ModelState no es válido, cargar los roles nuevamente para la vista
             ViewData["Roles"] = new SelectList(_context.Roles, "Id", "nombre_rol", user.id_rol);
             return View(user);
         }
+
 
 
         public async Task<IActionResult> Delete(int? id)

@@ -16,15 +16,18 @@ namespace Proyecto_Ciudad_De_Los_Ninos.Controllers
         public IActionResult Index()
         {
             var data = _context.Jovenes
+                .Where(j => j.estado == "Activo") // Filtrar solo los jóvenes con estado "Activo"
                 .GroupBy(j => j.Localizacion)
                 .Select(g => new {
                     Locacion = g.Key,
-                    TotalJovenes = g.Count()
+                    TotalJovenes = g.Count() // Contar solo los jóvenes con estado "Activo"
                 })
                 .ToList();
 
             ViewData["DatosLocacion"] = data;
             return View();
         }
+
+
     }
 }
