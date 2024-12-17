@@ -115,10 +115,7 @@ namespace Proyecto_Ciudad_De_Los_Ninos.Models
                 entity.Property(e => e.Id).HasColumnName("Id").ValueGeneratedOnAdd();
                 entity.Property(e => e.id_joven).HasColumnName("id_joven");
                 entity.Property(e => e.nombre_joven).HasColumnName("nombre_joven");
-                entity.Property(e => e.edad).HasColumnName("edad");
                 entity.Property(e => e.fecha_ingreso).HasColumnName("fecha_ingreso");
-                entity.Property(e => e.direccion).HasColumnName("direccion");
-                entity.Property(e => e.telefono_contacto).HasColumnName("telefono_contacto");
                 entity.Property(e => e.tutor_legal).HasColumnName("tutor_legal");
                 entity.Property(e => e.antecedentes_medicos).HasColumnName("antecedentes_medicos");
                 entity.Property(e => e.historial_academico).HasColumnName("historial_academico");

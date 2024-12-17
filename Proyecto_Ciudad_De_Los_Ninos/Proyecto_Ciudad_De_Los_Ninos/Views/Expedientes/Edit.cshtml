@@ -1,14 +1,14 @@
 ﻿@model API_Ciudad_De_Los_Ninos.Models.Expedientes
 
 @{
-    Layout = null;
+    ViewData["Title"] = "Editar Expediente";
 }
 
 <!DOCTYPE html>
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>Edición de Expediente</title>
+    <title>Editar Expediente</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <style>
         body {
@@ -100,56 +100,49 @@
     <div class="container-main">
         <h4 class="text-center">Edición de Expediente</h4>
         <hr />
-        <form asp-action="Edit">
+        <form method="post" asp-action="Edit">
             <input type="hidden" asp-for="Id" />
+            <!-- Campo oculto para el nombre del joven -->
+            <input type="hidden" asp-for="nombre_joven" id="nombre_joven" />
+
             <div class="row mb-3">
                 <div class="col">
                     <label for="id_joven" class="col-form-label">Joven</label>
-                    <select asp-for="id_joven" class="form-select" asp-items="ViewBag.Jovenes"></select>
+                    <select asp-for="id_joven" class="form-control" asp-items="ViewBag.Jovenes" onchange="setNombreJoven()" disabled>
+                        <option value="">Seleccione un joven</option>
+                    </select>
                     <span asp-validation-for="id_joven" class="text-danger"></span>
                 </div>
-                <div class="col">
-                    <label for="edad" class="col-form-label">Edad</label>
-                    <input asp-for="edad" class="form-control" />
-                    <span asp-validation-for="edad" class="text-danger"></span>
-                </div>
             </div>
+
+
             <div class="row mb-3">
                 <div class="col">
                     <label for="fecha_ingreso" class="col-form-label">Fecha de Ingreso</label>
                     <input asp-for="fecha_ingreso" class="form-control" />
                     <span asp-validation-for="fecha_ingreso" class="text-danger"></span>
                 </div>
-                <div class="col">
-                    <label for="direccion" class="col-form-label">Dirección</label>
-                    <input asp-for="direccion" class="form-control" />
-                    <span asp-validation-for="direccion" class="text-danger"></span>
-                </div>
-            </div>
-            <div class="row mb-3">
-                <div class="col">
-                    <label for="telefono_contacto" class="col-form-label">Teléfono de Contacto</label>
-                    <input asp-for="telefono_contacto" class="form-control" />
-                    <span asp-validation-for="telefono_contacto" class="text-danger"></span>
-                </div>
+
                 <div class="col">
                     <label for="tutor_legal" class="col-form-label">Tutor Legal</label>
                     <input asp-for="tutor_legal" class="form-control" />
                     <span asp-validation-for="tutor_legal" class="text-danger"></span>
                 </div>
             </div>
+
             <div class="row mb-3">
                 <div class="col">
                     <label for="antecedentes_medicos" class="col-form-label">Antecedentes Médicos</label>
-                    <textarea asp-for="antecedentes_medicos" class="form-control"> </textarea>
+                    <textarea asp-for="antecedentes_medicos" class="form-control"></textarea>
                     <span asp-validation-for="antecedentes_medicos" class="text-danger"></span>
                 </div>
                 <div class="col">
                     <label for="historial_academico" class="col-form-label">Historial Académico</label>
-                    <textarea asp-for="historial_academico" class="form-control" ></textarea>
+                    <textarea asp-for="historial_academico" class="form-control"></textarea>
                     <span asp-validation-for="historial_academico" class="text-danger"></span>
                 </div>
             </div>
+
             <div class="row mb-3">
                 <label for="notas_adicionales" class="col-sm-2 col-form-label">Notas Adicionales</label>
                 <div class="col-sm-10">
@@ -157,13 +150,14 @@
                     <span asp-validation-for="notas_adicionales" class="text-danger"></span>
                 </div>
             </div>
+
             <div class="row mb-3">
                 <div class="col-sm-10 offset-sm-2">
                     <button type="submit" class="btn btn-warning">Guardar</button>
                 </div>
             </div>
         </form>
-        <!-- Volver atrás -->
+
         <div class="row mt-3">
             <div class="col text-end">
                 <a asp-action="Index" class="btn btn-secondary"><i class="ri-arrow-left-circle-line"></i> Volver atrás</a>
@@ -175,13 +169,18 @@
 
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script>
-        $(document).ready(function () {
-            $('#id_joven').change(function () {
-                var selectedOption = $(this).find('option:selected');
-                var nombreJoven = selectedOption.text();
-                $('#nombre_joven').val(nombreJoven);
-            });
-        });
+        // Función para actualizar el nombre del joven en el campo oculto
+        function setNombreJoven() {
+            var select = document.getElementById("id_joven");
+            var selectedOption = select.options[select.selectedIndex];
+            var nombreJoven = selectedOption.text;  // Obtenemos el nombre del joven
+            document.getElementById("nombre_joven").value = nombreJoven;  // Asignamos el nombre al campo oculto
+        }
+
+        // Al cargar la página, si ya hay un joven seleccionado, asignamos su nombre
+        window.onload = function () {
+            setNombreJoven();
+        };
     </script>
 </body>
 </html>

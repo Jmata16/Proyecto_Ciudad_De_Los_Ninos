@@ -39,11 +39,6 @@ namespace Proyecto_Ciudad_De_Los_Ninos.Controllers
                 expedientes = expedientes.Where(e => e.nombre_joven.Contains(searchString));
             }
 
-            if (searchAge != null)
-            {
-                expedientes = expedientes.Where(e => e.edad == searchAge);
-            }
-
             return View(await expedientes.ToListAsync());
         }
         public async Task<IActionResult> Desactivado()
@@ -81,7 +76,7 @@ namespace Proyecto_Ciudad_De_Los_Ninos.Controllers
         // POST: Expedientes/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,id_joven,nombre_joven,edad,fecha_ingreso,direccion,telefono_contacto,tutor_legal,antecedentes_medicos,historial_academico,notas_adicionales")] Expedientes expediente)
+        public async Task<IActionResult> Create([Bind("Id,id_joven,nombre_joven,fecha_ingreso,tutor_legal,antecedentes_medicos,historial_academico,notas_adicionales")] Expedientes expediente)
         {
             if (ModelState.IsValid)
             {
@@ -213,6 +208,7 @@ namespace Proyecto_Ciudad_De_Los_Ninos.Controllers
         public IActionResult ExportToPdf()
         {
             var expedientes = _context.Expedientes.ToList();
+
             using (var stream = new MemoryStream())
             {
                 // Crear documento PDF
@@ -249,16 +245,16 @@ namespace Proyecto_Ciudad_De_Los_Ninos.Controllers
                 pdfDoc.Add(intro);
 
                 // Crear la tabla con estilos
-                PdfPTable table = new PdfPTable(7) // Se añadió la columna de estado
+                PdfPTable table = new PdfPTable(4) // Cambié a 4 columnas ya que "Nombre del Joven", "Fecha de Ingreso", "Tutor Legal" y "Estado"
                 {
                     WidthPercentage = 100,
                     SpacingBefore = 10f,
                     SpacingAfter = 20f
                 };
-                table.SetWidths(new float[] { 2f, 1f, 1.5f, 2f, 2f, 2f, 2f }); // Se añadió espacio para la columna de estado
+                table.SetWidths(new float[] { 2f, 1.5f, 2f, 2f }); // Ajusté los anchos de las columnas
 
                 // Agregar encabezado de la tabla
-                var headers = new string[] { "Nombre del Joven", "Edad", "Fecha de Ingreso", "Dirección", "Teléfono de Contacto", "Tutor Legal", "Estado" };
+                var headers = new string[] { "Nombre del Joven", "Fecha de Ingreso", "Tutor Legal", "Estado" };
                 foreach (var header in headers)
                 {
                     var cell = new PdfPCell(new Phrase(header, headerFont))
@@ -274,12 +270,9 @@ namespace Proyecto_Ciudad_De_Los_Ninos.Controllers
                 foreach (var exp in expedientes)
                 {
                     table.AddCell(new PdfPCell(new Phrase(exp.nombre_joven, cellFont)) { Padding = 5 });
-                    table.AddCell(new PdfPCell(new Phrase(exp.edad.ToString(), cellFont)) { Padding = 5 });
                     table.AddCell(new PdfPCell(new Phrase(exp.fecha_ingreso.ToShortDateString(), cellFont)) { Padding = 5 });
-                    table.AddCell(new PdfPCell(new Phrase(exp.direccion, cellFont)) { Padding = 5 });
-                    table.AddCell(new PdfPCell(new Phrase(exp.telefono_contacto, cellFont)) { Padding = 5 });
                     table.AddCell(new PdfPCell(new Phrase(exp.tutor_legal, cellFont)) { Padding = 5 });
-                    table.AddCell(new PdfPCell(new Phrase(exp.estado, cellFont)) { Padding = 5 }); // Columna de estado
+                    table.AddCell(new PdfPCell(new Phrase(exp.estado, cellFont)) { Padding = 5 });
                 }
 
                 pdfDoc.Add(table);
@@ -294,6 +287,7 @@ namespace Proyecto_Ciudad_De_Los_Ninos.Controllers
             }
         }
 
+
         // Método para exportar a Excel
         public IActionResult ExportToExcel()
         {
@@ -306,7 +300,7 @@ namespace Proyecto_Ciudad_De_Los_Ninos.Controllers
                 // Encabezados
                 var headers = new List<string[]>
         {
-            new string[] { "Nombre del Joven", "Edad", "Fecha de Ingreso", "Dirección", "Teléfono de Contacto", "Tutor Legal", "Estado" }
+            new string[] { "Nombre del Joven",  "Fecha de Ingreso", "Tutor Legal", "Estado" }
         };
 
                 var rangeHeaders = worksheet.Cell(1, 1).InsertData(headers);
@@ -317,10 +311,7 @@ namespace Proyecto_Ciudad_De_Los_Ninos.Controllers
                 var data = expedientes.Select(e => new
                 {
                     e.nombre_joven,
-                    e.edad,
                     e.fecha_ingreso,
-                    e.direccion,
-                    e.telefono_contacto,
                     e.tutor_legal,
                     e.estado // Estado añadido a los datos
                 }).ToList();
@@ -352,12 +343,12 @@ namespace Proyecto_Ciudad_De_Los_Ninos.Controllers
                 using (var streamWriter = new StreamWriter(memoryStream, Encoding.UTF8))
                 {
                     // Escribir encabezados
-                    streamWriter.WriteLine("Nombre del Joven,Edad,Fecha de Ingreso,Dirección,Teléfono de Contacto,Tutor Legal,Estado");
+                    streamWriter.WriteLine("Nombre del Joven,Fecha de Ingreso,Tutor Legal,Estado");
 
                     // Escribir los datos de los expedientes
                     foreach (var exp in expedientes)
                     {
-                        streamWriter.WriteLine($"{exp.nombre_joven},{exp.edad},{exp.fecha_ingreso.ToShortDateString()},{exp.direccion},{exp.telefono_contacto},{exp.tutor_legal},{exp.estado}");
+                        streamWriter.WriteLine($"{exp.nombre_joven},{exp.fecha_ingreso.ToShortDateString()},{exp.tutor_legal},{exp.estado}");
                     }
                 }
 
@@ -395,14 +386,15 @@ namespace Proyecto_Ciudad_De_Los_Ninos.Controllers
                 var data = new List<string[]>
         {
             new string[] { "Nombre del Joven", expediente.nombre_joven },
-            new string[] { "Edad", expediente.edad.ToString() },
             new string[] { "Fecha de Ingreso", expediente.fecha_ingreso.ToShortDateString() },
-            new string[] { "Dirección", expediente.direccion },
-            new string[] { "Teléfono de Contacto", expediente.telefono_contacto },
             new string[] { "Tutor Legal", expediente.tutor_legal },
-            new string[] { "Estado", expediente.estado } // Añadido campo de estado
+            new string[] { "Estado", expediente.estado },
+            new string[] { "Antecedentes Médicos", expediente.antecedentes_medicos ?? "N/A" },
+            new string[] { "Historial Académico", expediente.historial_academico ?? "N/A" },
+            new string[] { "Notas Adicionales", string.IsNullOrWhiteSpace(expediente.notas_adicionales) ? "No hay notas" : expediente.notas_adicionales } // Manejo de notas vacías
         };
 
+                // Insertar los datos en la hoja de trabajo
                 worksheet.Cell(2, 1).InsertData(data);
 
                 // Ajustar anchos de columna automáticamente
@@ -459,12 +451,12 @@ namespace Proyecto_Ciudad_De_Los_Ninos.Controllers
                 var details = new List<string[]>
         {
             new string[] { "Nombre del Joven", expediente.nombre_joven },
-            new string[] { "Edad", expediente.edad.ToString() },
             new string[] { "Fecha de Ingreso", expediente.fecha_ingreso.ToShortDateString() },
-            new string[] { "Dirección", expediente.direccion },
-            new string[] { "Teléfono de Contacto", expediente.telefono_contacto },
             new string[] { "Tutor Legal", expediente.tutor_legal },
-            new string[] { "Estado", expediente.estado } // Añadido campo de estado
+            new string[] { "Estado", expediente.estado },
+            new string[] { "Antecedentes Médicos", expediente.antecedentes_medicos ?? "N/A" }, // Campo adicional
+            new string[] { "Historial Académico", expediente.historial_academico ?? "N/A" }, // Campo adicional
+            new string[] { "Notas Adicionales", expediente.notas_adicionales ?? "N/A" } // Campo adicional
         };
 
                 // Crear tabla
@@ -473,14 +465,23 @@ namespace Proyecto_Ciudad_De_Los_Ninos.Controllers
                     WidthPercentage = 100,
                     SpacingAfter = 10f
                 };
+                float[] widths = new float[] { 2f, 3f }; // Ajustar el ancho de las columnas
+                table.SetWidths(widths);
 
+                // Cabecera de la tabla
+                table.AddCell(new PdfPCell(new Phrase("Campo", headerFont)) { BackgroundColor = BaseColor.DARK_GRAY, HorizontalAlignment = Element.ALIGN_CENTER, Padding = 8 });
+                table.AddCell(new PdfPCell(new Phrase("Valor", headerFont)) { BackgroundColor = BaseColor.DARK_GRAY, HorizontalAlignment = Element.ALIGN_CENTER, Padding = 8 });
+
+                // Añadir los detalles del expediente a la tabla
                 foreach (var row in details)
                 {
-                    table.AddCell(new PdfPCell(new Phrase(row[0], cellFont)) { Padding = 5 });
-                    table.AddCell(new PdfPCell(new Phrase(row[1], cellFont)) { Padding = 5 });
+                    table.AddCell(new PdfPCell(new Phrase(row[0], cellFont)) { Padding = 8, HorizontalAlignment = Element.ALIGN_LEFT });
+                    table.AddCell(new PdfPCell(new Phrase(row[1], cellFont)) { Padding = 8, HorizontalAlignment = Element.ALIGN_LEFT });
                 }
 
+                // Añadir la tabla al documento
                 pdfDoc.Add(table);
+
                 pdfDoc.Close();
 
                 // Necesario para evitar el error de flujo cerrado
@@ -490,6 +491,8 @@ namespace Proyecto_Ciudad_De_Los_Ninos.Controllers
                 return File(stream.ToArray(), "application/pdf", $"Expediente_{expediente.nombre_joven}.pdf");
             }
         }
+
+
         public IActionResult ExportExpedienteToCsv(int id)
         {
             var expediente = _context.Expedientes.FirstOrDefault(e => e.Id == id);
@@ -503,12 +506,12 @@ namespace Proyecto_Ciudad_De_Los_Ninos.Controllers
     {
         new string[] { "Campo", "Valor" },
         new string[] { "Nombre del Joven", expediente.nombre_joven },
-        new string[] { "Edad", expediente.edad.ToString() },
         new string[] { "Fecha de Ingreso", expediente.fecha_ingreso.ToShortDateString() },
-        new string[] { "Dirección", expediente.direccion },
-        new string[] { "Teléfono de Contacto", expediente.telefono_contacto },
         new string[] { "Tutor Legal", expediente.tutor_legal },
-                new string[] { "Estado", expediente.estado }
+        new string[] { "Estado", expediente.estado },
+        new string[] { "Antecedentes Médicos", expediente.antecedentes_medicos ?? "N/A" },
+        new string[] { "Historial Académico", expediente.historial_academico ?? "N/A" },
+        new string[] { "Notas Adicionales", string.IsNullOrWhiteSpace(expediente.notas_adicionales) ? "No hay notas" : expediente.notas_adicionales } 
     };
 
             var builder = new StringBuilder();
@@ -521,5 +524,7 @@ namespace Proyecto_Ciudad_De_Los_Ninos.Controllers
 
             return File(csv, "text/csv", $"Expediente_{expediente.nombre_joven}.csv");
         }
+
+
     }
 }
