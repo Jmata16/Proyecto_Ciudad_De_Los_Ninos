@@ -111,13 +111,10 @@
             <div class="row mb-3">
                 <label for="fecha" class="col-sm-2 col-form-label">Fecha de la Cita</label>
                 <div class="col-sm-10">
-                    <input asp-for="fecha" class="form-control" type="datetime-local" />
+                    <input asp-for="fecha" class="form-control" type="datetime-local" step="3600" />
                     <span asp-validation-for="fecha" class="text-danger"></span>
                 </div>
             </div>
-
-
-
 
             <div class="row mb-3">
                 <label for="detalles" class="col-sm-2 col-form-label">Detalles</label>
@@ -151,5 +148,22 @@
     <script src="~/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/plugins.js"></script>
     <script src="~/js/script.js"></script>
+    <script>
+        document.getElementById("fecha").addEventListener("change", function () {
+            const fechaInput = this;
+            const dateValue = new Date(fechaInput.value);
+
+            if (!isNaN(dateValue.getTime())) {
+                // Ajustar minutos a cero manteniendo la hora
+                dateValue.setMinutes(0, 0, 0);
+
+                // Convertir a formato compatible con datetime-local
+                const adjustedDate = new Date(dateValue.getTime() - dateValue.getTimezoneOffset() * 60000);
+                fechaInput.value = adjustedDate.toISOString().slice(0, 16);
+            }
+        });
+    </script>
+
+
 </body>
 </html>
